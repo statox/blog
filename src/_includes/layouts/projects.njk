@@ -14,18 +14,30 @@ data: projects
     <div class="project-card">
         <img class="project-img" src="../{{project.image}}"  onclick="window.open('{{project.demo_url}}')"/>
         <div class="text-overlay">
+            {% if project.article_url %}
+            <h3 class="project-title" onclick="window.open('{{project.article_url}}')">{{project.name}}</h3>
+            {% elif project.demo_url %}
             <h3 class="project-title" onclick="window.open('{{project.demo_url}}')">{{project.name}}</h3>
+            {% elif project.code_url %}
+            <h3 class="project-title" onclick="window.open('{{project.code_url}}')">{{project.name}}</h3>
+            {% else %}
+            <h3 class="project-title">{{project.name}}</h3>
+            {% endif %}
             <p>{{project.description}}</p>
             <p>
             <span>
+                {% if project.demo_url %}
                 <a href="{{project.demo_url}}" target="_blank" rel="noopener noreferrer">Demo</a>
+                {% if project.code_url %} - {% endif %}
+                {% endif %}
 
-                {% if project.article_url %}
-                - <a href="{{project.code_url}}" target="_blank" rel="noopener noreferrer">Code</a>
+                {% if project.code_url %}
+                <a href="{{project.code_url}}" target="_blank" rel="noopener noreferrer">Code</a>
+                {% if project.article_url %} - {% endif %}
                 {% endif %}
 
                 {% if project.article_url %}
-                - <a href="{{project.article_url}}" target="_blank" rel="noopener noreferrer">Article</a>
+                <a href="{{project.article_url}}" target="_blank" rel="noopener noreferrer">Article</a>
                 {% endif %}
             </span>
             <p>
@@ -33,3 +45,4 @@ data: projects
     </div>
     {% endfor %}
 </div>
+
