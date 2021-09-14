@@ -39,3 +39,11 @@ do
     echo "$index ${array[index]}"
 done
 ```
+
+### Append element to array
+
+```bash
+myarray=()
+myarray+=('foo')
+myarray+=('bar')
+```
