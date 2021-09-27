@@ -5,6 +5,7 @@ title: Fixing commits in git
 ---
 
 This link is dope https://sethrobertson.github.io/GitFixUm/fixup.html
+(And someone made a better UI [here](https://sukima.github.io/GitFixUm/))
 
 TODO: Extract the ones I need but can never remember
 
