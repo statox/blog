@@ -10,5 +10,11 @@
         "localSlug": "becoming-a-good-technical-interviewer",
         "originalUrl": "https://blog.dashlane.com/becoming-a-good-technical-interviewer/",
         "description": "Second part of an article I've wrote for Dashlane engineering blog"
+    },
+    {
+        "title": "On undoing, fixing, or removing commits in git",
+        "localSlug": "GitFixUm",
+        "originalUrl": "https://sethrobertson.github.io/GitFixUm/fixup.html",
+        "description": "A great decision tree for when you messed up your git repo"
     }
 ]
