@@ -8,7 +8,7 @@ commentIssueId: 25
 
 A very quick tip that I don't want to forget about: One can automatically hide the firefox bookmark bar, the bar will show when the mouse hovers the bottom of the navigation bar and hide after a defined delay.
 
-# Locate userChrome.css
+### Locate userChrome.css
 
 The `userChrome.css` file holds style rules for modifying Firefox's user interface. [This website](https://www.userchrome.org) is a good learning resource.
 
@@ -17,7 +17,7 @@ On linux the file is either in
  - `$HOME/.mozilla/firefox/[PROFILE_ID].default/chrome/userChrome.css`
  - or `$HOME/snap/firefox/common/.mozilla/firefox/[PROFILE_ID].default/chrome/userChrome.css` if you use the snap version
 
-# Add the relevant code
+### Add the relevant code
 
 The code is available on [MrOtherGuy's Github](https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/autohide_bookmarks_toolbar.css), I'm copying it as a reference. It works well with Firefox 87.0.
 
