@@ -158,7 +158,8 @@ y<x?x:y
 0.5 === .5 // true
 ```
 
-### The ternary operator
+### Conditions
+#### The ternary operator
 
 [The ternary operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) is precious to avoid lengthy conditional expressions.
 
@@ -171,6 +172,32 @@ r=a>9?a:a+'0'
 r=a==b?'same':a>b?'higher':'lower'
 r=a>b?'higher':a<b?'lower':'same'
 ```
+
+#### Using `&&` and `||`
+
+**TODO Find some good examples for this one**
+Sometimes you need to execute something only if you match a condition and `if` statements are not always the shortest solutions. Instead you can use `&&` to execute an instruction only when the first one returns true:
+
+```javascript
+if(a%2==1)t+=a
+(a%2==1)&&t+=a
+```
+
+Consider a problem where you need to find the `n`th digit in a string of all palindromic numbers concatenated.
+You will need to generate the string `123456789112233445566778899101...`. One way to do it is the following:
+
+```javascript
+for(n=+readline(s=""),i=0;!s[n];i++)if([...i+""].reverse().join``==i){s+=i}
+print(s[n])
+```
+
+While the `n`th digit of the string doesn't exists continue to search for number which are palindromes.
+
+```javascript
+for(n=+readline(s=""),i=0;!s[n];i++)([...i+""].reverse().join``==i)&&(s+=i)
+print(s[n])
+```
+
 
 ### Codingame particularities
 
