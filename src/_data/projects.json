@@ -29,7 +29,7 @@
     {
         "demo_url": "https://statox.github.io/2048/",
         "code_url": "https://github.com/statox/2048",
-        "image": "images/projects/2048.png",
+        "image": "images/projects/2048.gif",
         "name": "2048",
         "description": "A 2048 game. The initial idea was to create an AI playing 2048 using a Monte-Carlo algorithm. For now the only 'AI' implemented is random, I'll see if I get back to this project."
     },
@@ -37,7 +37,7 @@
         "demo_url": "https://statox.github.io/color-picker/",
         "code_url": "https://github.com/statox/color-picker",
         "article_url": "https://www.statox.fr/posts/2021/04/color_picker_shaders/",
-        "image": "images/projects/color_picker.png",
+        "image": "images/projects/color_picker.gif",
         "name": "Color picker",
         "description": "A color picker implemented with GLSL shaders"
     },
