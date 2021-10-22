@@ -62,13 +62,19 @@
                 {# the posts pages don't show a menu #}
                 {% set isCurrentPage = entry.url == page.url or (entry.url != '/' and entry.url in page.url) or (entry.url == '/' and postPageRegex.test(page.url)) %}
                 <span class="nav-item {{'active' if isCurrentPage }}">
-                    <a class="nav-link {{'active' if isCurrentPage }}" href="{{ entry.url | url }}">{{ entry.title }}</a>
+                    {# The current entry should not be a link otherwise when user click on it  #}
+                    {# the page reloads and the navbar doesn't open on mobile #}
+                    {% if isCurrentPage %}
+                    <a class="nav-link active">{{ entry.title }}</a>
+                    {% else %}
+                    <a class="nav-link" href="{{ entry.url | url }}">{{ entry.title }}</a>
+                    {% endif %}
                     <i class="nav-separator">{% if i !== navPages.length - 1 %} ♢ {% endif %}</i>
                 </span>
             {% endfor %}
 
             {# Hamburger button hidden on large screens #}
-            <span class="icon hamburger" onclick="navbarToggle()"> </span>
+            <span class="icon hamburger"></span>
         </nav>
     </header>
 
