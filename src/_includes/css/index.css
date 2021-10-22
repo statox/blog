@@ -7,14 +7,22 @@
     font-family: var(--nc-font-mono);
 }
 
-/* On smaller screens replace the date by a separator */
+
+/* On big screen we show the date of the post so no list-style-type */
+ul.post-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+/* On smaller screens remove the date and show a list-style-type */
 @media screen and (max-width: 600px) {
-    .post-date date {
+    .post-date {
         display: none;
     }
 
-    .post-date:before {
-        content: "♢";
+    ul.post-list {
+        list-style-type: disc;
+        padding-left: 0;
     }
 }
 
@@ -48,10 +56,6 @@ img {
   display: block;
   margin-left: auto;
   margin-right: auto;
-}
-
-ul.post-list {
-    list-style-type: none;
 }
 
 ul {
