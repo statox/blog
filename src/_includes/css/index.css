@@ -7,10 +7,14 @@
     font-family: var(--nc-font-mono);
 }
 
-/* Don't show the post date on smaller screens */
+/* On smaller screens replace the date by a separator */
 @media screen and (max-width: 600px) {
-    .post-date {
+    .post-date date {
         display: none;
+    }
+
+    .post-date:before {
+        content: "♢";
     }
 }
 
