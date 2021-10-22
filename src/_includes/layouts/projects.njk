@@ -12,7 +12,15 @@ data: projects
 <div class="projects-board">
     {% for project in projects %}
     <div class="project-card">
-        <img class="project-img" src="../{{project.image}}"  onclick="window.open('{{project.demo_url}}')"/>
+        {% if project.demo_url %}
+        <img class="project-img" src="../{{project.image}}" onclick="window.open('{{project.demo_url}}')"/>
+        {% elif project.article_url %}
+        <img class="project-img" src="../{{project.image}}" onclick="window.open('{{project.article_url}}')"/>
+        {% elif project.code_url %}
+        <img class="project-img" src="../{{project.image}}" onclick="window.open('{{project.code_url}}')"/>
+        {% else %}
+        <img class="project-img" src="../{{project.image}}"/>
+        {% endif %}
         <div class="text-overlay">
             {% if project.article_url %}
             <h3 class="project-title" onclick="window.open('{{project.article_url}}')">{{project.name}}</h3>
