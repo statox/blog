@@ -39,6 +39,24 @@
                 x.className = "topnav";
             }
         }
+
+        // Create a media query to check the size of the screen
+        // The bigScreen variable is used in navbarNavigate()
+        const bigScreenQuery = window.matchMedia('(max-width: 600px)');
+        let bigScreen = !bigScreenQuery.matches;
+        bigScreenQuery.addListener((query) => bigScreen = !query.matches); // Attach listener function on state changes
+
+        // This is the function called when user clicks on the links in the navbar
+        // If we have a big screen we always navigate
+        // On smaller screens we only navigate if the navbar is open
+        // Otherwise the button is only used to open the navbar
+        function navbarNavigate(path) {
+            var x = document.getElementById("header-navbar");
+            if (!bigScreen && !x.className.includes("responsive")) {
+                return;
+            }
+            document.location.pathname = path;
+        }
     </script>
 </head>
 <body>
@@ -62,13 +80,9 @@
                 {# the posts pages don't show a menu #}
                 {% set isCurrentPage = entry.url == page.url or (entry.url != '/' and entry.url in page.url) or (entry.url == '/' and postPageRegex.test(page.url)) %}
                 <span class="nav-item {{'active' if isCurrentPage }}">
-                    {# The current entry should not be a link otherwise when user click on it  #}
-                    {# the page reloads and the navbar doesn't open on mobile #}
-                    {% if isCurrentPage %}
-                    <a class="nav-link active">{{ entry.title }}</a>
-                    {% else %}
-                    <a class="nav-link" href="{{ entry.url | url }}">{{ entry.title }}</a>
-                    {% endif %}
+                    {# When navbar is closed the link opens the navbar #}
+                    {# When navbar is open the link actually navigates to the page #}
+                    <a class="nav-link {{'active' if isCurrentPage }}" onclick="navbarNavigate('{{ entry.url | url }}')">{{ entry.title }}</a>
                     <i class="nav-separator">{% if i !== navPages.length - 1 %} ♢ {% endif %}</i>
                 </span>
             {% endfor %}
