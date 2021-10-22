@@ -190,5 +190,53 @@
         "image": "images/projects/pool.png",
         "name": "Pool",
         "description": "A pool with a homemade physics engine."
+    },
+    {
+        "code_url": "https://github.com/statox/project_euler",
+        "image": "images/projects/project_euler.png",
+        "name": "Project Euler",
+        "description": "My solution to some of the problems of the project euler. For sure one day I'll finish them all!"
+    },
+    {
+        "code_url": "https://github.com/statox/GOD.vim",
+        "image": "images/projects/vim.png",
+        "name": "GOD.vim",
+        "description": "The most useful plugin I've written for Vim. Easily quote the doc to post it on stackexchange.com or any markdown file."
+    },
+    {
+        "code_url": "https://github.com/statox/markov-reddit",
+        "image": "images/projects/snoo.png",
+        "name": "markov-reddit",
+        "description": "Read the title of the posts in a subreddit and plugin this data in a markov chain algorithm to generate new titles."
+    },
+    {
+        "code_url": "https://github.com/statox/gutterline.vim",
+        "image": "images/projects/gutterline.png",
+        "name": "GutterLine.vim",
+        "description": "A useless Vim plugin to show an arrow in the gutter of the current line"
+    },
+    {
+        "code_url": "https://github.com/statox/SlackKarma",
+        "image": "images/projects/slack.png",
+        "name": "Slack Karma",
+        "description": "A slack integration which counts the reactions on each messages in a channel and give a positive score to each user."
+    },
+    {
+        "code_url": "https://github.com/statox/stackexchange-watcher",
+        "image": "images/projects/stackexchange.png",
+        "name": "Stackexchange watcher",
+        "description": "When I was a compulsive user of vi.stackexchange.com I created a bot to be notified on slack of every new question on the site to answer fast and get these sweet virtual points from the internet"
+    },
+    {
+        "code_url": "https://github.com/statox/jiraPrinterElectron",
+        "image": "images/projects/jira.png",
+        "name": "JiraPrinterElectron",
+        "description": "An electron app I created for my team to print Jira tickets for our physical Scrum board. Please save the planet and don't use this app."
+    },
+    {
+        "code_url": "https://github.com/statox/kimsufi-watcher",
+        "image": "images/projects/slack.png",
+        "name": "Kimsufi watcher",
+        "description": "Get a slack notification when the Kimsufi server you're looking for is available"
     }
 ]
