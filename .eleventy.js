@@ -88,8 +88,7 @@ module.exports = function (eleventyConfig) {
     };
 
     const markdownItAnchorOptions = {
-        permalink: true,
-        permalinkSymbol: '🔗'
+        permalink: markdownItAnchor.permalink.linkInsideHeader({symbol: '🔗'})
     };
 
     let markdownLib = markdownIt(markdownItOptions)
