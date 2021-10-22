@@ -207,7 +207,7 @@
         "code_url": "https://github.com/statox/markov-reddit",
         "image": "images/projects/snoo.png",
         "name": "markov-reddit",
-        "description": "Read the title of the posts in a subreddit and plugin this data in a markov chain algorithm to generate new titles."
+        "description": "Read the title of the posts in a subreddit and plug this data in a markov chain algorithm to generate new titles."
     },
     {
         "code_url": "https://github.com/statox/gutterline.vim",
