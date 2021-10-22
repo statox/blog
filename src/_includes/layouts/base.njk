@@ -82,7 +82,7 @@
                 <span class="nav-item {{'active' if isCurrentPage }}">
                     {# When navbar is closed the link opens the navbar #}
                     {# When navbar is open the link actually navigates to the page #}
-                    <a class="nav-link {{'active' if isCurrentPage }}" onclick="navbarNavigate('{{ entry.url | url }}')">{{ entry.title }}</a>
+                    <a class="nav-link {{'active' if isCurrentPage }}" href="#" onclick="navbarNavigate('{{ entry.url | url }}')">{{ entry.title }}</a>
                     <i class="nav-separator">{% if i !== navPages.length - 1 %} ♢ {% endif %}</i>
                 </span>
             {% endfor %}
