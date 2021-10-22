@@ -1,5 +1,13 @@
 [
     {
+        "demo_url": "https://statox.github.io/procedural-race/",
+        "code_url": "https://github.com/statox/procedural-race/",
+        "article_url": "https://www.statox.fr/posts/2021/10/race_generator/",
+        "image": "images/projects/racetrack.gif",
+        "name": "Procedural race track generation",
+        "description": "An incomplete project where I generated some race tracks procedurally and used machine learning algorithm to teach cars to drive on these tracks."
+    },
+    {
         "code_url": "https://github.com/statox/tmnf_ai",
         "image": "images/projects/ai_plays_tmnf.png",
         "name": "AI plays trackmania",

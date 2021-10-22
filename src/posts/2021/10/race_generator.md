@@ -132,7 +132,7 @@ With this implementation I thought I could display the track and have not-very-p
 
 #### Detecting that a car is not on the road
 
-At this point I started merging everything I had done before into [a real Github project](github.com/statox/procedural-race/) with typescript, a real linter and all the right tools to develop this project properly. I tagged my commits properly at each steps so that I could showcase the progress of my project, but now I'm just too lazy to do that so I won't show demos.
+At this point I started merging everything I had done before into [a real Github project](https://www.github.com/statox/procedural-race/) with typescript, a real linter and all the right tools to develop this project properly. I tagged my commits properly at each steps so that I could showcase the progress of my project, but now I'm just too lazy to do that so I won't show demos.
 
 One of the interesting ideas I had in the project was to find a way to easily check if an object is on the track or not. What I do is that I generate the track I described before and draw it on a HTML canvas with p5.js. I then use p5.js capabilities to read all pixels on the screen and keep a trace of its color. After that I can reduce the position of my car to a single pixel and check its color, if it's the track color we are good to continue otherwise the car is crashed.
 
