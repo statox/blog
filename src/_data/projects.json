@@ -52,7 +52,7 @@
     {
         "demo_url": "https://statox.github.io/ants-colony-2/",
         "code_url": "https://github.com/statox/ants-colony-2",
-        "image": "images/projects/ants_colony_v2.png",
+        "image": "images/projects/ants_colony_v2.gif",
         "name": "Ants colony v2",
         "description": "My second attempt at simulating a colony of ants. This is not completely finished as I need to fix a bug where the ants get stuck in infinite lines"
     },
@@ -71,6 +71,13 @@
         "description": "Another genetic algorithm experiment, this time trying to control some cars on a racetrack. It would need a better track generation to have more situations to learn from, this is what inspired me the \"Bezier experiement\" project."
     },
     {
+        "demo_url": "https://codepen.io/statox/full/WNxmZNX",
+        "code_url": "https://codepen.io/statox/pen/WNxmZNX",
+        "image": "images/projects/pendulum.gif",
+        "name": "Pendulum and graphs",
+        "description": "A short experiment with matter.js and chart.js to create a pendulum simulation and graph the movement."
+    },
+    {
         "demo_url": "https://statox.github.io/reversi/",
         "code_url": "https://github.com/statox/reversi",
         "article_url": "https://www.statox.fr/posts/2021/01/reversi/",
@@ -85,6 +92,20 @@
         "image": "images/projects/triomaster.png",
         "name": "Triomaster",
         "description": "My implementation of the triomono game with a not very efficient AI opponent."
+    },
+    {
+        "demo_url": "https://codepen.io/statox/full/RwGzyGz",
+        "code_url": "https://codepen.io/statox/pen/RwGzyGz",
+        "image": "images/projects/sorting_algorithms.gif",
+        "name": "Sorting algorithms",
+        "description": "A visual representation of some sorting algorithms which became boring before I implemented all the algorithms I had in mind."
+    },
+    {
+        "demo_url": "https://codepen.io/statox/full/qBNqLPv",
+        "code_url": "https://codepen.io/statox/pen/qBNqLPv",
+        "image": "images/projects/perlin_terrain.gif",
+        "name": "Terrain generation",
+        "description": "Playing with Perlin noise to generate a random terrain"
     },
     {
         "demo_url": "https://breath.statox.fr/",
