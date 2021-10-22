@@ -6,7 +6,7 @@ templateClass: tmpl-posts
 <ul class="post-list">
 {%- for post in collections.post | reverse -%}
     <li>
-        <span class="post-date"><date>{{ post.date | datePost }}</date></span> <a class="post-link" href="{{post.url}}">{{ post.data.title }}</a>
+        <span class="post-date"><date>{{ post.date | datePost }}</date></span>&nbsp<a class="post-link" href="{{post.url}}">{{ post.data.title }}</a>
     </li>
 {%- endfor -%}
 </ul>
