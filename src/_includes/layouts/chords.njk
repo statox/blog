@@ -9,6 +9,7 @@ data: chords
 
 {% set sortedChords = chords | sortChords | groupby("artist") %}
 <div>
+    <div id="viewer"></div>
     <table>
         <tr>
             <th>Artist</th>
@@ -21,7 +22,11 @@ data: chords
                 <ul>
                     {% for chord in chords %}
                     <li>
+                        {% if '.doc' in chord.url %}
+                        <span><a href="#" onclick="setupIframe('{{chord.url}}')">{{chord.title}}</a></span>
+                        {% else %}
                         <span><a href="{{chord.url}}" target="_blank" rel="noopener noreferrer">{{chord.title}}</a></span>
+                        {% endif %}
                     </li>
                     {% endfor %}
                 </ul>
@@ -41,4 +46,8 @@ data: chords
 
 <script>
     {{ inlineJS | safe }}
+    function setupIframe(url) {
+        const iframeToAdd = `<iframe src='https://view.officeapps.live.com/op/embed.aspx?src=${url}' width='600px' height='800px' frameborder='0'>Document.</iframe>`
+        document.getElementById('viewer').innerHTML = iframeToAdd;
+    }
 </script>
