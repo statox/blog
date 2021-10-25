@@ -89,10 +89,20 @@ function pageTitle(title) {
     return title || 'The stuff I do';
 }
 
+function sortChords(collection) {
+    return collection.sort((a, b) => {
+        if (a.artist !== b.artist) {
+            return a.artist < b.artist ? -1 : 1;
+        }
+        return a.title < b.title ? -1 : 1;
+    });
+}
+
 module.exports = {
     buildInfo,
     datePost,
     noteTags,
     relatedPosts,
-    pageTitle
+    pageTitle,
+    sortChords
 };

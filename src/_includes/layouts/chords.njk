@@ -1,0 +1,32 @@
+---
+layout: layouts/base.njk
+templateClass: tmpl-chords
+title: Chords
+data: chords
+---
+
+<h2>Chords</h2>
+
+{% set sortedChords = chords | sortChords | groupby("artist") %}
+<div >
+    <table>
+        <tr>
+            <th>Artist</th>
+            <th>Songs</th>
+        </tr>
+        {% for artist, chords in sortedChords %}
+        <tr>
+            <td>{{artist}}</td>
+            <td>
+                <ul>
+                    {% for chord in chords %}
+                    <li>
+                        <span><a href="{{chord.url}}" target="_blank" rel="noopener noreferrer">{{chord.title}}</a></span>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>

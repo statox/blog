@@ -18,3 +18,9 @@ One of my weird obsession is cover songs. I try to write a bit about my discover
 I've been playing the guitar for about 10 years now but I had never made the efforts to learn music theory properly until recently. I keep some useful resources there:
 
 [Guitar resources](/guitar/)
+
+## Chords
+
+A list of chords I took from the internet.
+
+[Chords](/chords/)
