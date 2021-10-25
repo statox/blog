@@ -33,6 +33,10 @@
     {% include "css/colorpicker.css" %}
 {% endif %}
 
+{% if '/chords/' in page.url %}
+    {% include "css/backToTopButton.css" %}
+{% endif %}
+
 {% if site.env === "dev" %}
     {% include "css/ribbon.css" %}
 {% endif %}
