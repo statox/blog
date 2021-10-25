@@ -5,11 +5,10 @@ title: Chords
 data: chords
 ---
 
-<h2>Chords</h2>
+<h2>Chords <a id="pullRightButton" href="https://github.com/statox/blog/blob/master/src/_data/chords.json" target="_blank" rel="noopener noreferrer"><button>Edit the list</button></a></h2>
 
 {% set sortedChords = chords | sortChords | groupby("artist") %}
-<div >
-    <a href="https://github.com/statox/blog/blob/master/src/_data/chords.json" target="_blank" rel="noopener noreferrer"><button>Edit the list</button></a>
+<div>
     <table>
         <tr>
             <th>Artist</th>

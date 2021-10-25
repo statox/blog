@@ -1,0 +1,20 @@
+/*
+ * Reset the body to take the full page
+ * This would probably require a refactor
+ */
+body {
+    max-width: 100%
+}
+
+#pullRightButton {
+    float: right;
+}
+
+td {
+    vertical-align: top;
+}
+
+tr {
+    border-bottom: solid thin;
+    border-bottom-color: var(--nc-bg-0);
+}
