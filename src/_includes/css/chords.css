@@ -18,3 +18,22 @@ tr {
     border-bottom: solid thin;
     border-bottom-color: var(--nc-bg-0);
 }
+
+#index {
+    position:fixed;
+    bottom:0px;
+    right:0px;
+    background: var(--nc-bg-1);
+    max-height: 100%;
+}
+
+#indexList {
+    display: table;
+    table-layout: fixed;
+}
+
+.navigationBtn {
+    background: var(--nc-bg-0);
+    text-align: center;
+    display: table-row;
+}

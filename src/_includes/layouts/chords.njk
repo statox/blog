@@ -9,7 +9,9 @@ data: chords
 
 {% set sortedChords = chords | sortChords | groupby("artist") %}
 <div>
-    <div id="viewer"></div>
+    <div id="index">
+        <ul id="indexList"></ul>
+    </div>
     <table>
         <tr>
             <th>Artist</th>
@@ -17,7 +19,7 @@ data: chords
         </tr>
         {% for artist, chords in sortedChords %}
         <tr>
-            <td>{{artist}}</td>
+            <td class="artist">{{artist}}</td>
             <td>
                 <ul>
                     {% for chord in chords %}
@@ -42,6 +44,7 @@ data: chords
 
 {% set inlineJS %}
       {% include "scripts/backToTopButton.js" %}
+      {% include "scripts/chordsAlphabeticalIndex.js" %}
 {% endset %}
 
 <script>
