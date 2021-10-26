@@ -23,8 +23,7 @@ data: chords
         </tr>
         {% for artist, chords in sortedChords %}
         <tr class="datarow" data-values="{{artist}};{% for chord in chords %}{{ chord.title}};{% endfor %}">
-            <td class="artist">{{artist}}</td>
-            <td>
+            <td class="artist">{{artist}}
                 <ul>
                     {% for chord in chords %}
                     <li class="datarow" data-values="{{artist}};{{ chord.title}}">
