@@ -1,0 +1,16 @@
+---
+layout: layouts/base.njk
+title: Doc viewer
+permalink: "/docviewer/"
+eleventyExcludeFromCollections: true
+---
+
+<p><a href="{{ '/chords/' | url }}">← Chords</a></p>
+<div id="viewer"></div>
+
+<script>
+    const queryString = window.location.search;
+    const docurl = queryString.split('=')[1];
+    const iframeToAdd = `<iframe src='https://view.officeapps.live.com/op/embed.aspx?src=${docurl}' width='600px' height='800px' frameborder='0'>Document.</iframe>`
+    document.getElementById('viewer').innerHTML = iframeToAdd;
+</script>
