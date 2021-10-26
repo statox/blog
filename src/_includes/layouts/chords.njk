@@ -17,10 +17,6 @@ data: chords
         Search an artist or a title: <input id="searchInput" type="text" oninput="doSearch()">
     </div>
     <table>
-        <tr>
-            <th>Artist</th>
-            <th>Songs</th>
-        </tr>
         {% for artist, chords in sortedChords %}
         <tr class="datarow" data-values="{{artist}};{% for chord in chords %}{{ chord.title}};{% endfor %}">
             <td class="artist">{{artist}}
