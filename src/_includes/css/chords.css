@@ -37,3 +37,7 @@ tr {
     text-align: center;
     display: table-row;
 }
+
+.hidden {
+    display: none;
+}

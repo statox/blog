@@ -13,18 +13,21 @@ data: chords
     <div id="index">
         <ul id="indexList"></ul>
     </div>
+    <div>
+        Search an artist or a title: <input id="searchInput" type="text" oninput="doSearch()">
+    </div>
     <table>
         <tr>
             <th>Artist</th>
             <th>Songs</th>
         </tr>
         {% for artist, chords in sortedChords %}
-        <tr>
+        <tr class="datarow" data-values="{{artist}};{% for chord in chords %}{{ chord.title}};{% endfor %}">
             <td class="artist">{{artist}}</td>
             <td>
                 <ul>
                     {% for chord in chords %}
-                    <li>
+                    <li class="datarow" data-values="{{artist}};{{ chord.title}}">
                         {% if '.doc' in chord.url %}
                         <span><a href="/docviewer?docurl={{chord.url}}" target="_blank" rel="noopener noreferrer" onclick="setupIframe('{{chord.url}}')">{{chord.title}}</a></span>
                         {% else %}
@@ -50,4 +53,19 @@ data: chords
 
 <script>
     {{ inlineJS | safe }}
+
+    // Dead simple search: We put the artist and title in the data-values tag for the rows
+    // when a search is done we change the class of the rows depending on if the query matches the data
+    function doSearch() {
+        const searchStr = document.getElementById('searchInput').value;
+        const tableLines = document.getElementsByClassName('datarow');
+        for (const line of tableLines) {
+            const values = line.dataset.values;
+            if (values.toLowerCase().match(searchStr.toLowerCase())) {
+                line.classList.remove('hidden');
+            } else {
+                line.classList.add('hidden');
+            }
+        }
+    }
 </script>
