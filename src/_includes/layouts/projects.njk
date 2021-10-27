@@ -12,28 +12,16 @@ data: projects
 <div class="projects-board">
     {% for project in projects %}
     <div class="project-card">
-        {% if project.demo_url %}
-        <img class="project-img" src="../{{project.image}}" onclick="window.open('{{project.demo_url}}')"/>
-        {% elif project.article_url %}
-        <img class="project-img" src="../{{project.image}}" onclick="window.open('{{project.article_url}}')"/>
-        {% elif project.code_url %}
-        <img class="project-img" src="../{{project.image}}" onclick="window.open('{{project.code_url}}')"/>
-        {% else %}
-        <img class="project-img" src="../{{project.image}}"/>
-        {% endif %}
+        {% set usedURL = project.demo_url or project.article_url or project.code_url or '#' %}
+        <a href="{{usedURL}}" target="_blank" rel="noopener noreferrer">
+            <img class="project-img" src="../{{project.image}}""/>
+        </a>
         <div class="text-overlay">
-            {% if project.article_url %}
-            <h3 class="project-title" onclick="window.open('{{project.article_url}}')">{{project.name}}</h3>
-            {% elif project.demo_url %}
-            <h3 class="project-title" onclick="window.open('{{project.demo_url}}')">{{project.name}}</h3>
-            {% elif project.code_url %}
-            <h3 class="project-title" onclick="window.open('{{project.code_url}}')">{{project.name}}</h3>
-            {% else %}
-            <h3 class="project-title">{{project.name}}</h3>
-            {% endif %}
+            <a href="{{usedURL}}" target="_blank" rel="noopener noreferrer">
+                <h3 class="project-title">{{project.name}}</h3>
+            </a>
             <p>{{project.description}}</p>
             <p>
-            <span>
                 {% if project.demo_url %}
                 <a href="{{project.demo_url}}" target="_blank" rel="noopener noreferrer">Demo</a>
                 {% if project.code_url %} - {% endif %}
@@ -47,10 +35,8 @@ data: projects
                 {% if project.article_url %}
                 <a href="{{project.article_url}}" target="_blank" rel="noopener noreferrer">Article</a>
                 {% endif %}
-            </span>
-            <p>
+            </p>
         </div>
     </div>
     {% endfor %}
 </div>
-
