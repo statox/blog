@@ -33,6 +33,10 @@
     {% include "css/colorpicker.css" %}
 {% endif %}
 
+{% if '/music/' in page.url %}
+    {% include "css/music.css" %}
+{% endif %}
+
 {% if '/chords/' in page.url %}
     {% include "css/backToTopButton.css" %}
     {% include "css/chords.css" %}
