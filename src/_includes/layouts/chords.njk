@@ -23,11 +23,20 @@ data: chords
                 <ul>
                     {% for chord in chords %}
                     <li class="datarow" data-values="{{artist}};{{ chord.title}}">
+                        {% set url=chord.url %}
                         {% if '.doc' in chord.url %}
-                        <span><a href="/docviewer?docurl={{chord.url}}" target="_blank" rel="noopener noreferrer">{{chord.title}}</a></span>
+                        {% set iconClass='fas fa-xs fa-file-word' %}
+                        {% set url='/docviewer?docurl='+url %}
+                        {% elif '.pdf' in chord.url %}
+                        {% set iconClass='fas fa-xs fa-file-pdf' %}
                         {% else %}
-                        <span><a href="{{chord.url}}" target="_blank" rel="noopener noreferrer">{{chord.title}}</a></span>
+                        {% set iconClass='fas fa-xs fa-link' %}
                         {% endif %}
+
+                        <span>
+                            <a href="{{url}}" target="_blank" rel="noopener noreferrer">{{chord.title}}</a>
+                            &nbsp<span class="{{iconClass}}"></span>
+                        </span>
                     </li>
                     {% endfor %}
                 </ul>
@@ -64,3 +73,5 @@ data: chords
         }
     }
 </script>
+
+<script src="https://kit.fontawesome.com/cc32401bee.js" crossorigin="anonymous"></script>
