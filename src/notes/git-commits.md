@@ -1,7 +1,7 @@
 ---
 layout: layouts/note.njk
 tags: ['note', 'git', 'commit']
-title: Fixing commits in git
+title: Git commit fixes
 ---
 
 This link is dope https://sethrobertson.github.io/GitFixUm/fixup.html

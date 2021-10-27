@@ -1,7 +1,7 @@
 ---
 layout: layouts/note.njk
 tags: ['shell', 'zsh']
-title: Creating zsh completion function
+title: Zsh completion functions
 ---
 
 A quick trick to have custom completion on the aliases I create.

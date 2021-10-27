@@ -1,7 +1,7 @@
 ---
 layout: layouts/note.njk
 tags: ['note', 'systemd', 'systemctl']
-title: systemctl & systemd cheatsheet
+title: Systemctl & systemd cheatsheet
 ---
 
 I always get confused in the syntax between `systemctl` and `service` commands. To be updated with the missing ones next time I one them.
