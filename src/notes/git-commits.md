@@ -29,3 +29,21 @@ after each commit
 _(Check if `-n` is useful I can't find it in the man)_
 
     git rebase --exec 'git commit --amend --no-edit -n -S' -i my-branch
+
+### Change the date of a commit
+
+Additional details in [this SO answer](https://stackoverflow.com/a/3898842)
+
+```bash
+GIT_COMMITTER_DATE="Wed, 28 Jul 2021 08:12:19 +0200" GIT_AUTHOR_DATE="Wed, 28 Jul 2021 08:12:19 +0200" git commit
+```
+
+Date formats
+
+```
+Git internal format = <unix timestamp> <time zone offset>, e.g.  1112926393 +0200
+                    <unix timestamp> is the number of seconds since the UNIX epoch.
+                    <time zone offset> is a positive or negative offset from UTC. (E.g CEST is +0200)
+RFC 2822            = e.g. Thu, 07 Apr 2005 22:13:13 +0200
+ISO 8601            = e.g. 2005-04-07T22:13:13
+```
