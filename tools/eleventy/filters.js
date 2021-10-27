@@ -1,4 +1,6 @@
-function currentCommitHash() {
+const execSync = require('child_process').execSync;
+
+function currentCommitInfo() {
     if (process.env.ELEVENTY_ENV !== 'prod') {
         return 'Dev env - no commit';
     }
@@ -7,8 +9,10 @@ function currentCommitHash() {
     }
     const sha = process.env.GITHUB_SHA;
     const shortSha = process.env.GITHUB_SHA.slice(0, 7);
+    const message = execSync('git log -1 --pretty=format:"%s"');
+
     const url = `https://github.com/statox/blog/commit/${sha}`;
-    return `[${shortSha}](${url})`;
+    return `[${shortSha} - ${message}](${url})`;
 }
 
 function currentBuildInfo() {
@@ -27,7 +31,7 @@ function currentBuildInfo() {
 }
 
 function buildInfo() {
-    return currentCommitHash() + ' - ' + currentBuildInfo();
+    return currentCommitInfo() + ' - ' + currentBuildInfo();
 }
 
 // Posts dates in home page
