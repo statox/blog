@@ -10,11 +10,11 @@ data: mirrors
 
 {%- for mirror in mirrors -%}
     <div>
-    <h3>{{mirror.title}}</h3>
-    <p>{{mirror.description}}</p>
-    <p>
-    <a target="_blank" rel="noopener noreferrer" href="{{mirror.originalUrl}}">Source</a>
-    <a target="_blank" rel="noopener noreferrer" href="{{mirror.localSlug|url}}">Mirror</a>
-    </p>
+        <h3>{{mirror.title}}</h3>
+        <p>{{mirror.description}}</p>
+        <p>
+            <a target="_blank" rel="noopener noreferrer" href="{{mirror.originalUrl}}">Source</a>
+            <a target="_blank" rel="noopener noreferrer" href="{{mirror.localSlug|url}}">Mirror</a>
+        </p>
     </div>
 {%- endfor -%}

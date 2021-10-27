@@ -1,5 +1,5 @@
 ---
-layout: layouts/page.njk
+layout: layouts/base.njk
 title: Ring
 permalink: "/ring/"
 eleventyNavigation:

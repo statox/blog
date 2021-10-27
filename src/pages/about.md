@@ -1,5 +1,5 @@
 ---
-layout: layouts/page.njk
+layout: layouts/base.njk
 title: About
 permalink: "/about/"
 eleventyNavigation:

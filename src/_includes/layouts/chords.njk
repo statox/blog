@@ -24,7 +24,7 @@ data: chords
                     {% for chord in chords %}
                     <li class="datarow" data-values="{{artist}};{{ chord.title}}">
                         {% if '.doc' in chord.url %}
-                        <span><a href="/docviewer?docurl={{chord.url}}" target="_blank" rel="noopener noreferrer" onclick="setupIframe('{{chord.url}}')">{{chord.title}}</a></span>
+                        <span><a href="/docviewer?docurl={{chord.url}}" target="_blank" rel="noopener noreferrer">{{chord.title}}</a></span>
                         {% else %}
                         <span><a href="{{chord.url}}" target="_blank" rel="noopener noreferrer">{{chord.title}}</a></span>
                         {% endif %}
