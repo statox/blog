@@ -11,7 +11,8 @@ jobs:
     name: Issue comment
     if: |
       !github.event.issue.pull_request &&
-      github.event.sender.login == 'statox'
+      github.event.sender.login == 'statox' &&
+      github.event.issue.id == 1040555138
     runs-on: ubuntu-latest
     steps:
       - name: 🔀 Checkout
