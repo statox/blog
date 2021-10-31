@@ -14,7 +14,7 @@ inputs:
     required: false
   comment:
     description: "body of the comment"
-    required: false
+    required: true
 
 runs:
   using: 'node12'
