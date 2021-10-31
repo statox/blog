@@ -92,8 +92,20 @@ async.auto(
                 console.log('Creating commit');
                 const commitMessage = `Add ${artist} - ${title} to chords`;
                 const command = `git commit -m "${commitMessage}"`;
-                // const command = `echo git commit -m "${commitMessage}"`;
-                console.log(command);
+                exec(command, (error, filecontent, stderr) => {
+                    if (error) {
+                        console.log(stderr);
+                        return cb(error);
+                    }
+                    return cb();
+                });
+            }
+        ],
+        pushChanges: [
+            'commitChanges',
+            (result, cb) => {
+                console.log('Pushing changes');
+                const command = 'git push';
                 exec(command, (error, filecontent, stderr) => {
                     if (error) {
                         console.log(stderr);
