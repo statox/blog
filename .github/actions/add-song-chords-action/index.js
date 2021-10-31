@@ -1,3 +1,4 @@
+const async = require('async');
 const {exec} = require('child_process');
 const fs = require('fs');
 const core = require('@actions/core');
@@ -13,26 +14,44 @@ const [artist, title, url] = body.split('\r\n');
 
 console.log({artist, title, url});
 
-exec(`tail -n +2 ${FILE_URL}`, (error, filecontent, stderr) => {
-    if (error) {
-        core.setFailed(error.message);
-        exit(1);
-    }
+async.auto(
+    {
+        truncatedFileContent: cb => {
+            exec(`tail -n +2 ${FILE_URL}`, (error, filecontent, stderr) => {
+                if (error) {
+                    console.log(stderr);
+                    return cb(error);
+                }
+                return cb(null, filecontent);
+            });
+        },
+        addNewContent: [
+            'truncatedFileContent',
+            (result, cb) => {
+                const item = JSON.stringify({artist, title, url}, {space: 4}, 4);
+                const newContent =
+                    '[\n' +
+                    '    {\n' +
+                    `        "artist": "${artist}",\n` +
+                    `        "title": "${title}",\n` +
+                    `        "url": "${url}"\n` +
+                    '    },\n' +
+                    result.truncatedFileContent;
 
-    const item = JSON.stringify({artist, title, url}, {space: 4}, 4).replace(/^/g, '[I]');
-    const newContent =
-        '[\n' +
-        '    {\n' +
-        `        "artist": "${artist}",\n` +
-        `        "title": "${title}",\n` +
-        `        "url": "${url}"\n` +
-        '    },\n' +
-        filecontent;
-
-    fs.writeFileSync(FILE_URL, newContent);
-
-    exec(`git diff ${FILE_URL}`, (error, out) => {
-        console.log('output of git diff');
-        console.log(out);
-    });
-});
+                return fs.writeFile(FILE_URL, newContent, cb);
+            }
+        ],
+        diff: [
+            'addNewContent',
+            'truncatedFileContent',
+            (result, cb) => {
+                exec(`git diff ${FILE_URL}`, (error, out) => {
+                    console.log('output of git diff');
+                    console.log(out);
+                    return cb(out);
+                });
+            }
+        ]
+    },
+    (error, result) => {}
+);
