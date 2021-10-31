@@ -1,0 +1,21 @@
+name: 'Test comments action'
+description: 'An action testing how to react to issues comments'
+author: 'statox'
+
+inputs:
+  issueId:
+    description: "Id of the commented issue"
+    required: false
+  login:
+    description: "login of the commenter"
+    required: false
+  commenterId:
+    description: "id of the commenter"
+    required: false
+  comment:
+    description: "body of the comment"
+    required: false
+
+runs:
+  using: 'node12'
+  main: 'index.js'
