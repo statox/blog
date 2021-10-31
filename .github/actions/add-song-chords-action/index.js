@@ -17,6 +17,7 @@ console.log({artist, title, url});
 async.auto(
     {
         truncatedFileContent: cb => {
+            console.log('Get truncatedFileContent');
             exec(`tail -n +2 ${FILE_URL}`, (error, filecontent, stderr) => {
                 if (error) {
                     console.log(stderr);
@@ -28,6 +29,7 @@ async.auto(
         addNewContent: [
             'truncatedFileContent',
             (result, cb) => {
+                console.log('Adding new item to file');
                 const item = JSON.stringify({artist, title, url}, {space: 4}, 4);
                 const newContent =
                     '[\n' +
@@ -43,15 +45,69 @@ async.auto(
         ],
         diff: [
             'addNewContent',
-            'truncatedFileContent',
             (result, cb) => {
+                console.log('Getting git diff');
                 exec(`git diff ${FILE_URL}`, (error, out) => {
-                    console.log('output of git diff');
+                    if (error) {
+                        return cb(error);
+                    }
                     console.log(out);
-                    return cb(out);
+                    return cb(null, out);
+                });
+            }
+        ],
+        configureGit: [
+            'diff',
+            (result, cb) => {
+                console.log('configuring git username');
+                exec(`git config user.name "statox"`, (error, out) => {
+                    if (error) {
+                        return cb(error);
+                    }
+                    console.log('configuring git email');
+                    exec(`git config user.email "me@statox.fr"`, (error, out) => {
+                        console.log('done doing configuration');
+                        return cb();
+                    });
+                });
+            }
+        ],
+        addChanges: [
+            'configureGit',
+            (result, cb) => {
+                console.log('Adding changes to git');
+                const command = `git add ${FILE_URL}`;
+                exec(command, (error, filecontent, stderr) => {
+                    if (error) {
+                        console.log(stderr);
+                        return cb(error);
+                    }
+                    return cb();
+                });
+            }
+        ],
+        commitChanges: [
+            'addChanges',
+            (result, cb) => {
+                console.log('Creating commit');
+                const commitMessage = `Add ${artist} - ${title} to chords`;
+                const command = `git commit -m "${commitMessage}"`;
+                // const command = `echo git commit -m "${commitMessage}"`;
+                console.log(command);
+                exec(command, (error, filecontent, stderr) => {
+                    if (error) {
+                        console.log(stderr);
+                        return cb(error);
+                    }
+                    return cb();
                 });
             }
         ]
     },
-    (error, result) => {}
+    (error, result) => {
+        if (error) {
+            console.log({error});
+        }
+        console.log('Done adding item');
+    }
 );
