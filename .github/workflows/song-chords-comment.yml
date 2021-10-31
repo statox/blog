@@ -9,7 +9,9 @@ jobs:
   issue_commented:
     # This job only runs for issue comments
     name: Issue comment
-    if: ${{ !github.event.issue.pull_request }}
+    if: |
+      !github.event.issue.pull_request &&
+      github.event.sender.login == 'statox'
     runs-on: ubuntu-latest
     steps:
       - name: 🔀 Checkout
@@ -22,3 +24,8 @@ jobs:
         run: npm ci
       - name: 💬 Read comment
         uses: ./.github/actions/add-song-chords-action
+        with:
+          issueId: ${{ github.event.issue.id }}
+          login: ${{ github.event.sender.login }}
+          commenterId: ${{ github.event.sender.id }}
+          comment: ${{ github.event.comment.body }}
