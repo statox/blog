@@ -1,5 +1,5 @@
-name: 'Test comments action'
-description: 'An action testing how to react to issues comments'
+name: 'Add item to the chords list'
+description: 'An action reading comment to a specific issue and commits it to chords.json'
 author: 'statox'
 
 inputs:

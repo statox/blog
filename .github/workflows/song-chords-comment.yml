@@ -7,10 +7,10 @@ on:
 
 jobs:
   issue_commented:
-    # This job only runs for issue comments
+    # This job only runs for comments on the issue #105
+    # when the comment comes from me
     name: Issue comment
     if: |
-      !github.event.issue.pull_request &&
       github.event.sender.login == 'statox' &&
       github.event.issue.id == 1040555138
     runs-on: ubuntu-latest

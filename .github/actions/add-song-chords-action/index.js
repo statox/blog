@@ -5,18 +5,22 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 const FILE_URL = 'src/_data/chords.json';
 
-// const artist = 'Dropkick Murphys';
-// const title = 'Rose tattoo';
-// const url = 'https://www.tabs4acoustic.com/en/guitar-tabs/dropkick-murphys-tabs/rose-tattoo-acoustic-tab-389.html';
-
 const body = core.getInput('comment');
 const [artist, title, url] = body.split('\r\n');
 
-console.log({artist, title, url});
+console.log('Item to add', {artist, title, url});
 
+if (!artist || !title || !url) {
+    console.log('Error one of the element is not defined');
+    core.setFailed(error.message);
+}
+
+// TODO refactor to avoid storing the whole file in memory
 async.auto(
     {
         truncatedFileContent: cb => {
+            // This is necessary to remove the first [ in chords.json
+            // we get the tailed content and we'll append new content at the top
             console.log('Get truncatedFileContent');
             exec(`tail -n +2 ${FILE_URL}`, (error, filecontent, stderr) => {
                 if (error) {
@@ -29,6 +33,8 @@ async.auto(
         addNewContent: [
             'truncatedFileContent',
             (result, cb) => {
+                // Add the new item to the truncated content
+                // and write it to disk
                 console.log('Adding new item to file');
                 const item = JSON.stringify({artist, title, url}, {space: 4}, 4);
                 const newContent =
@@ -90,7 +96,7 @@ async.auto(
             'addChanges',
             (result, cb) => {
                 console.log('Creating commit');
-                const commitMessage = `Add ${artist} - ${title} to chords`;
+                const commitMessage = `Add '${artist} - ${title}' to chords`;
                 const command = `git commit -m "${commitMessage}"`;
                 exec(command, (error, filecontent, stderr) => {
                     if (error) {
@@ -119,6 +125,7 @@ async.auto(
     (error, result) => {
         if (error) {
             console.log({error});
+            core.setFailed(error.message);
         }
         console.log('Done adding item');
     }
