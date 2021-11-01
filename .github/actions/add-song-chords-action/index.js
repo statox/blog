@@ -12,7 +12,8 @@ console.log('Item to add', {artist, title, url});
 
 if (!artist || !title || !url) {
     console.log('Error one of the element is not defined');
-    core.setFailed(error.message);
+    core.setFailed('Error one of the element is not defined');
+    process.exit(1);
 }
 
 // TODO refactor to avoid storing the whole file in memory
@@ -125,7 +126,7 @@ async.auto(
     (error, result) => {
         if (error) {
             console.log({error});
-            core.setFailed(error.message);
+            core.setFailed(error);
         }
         console.log('Done adding item');
     }
