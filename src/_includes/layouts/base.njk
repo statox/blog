@@ -13,17 +13,6 @@
     <meta property="og:description" content="A personal blog where I write about my side projects">
     <meta property="og:type" content="website">
 
-    {# Cool font #}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/open-fonts@1.1.1/fonts/inter.min.css">
-
-    {# Custom css #}
-    {% set css %}
-      {% include "main_css.njk" %}
-    {% endset %}
-    <style>
-      {{ css | safe }}
-    </style>
-
     {# Favicon #}
     <link rel="apple-touch-icon" sizes="180x180" href="{{ '/favicon/apple-touch-icon.png' | url }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ '/favicon/favicon-32x32.png' | url }}">
@@ -58,6 +47,14 @@
             document.location.pathname = path;
         }
     </script>
+
+    {# Custom css - Put after the javascript to avoid blocking JS with CSS loading #}
+    {% set css %}
+      {% include "main_css.njk" %}
+    {% endset %}
+    <style>
+      {{ css | safe }}
+    </style>
 </head>
 <body>
     <header>
@@ -101,5 +98,7 @@
     </div>
 
     <script data-goatcounter="https://statoxblog.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    {# Cool font - Put at the end of the page to avoid blocking HTML rendering #}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/open-fonts@1.1.1/fonts/inter.min.css">
 </body>
 </html>
