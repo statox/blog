@@ -19,6 +19,9 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{ '/favicon/favicon-16x16.png' | url }}">
     <link rel="mask-icon" href="{{ '/favicon/safari-pinned-tab.svg' | url }}" color="#5bbad5">
 
+    {% set inlineJS %}
+          {% include "css/framework/new.js" %}
+    {% endset %}
     <script>
         function navbarToggle() {
             var x = document.getElementById("header-navbar");
@@ -46,6 +49,8 @@
             }
             document.location.pathname = path;
         }
+
+        {{ inlineJS | safe }}
     </script>
 
     {# Custom css - Put after the javascript to avoid blocking JS with CSS loading #}
@@ -80,9 +85,10 @@
                     {# When navbar is closed the link opens the navbar #}
                     {# When navbar is open the link actually navigates to the page #}
                     <a class="nav-link {{'active' if isCurrentPage }}" href="#" onclick="navbarNavigate('{{ entry.url | url }}')">{{ entry.title }}</a>
-                    <i class="nav-separator">{% if i !== navPages.length - 1 %} ♢ {% endif %}</i>
+                    <i class="nav-separator">♢</i>
                 </span>
             {% endfor %}
+            <span  class="nav-item" onclick="toggleDarkTheme()"><i class="fas fa-adjust"></i></span>
 
             {# Hamburger button hidden on large screens #}
             <span class="icon hamburger"></span>
@@ -100,5 +106,6 @@
     <script data-goatcounter="https://statoxblog.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
     {# Cool font - Put at the end of the page to avoid blocking HTML rendering #}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/open-fonts@1.1.1/fonts/inter.min.css">
+    <script src="https://kit.fontawesome.com/cc32401bee.js" crossorigin="anonymous"></script>
 </body>
 </html>

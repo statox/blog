@@ -3,18 +3,20 @@
  */
 
 :root {
+    --is-light-theme:1;
+
     /* Light theme */
-    --nc-tx-1: #546e7a;
-    --nc-tx-2: #161d21;
-    --nc-tx-3: #6d7169;
-    --nc-bg-1: #F4F4F4;
-    --nc-bg-2: #eae8e8;
-    --nc-bg-3: #FAFAFA;
-    --nc-lk-1: #176166;
-    --nc-lk-2: #528aff;
-    --nc-lk-tx: #F3F4F5;
-    --nc-ac-1: #91B859;
-    --nc-ac-tx: #FAFAFA;
+    --nc-l-tx-1: #546e7a;
+    --nc-l-tx-2: #161d21;
+    --nc-l-tx-3: #6d7169;
+    --nc-l-bg-1: #F4F4F4;
+    --nc-l-bg-2: #eae8e8;
+    --nc-l-bg-3: #FAFAFA;
+    --nc-l-lk-1: #176166;
+    --nc-l-lk-2: #528aff;
+    --nc-l-lk-tx: #F3F4F5;
+    --nc-l-ac-1: #91B859;
+    --nc-l-ac-tx: #FAFAFA;
 
     /* Dark theme */
     --nc-d-tx-1: #FFFFFF;
@@ -37,6 +39,7 @@
  */
 @media (prefers-color-scheme: dark) {
     :root {
+        --is-light-theme:0;
         --nc-tx-1: var(--nc-d-tx-1);
         --nc-tx-2: var(--nc-d-tx-2);
         --nc-tx-3: var(--nc-d-tx-3);

@@ -21,20 +21,21 @@
 :root {
     --nc-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     --nc-font-mono: Consolas, monaco, 'Ubuntu Mono', 'Liberation Mono', 'Courier New', Courier, monospace;
+    --is-light-theme:1;
 
     /* Light theme */
-    --nc-tx-1: #000000;
-    --nc-tx-2: #1A1A1A;
-    --nc-tx-3: #6d7169;
-    --nc-bg-0: #CECECE;
-    --nc-bg-1: #FFFFFF;
-    --nc-bg-2: #F6F8FA;
-    --nc-bg-3: #E5E7EB;
-    --nc-lk-1: #0070F3;
-    --nc-lk-2: #0366D6;
-    --nc-lk-tx: #FFFFFF;
-    --nc-ac-1: #79FFE1;
-    --nc-ac-tx: #0C4047;
+    --nc-l-tx-1: #000000;
+    --nc-l-tx-2: #1A1A1A;
+    --nc-l-tx-3: #6d7169;
+    --nc-l-bg-0: #CECECE;
+    --nc-l-bg-1: #FFFFFF;
+    --nc-l-bg-2: #F6F8FA;
+    --nc-l-bg-3: #E5E7EB;
+    --nc-l-lk-1: #0070F3;
+    --nc-l-lk-2: #0366D6;
+    --nc-l-lk-tx: #FFFFFF;
+    --nc-l-ac-1: #79FFE1;
+    --nc-l-ac-tx: #0C4047;
 
     /* Dark theme */
     --nc-d-tx-1: #ffffff;
@@ -49,10 +50,28 @@
     --nc-d-lk-tx: #FFFFFF;
     --nc-d-ac-1: #7928CA;
     --nc-d-ac-tx: #FFFFFF;
+
+    /*
+     * Variables used for the current theme and
+     * updated by new.js when changing the theme
+     */
+    --nc-tx-1:  var(--nc-l-tx-1);
+    --nc-tx-2:  var(--nc-l-tx-2);
+    --nc-tx-3:  var(--nc-l-tx-3);
+    --nc-bg-0:  var(--nc-l-bg-0);
+    --nc-bg-1:  var(--nc-l-bg-1);
+    --nc-bg-2:  var(--nc-l-bg-2);
+    --nc-bg-3:  var(--nc-l-bg-3);
+    --nc-lk-1:  var(--nc-l-lk-1);
+    --nc-lk-2:  var(--nc-l-lk-2);
+    --nc-lk-tx: var(--nc-l-lk-tx);
+    --nc-ac-1:  var(--nc-l-ac-1);
+    --nc-ac-tx: var(--nc-l-ac-tx);
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
+        --is-light-theme:0;
         --nc-tx-1: var(--nc-d-tx-1);
         --nc-tx-2: var(--nc-d-tx-2);
         --nc-bg-0: var(--nc-d-bg-0);
