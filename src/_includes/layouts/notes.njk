@@ -4,8 +4,11 @@ templateClass: tmpl-notes
 title: Notes
 ---
 
+<div>
+    Search by tag: <input id="searchInput" type="text" oninput="doSearch()">
+</div>
 {%- for note in collections.notesAlphabetical -%}
-    <div>
+    <div class="datarow" data-values="{{note.data.tags}}">
         <details>
             <summary>
                 <a class="note-link" href="{{note.url}}">{{ note.data.title }}</a>
@@ -16,3 +19,10 @@ title: Notes
         </details>
     </div>
 {%- endfor -%}
+
+{% set inlineJS %}
+      {% include "scripts/doSearch.js" %}
+{% endset %}
+<script>
+    {{ inlineJS | safe }}
+</script>
