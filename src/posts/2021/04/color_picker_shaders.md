@@ -4,6 +4,7 @@ tags: ['post', 'p5', 'shader']
 date: 2021-04-15
 title: A first exploration of shaders with p5js
 commentIssueId: 26
+CSSFile: 'css/pages/colorpicker.css'
 ---
 
 For many years now I had the idea to play with shaders in the back of my mind but I had never dared looking into it because that seemed like a very complex topic which I didn't have time to dig into. A few days ago I finally started my first project using shaders and I want to share this experiment, both for documenting purpose so that I can build on top of that in future projects but also to show that it can be fairly easy to some satisfying results.

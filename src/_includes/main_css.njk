@@ -10,38 +10,11 @@
 {% include "css/common/kbd.css" %}
 {% include "css/common/backToTopButton.css" %}
 
-{% if '/about/' in page.url %}
-    {% include "css/pages/about.css" %}
-{% endif %}
-
-{% if '/CV/' in page.url %}
-    {% include "css/pages/CV.css" %}
-{% endif %}
-
-{% if 'boids' in page.url %}
-    {% include "css/pages/boids.css" %}
-{% endif %}
-
-{% if 'minesweeper' in page.url %}
-    {% include "css/pages/minesweeper.css" %}
-{% endif %}
-
-{% if '/projects/' in page.url %}
-    {% include "css/pages/projects.css" %}
-{% endif %}
-
-{% if 'color_picker_shader' in page.url %}
-    {% include "css/pages/colorpicker.css" %}
-{% endif %}
-
-{% if '/music/' in page.url %}
-    {% include "css/pages/music.css" %}
-{% endif %}
-
-{% if '/chords/' in page.url %}
-    {% include "css/pages/chords.css" %}
-{% endif %}
-
 {% if site.env === "dev" %}
     {% include "css/common/ribbon.css" %}
+{% endif %}
+
+{# Include a custom CSS when it is defined in the page data with the CSSFile property #}
+{% if CSSFile %}
+    {% include CSSFile %}
 {% endif %}

@@ -3,6 +3,7 @@ layout: layouts/base.njk
 eleventyNavigation:
   key: Music
   order: 3
+CSSFile: 'css/pages/music.css'
 ---
 
 When I'm coding I listen to music and when I'm not coding I try to play some music.

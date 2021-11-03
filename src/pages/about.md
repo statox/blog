@@ -2,6 +2,7 @@
 layout: layouts/base.njk
 title: About
 permalink: "/about/"
+CSSFile: "css/pages/about.css"
 eleventyNavigation:
   key: About
   order: 5
