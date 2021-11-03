@@ -38,35 +38,9 @@
 <body>
     <header>
         <h1>The stuff I do</h1>
-        <!--
-           - Make the whole navbar clickable: It doesn't change anything on desktop
-           - and makes it easier to open the menu on mobile
-           -->
-        <nav class="topnav" id="header-navbar" onclick="navbarToggle()">
-            {# Make use of the eleventyNavigation plugin, get the pages #}
-            {# with an eleventyNavigation section in their meta data #}
-            {% set navPages = collections.all | eleventyNavigation %}
-            {% set postPageRegex = r/^\/posts\/.*/g %}
-
-            {% for i in range(0, navPages.length) %}
-                {% set entry = navPages[i] %}
-                {# Detecting the current page is a bit messed up by the home page which url is '/' and #}
-                {# is thus included in all the pages that's what the second condition is for #}
-                {# The third condition is to use "Home" as the current page on the posts pages otherwise #}
-                {# the posts pages don't show a menu #}
-                {% set isCurrentPage = entry.url == page.url or (entry.url != '/' and entry.url in page.url) or (entry.url == '/' and postPageRegex.test(page.url)) %}
-                <span class="nav-item {{'active' if isCurrentPage }}">
-                    {# When navbar is closed the link opens the navbar #}
-                    {# When navbar is open the link actually navigates to the page #}
-                    <a class="nav-link {{'active' if isCurrentPage }}" href="#" onclick="navbarNavigate('{{ entry.url | url }}')">{{ entry.title }}</a>
-                    <i class="nav-separator">♢</i>
-                </span>
-            {% endfor %}
-            <span  class="nav-item" onclick="toggleDarkTheme()"><i class="fas fa-adjust"></i></span>
-
-            {# Hamburger button hidden on large screens #}
-            <span class="icon hamburger"></span>
-        </nav>
+        {% from 'macros/navbar.njk' import navbar %}
+        {% set navPages = collections.all | eleventyNavigation %}
+        {{ navbar(navPages, page) }}
     </header>
 
     {% if site.env === "dev" %}
