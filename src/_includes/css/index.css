@@ -65,3 +65,7 @@ ul {
 .header-anchor {
     font-size: small;
 }
+
+.hidden {
+    display: none;
+}

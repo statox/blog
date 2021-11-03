@@ -53,25 +53,10 @@ data: chords
 {% set inlineJS %}
       {% include "scripts/backToTopButton.js" %}
       {% include "scripts/chordsAlphabeticalIndex.js" %}
+      {% include "scripts/doSearch.js" %}
 {% endset %}
-
 <script>
     {{ inlineJS | safe }}
-
-    // Dead simple search: We put the artist and title in the data-values tag for the rows
-    // when a search is done we change the class of the rows depending on if the query matches the data
-    function doSearch() {
-        const searchStr = document.getElementById('searchInput').value;
-        const tableLines = document.getElementsByClassName('datarow');
-        for (const line of tableLines) {
-            const values = line.dataset.values;
-            if (values.toLowerCase().match(searchStr.toLowerCase())) {
-                line.classList.remove('hidden');
-            } else {
-                line.classList.add('hidden');
-            }
-        }
-    }
 </script>
 
 <script src="https://kit.fontawesome.com/cc32401bee.js" crossorigin="anonymous"></script>
