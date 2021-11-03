@@ -3,45 +3,45 @@
 
 {% include "css/framework/new.css" %}
 {% include "css/framework/prism.css" %}
-{% include "css/index.css" %}
-{% include "css/material.css" %}
-{% include "css/navbar.css" %}
-{% include "css/comments.css" %}
-{% include "css/kbd.css" %}
+{% include "css/common/index.css" %}
+{% include "css/common/material.css" %}
+{% include "css/common/navbar.css" %}
+{% include "css/common/comments.css" %}
+{% include "css/common/kbd.css" %}
+{% include "css/common/backToTopButton.css" %}
 
 {% if '/about/' in page.url %}
-    {% include "css/about.css" %}
+    {% include "css/pages/about.css" %}
 {% endif %}
 
 {% if '/CV/' in page.url %}
-    {% include "css/CV.css" %}
+    {% include "css/pages/CV.css" %}
 {% endif %}
 
 {% if 'boids' in page.url %}
-    {% include "css/boids.css" %}
+    {% include "css/pages/boids.css" %}
 {% endif %}
 
 {% if 'minesweeper' in page.url %}
-    {% include "css/minesweeper.css" %}
+    {% include "css/pages/minesweeper.css" %}
 {% endif %}
 
 {% if '/projects/' in page.url %}
-    {% include "css/projects.css" %}
+    {% include "css/pages/projects.css" %}
 {% endif %}
 
 {% if 'color_picker_shader' in page.url %}
-    {% include "css/colorpicker.css" %}
+    {% include "css/pages/colorpicker.css" %}
 {% endif %}
 
 {% if '/music/' in page.url %}
-    {% include "css/music.css" %}
+    {% include "css/pages/music.css" %}
 {% endif %}
 
 {% if '/chords/' in page.url %}
-    {% include "css/backToTopButton.css" %}
-    {% include "css/chords.css" %}
+    {% include "css/pages/chords.css" %}
 {% endif %}
 
 {% if site.env === "dev" %}
-    {% include "css/ribbon.css" %}
+    {% include "css/common/ribbon.css" %}
 {% endif %}

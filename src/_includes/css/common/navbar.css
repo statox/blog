@@ -38,19 +38,15 @@
         top: 0;
         color: var(--nc-lk-1);
     }
-}
 
-@media screen and (max-width: 600px) {
     .topnav .nav-separator {
         display: none;
     }
-}
 
-/*
- * The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon.
- * When clicked show all the pages in the navbar
- */
-@media screen and (max-width: 600px) {
+    /*
+     * The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon.
+     * When clicked show all the pages in the navbar
+     */
     .topnav.responsive {position: relative;}
     .topnav.responsive span.icon {
         position: absolute;
@@ -63,6 +59,7 @@
         display: block;
         text-align: left;
     }
+
     /* Hack otherwise only the current page is shown in the menu when deployed */
     .topnav.responsive span.nav-item:not(.active) {display: block;}
 }
