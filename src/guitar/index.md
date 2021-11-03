@@ -1,5 +1,8 @@
 ---
 layout: layouts/base.njk
+eleventyNavigation:
+  key: Guitar
+  parent: Music
 ---
 
 ## Guitar
