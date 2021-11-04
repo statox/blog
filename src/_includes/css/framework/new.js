@@ -30,7 +30,37 @@ function toggleDarkTheme() {
     }
 
     document.documentElement.style.setProperty('--is-light-theme', isLight ? '0' : '1');
+    writeLightThemeCookie(isLight ? '0' : '1');
 }
+
+function domReady(fn) {
+    document.addEventListener('DOMContentLoaded', fn);
+    if (document.readyState === 'interactive' || document.readyState === 'complete') {
+        fn();
+    }
+}
+
+function readLightThemeCookie() {
+    return localStorage.getItem('lighttheme');
+}
+
+function writeLightThemeCookie(isLight) {
+    if (isLight !== '0' && isLight !== '1') {
+        throw new Error('Invalid value for cookie lighttheme', isLight);
+    }
+    localStorage.setItem('lighttheme', isLight);
+}
+
+domReady(() => {
+    const storedCookie = readLightThemeCookie();
+    if (storedCookie) {
+        const isLightProperty = getComputedStyle(document.documentElement).getPropertyValue('--is-light-theme');
+        console.log({storedCookie, isLightProperty});
+        if (isLightProperty !== storedCookie) {
+            toggleDarkTheme();
+        }
+    }
+});
 
 // Could be useful to get the variables from the stylesheet
 // this issue is that with new.css and material.css the variables
