@@ -29,11 +29,11 @@
                - When navbar is closed the link opens the navbar
                - When navbar is open the link actually navigates to the page
                -->
-            <a class="nav-link {{'active' if isCurrentPage }}" href="#" onclick="navbarNavigate('{{ entry.url | url }}')">{{ entry.title }}</a>
-            <i class="nav-separator">♢</i>
+               <a class="nav-link {{'active' if isCurrentPage }}" href="#" onclick="navbarNavigate('{{ entry.url | url }}')" data-goatcounter-click="navbar-{{entry.title}}" data-goatcounter-referrer="{{page.url}}">{{ entry.title }}</a>
+               <i class="nav-separator">♢</i>
         </span>
     {% endfor %}
-    <span  class="nav-item" onclick="toggleDarkTheme()"><i class="fas fa-adjust"></i></span>
+    <span  class="nav-item" onclick="toggleDarkTheme()" data-goatcounter-click="toggle-theme" data-goatcounter-referrer="{{page.url}}"><i class="fas fa-adjust"></i></span>
 
     {# Hamburger button hidden on large screens #}
     <span class="icon hamburger"></span>

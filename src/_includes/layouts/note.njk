@@ -6,10 +6,10 @@ eleventyNavigation:
 ---
 
 <h2>{{ title }}</h2>
-<p><a href="{{ '/notes/' | url }}">← Notes</a></p>
+<p><a href="{{ '/notes/' | url }}" data-goatcounter-click="back-to-notes" data-goatcounter-referrer="{{page.url}}">← Notes</a></p>
 <p>Tags: <span class="formatted-tag">{{ tags | noteTags}}</span></p>
 
 
 {{ content | safe }}
 
-<p><a href="{{ '/notes/' | url }}">← Notes</a></p>
+<p><a href="{{ '/notes/' | url }}" data-goatcounter-click="back-to-notes" data-goatcounter-referrer="{{page.url}}">← Notes</a></p>
