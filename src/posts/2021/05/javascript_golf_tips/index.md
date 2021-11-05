@@ -54,6 +54,26 @@ n+ +s;  // number: 2
 +s+n    // number: 2
 ```
 
+### ASCII
+
+```javascript
+'a'.charCodeAt(0); // 97
+'A'.charCodeAt(0); // 65
+```
+
+### Position in the alphabet
+
+```javascript
+
+'a'.charCodeAt(0)-97 // 0
+'b'.charCodeAt(0)-97 // 1
+'c'.charCodeAt(0)-97 // 2
+
+'A'.charCodeAt(0)-65 // 0
+'B'.charCodeAt(0)-65 // 1
+'C'.charCodeAt(0)-65 // 2
+```
+
 ### Loops
 
 #### For < while
