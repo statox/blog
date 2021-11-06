@@ -33,7 +33,9 @@
     "scripts": {
         "dev": "ELEVENTY_ENV=dev npx @11ty/eleventy --input=src --output=docs --serve",
         "build": "ELEVENTY_ENV=prod npx @11ty/eleventy --input=src --output=docs",
-        "create-issues": "node tools/createIssues.js"
+        "create-issues": "node tools/createIssues.js",
+        "secrets:decrypt": "./tools/secrets/decrypt_secrets",
+        "secrets:unmount": "./tools/secrets/unmount_secrets"
     },
     "version": "1.0.0"
 }

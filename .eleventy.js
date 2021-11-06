@@ -115,4 +115,12 @@ module.exports = function (eleventyConfig) {
     } else {
         eleventyConfig.addPassthroughCopy({'./assets/favicons_dev': '/favicon'});
     }
+
+    /*
+     * By default eleventy ignores the files in gitignore I want to avoid that
+     * because src/secrets/ is ignored because it contains the clear text of src/.secrets
+     * but I still want to built it locally.
+     * The file .eleventyignore is the one responsible for not building node_modules
+     */
+    eleventyConfig.setUseGitIgnore(false);
 };
