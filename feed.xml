@@ -4,7 +4,7 @@
   <subtitle>statox&#39;s blog</subtitle>
   <link href="https://www.statox.fr/feed.xml" rel="self"/>
   <link href="https://www.statox.fr/"/>
-  <updated>2021-10-16T00:00:00Z</updated>
+  <updated>2021-11-08T00:00:00Z</updated>
   <id>https://www.statox.fr/</id>
   <author>
     <name>statox</name>
@@ -1759,6 +1759,86 @@ So I created a &lt;code&gt;Point&lt;/code&gt; class which would hold a position 
 &lt;h3 id=&quot;thinking-of-the-future&quot; tabindex=&quot;-1&quot;&gt;Thinking of the future &lt;a class=&quot;header-anchor&quot; href=&quot;https://www.statox.fr/posts/2021/10/race_generator/#thinking-of-the-future&quot;&gt;🔗&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;At this point I&#39;ve been working on this project for several weeks and I know I&#39;ve reached my time limit for a side project: I know how I want to do the next iteration but that will require a lot of rework and I&#39;m starting to get too tempted by other new shinny projects to put the efforts necessary to make something good. So I will stop here with a demo that is &lt;a href=&quot;https://statox.github.io/procedural-race/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;hosted on github page&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Despite not being a real success this project is not a total failure neither: I had a lot of fun working on it and that&#39;s the most important part of my side projects. But I also learned a lot and I think that the mistakes that I made will really guide me in a next iteration probably next year!&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>Managing a secrets directory in your eleventy site</title>
+    <link href="https://www.statox.fr/posts/2021/11/eleventy_secrets/"/>
+    <updated>2021-11-08T00:00:00Z</updated>
+    <id>https://www.statox.fr/posts/2021/11/eleventy_secrets/</id>
+    <content type="html">&lt;p&gt;This blog is a platform for me to experiment with front end technologies and to write about random stuff I do on my free time. I keep everything versioned &lt;a href=&quot;https://www.github.com/statox/blog&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;on Github&lt;/a&gt; in a public repository because it&#39;s easy and because so far I didn&#39;t have anything to keep secret in this repo. This changed recently so I decided to use &lt;a href=&quot;https://vgough.github.io/encfs/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;&lt;code&gt;EncFS&lt;/code&gt;&lt;/a&gt; to keep secret files encrypted in my Github repo and have them easily accessible on my local copy of the repo. Here is how I did it.&lt;/p&gt;
+&lt;h3 id=&quot;context-and-requirements&quot; tabindex=&quot;-1&quot;&gt;Context and requirements &lt;a class=&quot;header-anchor&quot; href=&quot;https://www.statox.fr/posts/2021/11/eleventy_secrets/#context-and-requirements&quot;&gt;🔗&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Recently I started to collect pieces of wisdom I hear at my workplace, I&#39;m still not sure what I&#39;ll do with these but I want to keep a track of them somewhere and this blog&#39;s repo is an easy place. So I started writing a couple of them in a draft and I also wrote the name of the coworkers who gave me these pieces of advice. Before I committed the document I realized that I was about to publish some personal thoughts by some people I really appreciate without asking for their consent, which is not great.&lt;/p&gt;
+&lt;p&gt;So here is what I wanted to have:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The ability to create new &amp;quot;secret&amp;quot; pages on this blog like I do with any other article.&lt;/li&gt;
+&lt;li&gt;They should be easily accessible on my local clone and they should be handled by eleventy on my local build.&lt;/li&gt;
+&lt;li&gt;They should not be built by eleventy on the CI I use to deploy the blog.&lt;/li&gt;
+&lt;li&gt;They should be versioned in the repo so that I don&#39;t have to keep track of data on different places.&lt;/li&gt;
+&lt;li&gt;The solution should work on Linux and I don&#39;t really care about the other OSes as I don&#39;t use them (though my solution also works on MacOS)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;To do that I opted the following solution:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;I will have a &lt;code&gt;src/.secrets&lt;/code&gt; directory in my repo. This directory will hold my secret files encrypted.&lt;/li&gt;
+&lt;li&gt;I will have another directory &lt;code&gt;src/secrets/&lt;/code&gt; in which the secrets will be decrypted when I build the site locally, eleventy will have to build this directory too.&lt;/li&gt;
+&lt;li&gt;To make things easy I will have the decryption script running in the CI I use locally when building my site.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;the-tool&quot; tabindex=&quot;-1&quot;&gt;The tool &lt;a class=&quot;header-anchor&quot; href=&quot;https://www.statox.fr/posts/2021/11/eleventy_secrets/#the-tool&quot;&gt;🔗&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;I&#39;ll be using &lt;a href=&quot;https://vgough.github.io/encfs/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;&lt;code&gt;EncFS&lt;/code&gt;&lt;/a&gt; a tool providing an encrypted file system in the user space: It translates the file system operations one would be doing into the equivalent encrypted operations on the file system.&lt;/p&gt;
+&lt;p&gt;The usage is quite simple:&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;encfs /path/to/secrets/ /path/to/cleartext&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This command will take the &lt;code&gt;/path/to/secrets/&lt;/code&gt; directory and mount it in &lt;code&gt;/path/to/cleartext/&lt;/code&gt; one can then add any file or directory to the second directory and they will be stored encrypted in the first one.&lt;/p&gt;
+&lt;h3 id=&quot;creating-the-directories&quot; tabindex=&quot;-1&quot;&gt;Creating the directories &lt;a class=&quot;header-anchor&quot; href=&quot;https://www.statox.fr/posts/2021/11/eleventy_secrets/#creating-the-directories&quot;&gt;🔗&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The first step is to create my two directories in my repo:&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;mkdir&lt;/span&gt; -p src/.secrets src/secrets&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then setting up the encrypted file system, one important detail: &lt;code&gt;encfs&lt;/code&gt; only takes absolute paths so one can use &lt;code&gt;${PWD}&lt;/code&gt; to avoid writing the whole path:&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;encfs &lt;span class=&quot;token variable&quot;&gt;${&lt;span class=&quot;token environment constant&quot;&gt;PWD&lt;/span&gt;}&lt;/span&gt;/.secret &lt;span class=&quot;token variable&quot;&gt;${&lt;span class=&quot;token environment constant&quot;&gt;PWD&lt;/span&gt;}&lt;/span&gt;/secret&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;On the first invocation &lt;code&gt;encfs&lt;/code&gt; will show a prompt with several options to configure the encrypted volume, I didn&#39;t input anything as the standard mode seemed enough to me.&lt;/p&gt;
+&lt;p&gt;Then it asks for a password which will be used to encrypt/decrypt the volume. I used a strong password as my encrypted files will be available to anyone on Github I don&#39;t want the password to be easily brute forced. (You can go with 50+ characters and use a password manager instead of your brain or a post-it note)&lt;/p&gt;
+&lt;p&gt;Once this is done a new file is created in the secret repository holding the configuration for next &lt;code&gt;encfs&lt;/code&gt; invocations. From now on and until I unmount the clear directory everything new file I create in it will be stored encrypted in the secret directory.&lt;/p&gt;
+&lt;h3 id=&quot;adding-some-wrappers&quot; tabindex=&quot;-1&quot;&gt;Adding some wrappers &lt;a class=&quot;header-anchor&quot; href=&quot;https://www.statox.fr/posts/2021/11/eleventy_secrets/#adding-some-wrappers&quot;&gt;🔗&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Now I want this encrypted directory to be as seamless as possible in my local workflow, so I created the two following bash scripts:&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# decrypt_secrets.sh&lt;/span&gt;&lt;br /&gt;&lt;br /&gt;&lt;span class=&quot;token comment&quot;&gt;#!/usr/bin/env bash&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token assign-left variable&quot;&gt;CLEAR_DIR&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;src/secrets&#39;&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token assign-left variable&quot;&gt;SECRET_DIR&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;src/.secrets&#39;&lt;/span&gt;&lt;br /&gt;&lt;br /&gt;&lt;span class=&quot;token comment&quot;&gt;# Check if their are some files in the clear directory&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt; -n &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;&lt;span class=&quot;token variable&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;ls&lt;/span&gt; -A $CLEAR_DIR &lt;span class=&quot;token operator&quot;&gt;&lt;span class=&quot;token file-descriptor important&quot;&gt;2&lt;/span&gt;&gt;&lt;/span&gt;/dev/null&lt;span class=&quot;token variable&quot;&gt;)&lt;/span&gt;&lt;/span&gt;&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token keyword&quot;&gt;then&lt;/span&gt;&lt;br /&gt;  &lt;span class=&quot;token builtin class-name&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Secrets repository seems already decrypted.&quot;&lt;/span&gt;&lt;br /&gt;  &lt;span class=&quot;token builtin class-name&quot;&gt;exit&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token keyword&quot;&gt;fi&lt;/span&gt;&lt;br /&gt;&lt;br /&gt;&lt;span class=&quot;token function&quot;&gt;mkdir&lt;/span&gt; -p &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$CLEAR_DIR&lt;/span&gt;&quot;&lt;/span&gt;&lt;br /&gt;encfs &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;${&lt;span class=&quot;token environment constant&quot;&gt;PWD&lt;/span&gt;}&lt;/span&gt;/&lt;span class=&quot;token variable&quot;&gt;$SECRET_DIR&lt;/span&gt;&quot;&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;${&lt;span class=&quot;token environment constant&quot;&gt;PWD&lt;/span&gt;}&lt;/span&gt;/&lt;span class=&quot;token variable&quot;&gt;$CLEAR_DIR&lt;/span&gt;&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This script will be run when I build my site locally so it does the following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Check that the clear directory is empty. If it&#39;s not it means that I had already mounted the secret directory so I can skip what&#39;s next.&lt;/li&gt;
+&lt;li&gt;Create the clear directory if needed.&lt;/li&gt;
+&lt;li&gt;Use &lt;code&gt;encfs&lt;/code&gt; to mount the decrypted directory.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# unmount_secrets.sh&lt;/span&gt;&lt;br /&gt;&lt;br /&gt;&lt;span class=&quot;token comment&quot;&gt;#!/usr/bin/env bash&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token assign-left variable&quot;&gt;CLEAR_DIR&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;src/secrets&#39;&lt;/span&gt;&lt;br /&gt;fusermount -u &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;${&lt;span class=&quot;token environment constant&quot;&gt;PWD&lt;/span&gt;}&lt;/span&gt;/&lt;span class=&quot;token variable&quot;&gt;$CLEAR_DIR&lt;/span&gt;&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This one is not in my local CI. I use it when I&#39;m done working to unmount the clear directory.&lt;/p&gt;
+&lt;h3 id=&quot;configuring-my-build&quot; tabindex=&quot;-1&quot;&gt;Configuring my build &lt;a class=&quot;header-anchor&quot; href=&quot;https://www.statox.fr/posts/2021/11/eleventy_secrets/#configuring-my-build&quot;&gt;🔗&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;With the &lt;code&gt;decrypt_secrets.sh&lt;/code&gt; wrapper created I can update my &lt;code&gt;package.json&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;    &lt;span class=&quot;token property&quot;&gt;&quot;scripts&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;br /&gt;        &lt;span class=&quot;token property&quot;&gt;&quot;dev&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;npm run build:clean &amp;amp;&amp;amp; npm run secrets:decrypt &amp;amp;&amp;amp; ELEVENTY_ENV=dev npx @11ty/eleventy --input=src --output=docs --serve&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;        &lt;span class=&quot;token property&quot;&gt;&quot;build&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;ELEVENTY_ENV=prod npx @11ty/eleventy --input=src --output=docs&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;        &lt;span class=&quot;token property&quot;&gt;&quot;build:clean&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;rm -rf docs&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;        &lt;span class=&quot;token property&quot;&gt;&quot;secrets:decrypt&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;./tools/secrets/decrypt_secrets&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;        &lt;span class=&quot;token property&quot;&gt;&quot;secrets:unmount&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;./tools/secrets/unmount_secrets&quot;&lt;/span&gt;&lt;br /&gt;    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;So now when I use &lt;code&gt;npm run dev&lt;/code&gt; in my local environment my decryption script is run. However when my CI on Github runs &lt;code&gt;npm run build&lt;/code&gt; my secrets are kept safe.&lt;/p&gt;
+&lt;h3 id=&quot;setting-up-the-ignores&quot; tabindex=&quot;-1&quot;&gt;Setting up the ignores &lt;a class=&quot;header-anchor&quot; href=&quot;https://www.statox.fr/posts/2021/11/eleventy_secrets/#setting-up-the-ignores&quot;&gt;🔗&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;There is one last piece of configuration to add: the ignored files. Until now I only add a &lt;code&gt;.gitignore&lt;/code&gt; file in my repo which had two purposes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It prevented me to track changes in &lt;code&gt;node_modules/&lt;/code&gt; and &lt;code&gt;docs/&lt;/code&gt; (my local build file)&lt;/li&gt;
+&lt;li&gt;And it also prevented eleventy to try to build these directories.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Now I have a new directory &lt;code&gt;src/secrets&lt;/code&gt; which I want eleventy to build (locally) but I don&#39;t want to track on git (since that would completely destroy the purpose of all this encryption thing I&#39;ve been doing).&lt;/p&gt;
+&lt;p&gt;So I had to do the following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;First tell eleventy to not use the &lt;code&gt;.gitignore&lt;/code&gt; file. This is done by adding this to my &lt;code&gt;.eleventy.js&lt;/code&gt; config file. Now git will still respect &lt;code&gt;.gitignore&lt;/code&gt; but eleventy will use the &lt;code&gt;.eleventyignore&lt;/code&gt; file to exclude files from the build.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;eleventyConfig.setUseGitIgnore(false);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Then my &lt;code&gt;.gitignore&lt;/code&gt; remains untouched&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;And finally I added &lt;code&gt;.eleventyignore&lt;/code&gt; with the following content:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;node_modules/
+docs/
+src/secrets/
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;voila!&quot; tabindex=&quot;-1&quot;&gt;Voila! &lt;a class=&quot;header-anchor&quot; href=&quot;https://www.statox.fr/posts/2021/11/eleventy_secrets/#voila!&quot;&gt;🔗&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;With this setup I was able to add my secret list of pieces of wisdom to my &lt;code&gt;src/secrets/&lt;/code&gt; directory, see it build when I run &lt;code&gt;npm run dev&lt;/code&gt;, commit the content of &lt;code&gt;src/.secrets/&lt;/code&gt; once I was done and push the encrypted version of my file on Github 🎉&lt;/p&gt;
 </content>
   </entry>
 </feed>
