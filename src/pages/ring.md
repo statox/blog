@@ -15,8 +15,10 @@ Some blogs and personal websites I like to read regularly (or just every once in
 - https://arp242.net
 - https://benknoble.github.io
 - https://jvns.ca
+- https://kevq.uk/
 - https://nicolas-hoizey.com
 - http://rachelbythebay.com/w/
 - https://sericaia.me
 - https://tonycodes.com
 - https://tonsky.me/
+- https://uglyduck.ca/
