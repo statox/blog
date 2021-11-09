@@ -11,7 +11,7 @@ This blog is a platform for me to experiment with front end technologies and to 
 
 ### Context and requirements
 
-Recently I started to collect pieces of wisdom I hear at my workplace, I'm still not sure what I'll do with these but I want to keep a track of them somewhere and this blog's repo is an easy place. So I started writing a couple of them in a draft and I also wrote the name of the coworkers who gave me these pieces of advice. Before I committed the document I realized that I was about to publish some personal thoughts by some people I really appreciate without asking for their consent, which is not great.
+Recently I started to collect pieces of wisdom I hear at my workplace. I intend to share this knowledge in some form because I believe it could be useful to a lot of my peers, but so far I'm not sure how I will do that so I want to keep track of them somewhere and this blog's repo is an easy place. So I started writing a couple of them in a draft and I also wrote the name of the coworkers who gave me these pieces of advice. Before I committed the document I realized that I was about to publish some personal thoughts by some people I really appreciate and respect without asking for their consent, which is not great.
 
 So here is what I wanted to have:
 
@@ -26,6 +26,11 @@ To do that I opted the following solution:
 - I will have a `src/.secrets` directory in my repo. This directory will hold my secret files encrypted.
 - I will have another directory `src/secrets/` in which the secrets will be decrypted when I build the site locally, eleventy will have to build this directory too.
 - To make things easy I will have the decryption script running in the CI I use locally when building my site.
+
+**An important warning**
+
+**The solution I'm presenting here is dealing with very low importance documents. I don't plan to store any applications secrets like an API key or any sensitive document. So while I'm confident this solution fits my threat model I am in no way encouraging you to use it in production without a proper review of your risks.**
+
 
 ### The tool
 
@@ -47,7 +52,7 @@ The first step is to create my two directories in my repo:
 mkdir -p src/.secrets src/secrets
 ```
 
-Then setting up the encrypted file system, one important detail: `encfs` only takes absolute paths so one can use `${PWD}` to avoid writing the whole path:
+Then setting up the encrypted file system, one important detail: `encfs` only takes absolute paths. One can use `${PWD}` to avoid having to write the whole path:
 
 ```bash
 encfs ${PWD}/.secret ${PWD}/secret
@@ -55,7 +60,7 @@ encfs ${PWD}/.secret ${PWD}/secret
 
 On the first invocation `encfs` will show a prompt with several options to configure the encrypted volume, I didn't input anything as the standard mode seemed enough to me.
 
-Then it asks for a password which will be used to encrypt/decrypt the volume. I used a strong password as my encrypted files will be available to anyone on Github I don't want the password to be easily brute forced. (You can go with 50+ characters and use a password manager instead of your brain or a post-it note)
+Then it asks for a password which will be used to encrypt/decrypt the volume. I used a strong password as my encrypted files will be available to anyone on Github I don't want the password to be easily brute forced. (If you do the same thing, _please_ go with 50+ characters and use a password manager instead of your brain or a post-it note)
 
 Once this is done a new file is created in the secret repository holding the configuration for next `encfs` invocations. From now on and until I unmount the clear directory everything new file I create in it will be stored encrypted in the secret directory.
 
@@ -81,9 +86,9 @@ mkdir -p "$CLEAR_DIR"
 encfs "${PWD}/$SECRET_DIR" "${PWD}/$CLEAR_DIR"
 ```
 
-This script will be run when I build my site locally so it does the following:
+This script will run when I build my site locally so it does the following:
 
-- Check that the clear directory is empty. If it's not it means that I had already mounted the secret directory so I can skip what's next.
+- Check that the clear directory is empty. If it's not it means that I had already mounted the secret directory (e.g. I restarted the build process because something broke it) so I can skip what's next.
 - Create the clear directory if needed.
 - Use `encfs` to mount the decrypted directory.
 
@@ -112,12 +117,12 @@ With the `decrypt_secrets.sh` wrapper created I can update my `package.json`:
     },
 ```
 
-So now when I use `npm run dev` in my local environment my decryption script is run. However when my CI on Github runs `npm run build` my secrets are kept safe.
+So now when I use `npm run dev` in my local environment my decryption script is run. However when my CI on Github runs `npm run build` my secrets are not touched.
 
 
 ### Setting up the ignores
 
-There is one last piece of configuration to add: the ignored files. Until now I only add a `.gitignore` file in my repo which had two purposes:
+There is one last piece of configuration to add: the ignored files. Until now I only had a `.gitignore` file in my repo with two purposes:
 
 - It prevented me to track changes in `node_modules/` and `docs/` (my local build file)
 - And it also prevented eleventy to try to build these directories.
@@ -139,4 +144,4 @@ So I had to do the following:
 
 ### Voila!
 
-With this setup I was able to add my secret list of pieces of wisdom to my `src/secrets/` directory, see it build when I run `npm run dev`, commit the content of `src/.secrets/` once I was done and push the encrypted version of my file on Github 🎉
+With this setup I am able to add my secret list of pieces of wisdom to my `src/secrets/` directory, see it built when I run `npm run dev`, commit the content of `src/.secrets/` once I am done and push the encrypted version of my file on Github 🎉
