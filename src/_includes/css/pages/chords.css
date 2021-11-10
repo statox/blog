@@ -14,15 +14,19 @@ tr {
     top: 250px;
     bottom: 10px;
     right: 10px;
-    padding: 0;
+    padding-right: 5px;
+    padding-left: 5px;
     background: var(--nc-bg-1);
     list-style: none;
     overflow-x: auto;
     display: inline-block;
+    border: 1px solid;
+    border-radius: 5px;
+    border-color: var(--nc-bg-2);
 }
 
 .navigationBar.scrolled {
-    top: 50px;
+    top: 20px;
 }
 
 .navigationBtn {
@@ -38,6 +42,7 @@ tr {
     height:40px;
     width:40px;
     line-height: 50px;
+    font-weight: bold;
 }
 
 .hidden {

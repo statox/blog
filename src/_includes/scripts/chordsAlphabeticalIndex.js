@@ -35,4 +35,5 @@ const pageScrolled = () => {
         indexElement.classList.remove('scrolled');
     }
 };
+
 window.addEventListener('scroll', pageScrolled);
