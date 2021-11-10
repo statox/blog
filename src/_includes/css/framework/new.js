@@ -4,7 +4,6 @@
 function toggleDarkTheme() {
     const isLightProperty = getComputedStyle(document.documentElement).getPropertyValue('--is-light-theme');
     const isLight = isLightProperty === '1';
-    console.log('toggle to', isLight ? 'dark' : 'light', 'mode');
 
     const vars = [
         '--nc-tx-1',
@@ -55,7 +54,6 @@ domReady(() => {
     const storedCookie = readLightThemeCookie();
     if (storedCookie) {
         const isLightProperty = getComputedStyle(document.documentElement).getPropertyValue('--is-light-theme');
-        console.log({storedCookie, isLightProperty});
         if (isLightProperty !== storedCookie) {
             toggleDarkTheme();
         }

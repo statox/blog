@@ -1,5 +1,13 @@
+/*
+ * TODO: There is some refactoring to be done.
+ * The scrollFunc function should be common and should take a callback so that
+ * I can use it in different scripts with different actions
+ */
 // Set a variable for our button element.
 const scrollToTopButton = document.getElementById('js-top');
+
+// Set when the scroll starts to detect when the scroll ends
+let scrollTimer;
 
 // Let's set up a function that shows our scroll-to-top button if we scroll beyond the height of the initial window.
 const scrollFunc = () => {
@@ -12,6 +20,13 @@ const scrollFunc = () => {
     } else {
         scrollToTopButton.className = 'top-link hide';
     }
+
+    if (scrollTimer) {
+        clearTimeout(scrollTimer);
+    }
+    scrollTimer = setTimeout(() => {
+        scrollToTopButton.className = 'top-link hide';
+    }, 3000);
 };
 
 window.addEventListener('scroll', scrollFunc);
@@ -27,7 +42,7 @@ const scrollToTop = () => {
         window.requestAnimationFrame(scrollToTop);
         // ScrollTo takes an x and a y coordinate.
         // Increase the '10' value to get a smoother/slower scroll!
-        window.scrollTo(0, c - c / 10);
+        window.scrollTo(0, c - c / 2);
     }
 };
 
