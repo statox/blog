@@ -11,7 +11,7 @@ This blog is a platform for me to experiment with front end technologies and to 
 
 ### Context and requirements
 
-Recently I started to collect pieces of wisdom I hear at my workplace. I intend to share this knowledge in some form because I believe it could be useful to a lot of my peers, but so far I'm not sure how I will do that so I want to keep track of them somewhere and this blog's repo is an easy place. So I started writing a couple of them in a draft and I also wrote the name of the coworkers who gave me these pieces of advice. Before I committed the document I realized that I was about to publish some personal thoughts by some people I really appreciate and respect without asking for their consent, which is not great.
+Recently I started to collect pieces of wisdom I hear at my workplace. I intend to share this knowledge in some form because I believe it could be useful to a lot of my peers, but so far I'm not sure how I will do that so I want to keep track of them somewhere and this blog's repo is an easy place. So I started writing a couple of them in a draft and I also wrote the name of the coworkers who gave me these pieces of advice. Before I committed the document I realized that I was about to publish some personal thoughts of people I really appreciate and respect without asking for their consent, not cool.
 
 So here is what I wanted to have:
 
@@ -21,7 +21,7 @@ So here is what I wanted to have:
 - They should be versioned in the repo so that I don't have to keep track of data on different places.
 - The solution should work on Linux and I don't really care about the other OSes as I don't use them (though my solution also works on MacOS)
 
-To do that I opted the following solution:
+To do that I opted for the following solution:
 
 - I will have a `src/.secrets` directory in my repo. This directory will hold my secret files encrypted.
 - I will have another directory `src/secrets/` in which the secrets will be decrypted when I build the site locally, eleventy will have to build this directory too.
@@ -62,7 +62,7 @@ On the first invocation `encfs` will show a prompt with several options to confi
 
 Then it asks for a password which will be used to encrypt/decrypt the volume. I used a strong password as my encrypted files will be available to anyone on Github I don't want the password to be easily brute forced. (If you do the same thing, _please_ go with 50+ characters and use a password manager instead of your brain or a post-it note)
 
-Once this is done a new file is created in the secret repository holding the configuration for next `encfs` invocations. From now on and until I unmount the clear directory everything new file I create in it will be stored encrypted in the secret directory.
+Once this is done a new file is created in the secret repository holding the configuration for next `encfs` invocations. From now on and until I unmount the clear directory every new file I create in it will be stored encrypted in the secret directory.
 
 ### Adding some wrappers
 
@@ -75,7 +75,7 @@ Now I want this encrypted directory to be as seamless as possible in my local wo
 CLEAR_DIR='src/secrets'
 SECRET_DIR='src/.secrets'
 
-# Check if their are some files in the clear directory
+# Check if there are some files in the clear directory
 if [ -n "$(ls -A $CLEAR_DIR 2>/dev/null)" ]
 then
   echo "Secrets repository seems already decrypted."
@@ -127,7 +127,7 @@ There is one last piece of configuration to add: the ignored files. Until now I 
 - It prevented me to track changes in `node_modules/` and `docs/` (my local build file)
 - And it also prevented eleventy to try to build these directories.
 
-Now I have a new directory `src/secrets` which I want eleventy to build (locally) but I don't want to track on git (since that would completely destroy the purpose of all this encryption thing I've been doing).
+Now I have a new directory `src/secrets` which I want eleventy to build (locally) but I don't want to track on git (since that would completely defeat the purpose of all this encryption thing I've been doing).
 
 So I had to do the following:
 
@@ -145,3 +145,5 @@ So I had to do the following:
 ### Voila!
 
 With this setup I am able to add my secret list of pieces of wisdom to my `src/secrets/` directory, see it built when I run `npm run dev`, commit the content of `src/.secrets/` once I am done and push the encrypted version of my file on Github 🎉
+
+I hope that reading this article gave you an idea to experiment on your own project. Remember a side project doesn't have to be perfect it only have to be fun :)
