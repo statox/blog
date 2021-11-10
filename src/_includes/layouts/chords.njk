@@ -14,9 +14,7 @@ eleventyNavigation:
 {% set sortedChords = chords | sortChords | groupby("artist") %}
 <div>
     <p>This is a list of {{chords.length}} song chords I have been gathering for the past 10 years and that I like to play.</p>
-    <div id="index">
-        <ul id="indexList"></ul>
-    </div>
+    <ol id="indexList" class="navigationBar"></ol>
     <div>
         Search an artist or a title: <input id="searchInput" type="text" oninput="doSearch()">
     </div>

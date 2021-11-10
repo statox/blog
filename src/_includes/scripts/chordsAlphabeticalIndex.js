@@ -13,12 +13,26 @@ const addNavigationId = function (element) {
 
         const link = document.createElement('a');
         link.setAttribute('href', `#first_letter_${current}`);
+        link.setAttribute('class', 'navigationLink');
         link.innerHTML = current;
 
         const button = document.createElement('li');
-        button.setAttribute('class', 'navigationBtn');
+        button.setAttribute('class', 'btn navigationBtn');
         button.appendChild(link);
         indexElement.appendChild(button);
     }
 };
 Array.prototype.filter.call(artistElements, addNavigationId);
+
+const pageScrolled = () => {
+    // Get the current scroll value
+    let y = window.scrollY;
+
+    // If the scroll value is greater than the header move the navigation bar up
+    if (y > 250) {
+        indexElement.classList.add('scrolled');
+    } else {
+        indexElement.classList.remove('scrolled');
+    }
+};
+window.addEventListener('scroll', pageScrolled);

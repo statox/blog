@@ -11,23 +11,37 @@ tr {
     border-bottom-color: var(--nc-bg-0);
 }
 
-#index {
+.navigationBar {
     position:fixed;
-    bottom:0px;
-    right:0px;
+    z-index: 1000;
+    width: 50px;
+    top: 250px;
+    bottom: 10px;
+    right: 10px;
+    padding: 0;
     background: var(--nc-bg-1);
-    max-height: 100%;
+    list-style: none;
+    overflow-x: auto;
+    display: inline-block;
 }
 
-#indexList {
-    display: table;
-    table-layout: fixed;
+.navigationBar.scrolled {
+    top: 50px;
 }
 
 .navigationBtn {
     background: var(--nc-bg-0);
     text-align: center;
-    display: table-row;
+    height:50px;
+    width:50px;
+    border-radius: 5px;
+}
+
+.navigationLink {
+    display: inline-block;
+    height:40px;
+    width:40px;
+    line-height: 50px;
 }
 
 .hidden {
