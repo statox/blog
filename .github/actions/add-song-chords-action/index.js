@@ -6,7 +6,7 @@ const github = require('@actions/github');
 const FILE_URL = 'src/_data/chords.json';
 
 const body = core.getInput('comment');
-const [artist, title, url] = body.split('\r\n');
+const [artist, title, url] = body.split('\r\n').map(s => s.trim());
 
 console.log('Item to add', {artist, title, url});
 
@@ -15,6 +15,9 @@ if (!artist || !title || !url) {
     core.setFailed('Error one of the element is not defined');
     process.exit(1);
 }
+
+const now = new Date();
+const dateStr = `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`;
 
 // TODO refactor to avoid storing the whole file in memory
 async.auto(
@@ -43,7 +46,8 @@ async.auto(
                     '    {\n' +
                     `        "artist": "${artist}",\n` +
                     `        "title": "${title}",\n` +
-                    `        "url": "${url}"\n` +
+                    `        "url": "${url}",\n` +
+                    `        "creationDate": "${dateStr}"\n` +
                     '    },\n' +
                     result.truncatedFileContent;
 
