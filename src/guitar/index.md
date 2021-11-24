@@ -39,6 +39,10 @@ Position V ![Pentatonique mineur en La - Position V](/images/guitar/gamme-blues-
 ### Blues backing tracks
 Youtube playlist of [blues backing tracks](https://www.youtube.com/playlist?list=PLUExMPmFbP3ohwQSByFUJ71dW5d61rErC)
 
+### CAGED system
+
+[Pick up music - The CAGED system explained](https://www.youtube.com/watch?v=-nphFK6HFjY)
+
 
 ### Applis iOS
 
