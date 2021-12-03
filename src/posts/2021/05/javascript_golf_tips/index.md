@@ -23,7 +23,7 @@ There are several types of clashes (fastest to get the right solution, reverse e
 
 
 ### Type conversions
-#### String to Number
+#### Decimal string to Number
 
 When an input is expected to be a number examples usually use the following code:
 
@@ -52,6 +52,14 @@ n+s;    // string: '11'
 n+ +s;  // number: 2
 
 +s+n    // number: 2
+```
+
+#### Binary string to Number
+
+```javascript
+parseInt('101', 2); // 5
+Number('0b101'); // 5
++'0b101'; // 5
 ```
 
 ### ASCII
