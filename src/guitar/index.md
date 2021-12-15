@@ -43,6 +43,9 @@ Youtube playlist of [blues backing tracks](https://www.youtube.com/playlist?list
 
 [Pick up music - The CAGED system explained](https://www.youtube.com/watch?v=-nphFK6HFjY)
 
+### Blues variations
+[12 bars blues variations](https://eatsleepguitarrepeat.com/12-bar-blues-variations-blues-rhythm-guitar-lesson-improve-your-blues/)
+
 
 ### Applis iOS
 
