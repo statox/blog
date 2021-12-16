@@ -62,6 +62,17 @@ Number('0b101'); // 5
 +'0b101'; // 5
 ```
 
+#### Number to binary string
+See [this SO answer](https://stackoverflow.com/a/16155417)
+```javascript
+let a=6;
+a.toString(2); // '110'
+
+// For negative numbers
+let a=-6
+(a >>> 0).toString(2)
+```
+
 ### ASCII
 
 ```javascript
