@@ -18,6 +18,12 @@ eleventyNavigation:
     <div>
         Search an artist or a title: <input id="searchInput" type="text" oninput="doSearch()">
     </div>
+    <br/>
+    <div>
+        <button id="randomSongBtn" onclick="getRandomSong()">Get a random song</button>
+        <span id="randomSong"></span>
+    </div>
+    <br/>
     <table>
         {% for artist, chords in sortedChords %}
         <tr class="datarow" data-values="{{artist}};{% for chord in chords %}{{ chord.title}};{% endfor %}">
@@ -56,6 +62,7 @@ eleventyNavigation:
       {% include "scripts/backToTopButton.js" %}
       {% include "scripts/chordsAlphabeticalIndex.js" %}
       {% include "scripts/doSearch.js" %}
+      {% include "scripts/randomChordsButton.js" %}
 {% endset %}
 <script>
     {{ inlineJS | safe }}
