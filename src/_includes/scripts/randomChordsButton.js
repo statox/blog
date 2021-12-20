@@ -6,6 +6,7 @@
 const CHORDS_URL = 'https://www.statox.fr/chords.json';
 // const CHORDS_URL = 'http://localhost:8080/chords.json';
 let chords_data;
+const alreadySeen = new Set();
 
 fetch(CHORDS_URL)
     .then(response => response.json())
@@ -20,8 +21,19 @@ function getRandomSong() {
         return;
     }
 
-    const randomIndex = Math.floor(Math.random() * chords_data.length);
-    const randomSong = chords_data[randomIndex];
+    if (alreadySeen.size === chords_data.length) {
+        alreadySeen.clear();
+    }
+
+    let randomSong;
+    while (!randomSong) {
+        const randomIndex = Math.floor(Math.random() * chords_data.length);
+        const song = chords_data[randomIndex];
+        if (!alreadySeen.has(song.url)) {
+            randomSong = song;
+            alreadySeen.add(song.url);
+        }
+    }
 
     const title = `${randomSong.artist} - ${randomSong.title} `;
     const a = document.createElement('a');
