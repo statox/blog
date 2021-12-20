@@ -32,6 +32,8 @@ Because I want to be able to know how many people read my rambling I use an anal
 
 However I think the fight for a more privacy friendly internet is one of the most important to lead currently. That's why I use [goatcounter](https://www.goatcounter.com/): It is an amazing privacy friendly tool which does nothing else than counting how many time my pages are loaded. So no cookie :cookie: for you on this site, nor any other invasive tracking method.
 
+**Edit December 2021** I am experimenting with the different tools offered by cloudflare to proxy this website and they inject trackers in my pages. I'm still figuring out if that brings me enough value or if that contributes to the surveillance economy more than I'm confortable with. I'll update this when I make a decision.
+
 #### Web
 
 My professional experience is mainly focused on backend development: Maintaining and developing infrastructures at scale is a fascinating topic for me, however I'm less used to frontend development. So when I started creating a website I wanted it to be dead simple so that I get things done quickly and without friction. That's why I chose to use [eleventy](https://11ty.dev/) a simpler static site generator.
