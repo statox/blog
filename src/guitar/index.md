@@ -46,6 +46,9 @@ Youtube playlist of [blues backing tracks](https://www.youtube.com/playlist?list
 ### Blues variations
 [12 bars blues variations](https://eatsleepguitarrepeat.com/12-bar-blues-variations-blues-rhythm-guitar-lesson-improve-your-blues/)
 
+### Visualisation de gammes
+
+[FretFlip](https://fretflip.com/)
 
 ### Applis iOS
 
