@@ -49,6 +49,7 @@ Youtube playlist of [blues backing tracks](https://www.youtube.com/playlist?list
 ### Visualisation de gammes
 
 [FretFlip](https://fretflip.com/)
+[Fretbo.ar](https://fretbo.ar/)
 
 ### Applis iOS
 
