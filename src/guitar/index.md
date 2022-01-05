@@ -51,6 +51,10 @@ Youtube playlist of [blues backing tracks](https://www.youtube.com/playlist?list
 [FretFlip](https://fretflip.com/)
 [Fretbo.ar](https://fretbo.ar/)
 
+### The Guitar Grimoire
+
+http://mikesimm.djlemonk.com/bblog/Scales-and-Modes.pdf
+
 ### Applis iOS
 
 [Solfa](https://apps.apple.com/us/app/solfa-learn-musical-notes/id1436741307) Apprendre a lire les notes
