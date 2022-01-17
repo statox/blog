@@ -93,6 +93,15 @@ let a=-6
 'C'.charCodeAt(0)-65 // 2
 ```
 
+If not considering the case
+
+```javascript
+parseInt(c,36)-10;
+
+// Example
+[...'abcdefghijklmnopqrstuvwxyz'].map(c => parseInt(c, 36)-10); // [0, 1, 2, 3..., 25];
+```
+
 ### Loops
 
 #### For < while
