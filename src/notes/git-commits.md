@@ -47,3 +47,23 @@ Git internal format = <unix timestamp> <time zone offset>, e.g.  1112926393 +020
 RFC 2822            = e.g. Thu, 07 Apr 2005 22:13:13 +0200
 ISO 8601            = e.g. 2005-04-07T22:13:13
 ```
+
+### Get the logs of a specific line
+
+See [this SO answer](https://stackoverflow.com/a/50473741)
+
+```bash
+git log -L '/the line from your file/,+1:path/to/your/file.txt'
+```
+
+or with line number:
+
+```bash
+git log -L15,+1:'path/to/your/file.txt'
+```
+
+or with a funcname:
+
+```bash
+git log -L :<funcname>:<file>
+```
