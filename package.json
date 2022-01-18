@@ -13,7 +13,7 @@
         "@actions/github": "^5.0.0",
         "@octokit/rest": "^18.12.0",
         "@quasibit/eleventy-plugin-sitemap": "^2.1.4",
-        "async": "^3.2.2",
+        "async": "^3.2.3",
         "eleventy-plugin-seo": "^0.5.2",
         "eleventy-plugin-wordcount": "^1.0.5",
         "html-minifier": "^4.0.0",
