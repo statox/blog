@@ -1,5 +1,12 @@
 [
     {
+        "demo_url": "https://codepen.io/statox/full/qBPwaNo",
+        "code_url": "https://codepen.io/statox/pen/qBPwaNo",
+        "image": "images/projects/noisy_balls.gif",
+        "name": "Noisy balls 🔊",
+        "description": "I wanted to create a new musical instrument, so this is a bunch of balls trapped in a circle which produce different notes based on where they hit the circle. This was a great opportunity to play with p5.js sounds capabilities."
+    },
+    {
         "demo_url": "https://statox.github.io/pixijs-langton-ant/",
         "code_url": "https://github.com/statox/pixijs-langton-ant",
         "image": "images/projects/langtons_ant.gif",
@@ -142,7 +149,7 @@
         "code_url": "https://github.com/statox/asteroides",
         "article_url": "https://www.statox.fr/posts/2020/10/asteroids/",
         "image": "images/projects/asteroids.png",
-        "name": "Asteroids",
+        "name": "Asteroids 🔊",
         "description": "My implementation of the famous video game from the 80's Asteroids with my own sound effects as a bonus."
     },
     {
