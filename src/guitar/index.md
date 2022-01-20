@@ -9,6 +9,11 @@ eleventyNavigation:
 
 I'm using this page to gather resources that I've found useful while learning music. Maybe one day I will organize that properly to make it easier to read for anyone who is not me.
 
+
+### Chords and staffs
+
+ - https://www.hooktheory.com/theorytab
+
 ### Music theory - Scales, Chords, Fretboard...
 
 <details>
