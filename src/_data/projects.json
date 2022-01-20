@@ -14,6 +14,14 @@
         "description": "My first experimentation with the Pixijs framework. This is an implementation of the well know cellular Langton's Ant he invented in 1986. I also added a twist to fill the different groups of dead cells with different colors."
     },
     {
+        "demo_url": "https://codepen.io/statox/full/zYdomWL",
+        "code_url": "https://codepen.io/statox/pen/zYdomWL",
+        "image": "images/projects/points_and_lines.gif",
+        "name": "Points & Lines",
+        "description": "This is a quick recreation of an animation I saw on this blog: https://dalinhuang99.github.io Nothing fancy just a bunch of moving points connected to their closest neighbors."
+    },
+
+    {
         "demo_url": "https://statox.github.io/procedural-race/",
         "code_url": "https://github.com/statox/procedural-race/",
         "article_url": "https://www.statox.fr/posts/2021/10/race_generator/",
