@@ -2,7 +2,7 @@
 layout: layouts/base.njk
 eleventyNavigation:
   key: Music
-  order: 3
+  order: 4
 CSSFile: 'css/pages/music.css'
 ---
 
@@ -18,4 +18,4 @@ I've been playing the guitar for 10+ years now but I had never made the efforts 
 
 ## [Chords](/chords/)
 
-A list of chords I took from the internet and like to play: [Chords page](/chords/)
+A list of song chords I took from the internet or made by myself and like to play: [Chords page](/chords/)
