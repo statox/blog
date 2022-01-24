@@ -29,6 +29,7 @@ I'm using this page to gather resources that I've found useful while learning mu
     <summary><a href="https://www.guitare-improvisation.com/les-bases_notes-du-manche.php" rel="noopener noreferrer" target="_blank">Notes on the fretboard</a></summary>
 
 ![Notes sur le manche](/images/guitar/C_majeur_Entier.png)
+![Guitar fingerboard chart](https://i.redd.it/hs2ewp5vznd81.jpg)
 </details>
 
 <details>
