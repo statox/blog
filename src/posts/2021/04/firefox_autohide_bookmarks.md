@@ -17,6 +17,10 @@ On linux the file is either in
  - `$HOME/.mozilla/firefox/[PROFILE_ID].default/chrome/userChrome.css`
  - or `$HOME/snap/firefox/common/.mozilla/firefox/[PROFILE_ID].default/chrome/userChrome.css` if you use the snap version
 
+To locate the profile currently used by Firefox one can visit `about:support` and check the line `Profile Directory`.
+
+You also have to set `toolkit.legacyUserProfileCustomizations.stylesheets` to `true` in `about:config` otherwise Firefox ignores `userChrome.css`
+
 ### Add the relevant code
 
 The code is available on [MrOtherGuy's Github](https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/autohide_bookmarks_toolbar.css), I'm copying it as a reference. It works well with Firefox 87.0.
