@@ -23,6 +23,7 @@ I'm using this page to gather resources that I've found useful while learning mu
  - [The Guitar Grimoire - Adam Kadmon](http://mikesimm.djlemonk.com/bblog/Scales-and-Modes.pdf)
  - [FretFlip](https://fretflip.com/)
  - [Fretbo.ar](https://fretbo.ar/)
+ - [muted.io](https://muted.io/)
 </details>
 
 <details>
