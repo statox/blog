@@ -1,5 +1,12 @@
 [
     {
+        "demo_url": "https://statox.github.io/chord-wheel/",
+        "code_url": "https://github.com/statox/chord-wheel",
+        "image": "images/projects/chordwheel.gif",
+        "name": "The Chord Wheel",
+        "description": "Inspired by Jim Fleser's book The Chord Wheel, this is an online implementation of his paper tool. It is used to identify major scales and their chords. In the future I want to recreate it with a wheel for the minor scales and one for the Ring of Fifths."
+    },
+    {
         "demo_url": "https://codepen.io/statox/full/qBPwaNo",
         "code_url": "https://codepen.io/statox/pen/qBPwaNo",
         "image": "images/projects/noisy_balls.gif",
