@@ -31,6 +31,8 @@ So I replaced the calls made to Github API via axios by the [octokit](https://gi
 
 The complete version of the script is still [on Github](https://github.com/statox/blog/blob/061b79001fda91c7c8b4bb72147247a4e24eff11/tools/createIssues.js).
 
+_February 2022 -_ I just found out about [utteranc.es](https://utteranc.es/) which is an open source tool allowing to do exactly the same thing as this project but the configuration seems a bit easier.
+
 ### Configuring travis-ci
 
 Running a script at build time with travis-ci is fairly straight forward. I added a new step in the `script` job looking like this:
