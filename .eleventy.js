@@ -109,6 +109,7 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy('fonts');
     eleventyConfig.addPassthroughCopy('mirror');
     eleventyConfig.addPassthroughCopy({'./assets/images': '/images'});
+    eleventyConfig.addPassthroughCopy({'./assets/pdf': '/pdf'});
     // This one is used for the randomChordsButton script for the chords page
     eleventyConfig.addPassthroughCopy({'src/_data/chords.json': '/chords.json'});
 
