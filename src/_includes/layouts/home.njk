@@ -9,15 +9,16 @@ CSSFile: 'css/pages/projects.css'
     <br/>
 
     <p>
-    I am statox, a software engineer since 2016. On this blog you can find <a href="/posts/">my technical writtings</a>, <a href="/projects/">my side projects</a> which I don't always write about as well <a href="/music/">other</a> <a href="/notes">stuff</a> I do.
+    I am statox, a software engineer since 2016. On this blog you can find <a href="/posts/">my technical writtings</a>, <a href="/projects/">my side projects</a> as well as <a href="/music/">other</a> <a href="/notes">stuff</a> I do.
     </p>
     <p>
-    Check the <a href="/about/">about</a> page if you want to know more about me or this site.
+    Check the <a href="/about/">About</a> page if you want to know more about me or this site.
     </p>
 </div>
 
 <div>
     <h3>Latest posts</h3>
+
     {% from 'macros/posts-list.njk' import posts %}
     {{ posts(collections, site.env, 10) }}
 

@@ -1,3 +1,9 @@
+<!--
+   - Remember to include the following line in the templates using this macro
+   -     CSSFile: 'css/pages/projects.css'
+   - I might have to rewrite CSSFile to CSSFiles to accept a list
+   -->
+
 {% macro projectcard(project) %}
 <div class="project-card">
     {% set usedURL = project.demo_url or project.article_url or project.code_url or '#' %}
