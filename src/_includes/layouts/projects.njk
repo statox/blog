@@ -10,9 +10,5 @@ CSSFile: 'css/pages/projects.css'
 
 <p>This is a gallerie of some of my current and past side projects. Some need polishing, some are not finished and some don't work the way I'd want but it's a good ego boost to keep a list of things I have achieved.</p>
 
-<div class="projects-board">
-    {% for project in projects %}
-        {% from 'macros/project-card.njk' import projectcard %}
-        {{ projectcard(project) }}
-    {% endfor %}
-</div>
+{% from 'macros/projects.njk' import projectboard %}
+{{ projectboard(projects) }}

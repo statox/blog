@@ -27,12 +27,8 @@ CSSFile: 'css/pages/projects.css'
 <div>
     <h3>Latest projects</h3>
 
-    <div class="projects-board">
-    {% for project in projects.slice(0, 2) %}
-        {% from 'macros/project-card.njk' import projectcard %}
-        {{ projectcard(project) }}
-    {% endfor %}
-    </div>
+    {% from 'macros/projects.njk' import projectboard %}
+    {{ projectboard(projects, 2) }}
 
     <p><a href="/projects/">See all the projects...</a></p>
 </div>
