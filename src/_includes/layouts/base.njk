@@ -34,6 +34,15 @@
     <style>
       {{ css | safe }}
     </style>
+
+    {# Hack to have a fallback for font awesome on no script devices #}
+    {# https://stackoverflow.com/a/23658361 #}
+    <style>
+        [class*="fa-"]:before
+        {
+            content:"+";
+        }
+    </style>
 </head>
 <body>
     <header>
