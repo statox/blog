@@ -24,6 +24,7 @@ I'm using this page to gather resources that I've found useful while learning mu
  - [FretFlip](https://fretflip.com/)
  - [Fretbo.ar](https://fretbo.ar/)
  - [muted.io](https://muted.io/)
+ - [Triads visualizations](https://triadmapper.herokuapp.com/)
 </details>
 
 <details>
