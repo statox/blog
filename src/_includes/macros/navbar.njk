@@ -17,13 +17,11 @@
         <!--
            - isCurrentPage is used to highlight the right entry in the navbar:
            -
-           - either the page url is the same as the entry e.g. the about page highlight the about entry
-           - or the page url is in the children of the entry e.g. the posts are children of home
-           -
-           - in the second case we need to exlude the '/' at is it the url of the home page and not ignoring
-           - it would highlight several entries for the same page
+           - UPDATE: Now that there is a home page things have been simplified
+           - The individual posts and notes pages don't highlight a navbar entry anymore.
+           - I'm not completely satisfied with that but for now it will work
            -->
-        {% set isCurrentPage = entry.url == page.url or (page.url != '/' and page.url in entryChildrenURLs) %}
+        {% set isCurrentPage = entry.url == page.url %}
         <span class="nav-item {{'active' if isCurrentPage }}">
             <!--
                - When navbar is closed the link opens the navbar

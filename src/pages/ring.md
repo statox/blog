@@ -4,10 +4,10 @@ title: Ring
 permalink: "/ring/"
 eleventyNavigation:
   key: Ring
-  order: 6
+  order: 7
 ---
 
-### Sharing is caring
+### Stuff to share
 
 Some blogs and personal websites I like to read regularly (or just every once in a while) and sometimes use as an inspiration for some features on this site:
 

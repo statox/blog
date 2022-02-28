@@ -1,0 +1,22 @@
+{% macro posts(collections, env, limit, showDrafts) %}
+
+<ul class="post-list">
+{%- for post in (collections.post | reverse).slice(0, limit) %}
+    <li>
+        <span class="post-date">{{ post.date | datePost }}&nbsp</span><a class="post-link" href="{{post.url}}">{{ post.data.title }}</a>
+    </li>
+{%- endfor %}
+</ul>
+
+{% if env === "dev" and showDrafts %}
+    <br/>
+    <h2 style="text-align: center">Drafts</h2>
+    <ul class="post-list">
+    {%- for post in collections.draft | reverse -%}
+        <li>
+            <span class="post-date">{{ post.date | datePost }}&nbsp</span><a class="post-link" href="{{post.url}}">{{ post.data.title }}</a>
+        </li>
+    {%- endfor -%}
+    </ul>
+{% endif %}
+{% endmacro %}

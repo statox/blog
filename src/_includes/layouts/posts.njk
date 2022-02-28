@@ -3,22 +3,9 @@ layout: layouts/base.njk
 templateClass: tmpl-posts
 ---
 
-<ul class="post-list">
-{%- for post in collections.post | reverse -%}
-    <li>
-        <span class="post-date">{{ post.date | datePost }}&nbsp</span><a class="post-link" href="{{post.url}}">{{ post.data.title }}</a>
-    </li>
-{%- endfor -%}
-</ul>
+<h2>Stuff I wrote</h2>
 
-{% if site.env === "dev" %}
-    <br/>
-    <h2 style="text-align: center">Drafts</h2>
-    <ul class="post-list">
-    {%- for post in collections.draft | reverse -%}
-        <li>
-            <span class="post-date">{{ post.date | datePost }}&nbsp</span><a class="post-link" href="{{post.url}}">{{ post.data.title }}</a>
-        </li>
-    {%- endfor -%}
-    </ul>
-{% endif %}
+{# I want to show all the posts so I set a very high limit #}
+{# This is a crappy workaround but for now it should be enough #}
+{% from 'macros/posts-list.njk' import posts %}
+{{ posts(collections, site.env, 10000, true) }}

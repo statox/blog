@@ -5,7 +5,7 @@ permalink: "/about/"
 CSSFile: "css/pages/about.css"
 eleventyNavigation:
   key: About
-  order: 5
+  order: 6
 ---
 
 ### Hello
