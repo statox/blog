@@ -56,6 +56,6 @@ Important part here is the `Tone` pot. Up: Let high cuts through. Down: Mellow t
 - [Boss RC10-R](https://static.roland.com/assets/media/pdf/RC-10R_eng03_W.pdf) (_[mirror](/pdf/pedal_user_manuals/boss_rc10r_user_manual.pdf)_)
 - [ZVEX Instant Lofi Junky](https://static1.squarespace.com/static/555e332ce4b0577e788c3a16/t/559efae5e4b0da93269a9ffb/1436482277079/ZVEX+Instant+Lo-Fi+Junky+Instructions.pdf) (_[mirror](/pdf/pedal_user_manuals/zvex_instant_lofi_junky_user_manual.pdf)_)
 
-_These manuals are not my creation. They are not distributed under the same licence as the rest of this blog. They includes logos, images and trademarks which belong to there respective owners. I have found these manual distributed by a lot of different sources on the internet so I assume it is fine to have a mirror here, especially because I link to the official resources too._
+_These manuals are not my creation. They are not distributed under the same licence as the rest of this blog. They includes logos, images and trademarks which belong to their respective owners. I have found these manual distributed by a lot of different sources on the internet so I assume it is fine to have a mirror here, especially because I link to the official resources too._
 
 _I don't make any money out of these downloads and I keep them only for my own documentation. If you are a lawyer and have an issue with that please [contact me](/about/#social) and I'll remove things as needed._

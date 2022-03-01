@@ -31,12 +31,12 @@ CSSFile: 'css/pages/projects.css'
     <h3>Latest posts</h3>
 
     {{ posts(collections.post, 7) }}
-    <p><a href="/posts/">See all the posts...</a></p>
+    <p><a href="/posts/">See all the {{ collections.post.length }} posts...</a></p>
 </div>
 
 <div>
     <h3>Latest projects</h3>
 
     {{ projectboard(projects, 2) }}
-    <p><a href="/projects/">See all the projects...</a></p>
+    <p><a href="/projects/">See all the {{ projects.length}} projects...</a></p>
 </div>
