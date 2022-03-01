@@ -3,15 +3,16 @@ layout: layouts/base.njk
 templateClass: tmpl-posts
 ---
 
+{% from 'macros/posts-list.njk' import posts %}
+
 <h2>Stuff I wrote</h2>
 
 {# I want to show all the posts so I set a very high limit #}
 {# This is a crappy workaround but for now it should be enough #}
-{% from 'macros/posts-list.njk' import posts %}
-{{ posts(collections.post, 10000) }}
+{{ posts(collections.post) }}
 
 {% if site.env === "dev" %}
 <br/>
 <h2 style="text-align: center">Drafts</h2>
-{{ posts(collections.draft, 10000) }}
+{{ posts(collections.draft) }}
 {% endif %}

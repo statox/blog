@@ -5,10 +5,10 @@ title: Projects
 data: projects
 CSSFile: 'css/pages/projects.css'
 ---
+{% from 'macros/projects.njk' import projectboard %}
 
 <h2>Stuff I've done</h2>
 
 <p>This is a gallerie of some of my current and past side projects. Some need polishing, some are not finished and some don't work the way I'd want but it's a good ego boost to keep a list of things I have achieved.</p>
 
-{% from 'macros/projects.njk' import projectboard %}
 {{ projectboard(projects) }}

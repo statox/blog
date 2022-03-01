@@ -36,11 +36,13 @@
 
 {% macro projectboard(projects, limit) %}
 {% if limit %}
-    {% set projects = projects.slice(0, limit) %}
+    {% set _projects = projects.slice(0, limit) %}
+{% else %}
+    {% set _projects = projects %}
 {% endif %}
 
 <div class="projects-board">
-    {% for project in projects %}
+    {% for project in _projects %}
         {{ projectcard(project) }}
     {% endfor %}
 </div>

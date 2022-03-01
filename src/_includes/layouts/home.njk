@@ -4,6 +4,9 @@ templateClass: tmpl-home
 CSSFile: 'css/pages/projects.css'
 ---
 
+{% from 'macros/posts-list.njk' import posts %}
+{% from 'macros/projects.njk' import projectboard %}
+
 <div>
     <h3>Welcome to my corner of the internet!</h3>
     <br/>
@@ -19,26 +22,21 @@ CSSFile: 'css/pages/projects.css'
 
 <div>
     <h3>Popular posts</h3>
-    <p>The articles I wrote which attracted the most readings. Arguably the most interesting stuff I wrote.</p>
 
-    {% from 'macros/posts-list.njk' import posts %}
-    {{ posts(collections.popularPosts, 5) }}
+    <p>The articles I wrote which attracted the most readings. Arguably the most interesting stuff I wrote.</p>
+    {{ posts(collections.popularPosts) }}
 </div>
 
 <div>
     <h3>Latest posts</h3>
 
-    {% from 'macros/posts-list.njk' import posts %}
-    {{ posts(collections.post, 10) }}
-
+    {{ posts(collections.post, 7) }}
     <p><a href="/posts/">See all the posts...</a></p>
 </div>
 
 <div>
     <h3>Latest projects</h3>
 
-    {% from 'macros/projects.njk' import projectboard %}
     {{ projectboard(projects, 2) }}
-
     <p><a href="/projects/">See all the projects...</a></p>
 </div>
