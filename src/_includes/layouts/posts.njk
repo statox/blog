@@ -9,10 +9,10 @@ templateClass: tmpl-posts
 
 {# I want to show all the posts so I set a very high limit #}
 {# This is a crappy workaround but for now it should be enough #}
-{{ posts(collections.post) }}
+{{ posts(collections.post, {showDate: true}) }}
 
 {% if site.env === "dev" %}
 <br/>
 <h2 style="text-align: center">Drafts</h2>
-{{ posts(collections.draft) }}
+{{ posts(collections.draft, {showDate: true}) }}
 {% endif %}

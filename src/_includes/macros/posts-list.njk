@@ -1,15 +1,16 @@
-{% macro posts(posts, limit) %}
-{% if limit %}
-    {% set _posts = (posts | reverse).slice(0, limit) %}
+{% macro posts(posts, params) %}
+{% if params and params.limit %}
+    {% set _posts = (posts | reverse).slice(0, params.limit) %}
 {% else %}
     {% set _posts = (posts | reverse) %}
 {% endif %}
 
 <div>
-    <ul class="post-list">
+    <ul class="post-list {% if params == undefined or params.showDate != true %}no-date{% endif %}">
     {%- for post in _posts %}
         <li>
-            <span class="post-date">{{ post.date | datePost }}&nbsp</span><a class="post-link" href="{{post.url}}">{{ post.data.title }}</a>
+            <span class="post-date {% if params == undefined or params.showDate != true %}no-date{% endif %}">{{ post.date | datePost }}&nbsp</span>
+            <a class="post-link" href="{{post.url}}">{{ post.data.title }}</a>
         </li>
     {%- endfor %}
     </ul>

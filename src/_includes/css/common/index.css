@@ -1,31 +1,3 @@
-.post-subheader {
-    font-style: italic;
-    color: var(--nc-tx-3);
-}
-
-.post-date {
-    font-family: var(--nc-font-mono);
-}
-
-
-/* On big screen we show the date of the post so no list-style-type */
-ul.post-list {
-    list-style-type: none;
-    padding-left: 0;
-}
-
-/* On smaller screens remove the date and show a list-style-type */
-@media screen and (max-width: 600px) {
-    .post-date {
-        display: none;
-    }
-
-    ul.post-list {
-        list-style-type: disc;
-        padding-left: 0;
-    }
-}
-
 .formatted-tag {
     font-family: var(--nc-font-mono);
     /* Graying out https://stackoverflow.com/a/5081723/4194289 */

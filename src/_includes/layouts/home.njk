@@ -30,7 +30,7 @@ CSSFile: 'css/pages/projects.css'
 <div>
     <h3>Latest posts</h3>
 
-    {{ posts(collections.post, 7) }}
+    {{ posts(collections.post, {limit: 7}) }}
     <p><a href="/posts/">See all the {{ collections.post.length }} posts...</a></p>
 </div>
 
