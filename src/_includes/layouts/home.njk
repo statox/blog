@@ -16,11 +16,20 @@ CSSFile: 'css/pages/projects.css'
     </p>
 </div>
 
+
+<div>
+    <h3>Popular posts</h3>
+    <p>The articles I wrote which attracted the most readings. Arguably the most interesting stuff I wrote.</p>
+
+    {% from 'macros/posts-list.njk' import posts %}
+    {{ posts(collections.popularPosts, 5) }}
+</div>
+
 <div>
     <h3>Latest posts</h3>
 
     {% from 'macros/posts-list.njk' import posts %}
-    {{ posts(collections, site.env, 10) }}
+    {{ posts(collections.post, 10) }}
 
     <p><a href="/posts/">See all the posts...</a></p>
 </div>
