@@ -1,10 +1,16 @@
 [
     {
+        "code_url": "https://github.com/statox/NWotD",
+        "image": "images/projects/nwotd.png",
+        "name": "NWotD",
+        "description": "Nasa Wallpaper of the Day. This is a script I made which automatically download <a href='https://apod.nasa.gov/apod/' target='_blank' rel='noopener noreferrer'>Nasa's Astronomy Picture of the Day</a> and sets it as my desktop wallpaper and my zoom virtual background. <i>As if I wasn't already talking enough about space exploration to my teammates!</i>"
+    },
+    {
         "demo_url": "https://statox.github.io/chord-wheel/",
         "code_url": "https://github.com/statox/chord-wheel",
         "image": "images/projects/chordwheel.gif",
         "name": "The Chord Wheel",
-        "description": "Inspired by Jim Fleser's book The Chord Wheel, this is an online implementation of his paper tool. It is used to identify major scales and their chords. In the future I want to recreate it with a wheel for the minor scales and one for the Ring of Fifths."
+        "description": "Inspired by Jim Fleser's book <a href='https://www.chordwheel.com/' target='_blank' rel='noopener noreferrer'>The Chord Wheel</a>, this is an online implementation of his paper tool. It is used to identify major scales and their chords. In the future I want to recreate it with a wheel for the minor scales and one for the Ring of Fifths."
     },
     {
         "demo_url": "https://codepen.io/statox/full/qBPwaNo",
@@ -18,14 +24,14 @@
         "code_url": "https://github.com/statox/pixijs-langton-ant",
         "image": "images/projects/langtons_ant.gif",
         "name": "Langton's ant",
-        "description": "My first experimentation with the Pixijs framework. This is an implementation of the well know cellular Langton's Ant he invented in 1986. I also added a twist to fill the different groups of dead cells with different colors."
+        "description": "My first experimentation with the Pixijs framework. This is an implementation of the well known <a href=\"https://en.wikipedia.org/wiki/Langton's_ant\" target='_blank' rel='noopener noreferrer'>Langton's Ant</a> cellular automata invented in 1986. I also added a twist to fill the different groups of dead cells with different colors."
     },
     {
         "demo_url": "https://codepen.io/statox/full/zYdomWL",
         "code_url": "https://codepen.io/statox/pen/zYdomWL",
         "image": "images/projects/points_and_lines.gif",
         "name": "Points & Lines",
-        "description": "This is a quick recreation of an animation I saw on this blog: https://dalinhuang99.github.io Nothing fancy just a bunch of moving points connected to their closest neighbors."
+        "description": "This is a quick recreation of an animation I saw on <a href='https://dalinhuang99.github.io' target='_blank' rel='noopener noreferrer'>this blog</a>. Nothing fancy just a bunch of moving points connected to their closest neighbors."
     },
 
     {
