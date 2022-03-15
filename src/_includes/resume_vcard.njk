@@ -1,0 +1,48 @@
+<div class="vcard h-card">
+    <div class="vcard__content">
+        <div class="vcard__title">
+            <h1 class="p-name">{{ author.name }}</h1>
+            {% if author.pronouns %}
+                <em class="vcard__pronouns p-gender-identity">({{ author.pronouns }})</em>
+            {% endif %}
+        </div>
+
+        <p class="vcard__subtitle lead">
+            <span class="p-job-title">{{ author.occupation }}</span>
+            {% if author.location %}
+                <span aria-hidden="true">&middot;</span>
+                <span class="p-locality">{{ author.location }}</span>
+            {% endif %}
+        </p> 
+
+        <div class="vcard__contact p-contact">
+            {% if author.email %}
+                <a class="vcard__link u-email" aria-label="Email" href="mailto:{{ author.email | safe }}">
+                    <span class="vcard__link-text">{{ author.email | safe }}</span>
+                </a>
+            {% endif %}
+            {% if author.telephone %}
+                <a class="vcard__link p-tel" aria-label="Telephone" href="tel:{{ author.telephone  }}">
+                    <span class="vcard__link-text">{{ author.telephone }}</span>
+                </a>
+            {% endif %}
+            {% if author.website %}
+                <a class="vcard__link u-url" aria-label="Website" href="{{ author.website }}">
+                    <span class="vcard__link-text">{{ author.website }}</span>
+                </a>
+            {% endif %}
+
+            {% if author.social %}
+                <div class="vcard__social">
+                    {% for social in author.social %}
+                        <a class="vcard__link" href="{{ social.url }}" aria-label="{{ social.name }}" rel="me">
+                            {%- set isSocialIcon = true -%}
+                            <span class="vcard__link-text p-nickname">{{- social.user -}}</span>
+                            <span class="sr-only">on {{ social.name }}</a>
+                        </a>
+                    {% endfor %}
+                </div>
+            {% endif %} 
+        </div>
+    </div>
+</div>

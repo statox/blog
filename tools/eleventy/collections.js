@@ -31,7 +31,31 @@ function popularPosts(collection) {
         });
 }
 
+function CVCollection(collection, name) {
+    const folderRegex = new RegExp(`\/cv_entries\/${name}\/`);
+    const inEntryFolder = item => item.inputPath.match(folderRegex) !== null;
+
+    const byStartDate = (a, b) => {
+        if (a.data.start && b.data.start) {
+            return a.data.start - b.data.start;
+        }
+        return 0;
+    };
+
+    return collection.getAllSorted().filter(inEntryFolder).sort(byStartDate);
+}
+
+function work(collection) {
+    return CVCollection(collection, 'work');
+}
+
+function education(collection) {
+    return CVCollection(collection, 'education');
+}
+
 module.exports = {
     notesAlphabetical,
-    popularPosts
+    popularPosts,
+    work,
+    education
 };

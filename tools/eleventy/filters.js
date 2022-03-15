@@ -1,3 +1,4 @@
+const {DateTime} = require('luxon');
 const execSync = require('child_process').execSync;
 
 function currentCommitInfo() {
@@ -102,11 +103,16 @@ function sortChords(collection) {
     });
 }
 
+function dateToFormat(date, format) {
+    return DateTime.fromJSDate(date, {zone: 'utc'}).toFormat(String(format));
+}
+
 module.exports = {
     buildInfo,
     datePost,
     noteTags,
     relatedPosts,
     pageTitle,
-    sortChords
+    sortChords,
+    dateToFormat
 };

@@ -1,0 +1,40 @@
+{
+    "name": "Adrien Fabre",
+    "occupation": "Senior software engineer",
+    "location": "Paris, FR",
+    "avatar": "TBD",
+    "pronouns": "He/Him",
+    "email": "adrienfabre@protonmail.com",
+    "telephone": "+33 6 26 55 48 79",
+    "website": "https://statox.fr",
+    "skills": [
+        "Nodejs",
+        "Typescript",
+        "Terraform",
+        "Ansible",
+        "Git",
+        "Linux system administration"
+    ],
+    "languages": [
+        {
+            "name": "French",
+            "level": "native"
+        },
+        {
+            "name": "English",
+            "level": "professionnal"
+        }
+    ],
+    "social": [
+        {
+            "name": "Github",
+            "user": "@statox",
+            "url": "https://github.com/statox"
+        },
+        {
+            "name": "LinkedIn",
+            "user": "adrien-fabre-7a30994b",
+            "url": "https://www.linkedin.com/in/adrien-fabre-7a30994b/"
+        }
+    ]
+}
