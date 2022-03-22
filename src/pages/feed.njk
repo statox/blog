@@ -16,6 +16,12 @@
   }
 }
 ---
+
+{# The condition is used to avoid building the feed in local environment #}
+{# this is because of this bug where the reload fails when a post or a note #}
+{# is edited #}
+{# https://github.com/11ty/eleventy/issues/1615 #}
+{% if site.env === "prod" %}
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>{{ metadata.title }}</title>
@@ -38,3 +44,17 @@
   </entry>
   {%- endfor %}
 </feed>
+{% else %}
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>{{ metadata.title }}</title>
+  <subtitle>{{ metadata.subtitle }}</subtitle>
+  <link href="{{ metadata.feedUrl }}" rel="self"/>
+  <link href="{{ metadata.url }}"/>
+  <updated>1961-01-01T00:00:00Z</updated>
+  <id>{{ metadata.url }}</id>
+  <author>
+    <name>{{ metadata.author.name }}</name>
+  </author>
+</feed>
+{% endif %}
