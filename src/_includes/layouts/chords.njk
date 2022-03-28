@@ -9,6 +9,8 @@ eleventyNavigation:
   parent: Music
 ---
 
+{% from 'macros/backToTop.njk' import backToTopButton %}
+
 <h2>Chords <a class="pull-right" href="https://github.com/statox/blog/issues/105#new_comment_field" target="_blank" rel="noopener noreferrer"><button>Add a song</button></a></h2>
 
 {% set sortedChords = chords | sortChords | groupby("artist") %}
@@ -53,14 +55,10 @@ eleventyNavigation:
         </tr>
         {% endfor %}
     </table>
-    <a class="top-link hide" href="" id="js-top">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6"><path d="M12 6H0l6-6z"/></svg>
-        <span class="screen-reader-text">Back to top</span>
-    </a>
+    {{ backToTopButton() }}
 </div>
 
 {% set inlineJS %}
-      {% include "scripts/backToTopButton.js" %}
       {% include "scripts/chordsAlphabeticalIndex.js" %}
       {% include "scripts/doSearch.js" %}
       {% include "scripts/randomChordsButton.js" %}
