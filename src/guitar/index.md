@@ -86,6 +86,20 @@ Guitar open string on the staff:
 
 ### Chords progressions and licks
 
+#### Common chord progressions
+
+<details>
+    <summary><a href="https://www.youtube.com/watch?v=Vyc8lezaa9g" rel="noopener noreferrer" target="_blank">David Benett - 7 super common chord progressions and why they work</a></summary>
+
+ - The Axis progression: `I | V | vi | IV`
+ - The Other Axis progression: `vi | IV | I | V`
+ - The Andalusian cadence: `i | bVII | bVI | V`
+ - The Aeolian vamp: `i | bVII | bVI | bVII`
+ - The Doo-Woop change: `I | vi | IV | V`
+ - The Major Scale vamp: `I | IV | V` (double `V` or double `I`)
+ - The Mixolydian vamp: `I | bVII | IV | I`
+</details>
+
 #### LoFi
 
 <details>
