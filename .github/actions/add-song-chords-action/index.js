@@ -17,7 +17,7 @@ if (!artist || !title || !url) {
 }
 
 const now = new Date();
-const dateStr = `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`;
+const timestamp = now.getTime();
 
 // TODO refactor to avoid storing the whole file in memory
 async.auto(
@@ -47,7 +47,7 @@ async.auto(
                     `        "artist": "${artist}",\n` +
                     `        "title": "${title}",\n` +
                     `        "url": "${url}",\n` +
-                    `        "creationDate": "${dateStr}"\n` +
+                    `        "creationDate": "${timestamp}"\n` +
                     '    },\n' +
                     result.truncatedFileContent;
 
