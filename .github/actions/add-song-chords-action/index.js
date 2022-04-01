@@ -47,7 +47,7 @@ async.auto(
                     `        "artist": "${artist}",\n` +
                     `        "title": "${title}",\n` +
                     `        "url": "${url}",\n` +
-                    `        "creationDate": "${timestamp}"\n` +
+                    `        "creationDate": ${timestamp}\n` +
                     '    },\n' +
                     result.truncatedFileContent;
 
