@@ -9,12 +9,19 @@ const body = core.getInput('comment');
 const [artist, title, url, tags_str] = body.split('\r\n').map(s => s.trim());
 let tags;
 try {
-    tags = JSON.stringify(tags_str ? tags_str.split(',').map(t => t.trim()) : []);
+    tags = JSON.stringify(
+        tags_str
+            ? tags_str
+                  .toLowerCase()
+                  .split(',')
+                  .map(t => t.trim())
+            : []
+    );
 } catch (e) {
     tags = '[]';
 }
 
-console.log('Item to add', {artist, title, url});
+console.log('Item to add', {artist, title, url, tags});
 
 if (!artist || !title || !url) {
     console.log('Error one of the element is not defined');
