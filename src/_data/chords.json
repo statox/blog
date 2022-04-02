@@ -1,5 +1,12 @@
 [
     {
+        "artist": "Test2",
+        "title": "A second test",
+        "url": "https://url.url",
+        "creationDate": 1648906009801,
+        "tags": []
+    },
+    {
         "artist": "Test1",
         "title": "A first test",
         "url": "https://url.url",
