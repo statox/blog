@@ -1,5 +1,12 @@
 [
     {
+        "artist": "Test1",
+        "title": "A first test",
+        "url": "https://url.url",
+        "creationDate": 1648905925797,
+        "tags": ["tag1","tag2","tag3","tag4","tag5"]
+    },
+    {
         "artist": "Gorillaz",
         "title": "Clint Eastwood",
         "url": "https://tabs.ultimate-guitar.com/tab/gorillaz/clint-eastwood-chords-1177624",
