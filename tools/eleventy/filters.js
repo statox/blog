@@ -104,13 +104,12 @@ function sortChords(collection) {
 }
 
 function getLatestAddedChords(collection, limit) {
-    const r = collection
+    return collection
         .filter(c => c.creationDate)
         .sort((a, b) => {
-            return a.creationDate - b.creationDate;
+            return b.creationDate - a.creationDate;
         })
         .slice(0, limit);
-    return r;
 }
 
 function dateToFormat(date, format) {
