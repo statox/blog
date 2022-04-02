@@ -64,11 +64,11 @@ eleventyNavigation:
 
     <table>
         {% for artist, chords in sortedChords %}
-        <tr class="datarow" data-values="{{artist}};{% for chord in chords %}{{ chord.title}};{% endfor %}">
+        <tr class="datarow" data-values="{{artist}};{% for chord in chords %}{{chord.title}};{{chord.tags}};{% endfor %}">
             <td class="artist">{{artist}}
                 <ul>
                     {% for chord in chords %}
-                    <li class="datarow" data-values="{{artist}};{{ chord.title}}">
+                    <li class="datarow" data-values="{{artist}};{{chord.title}};{{chord.tags}}">
                         {% set url=chord.url %}
                         {% if '.doc' in chord.url %}
                         {% set iconClass='fas fa-xs fa-file-word' %}
