@@ -103,6 +103,16 @@ function sortChords(collection) {
     });
 }
 
+function getLatestAddedChords(collection, limit) {
+    const r = collection
+        .filter(c => c.creationDate)
+        .sort((a, b) => {
+            return a.creationDate - b.creationDate;
+        })
+        .slice(0, limit);
+    return r;
+}
+
 function dateToFormat(date, format) {
     return DateTime.fromJSDate(date, {zone: 'utc'}).toFormat(String(format));
 }
@@ -114,5 +124,6 @@ module.exports = {
     relatedPosts,
     pageTitle,
     sortChords,
+    getLatestAddedChords,
     dateToFormat
 };

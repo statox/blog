@@ -13,20 +13,55 @@ eleventyNavigation:
 
 <h2>Chords <a class="pull-right" href="https://github.com/statox/blog/issues/105#new_comment_field" target="_blank" rel="noopener noreferrer"><button>Add a song</button></a></h2>
 
+{% set latestChords = chords | getLatestAddedChords(10) %}
 {% set sortedChords = chords | sortChords | groupby("artist") %}
+
 <div>
     <p>This is a list of {{chords.length}} song chords I have been gathering for the past 10 years and that I like to play.</p>
     <ol id="indexList" class="navigationBar disable-scrollbars"></ol>
+
+
     <div>
-        Search an artist or a title: <input id="searchInput" type="text" oninput="doSearch()">
+        <h3>Latest additions</h3>
+        <ul>
+            {% for chord in latestChords %}
+            <li class="datarow" data-values="{{artist}};{{ chord.title}}">
+                {% set url=chord.url %}
+                {% if '.doc' in chord.url %}
+                {% set iconClass='fas fa-xs fa-file-word' %}
+                {% set url='/docviewer?docurl='+url %}
+                {% elif '.pdf' in chord.url %}
+                {% set iconClass='fas fa-xs fa-file-pdf' %}
+                {% else %}
+                {% set iconClass='fas fa-xs fa-link' %}
+                {% endif %}
+
+                <span>
+                    <a href="{{url}}" target="_blank" rel="noopener noreferrer">{{chord.title}}</a>
+                    &nbsp<span class="{{iconClass}}"></span>
+                </span>
+            </li>
+            {% endfor %}
+        </ul>
     </div>
     <br/>
+
     <div>
+        <h3>Random song</h3>
         <button id="randomSongBtn" onclick="getRandomSong()">Get a random song</button>
         <br/>
         <span id="randomSong"></span>
     </div>
     <br/>
+
+    <div>
+        <h3>All chords</h3>
+        Search an artist or a title: <input id="searchInput" type="text" oninput="doSearch()">
+    </div>
+    <br/>
+
+
+
     <table>
         {% for artist, chords in sortedChords %}
         <tr class="datarow" data-values="{{artist}};{% for chord in chords %}{{ chord.title}};{% endfor %}">

@@ -60,3 +60,11 @@ tr {
 .fa-link {
     color: #727171;
 }
+
+@media screen and (min-width: 600px) {
+    ul {
+      columns: 2;
+      -webkit-columns: 2;
+      -moz-columns: 2;
+    }
+}
