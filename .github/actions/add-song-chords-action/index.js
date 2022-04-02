@@ -6,7 +6,13 @@ const github = require('@actions/github');
 const FILE_URL = 'src/_data/chords.json';
 
 const body = core.getInput('comment');
-const [artist, title, url] = body.split('\r\n').map(s => s.trim());
+const [artist, title, url, tags_str] = body.split('\r\n').map(s => s.trim());
+let tags;
+try {
+    tags = JSON.stringify(tags_str ? tags_str.split(',').map(t => t.trim()) : []);
+} catch (e) {
+    tags = '[]';
+}
 
 console.log('Item to add', {artist, title, url});
 
@@ -48,7 +54,7 @@ async.auto(
                     `        "title": "${title}",\n` +
                     `        "url": "${url}",\n` +
                     `        "creationDate": ${timestamp},\n` +
-                    `        "tags": []\n` +
+                    `        "tags": ${tags}\n` +
                     '    },\n' +
                     result.truncatedFileContent;
 
