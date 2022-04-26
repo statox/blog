@@ -9,7 +9,7 @@
         "@11ty/eleventy-navigation": "^0.3.2",
         "@11ty/eleventy-plugin-rss": "^1.1.2",
         "@11ty/eleventy-plugin-syntaxhighlight": "^4.0.0",
-        "@actions/core": "^1.6.0",
+        "@actions/core": "^1.7.0",
         "@actions/github": "^5.0.1",
         "@octokit/rest": "^18.12.0",
         "@quasibit/eleventy-plugin-sitemap": "^2.1.5",
