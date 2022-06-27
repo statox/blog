@@ -99,6 +99,7 @@ Guitar open string on the staff:
  - The Doo-Woop change: `I | vi | IV | V`
  - The Major Scale vamp: `I | IV | V` (double `V` or double `I`)
  - The Mixolydian vamp: `I | bVII | IV | I`
+ - Pachelbel's Canon: `I | V | vi | iii | IV | I | IV | V` (Can replace `iii` by `III`, the second `IV` by `II`/`ii`/`V`)
 </details>
 
 #### LoFi
