@@ -16,11 +16,8 @@ try {
 const now = new Date();
 const timestamp = `${now.getFullYear()}-${(now.getMonth() + 1).toString().padStart(2, '0')}-${now.getDate()}`;
 
-const title = body
-    .split('\r\n')
-    .find(l => l.match(/^#\s+.+/))
-    .trim()
-    .replace(/^#\s+/, '');
+const title = body.split('\r\n').find(l => l.match(/^#\s+.+/));
+const cleanTitle = title.trim().replace(/^#\s+/, '');
 
 const fileName =
     title
@@ -43,9 +40,12 @@ async.auto(
                 'layout: layouts/note.njk\n' +
                 `tags: ${JSON.stringify(tagsArray)}\n` +
                 `date: ${timestamp}\n` +
-                `title: ${title}\n` +
+                `title: ${cleanTitle}\n` +
                 '---\n\n' +
-                body;
+                body
+                    .split('\r\n')
+                    .filter(l => l !== title)
+                    .join('\n');
 
             return fs.writeFile(FILE_PATH, newContent, cb);
         },
