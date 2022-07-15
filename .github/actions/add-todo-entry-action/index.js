@@ -41,7 +41,7 @@ async.auto(
             const newContent =
                 '---\n' +
                 'layout: layouts/note.njk\n' +
-                `tags: ${tagsArray}\n` +
+                `tags: ${JSON.stringify(tagsArray)}\n` +
                 `date: ${timestamp}\n` +
                 `title: ${title}\n` +
                 '---\n\n' +
