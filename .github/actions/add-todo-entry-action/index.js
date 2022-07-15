@@ -17,13 +17,13 @@ const now = new Date();
 const timestamp = `${now.getFullYear()}-${(now.getMonth() + 1).toString().padStart(2, '0')}-${now.getDate()}`;
 
 const title = body.split('\r\n').find(l => l.match(/^#\s+.+/));
-const cleanTitle = title.trim().replace(/^#\s+/, '');
+const cleanTitle = title.trim().replace(/^#\s+/, '').replace(/\s\+/g, ' ');
 
 const fileName =
-    title
+    cleanTitle
         .replace(/\s+/g, '_')
         .toLowerCase()
-        .replace(/[^a-z_]/g, '') + '.md';
+        .replace(/[^a-z0-9_]/g, '') + '.md';
 
 const FILE_PATH = TODO_PATH + fileName;
 
