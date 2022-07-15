@@ -16,7 +16,7 @@ try {
 }
 
 const now = new Date();
-const timestamp = `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`;
+const timestamp = `${now.getFullYear()}-${(now.getMonth() + 1).toString().padStart(2, '0')}-${now.getDate()}`;
 
 const title = body
     .split('\r\n')
