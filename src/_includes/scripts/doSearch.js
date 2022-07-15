@@ -19,3 +19,8 @@ function doSearch() {
         }
     }
 }
+
+function resetSearch() {
+    document.getElementById('searchInput').value = '';
+    doSearch();
+}
