@@ -9,7 +9,7 @@ const body = core.getInput('comment');
 const tags_str = body.split('\r\n').find(l => l.trim().match(/^tags/i));
 let tagsArray = ['todo'];
 try {
-    const [header, tags] = tags_str.split(':')[1];
+    const tags = tags_str.split(':')[1];
     tagsArray = tagsArray.concat(tags.split(',').map(t => t.trim()));
 } catch (e) {}
 
