@@ -1,0 +1,21 @@
+name: 'Add entry to the todo list'
+description: 'An action reading comment to a specific issue and commits it to todo directory'
+author: 'statox'
+
+inputs:
+  issueId:
+    description: "Id of the commented issue"
+    required: false
+  login:
+    description: "login of the commenter"
+    required: false
+  commenterId:
+    description: "id of the commenter"
+    required: false
+  comment:
+    description: "body of the comment"
+    required: true
+
+runs:
+  using: 'node12'
+  main: 'index.js'

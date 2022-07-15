@@ -1,4 +1,4 @@
-name: Add song chords
+name: Add todo entries
 
 on:
   issue_comment:
@@ -7,14 +7,14 @@ on:
 
 jobs:
   issue_commented:
-    # This job only runs for comments on the issue #105
+    # This job only runs for comments on the issue #145
     # when the comment comes from me
     # The id can be found with
     # curl -i https://api.github.com/repos/statox/blog/issues/[ISSUE_NR]
     name: Issue comment
     if: |
       github.event.sender.login == 'statox' &&
-      github.event.issue.id == 1040555138
+      github.event.issue.id == 1306520145
     runs-on: ubuntu-latest
     steps:
       - name: 🔀 Checkout
@@ -32,3 +32,4 @@ jobs:
           login: ${{ github.event.sender.login }}
           commenterId: ${{ github.event.sender.id }}
           comment: ${{ github.event.comment.body }}
+
