@@ -88,18 +88,87 @@ Guitar open string on the staff:
 ### Chords progressions and licks
 
 #### Common chord progressions
+<style>
+table, tr, td {
+    border: 3px solid;
+    text-align: center;
+    table-layout: auto;
+}
+table {
+    text-align: center;
+    table-layout: fixed;
+    width: 100%;
+    font-weight: bold;
+}
+</style>
 
 <details>
-    <summary><a href="https://www.youtube.com/watch?v=Vyc8lezaa9g" rel="noopener noreferrer" target="_blank">David Benett - 7 super common chord progressions and why they work</a></summary>
+    <summary>Common chords progressions</summary>
 
- - The Axis progression: `I | V | vi | IV`
- - The Other Axis progression: `vi | IV | I | V`
- - The Andalusian cadence: `i | bVII | bVI | V`
- - The Aeolian vamp: `i | bVII | bVI | bVII`
- - The Doo-Woop change: `I | vi | IV | V`
- - The Major Scale vamp: `I | IV | V` (double `V` or double `I`)
- - The Mixolydian vamp: `I | bVII | IV | I`
- - Pachelbel's Canon: `I | V | vi | iii | IV | I | IV | V` (Can replace `iii` by `III`, the second `IV` by `II`/`ii`/`V`)
+<a href="https://www.youtube.com/watch?v=Vyc8lezaa9g" rel="noopener noreferrer" target="_blank">David Benett - 7 super common chord progressions and why they work</a>
+
+<h5>The Axis progression</h5>
+<table>
+<tr><td>I</td> <td>V</td> <td>vi</td> <td>IV</td></tr>
+</table>
+
+<h5>The Other Axis progression</h5>
+<table>
+<tr><td>vi</td> <td>IV</td> <td>I</td> <td>V</td></tr>
+</table>
+
+<h5>The Andalusian cadence</h5>
+<table>
+<tr><td>i</td> <td>bVII</td> <td>bVI</td> <td>V</td></tr>
+</table>
+
+<h5>The Aeolian vamp</h5>
+<table>
+<tr><td>i</td> <td>bVII</td> <td>bVI</td> <td>bVII</td></tr>
+</table>
+
+<h5>The Doo-Woop change</h5>
+<table>
+<tr><td>I</td> <td>vi</td> <td>IV</td> <td>V</td></tr>
+</table>
+
+<h5>The Major Scale vamp</h5>
+<table>
+<tr><td>I</td> <td>IV</td> <td>V</td> <td>V or I</td></tr>
+</table>
+
+<h5>The Mixolydian vamp</h5>
+<table>
+<tr><td>I</td> <td>bVII</td> <td>IV</td> <td>I</td></tr>
+</table>
+
+<h5>Pachelbel's Canon</h5>
+<table>
+<tr><td>I</td> <td>V</td> <td>vi</td> <td>iii or III</td></tr>
+<tr><td>IV</td> <td>I</td> <td>IV or II or ii or V</td> <td>V</td></tr>
+</table>
+
+<h5>Classic blues slow change</h5>
+<table>
+<tr><td>I</td> <td>I</td> <td>I</td> <td>I</td></tr>
+<tr><td>IV</td> <td>IV</td> <td>I</td> <td>I</td></tr>
+<tr><td>V</td> <td>IV</td> <td>I</td> <td>V</td></tr>
+</table>
+
+<h5>Classic blues quick change</h5>
+<table>
+<tr><td>I</td> <td>IV</td> <td>I</td> <td>I</td></tr>
+<tr><td>IV</td> <td>IV</td> <td>I</td> <td>I</td></tr>
+<tr><td>V</td> <td>IV</td> <td>I</td> <td>V</td></tr>
+</table>
+
+<h5>Blues rock</h5>
+<table>
+<tr><td>I</td> <td>IV</td> <td>I</td> <td>I</td></tr>
+<tr><td>IV</td> <td>IV</td> <td>I</td> <td>I</td></tr>
+<tr><td>V</td> <td>V</td> <td>I</td> <td>I</td></tr>
+</table>
+
 </details>
 
 #### LoFi
@@ -157,43 +226,4 @@ F#min7  - x24222
 
 <details>
     <summary><a href="https://www.youtube.com/playlist?list=PLUExMPmFbP3ohwQSByFUJ71dW5d61rErC" rel="noopener noreferrer" target="_blank">Blues backing tracks</a></summary>
-</details>
-
-<details open>
-<summary>Common blues grids</summary>
-
-<style>
-table, tr, td {
-    border: 3px solid;
-    text-align: center;
-    table-layout: auto;
-}
-table {
-    text-align: center;
-    table-layout: fixed;
-    width: 100%;
-    font-weight: bold;
-}
-</style>
-
-<h5>Classic blue slow change</h5>
-<table>
-<tr><td>I</td> <td>I</td> <td>I</td> <td>I</td></tr>
-<tr><td>IV</td> <td>IV</td> <td>I</td> <td>I</td></tr>
-<tr><td>V</td> <td>IV</td> <td>I</td> <td>V</td></tr>
-</table>
-
-<h5>Classic blue quick change</h5>
-<table>
-<tr><td>I</td> <td>IV</td> <td>I</td> <td>I</td></tr>
-<tr><td>IV</td> <td>IV</td> <td>I</td> <td>I</td></tr>
-<tr><td>V</td> <td>IV</td> <td>I</td> <td>V</td></tr>
-</table>
-
-<h5>Blues rock</h5>
-<table>
-<tr><td>I</td> <td>IV</td> <td>I</td> <td>I</td></tr>
-<tr><td>IV</td> <td>IV</td> <td>I</td> <td>I</td></tr>
-<tr><td>V</td> <td>V</td> <td>I</td> <td>I</td></tr>
-</table>
 </details>
