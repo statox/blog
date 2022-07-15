@@ -1,0 +1,19 @@
+---
+layout: layouts/base.njk
+templateClass: tmpl-todo
+---
+
+<h2>Stuff to do</h2>
+
+{%- for todo in collections.todo -%}
+    <div class="datarow" data-values="{{note.data.tags}}">
+        <details open>
+            <summary>
+                <h3><a class="note-link" href="{{todo.url}}">{{ todo.data.title }}</a></h3>
+                <span class="formatted-tag">{{ todo.data.tags | noteTags}}</span>
+            </summary>
+            {# If needed check how to limit the size of the preview here #}
+            {{ todo.templateContent | safe }}
+        </details>
+    </div>
+{%- endfor -%}
