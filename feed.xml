@@ -10,7 +10,7 @@
   <subtitle>statox&#39;s blog</subtitle>
   <link href="https://www.statox.fr/feed.xml" rel="self"/>
   <link href="https://www.statox.fr/"/>
-  <updated>2022-04-22T00:00:00Z</updated>
+  <updated>2022-07-15T00:00:00Z</updated>
   <id>https://www.statox.fr/</id>
   <author>
     <name>statox</name>
@@ -2031,6 +2031,26 @@ Not sure this is the best solution, check &lt;a href=&quot;https://devopscube.co
 &lt;p&gt;I&#39;m also looking into getting enrolled in a mentoring program for young people who struggle finding a job, I&#39;m still figuring out the details but it might be a great way to give back what life gave me which would be quite cool.&lt;/p&gt;
 &lt;h3 id=&quot;i&#39;m-doing-well&quot; tabindex=&quot;-1&quot;&gt;I&#39;m doing well &lt;a class=&quot;header-anchor&quot; href=&quot;https://www.statox.fr/posts/2022/04/updates_04_22/#i&#39;m-doing-well&quot;&gt;🔗&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;So yeah if I reflect on the past 6 months I&#39;ve been doing stuff, I think I&#39;m pretty happy, I have great stuff going on at work and in my personal life too that I won&#39;t write about here and the weather is getting great again! Life is good.&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>Programmatically update Zoom&#39;s virtual background</title>
+    <link href="https://www.statox.fr/posts/2022/07/zoom_virtual_background/"/>
+    <updated>2022-07-15T00:00:00Z</updated>
+    <id>https://www.statox.fr/posts/2022/07/zoom_virtual_background/</id>
+    <content type="html">&lt;p&gt;Recently I created a script which automatically downloads &lt;a href=&quot;https://apod.nasa.gov/apod/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;NASA&#39;s Astronomy Picture of the Day&lt;/a&gt; and sets it as the wallpaper of my computer. This was fun but I also wanted to set the picture as my virtual background in Zoom so that &lt;s&gt;I have another pretext to bore my coworkers with space stuff&lt;/s&gt; my teammates could also enjoy the cool astronomy pictures of the Nasa.&lt;/p&gt;
+&lt;p&gt;The issue was that when I dug into Zoom&#39;s documentation I couldn&#39;t find a reliable way to change my own virtual background without using the GUI. So I went with a hacky solution which seems to work well for my use case.&lt;/p&gt;
+&lt;p&gt;The solution is not perfect and I only tested it for my particular use case, but the result makes me happy so here it is:&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;When I couldn&#39;t find in the different SDKs and APIs offered by zoom a way to change the user&#39;s virtual background I first thought that I was missing something and decided to check the &lt;a href=&quot;https://marketplace.zoom.us/search?q=background&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Zoom apps marketplace&lt;/a&gt; looking for apps which would already do what I want.&lt;/p&gt;
+&lt;p&gt;It turned out the only relevant apps I could find were ones which add new Virtual Background to the ones available in the app but never set a background for the user.&lt;/p&gt;
+&lt;p&gt;That meant that I had to find a different way, a hacky way 😈&lt;/p&gt;
+&lt;p&gt;On Linux, Zoom stores its data in &lt;code&gt;$HOME/.zoom/data/&lt;/code&gt; and in this directory there is a subdirectory named &lt;code&gt;VirtualBkgnd_Custom&lt;/code&gt; which is quite interesting.&lt;/p&gt;
+&lt;p&gt;When the user sets a virtual background the image is actually copied to this directory and renamed with a random uuid.&lt;/p&gt;
+&lt;p&gt;The interesting thing is that Zoom doesn&#39;t do any validation or caching of any kind: You can just replace this image, restart the app and &lt;em&gt;voila&lt;/em&gt; the virtual background has been changed.&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;cp&lt;/span&gt; myNewBackground.jpg &lt;span class=&quot;token environment constant&quot;&gt;$HOME&lt;/span&gt;/.zoom/data/VirtualBkgnd_Custom/&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;d04bd4b9-57d8-44a1-9cd7-31cea7945157&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;So with a chunk of javascript and a tiny bit of shell I made &lt;a href=&quot;https://github.com/statox/NWotD&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;this repo&lt;/a&gt;: A nodeJS program which downloads the picture and changes the wallpaper and the zoom background added to a cron table and the job is done. I took some shortcuts which probably make the tool only work on my machine, but maybe I&#39;ll make it more robust one day when I get a new computer or reinstall my system.&lt;/p&gt;
 </content>
   </entry>
 </feed>
