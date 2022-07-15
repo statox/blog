@@ -25,7 +25,7 @@ eleventyNavigation:
         <h3>Latest additions</h3>
         <ul>
             {% for chord in latestChords %}
-            <li class="datarow" data-values="{{artist}};{{ chord.title}}">
+            <li>
                 {% set url=chord.url %}
                 {% if '.doc' in chord.url %}
                 {% set iconClass='fas fa-xs fa-file-word' %}
