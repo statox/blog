@@ -19,6 +19,7 @@ const timestamp = `${now.getFullYear()}-${(now.getMonth() + 1).toString().padSta
 const title = body
     .split('\r\n')
     .find(l => l.match(/^#\s+.+/))
+    .trim()
     .replace(/^#\s+/, '');
 
 const fileName =
@@ -43,8 +44,8 @@ async.auto(
                 `tags: ${tagsArray}\n` +
                 `date: ${timestamp}\n` +
                 `title: ${title}\n` +
-                '---\n' +
-                body;
+                '---\n\n' +
+                body.replaceAll('\r\n', '\n');
 
             return fs.writeFile(FILE_PATH, newContent, cb);
         },
