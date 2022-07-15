@@ -158,3 +158,42 @@ F#min7  - x24222
 <details>
     <summary><a href="https://www.youtube.com/playlist?list=PLUExMPmFbP3ohwQSByFUJ71dW5d61rErC" rel="noopener noreferrer" target="_blank">Blues backing tracks</a></summary>
 </details>
+
+<details open>
+<summary>Common blues grids</summary>
+
+<style>
+table, tr, td {
+    border: 3px solid;
+    text-align: center;
+    table-layout: auto;
+}
+table {
+    text-align: center;
+    table-layout: fixed;
+    width: 100%;
+    font-weight: bold;
+}
+</style>
+
+<h5>Classic blue slow change</h5>
+<table>
+<tr><td>I</td> <td>I</td> <td>I</td> <td>I</td></tr>
+<tr><td>IV</td> <td>IV</td> <td>I</td> <td>I</td></tr>
+<tr><td>V</td> <td>IV</td> <td>I</td> <td>V</td></tr>
+</table>
+
+<h5>Classic blue quick change</h5>
+<table>
+<tr><td>I</td> <td>IV</td> <td>I</td> <td>I</td></tr>
+<tr><td>IV</td> <td>IV</td> <td>I</td> <td>I</td></tr>
+<tr><td>V</td> <td>IV</td> <td>I</td> <td>V</td></tr>
+</table>
+
+<h5>Blues rock</h5>
+<table>
+<tr><td>I</td> <td>IV</td> <td>I</td> <td>I</td></tr>
+<tr><td>IV</td> <td>IV</td> <td>I</td> <td>I</td></tr>
+<tr><td>V</td> <td>V</td> <td>I</td> <td>I</td></tr>
+</table>
+</details>

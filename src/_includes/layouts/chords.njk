@@ -62,8 +62,6 @@ eleventyNavigation:
     </div>
     <br/>
 
-
-
     <table>
         {% for artist, chords in sortedChords %}
         <tr class="datarow" data-values="{{artist}};{% for chord in chords %}{{chord.title}};{{chord.tags}};{% endfor %}">
