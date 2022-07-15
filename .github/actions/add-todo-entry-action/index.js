@@ -7,13 +7,11 @@ const TODO_PATH = 'src/todo/';
 
 const body = core.getInput('comment');
 const tags_str = body.split('\r\n').find(l => l.trim().match(/^tags/i));
-let tags;
+let tagsArray = ['todo'];
 try {
     const [header, tags] = tags_str.split(':')[1];
-    tags = tags.split(',').map(t => t.trim());
-} catch (e) {
-    tags = '[]';
-}
+    tagsArray = tagsArray.concat(tags.split(',').map(t => t.trim()));
+} catch (e) {}
 
 const now = new Date();
 const timestamp = `${now.getFullYear()}-${(now.getMonth() + 1).toString().padStart(2, '0')}-${now.getDate()}`;
@@ -31,7 +29,7 @@ const fileName =
 
 const FILE_PATH = TODO_PATH + fileName;
 
-console.log('Item to add', {title, timestamp, fileName, tags});
+console.log('Item to add', {title, timestamp, fileName, tagsArray});
 
 async.auto(
     {
@@ -42,7 +40,7 @@ async.auto(
             const newContent =
                 '---\n' +
                 'layout: layouts/note.njk\n' +
-                `tags: ${['todo', ...tags]}\n` +
+                `tags: ${['todo', ...tagsArray]}\n` +
                 `date: ${timestamp}\n` +
                 `title: ${title}\n` +
                 '---\n' +
