@@ -9,8 +9,6 @@ eleventyNavigation:
   parent: Music
 ---
 
-{% from 'macros/backToTop.njk' import backToTopButton %}
-
 <h2>Chords <a class="pull-right" href="https://github.com/statox/blog/issues/105#new_comment_field" target="_blank" rel="noopener noreferrer"><button>Add a song</button></a></h2>
 
 {% set latestChords = chords | getLatestAddedChords(10) %}
@@ -90,7 +88,6 @@ eleventyNavigation:
         </tr>
         {% endfor %}
     </table>
-    {{ backToTopButton() }}
 </div>
 
 {% set inlineJS %}
