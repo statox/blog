@@ -2,7 +2,7 @@
 layout: layouts/post.njk
 tags: ['post', 'me', 'meta']
 date: 2022-04-22
-title: Stuff I've done this past 6 months
+title: Stuff I've done these past 6 months
 commentIssueId: 32
 ---
 
