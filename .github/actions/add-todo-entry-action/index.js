@@ -40,7 +40,7 @@ async.auto(
             const newContent =
                 '---\n' +
                 'layout: layouts/note.njk\n' +
-                `tags: ${['todo', ...tagsArray]}\n` +
+                `tags: ${tagsArray}\n` +
                 `date: ${timestamp}\n` +
                 `title: ${title}\n` +
                 '---\n' +
