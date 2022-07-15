@@ -45,7 +45,7 @@ async.auto(
                 `date: ${timestamp}\n` +
                 `title: ${title}\n` +
                 '---\n\n' +
-                body.replaceAll('\r\n', '\n');
+                body;
 
             return fs.writeFile(FILE_PATH, newContent, cb);
         },
