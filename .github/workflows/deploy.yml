@@ -21,7 +21,7 @@ jobs:
       - name: 🚩 Configure node
         uses: actions/setup-node@v1
         with:
-          node-version: '12'
+          node-version: '16'
       - name: 🔧 Install and build
         run: |
           npm ci
