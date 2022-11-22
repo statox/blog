@@ -121,3 +121,19 @@ Examples: More than a feeling, Mr Brightside - The Killers
 <tr><td>IV</td> <td>IV</td> <td>I</td> <td>I</td></tr>
 <tr><td>V</td> <td>V</td> <td>I</td> <td>I</td></tr>
 </table>
+
+
+<h5>Jazz Bossa Nova - C minor</h5>
+<a href="https://www.youtube.com/watch?v=H0j_xIm4fW0" rel="noopener noreferrer" target="_blank">Backing track</a>
+
+<pre>
+Dm7b5 = x5656x
+Fdim7 = 1x0101
+</pre>
+
+<table>
+<tr><td>Cm</td> <td>Cm</td> <td>Dm7b5</td> <td>G7</td> <td>x4</td></tr>
+<tr><td>Ebmaj7</td> <td>Ebmaj7</td> <td>Fm</td> <td>Bb7</td> <td>x2</td></tr>
+<tr><td>Ebmaj7</td> <td>Ab</td> <td>Dm7b5</td> <td>G7</td></tr>
+<tr><td>Abmaj7</td> <td>Dm7b5</td> <td>Fdim7</td> <td>G7</td></tr>
+</table>
