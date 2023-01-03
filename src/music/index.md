@@ -25,6 +25,11 @@ I've been playing the guitar for 10+ years now but I had never made the efforts 
 Sometimes I play my guitar with a pedalboard I'm putting together. Here I keep some user manuals, some sample settings and probaly more stuff in the future.
 [Pedals page](/pedals/)
 
+### [Documents](/user_manuals/)
+
+The user manuals for my gear as well as some PDF documents about music and electronics.
+[User manuals](/user_manuals/)
+
 ### [Cool covers](/coolcovers/)
 
 One of my weird obsession is cover songs. I try to write a bit about my discoveries.
