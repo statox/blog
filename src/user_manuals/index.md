@@ -10,8 +10,10 @@ Some user manuals I have collected over time and might need in the future.
 
 - [Behringer BO100](https://mediadl.musictribe.com/media/sys_master/hed/h3f/8850084069406.pdf) (_[mirror](/pdf/pedal_user_manuals/behringer_bo100_user_manual.pdf)_)
 - [Boss BD2](https://static.roland.com/assets/media/pdf/BD-2_eng02_W.pdf) (_[mirror](/pdf/pedal_user_manuals/boss_bd2_user_manual.pdf)_)
+- [Boss CH1](https://static.roland.com/assets/media/pdf/CH-1_M_eng03_W.pdf) (_[mirror](/pdf/pedal_user_manuals/boss_ch1_user_manual.pdf)_)
 - [Boss OC3](https://static.roland.com/assets/media/pdf/OC-3_e01_W.pdf) (_[mirror](/pdf/pedal_user_manuals/boss_oc3_user_manual.pdf)_)
 - [Boss RC10-R](https://static.roland.com/assets/media/pdf/RC-10R_eng03_W.pdf) (_[mirror](/pdf/pedal_user_manuals/boss_rc10r_user_manual.pdf)_)
+- [Electro-Harmonix Canyon](https://www.ehx.com/wp-content/uploads/2021/01/canyon-manual.pdf) (_[mirror](/pdf/pedal_user_manuals/ehx_canyon_manual.pdf)_)
 - [StroboStomp HD tuner](https://www.petersontuners.com/media/pdf/StroboStomp_HD_Manual_v1.1_EN.pdf) (_[mirror](/pdf/pedal_user_manuals/StroboStomp_HD_Manual_v1.1_EN.pdf)_)
 - [ZVEX Instant Lofi Junky](https://static1.squarespace.com/static/555e332ce4b0577e788c3a16/t/559efae5e4b0da93269a9ffb/1436482277079/ZVEX+Instant+Lo-Fi+Junky+Instructions.pdf) (_[mirror](/pdf/pedal_user_manuals/zvex_instant_lofi_junky_user_manual.pdf)_)
 
@@ -23,6 +25,7 @@ Some user manuals I have collected over time and might need in the future.
     - [User manual](https://www.fmicassets.com/Damroot/Original/10001/Fender_ElectricGuitars_Manual.pdf) (_[mirror](/pdf/Fender_ElectricGuitars_Manual.pdf)_)
     - [Service manual](https://www.fmicassets.com/Damroot/Original/10001/SM_011394XXXX_Am_Pro_II_Telecaster.pdf) (_[mirror](/pdf/SM_011394XXXX_Am_Pro_II_Telecaster.pdf)_)
 - [Lottie Canto - Colour Palette](/pdf/lottie_canto_colour_palette.pdf)
+- Midi Controller [Akai MPK mini mk3](https://cdn.inmusicbrands.com/akai/mpk3mini/MPK-mini-Quickstart-Guide-v1_3.pdf) (_[mirror](/pdf/Akai_mpk_mini_mk3_quickstart_guide_v1_3.pdf)_)
 
 ### Misc
 
