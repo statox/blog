@@ -19,6 +19,7 @@ I'm using this page to gather resources that I've found useful while learning mu
 <details>
     <summary>Scales and chords visualization tools</summary>
 
+ - [JGuitar scales, chords, harmonizers](https://jguitar.com/)
  - [Guitar scales - Online Guitar Book](https://onlineguitarbooks.com/guitar-scales/)
  - [The Guitar Grimoire - Adam Kadmon](http://mikesimm.djlemonk.com/bblog/Scales-and-Modes.pdf)
  - [FretFlip](https://fretflip.com/)
@@ -26,6 +27,7 @@ I'm using this page to gather resources that I've found useful while learning mu
  - [muted.io](https://muted.io/)
  - [Triads visualizations](https://triadmapper.herokuapp.com/)
  - [All chords diagrams](https://images.template.net/wp-content/uploads/2016/05/05072432/PDF-Document-for-Suspended-Guitar-Chord-Templates.pdf)
+ - [Keyboard scales](https://www.pianoscales.org/)
 </details>
 
 <details>
