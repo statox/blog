@@ -1,5 +1,45 @@
 [
     {
+        "demo_url": "https://statox.github.io/tic-tac-wow/",
+        "code_url": "https://github.com/statox/tic-tac-wow",
+        "image": "images/projects/tic-tac-wow.gif",
+        "name": "Tic Tac Wow",
+        "description": "Using tic tac toe variants as an excuse to experiment with more front-end development and with game theory. I implemented an online version of the game Gobblet Gobblers and various IA playing the game."
+    },
+    {
+        "demo_url": "https://assisteer.space",
+        "code_url": "https://github.com/statox/assisteer",
+        "image": "images/projects/assisteer.png",
+        "name": "Assisteer",
+        "description": "By far one of my most complete front-end projects. This is an assistant for the game Astroneer allowing the user to plan their production with graph, power and storage analysis and resource trading. The app also includes an encyclopedia of the game items. I didn't finish it completely because the game started bugging on me and that severly impacted my motivation to work on the tool but it was a huge learning experience, especially regarding the framework Svelte."
+    },
+    {
+        "code_url": "https://github.com/statox/graphical-frameworks-test",
+        "image": "images/projects/graphical_frameworks.gif",
+        "name": "Graphical frameworks benchmark",
+        "description": "A quick and dirty playgroud experimenting with particules simulation with different frameworks (P5, P5+webgl, Konva, TwoJS) and an attempt at using webasm. Conclusion: I haven't reached better performances than with the good ol' P5 framework and I'm too lazy to work with webasm for now."
+    },
+    {
+        "code_url": "https://github.com/statox/setup",
+        "image": "images/projects/setup.png",
+        "name": "Statox setup",
+        "description": "A collection of ansible playbooks to setup my computer."
+    },
+    {
+        "demo_url": "https://statox.github.io/circular-automata/",
+        "code_url": "https://github.com/statox/circular-automata",
+        "image": "images/projects/circular_automata.gif",
+        "name": "Circular automata",
+        "description": "A 2D circular automaton project where several parameters like the rule, the size of the grid and the color can be changed randomly. The twist is that the automata is represented in a circle rather than in a rectangle as it is usually the case."
+    },
+    {
+        "demo_url": "https://statox.github.io/procedural-race/",
+        "code_url": "https://github.com/statox/procedural-race",
+        "image": "images/projects/procedural_race.gif",
+        "name": "Procedural race",
+        "description": "Another attempt at a procedurally generated racetrack with autonomous cars learning how to drive on it"
+    },
+    {
         "code_url": "https://github.com/statox/NWotD",
         "image": "images/projects/nwotd.png",
         "name": "NWotD",
