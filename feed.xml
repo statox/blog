@@ -313,12 +313,11 @@ The first CA I heard about was John Conway&#39;s game of life and it was somethi
 &lt;p&gt;This is a great first attempt which kind of works on some simple cases but fails when yanking text on several lines. This is because the &lt;a href=&quot;http://vimhelp.appspot.com/pattern.txt.html#%2f.&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;&lt;code&gt;.&lt;/code&gt;&lt;/a&gt; atom doesn&#39;t match end of lines characters, so we need to use &lt;a href=&quot;http://vimhelp.appspot.com/pattern.txt.html#%2f%5c_.&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;&lt;code&gt;\_.&lt;/code&gt;&lt;/a&gt; instead:&lt;/p&gt;
 &lt;pre class=&quot;language-vim&quot;&gt;&lt;code class=&quot;language-vim&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; g&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;idTemporaryHighlight &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;matchadd&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;IncSearch&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;\\%&#39;\\[\\_.*\\%&#39;]&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;That is better but still not completely working, for example the first and last characters of the yanked text are not highlighted. That&#39;s the moment where we turn to the doc and read a bit more what &lt;a href=&quot;http://vimhelp.appspot.com/pattern.txt.html#%2f%5c%25%27m&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;&lt;code&gt;:h /\%&#39;m&lt;/code&gt;&lt;/a&gt; has to say, particularly this:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;Example, to highlight the text from mark &#39;s to &#39;e:
-	/.\%&amp;gt;&#39;s.*\%&amp;lt;&#39;e..
-Note that two dots are required to include mark &#39;e in the match.  That
-is because &amp;quot;\%&amp;lt;&#39;e&amp;quot; matches at the character before the &#39;e mark, and
-since it&#39;s a |/zero-width| match it doesn&#39;t include that character.
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Example, to highlight the text from mark &#39;s to &#39;e:&lt;br /&gt;
+/.%&amp;gt;&#39;s.*%&amp;lt;&#39;e..&lt;br /&gt;
+Note that two dots are required to include mark &#39;e in the match.  That&lt;br /&gt;
+is because &amp;quot;%&amp;lt;&#39;e&amp;quot; matches at the character before the &#39;e mark, and&lt;br /&gt;
+since it&#39;s a |/zero-width| match it doesn&#39;t include that character.&lt;/p&gt;
 &lt;p&gt;Easy peasy, let&#39;s reuse the same thing but with our marks &lt;code&gt;&#39;[&lt;/code&gt; and &lt;code&gt;&#39;]&lt;/code&gt;:&lt;/p&gt;
 &lt;pre class=&quot;language-vim&quot;&gt;&lt;code class=&quot;language-vim&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; g&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;idTemporaryHighlight &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;matchadd&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;IncSearch&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;.\\%&gt;&#39;\\[\\_.*\\%&amp;lt;&#39;]..&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;em&gt;Important note&lt;/em&gt;: Some of this escaping could be greatly simplified using a different magic mode but it&#39;s not my point here. For more information on magic in Vim see &lt;a href=&quot;http://vimhelp.appspot.com/pattern.txt.html#%2fmagic&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;&lt;code&gt;:h /magic&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
@@ -1233,10 +1232,9 @@ There are still a number of features I&#39;d like to implement even in this squa
 &lt;pre class=&quot;language-vim&quot;&gt;&lt;code class=&quot;language-vim&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;&quot; Use s instead of &amp;lt;C-w&gt; to handle windows&lt;/span&gt;&lt;br /&gt;nnoremap s &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;C&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;This remaps &lt;code&gt;s&lt;/code&gt; in normal mode to &lt;code&gt;&amp;lt;C-w&amp;gt;&lt;/code&gt; which is the default mapping to access window commands. For example instead of using &lt;kbd&gt;ctrl+w&lt;/kbd&gt;&lt;kbd&gt;v&lt;/kbd&gt; and &lt;kbd&gt;ctrl+w&lt;/kbd&gt;&lt;kbd&gt;s&lt;/kbd&gt; to create splits or &lt;kbd&gt;ctrl+w&lt;/kbd&gt;&lt;kbd&gt;o&lt;/kbd&gt; to focus the current split I can use respectively &lt;kbd&gt;s&lt;/kbd&gt;&lt;kbd&gt;v&lt;/kbd&gt;, &lt;kbd&gt;s&lt;/kbd&gt;&lt;kbd&gt;s&lt;/kbd&gt; and &lt;kbd&gt;s&lt;/kbd&gt;&lt;kbd&gt;o&lt;/kbd&gt; (See &lt;a href=&quot;http://vimhelp.appspot.com/index.txt.html#CTRL-W&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;&lt;code&gt;:h CTRL-W&lt;/code&gt;&lt;/a&gt; for the complete list of window commands if you are not familiar with them). This feels more comfortable to use a single key rather than pressing a key chord.&lt;/p&gt;
 &lt;p&gt;The issue with this mapping is that &lt;code&gt;s&lt;/code&gt; is a built-in Vim command, &lt;a href=&quot;http://vimhelp.appspot.com/change.txt.html#s&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;&lt;code&gt;:h s&lt;/code&gt;&lt;/a&gt; says:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;[&amp;quot;x]s   Delete [count] characters [into register x] and start
-        insert (s stands for Substitute).  Synonym for &amp;quot;cl&amp;quot;
-        (not linewise).
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;[&amp;quot;x]s   Delete [count] characters [into register x] and start&lt;br /&gt;
+insert (s stands for Substitute).  Synonym for &amp;quot;cl&amp;quot;&lt;br /&gt;
+(not linewise).&lt;/p&gt;
 &lt;p&gt;I&#39;ve never found a use case where this is actually helpful (as the doc says &lt;code&gt;cl&lt;/code&gt; does almost the same thing) so remapping it didn&#39;t really affect my productivity. However when I edit files on remote severs where I haven&#39;t uploaded my config my muscle memory makes me press &lt;kbd&gt;s&lt;/kbd&gt; and I end up editing the current buffer instead of manipulating my windows which is irritating.&lt;/p&gt;
 &lt;p&gt;When I decided to get rid of this nasty habit I removed the mapping from my &lt;code&gt;.vimrc&lt;/code&gt; but I also needed something to annoy me out of using it. An easy solution would have been to remap the key to &lt;a href=&quot;https://neovim.io/doc/user/intro.html#%3cNop%3e&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;&lt;code&gt;&amp;lt;Nop&amp;gt;&lt;/code&gt;&lt;/a&gt; so that it does nothing but then the command silently fails and I end up executing the second part of the command (&lt;code&gt;v&lt;/code&gt;, &lt;code&gt;s&lt;/code&gt;, &lt;code&gt;o&lt;/code&gt;...) which is not ideal for my workflow. That&#39;s when the floating window comes useful. I wanted to have a very visible warning saying that I used a command I shouldn&#39;t have and that I should try again with the right command.&lt;/p&gt;
 &lt;h3 id=&quot;specifying-the-solution&quot; tabindex=&quot;-1&quot;&gt;Specifying the solution &lt;a class=&quot;header-anchor&quot; href=&quot;https://www.statox.fr/posts/2021/03/breaking_habits_floating_window/#specifying-the-solution&quot;&gt;🔗&lt;/a&gt;&lt;/h3&gt;
@@ -1841,18 +1839,16 @@ So I created a &lt;code&gt;Point&lt;/code&gt; class which would hold a position 
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;First tell eleventy to not use the &lt;code&gt;.gitignore&lt;/code&gt; file. This is done by adding this to my &lt;code&gt;.eleventy.js&lt;/code&gt; config file. Now git will still respect &lt;code&gt;.gitignore&lt;/code&gt; but eleventy will use the &lt;code&gt;.eleventyignore&lt;/code&gt; file to exclude files from the build.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;eleventyConfig.setUseGitIgnore(false);
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;eleventyConfig.setUseGitIgnore(false);&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Then my &lt;code&gt;.gitignore&lt;/code&gt; remains untouched&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;And finally I added &lt;code&gt;.eleventyignore&lt;/code&gt; with the following content:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;node_modules/
-docs/
-src/secrets/
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;node_modules/&lt;br /&gt;
+docs/&lt;br /&gt;
+src/secrets/&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&quot;voila!&quot; tabindex=&quot;-1&quot;&gt;Voila! &lt;a class=&quot;header-anchor&quot; href=&quot;https://www.statox.fr/posts/2021/11/eleventy_secrets/#voila!&quot;&gt;🔗&lt;/a&gt;&lt;/h3&gt;
