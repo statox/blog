@@ -37,20 +37,6 @@ module.exports = function (eleventyConfig) {
         eleventyConfig.addTransform(transformName, transforms[transformName]);
     });
 
-    // Local 404 page
-    eleventyConfig.setBrowserSyncConfig({
-        callbacks: {
-            ready: function (err, browserSync) {
-                const content_404 = fs.readFileSync('docs/404.html');
-
-                browserSync.addMiddleware('*', (req, res) => {
-                    res.write(content_404);
-                    res.end();
-                });
-            }
-        }
-    });
-
     /*
      * Plugins
      */
