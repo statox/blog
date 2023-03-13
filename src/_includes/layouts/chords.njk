@@ -30,6 +30,8 @@ eleventyNavigation:
                 {% set url='/docviewer?docurl='+url %}
                 {% elif '.pdf' in chord.url %}
                 {% set iconClass='fas fa-xs fa-file-pdf' %}
+                {% elif 'youtube' in chord.url %}
+                {% set iconClass='fa fa-xs fa-youtube' %}
                 {% else %}
                 {% set iconClass='fas fa-xs fa-link' %}
                 {% endif %}
@@ -73,6 +75,8 @@ eleventyNavigation:
                         {% set url='/docviewer?docurl='+url %}
                         {% elif '.pdf' in chord.url %}
                         {% set iconClass='fas fa-xs fa-file-pdf' %}
+                        {% elif 'youtube' in chord.url %}
+                        {% set iconClass='fa fa-xs fa-youtube' %}
                         {% else %}
                         {% set iconClass='fas fa-xs fa-link' %}
                         {% endif %}
