@@ -9,6 +9,8 @@ eleventyNavigation:
   parent: Music
 ---
 
+{% from 'macros/urlIcon.njk' import urlIcon %}
+
 <h2>Chords <a class="pull-right" href="https://github.com/statox/blog/issues/105#new_comment_field" target="_blank" rel="noopener noreferrer"><button>Add a song</button></a></h2>
 
 {% set latestChords = chords | getLatestAddedChords(10) %}
@@ -25,20 +27,13 @@ eleventyNavigation:
             {% for chord in latestChords %}
             <li>
                 {% set url=chord.url %}
-                {% if '.doc' in chord.url %}
-                {% set iconClass='fas fa-xs fa-file-word' %}
+                {% if '.doc' in url %}
                 {% set url='/docviewer?docurl='+url %}
-                {% elif '.pdf' in chord.url %}
-                {% set iconClass='fas fa-xs fa-file-pdf' %}
-                {% elif 'youtube' in chord.url %}
-                {% set iconClass='fa fa-xs fa-youtube' %}
-                {% else %}
-                {% set iconClass='fas fa-xs fa-link' %}
                 {% endif %}
 
                 <span>
                     <a href="{{url}}" target="_blank" rel="noopener noreferrer">{{chord.title}}</a>
-                    &nbsp<span class="{{iconClass}}"></span>
+                    {{ urlIcon(url) }}
                 </span>
             </li>
             {% endfor %}
@@ -70,20 +65,13 @@ eleventyNavigation:
                     {% for chord in chords %}
                     <li class="datarow" data-values="{{artist}};{{chord.title}};{{chord.tags}}">
                         {% set url=chord.url %}
-                        {% if '.doc' in chord.url %}
-                        {% set iconClass='fas fa-xs fa-file-word' %}
+                        {% if '.doc' in url %}
                         {% set url='/docviewer?docurl='+url %}
-                        {% elif '.pdf' in chord.url %}
-                        {% set iconClass='fas fa-xs fa-file-pdf' %}
-                        {% elif 'youtube' in chord.url %}
-                        {% set iconClass='fa fa-xs fa-youtube' %}
-                        {% else %}
-                        {% set iconClass='fas fa-xs fa-link' %}
                         {% endif %}
 
                         <span>
                             <a href="{{url}}" target="_blank" rel="noopener noreferrer">{{chord.title}}</a>
-                            &nbsp<span class="{{iconClass}}"></span>
+                            {{ urlIcon(url) }}
                         </span>
                     </li>
                     {% endfor %}

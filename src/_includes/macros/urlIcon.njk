@@ -1,0 +1,14 @@
+{% macro urlIcon(url) %}
+
+{% if '.doc' in url %}
+{% set iconClass='fas fa-xs fa-file-word' %}
+{% elif '.pdf' in url %}
+{% set iconClass='fas fa-xs fa-file-pdf' %}
+{% elif 'youtube' in url %}
+{% set iconClass='fa fa-xs fa-youtube' %}
+{% else %}
+{% set iconClass='fas fa-xs fa-link' %}
+{% endif %}
+
+<span class="{{iconClass}}"></span>
+{% endmacro %}
