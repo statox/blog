@@ -12,6 +12,7 @@ Some user manuals I have collected over time and might need in the future.
 - [Boss BD2](https://static.roland.com/assets/media/pdf/BD-2_eng02_W.pdf) (_[mirror](/pdf/pedal_user_manuals/boss_bd2_user_manual.pdf)_)
 - [Boss CH1](https://static.roland.com/assets/media/pdf/CH-1_M_eng03_W.pdf) (_[mirror](/pdf/pedal_user_manuals/boss_ch1_user_manual.pdf)_)
 - [Boss OC3](https://static.roland.com/assets/media/pdf/OC-3_e01_W.pdf) (_[mirror](/pdf/pedal_user_manuals/boss_oc3_user_manual.pdf)_)
+- [Boss RC3](https://static.roland.com/assets/media/pdf/RC-3_eng03_W.pdf) (_[mirror](/pdf/pedal_user_manuals/boss_rc3_user_manual.pdf)_)
 - [Boss RC10-R](https://static.roland.com/assets/media/pdf/RC-10R_eng03_W.pdf) (_[mirror](/pdf/pedal_user_manuals/boss_rc10r_user_manual.pdf)_)
 - [Electro-Harmonix Canyon](https://www.ehx.com/wp-content/uploads/2021/01/canyon-manual.pdf) (_[mirror](/pdf/pedal_user_manuals/ehx_canyon_manual.pdf)_)
 - [StroboStomp HD tuner](https://www.petersontuners.com/media/pdf/StroboStomp_HD_Manual_v1.1_EN.pdf) (_[mirror](/pdf/pedal_user_manuals/StroboStomp_HD_Manual_v1.1_EN.pdf)_)
