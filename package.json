@@ -22,7 +22,7 @@
         "markdown-it-anchor": "^8.6.6",
         "markdown-it-emoji": "^2.0.2",
         "markdown-it-external-links": "^0.0.6",
-        "prettier": "^2.8.4"
+        "prettier": "^2.8.6"
     },
     "homepage": "www.statox.fr",
     "keywords": [],
