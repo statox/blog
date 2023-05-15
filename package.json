@@ -11,7 +11,7 @@
         "@11ty/eleventy-plugin-syntaxhighlight": "^4.2.0",
         "@actions/core": "^1.10.0",
         "@actions/github": "^5.1.1",
-        "@octokit/rest": "^19.0.5",
+        "@octokit/rest": "^19.0.8",
         "@quasibit/eleventy-plugin-sitemap": "^2.2.0",
         "async": "^3.2.4",
         "eleventy-plugin-seo": "^0.5.2",
