@@ -17,7 +17,7 @@ There are several types of clashes (fastest to get the right solution, reverse e
 
 ![My ranking on May 25th 2021](./clash_of_code_rank.png)
 <center>
-<i>My ranking on 25/05/21: 397/252.815 Top 0.16%😎</i>
+<i>My ranking on 23/05/23: 297/563.270 Top 0.05%😎</i>
 </center>
 
 
