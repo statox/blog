@@ -67,3 +67,15 @@ or with a funcname:
 ```bash
 git log -L :<funcname>:<file>
 ```
+
+### Auto fix commits
+
+To fix an existing commit `aaaaaa`:
+
+```bash
+# Do changes
+git commit --fixup aaaaaa
+git rebase -i --autosquash master
+```
+
+`-i --autosquash` will open an interactive rebase but the fixup commits are already ready.
