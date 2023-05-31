@@ -1557,9 +1557,9 @@ If you are not familiar with these options see &lt;a href=&quot;https://neovim.i
 &lt;br /&gt;
 &lt;p&gt;I love to play on &lt;a href=&quot;https://www.codingame.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;codingame&lt;/a&gt; it&#39;s a great way to keep your algorithmic skills sharp while working on playful problems. One of my favorite game on this site is the &lt;a href=&quot;https://www.codingame.com/multiplayer/clashofcode&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Clash of Code&lt;/a&gt;: a short competition against up to 8 players lasting at most 15 minutes.&lt;/p&gt;
 &lt;p&gt;There are several types of clashes (fastest to get the right solution, reverse engineering and shortest code) and recently the shortest code became one of my favorite. Since I start to have a decent ranking I compiled some tricks I use in javascript to shorten my code. Some save several bytes and other only save a few but learning how to combine them and when to use them can lead a long way.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2021/05/javascript_golf_tips/clash_of_code_rank.png&quot; alt=&quot;My ranking on May 25th 2021&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2021/05/javascript_golf_tips/clash_of_code_rank.png&quot; alt=&quot;My ranking on May 31th 2021&quot; /&gt;&lt;/p&gt;
 &lt;center&gt;
-&lt;i&gt;My ranking on 23/05/23: 297/563.270 Top 0.05%😎&lt;/i&gt;
+&lt;i&gt;My ranking on 31/05/23: 134/566.443 Top 0.02%😎&lt;/i&gt;
 &lt;/center&gt;
 &lt;h3 id=&quot;type-conversions&quot; tabindex=&quot;-1&quot;&gt;Type conversions &lt;a class=&quot;header-anchor&quot; href=&quot;https://www.statox.fr/posts/2021/05/javascript_golf_tips/#type-conversions&quot;&gt;🔗&lt;/a&gt;&lt;/h3&gt;
 &lt;h4 id=&quot;decimal-string-to-number&quot; tabindex=&quot;-1&quot;&gt;Decimal string to Number &lt;a class=&quot;header-anchor&quot; href=&quot;https://www.statox.fr/posts/2021/05/javascript_golf_tips/#decimal-string-to-number&quot;&gt;🔗&lt;/a&gt;&lt;/h4&gt;
