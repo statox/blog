@@ -1,5 +1,27 @@
 [
     {
+        "demo_url": "https://statox.github.io/particles-life/reaction-diffusion",
+        "code_url": "https://github.com/statox/particles-life/tree/main/src/lib/ReactionDiffusion",
+        "article_url": "https://statox.github.io/particles-life/reaction-diffusion",
+        "image": "images/projects/gray-scott.gif",
+        "name": "Gray-Scott model",
+        "description": "An implementation of the Gray-Scott model for Reaction-diffusion systems implemented on the GPU with WebGL. This time I used the regl library to make my code easier to write and maintain. The page contains a writting explaining more in detail what these systems are and how I implemented this project."
+    },
+    {
+        "demo_url": "https://statox.github.io/particles-life/gameoflife",
+        "code_url": "https://github.com/statox/particles-life/tree/main/src/lib/GameOfLife",
+        "image": "images/projects/shader_game_of_life.gif",
+        "name": "Game of Life (WebGL)",
+        "description": "A game of life implementation running on the GPU thanks to WebGL. This one taught me how to use vanilla WebGL and was an introduction to GPGPU: The world is actually held by a 2d texture and is updated with a shader program. And another shader program is responsible for rendering the texture to the screen. This was the opportunity for me to discover that using WebGL is very clunky and that while it's a good learning experience it is a good idea to use a framework like regljs to simplify WebGL code."
+    },
+    {
+        "demo_url": "https://statox.github.io/particles-life/",
+        "code_url": "https://github.com/statox/particles-life/tree/main/src/lib/particles",
+        "image": "images/projects/particles_life.gif",
+        "name": "Particles Life",
+        "description": "My attempt at recreating the the original particle life application https://particle-life.com/. The performances with p5.js were too limited so I used web workers to update the particles and I reimplemented the graphical display from scratch using the HTML Canvas API. The results are coherent but still too slow to be really interesting. This project prompted me to explore more in depth shader computing in my next projects."
+    },
+    {
         "demo_url": "https://statox.github.io/tic-tac-wow/",
         "code_url": "https://github.com/statox/tic-tac-wow",
         "image": "images/projects/tic-tac-wow.gif",
