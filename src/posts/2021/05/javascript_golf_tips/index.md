@@ -15,9 +15,9 @@ I love to play on [codingame](https://www.codingame.com) it's a great way to kee
 
 There are several types of clashes (fastest to get the right solution, reverse engineering and shortest code) and recently the shortest code became one of my favorite. Since I start to have a decent ranking I compiled some tricks I use in javascript to shorten my code. Some save several bytes and other only save a few but learning how to combine them and when to use them can lead a long way.
 
-![My ranking on May 31th 2021](./clash_of_code_rank.png)
+![My ranking on June 16th 2023](./clash_of_code_rank.png)
 <center>
-<i>My ranking on 31/05/23: 134/566.443 Top 0.02%😎</i>
+<i>My ranking on 13/06/23: 78/571.284 Top 0.01%😎</i>
 </center>
 
 
