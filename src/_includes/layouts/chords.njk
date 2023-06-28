@@ -23,7 +23,7 @@ eleventyNavigation:
 
     <div>
         <h3>Latest additions</h3>
-        <ul>
+        <ul class="ul2col">
             {% for chord in latestChords %}
             <li>
                 {% set url=chord.url %}
@@ -46,7 +46,7 @@ eleventyNavigation:
         <button id="randomSongBtn" onclick="getRandomSong()">Get a random song</button>
         <button id='previousRandomSongBtn' onclick="getPreviousRandomSong()">&nbsp↶&nbsp</button>
         <br/>
-        <span id="randomSong"></span>
+        <ul id="randomSong"></ul>
     </div>
     <br/>
 
@@ -61,7 +61,7 @@ eleventyNavigation:
         {% for artist, chords in sortedChords %}
         <tr class="datarow" data-values="{{artist}};{% for chord in chords %}{{chord.title}};{{chord.tags}};{% endfor %}">
             <td class="artist">{{artist}}
-                <ul>
+                <ul class="ul2col"l>
                     {% for chord in chords %}
                     <li class="datarow" data-values="{{artist}};{{chord.title}};{{chord.tags}}">
                         {% set url=chord.url %}

@@ -62,7 +62,7 @@ tr {
 }
 
 @media screen and (min-width: 600px) {
-    ul {
+    .ul2col {
       columns: 2;
       -webkit-columns: 2;
       -moz-columns: 2;

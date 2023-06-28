@@ -30,12 +30,12 @@ function getRandomSong() {
         alreadySeen.clear();
     }
 
-    let randomSong;
-    while (!randomSong) {
+    let randomSong = [];
+    while (randomSong.length < 3) {
         const randomIndex = Math.floor(Math.random() * chords_data.length);
         const song = chords_data[randomIndex];
         if (!alreadySeen.has(song.url)) {
-            randomSong = song;
+            randomSong.push(song);
             alreadySeen.add(song.url);
             pastSelections.push(song);
         }
@@ -45,11 +45,14 @@ function getRandomSong() {
 }
 
 function getPreviousRandomSong() {
-    if (pastSelections.length <= 1) {
+    if (pastSelections.length <= 3) {
         return;
     }
-    const deleted = pastSelections.pop();
-    alreadySeen.delete(deleted.url);
+
+    for (let i = 1; i <= 3; i++) {
+        const deleted = pastSelections.pop();
+        alreadySeen.delete(deleted.url);
+    }
     updateSelection();
 }
 
@@ -58,27 +61,32 @@ function updateSelection() {
         return;
     }
 
-    const randomSong = pastSelections[pastSelections.length - 1];
-    const title = `${randomSong.artist} - ${randomSong.title} `;
-    const a = document.createElement('a');
-    const linkText = document.createTextNode(title);
-    a.appendChild(linkText);
-    a.title = title;
-    a.href = randomSong.url;
-    a.rel = 'noopener noreferrer';
-    a.target = 'blank';
-
-    const iconSpan = document.createElement('span');
-    if (randomSong.url.match(/\.doc/)) {
-        iconSpan.className = 'fas fa-xs fa-file-word';
-    } else if (randomSong.url.match(/\.pdf/)) {
-        iconSpan.className = 'fas fa-xs fa-file-pdf';
-    } else {
-        iconSpan.className = 'fas fa-xs fa-link';
-    }
-
     const randomSongPlace = document.getElementById('randomSong');
     Array.from(randomSongPlace.children).forEach(c => randomSongPlace.removeChild(c));
-    randomSongPlace.appendChild(a);
-    randomSongPlace.appendChild(iconSpan);
+
+    for (let i = 1; i <= 3; i++) {
+        const randomSong = pastSelections[pastSelections.length - i];
+        const title = `${randomSong.artist} - ${randomSong.title} `;
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        const linkText = document.createTextNode(title);
+        a.appendChild(linkText);
+        a.title = title;
+        a.href = randomSong.url;
+        a.rel = 'noopener noreferrer';
+        a.target = 'blank';
+
+        const iconSpan = document.createElement('span');
+        if (randomSong.url.match(/\.doc/)) {
+            iconSpan.className = 'fas fa-xs fa-file-word';
+        } else if (randomSong.url.match(/\.pdf/)) {
+            iconSpan.className = 'fas fa-xs fa-file-pdf';
+        } else {
+            iconSpan.className = 'fas fa-xs fa-link';
+        }
+        li.appendChild(a);
+        li.appendChild(iconSpan);
+
+        randomSongPlace.appendChild(li);
+    }
 }
