@@ -1561,6 +1561,8 @@ If you are not familiar with these options see &lt;a href=&quot;https://neovim.i
 &lt;center&gt;
 &lt;i&gt;My ranking on 13/06/23: 78/571.284 Top 0.01%😎&lt;/i&gt;
 &lt;/center&gt;
+&lt;h3 id=&quot;resources&quot; tabindex=&quot;-1&quot;&gt;Resources &lt;a class=&quot;header-anchor&quot; href=&quot;https://www.statox.fr/posts/2021/05/javascript_golf_tips/#resources&quot;&gt;🔗&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;A list of the various codingame problems with their stats: &lt;a href=&quot;https://chadok.info/codingame/puzzles_list.html&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;chadok.info&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&quot;type-conversions&quot; tabindex=&quot;-1&quot;&gt;Type conversions &lt;a class=&quot;header-anchor&quot; href=&quot;https://www.statox.fr/posts/2021/05/javascript_golf_tips/#type-conversions&quot;&gt;🔗&lt;/a&gt;&lt;/h3&gt;
 &lt;h4 id=&quot;decimal-string-to-number&quot; tabindex=&quot;-1&quot;&gt;Decimal string to Number &lt;a class=&quot;header-anchor&quot; href=&quot;https://www.statox.fr/posts/2021/05/javascript_golf_tips/#decimal-string-to-number&quot;&gt;🔗&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;When an input is expected to be a number examples usually use the following code:&lt;/p&gt;
