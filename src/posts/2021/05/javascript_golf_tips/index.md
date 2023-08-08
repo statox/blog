@@ -20,6 +20,9 @@ There are several types of clashes (fastest to get the right solution, reverse e
 <i>My ranking on 13/06/23: 78/571.284 Top 0.01%😎</i>
 </center>
 
+### Resources
+
+A list of the various codingame problems with their stats: [chadok.info](https://chadok.info/codingame/puzzles_list.html)
 
 
 ### Type conversions
