@@ -1,7 +1,7 @@
 ---
 layout: layouts/post.njk
 tags: ['post', 'codegolf', 'javascript', 'codingame']
-date: 2021-05-24
+date: 2023-09-07
 title: Javascript codegolf tips
 commentIssueId: 28
 ---
@@ -201,6 +201,14 @@ x<y?x:y
 
 Math.max(x,y)
 y<x?x:y
+```
+
+#### Dividing by a power of 2 with bitwise operators
+
+Shifting right divides and rounds the result by the power of two
+```javascript
+i/2|0 === i>>1
+i/4|0 === i>>2
 ```
 
 #### Get rid of leading zeros
