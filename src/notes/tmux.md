@@ -10,7 +10,7 @@ title: Tmux
 tmux list-sessions
 ```
 
-### Attache session
+### Attach session
 
 ```bash
 tmux a -t [session-id]
