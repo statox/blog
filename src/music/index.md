@@ -15,6 +15,10 @@ When I'm coding I listen to music and when I'm not coding I try to play some mus
 A list of song chords I took from the internet or made by myself and like to play.
 [Chords page](/chords/)
 
+### [Production](https://soundcloud.com/statox/tracks)
+
+I post some of the music I make [on soundcloud](https://soundcloud.com/statox/tracks).
+
 ### [Guitar](/guitar/)
 
 I've been playing the guitar for 10+ years now but I had never made the efforts to learn music theory properly until recently.
