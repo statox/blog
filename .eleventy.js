@@ -87,7 +87,7 @@ module.exports = function (eleventyConfig) {
     /*
      * Specify which types of templates should be transformed.
      */
-    eleventyConfig.setTemplateFormats(['html', 'liquid', 'njk', 'md', 'gif', 'js', 'png', 'txt']);
+    eleventyConfig.setTemplateFormats(['html', 'liquid', 'njk', 'md', 'gif', 'js', 'png', 'jpg', 'txt']);
 
     /*
      * Passthroughs: Copy ./dir/ to docs/dir/

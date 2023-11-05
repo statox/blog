@@ -1,0 +1,29 @@
+---
+layout: layouts/base.njk
+---
+
+<h2>Uploads</h2>
+
+ <div class="flex-container">
+    {%- for upload in uploads() -%}
+    <div>
+        <a href="{{ upload | url }}" rel="noopener noreferrer" target="_blank">
+            <img class="upload-img" src="{{ upload | url }}" />
+        </a>
+    </div>
+    {%- endfor -%}
+
+</div>
+
+<style>
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.upload-img {
+    height: 10vmin;
+    margin: 1vmin;
+}
+</style>
