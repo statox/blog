@@ -41,5 +41,5 @@
         "secrets:decrypt": "./tools/secrets/decrypt_secrets",
         "secrets:unmount": "./tools/secrets/unmount_secrets"
     },
-    "version": "1.0.0"
+    "version": "1.0"
 }
