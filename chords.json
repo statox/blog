@@ -1,5 +1,12 @@
 [
     {
+        "artist": "Test",
+        "title": "Broken link",
+        "url": "https://broken.link.com/failing",
+        "creationDate": 1701294079423,
+        "tags": []
+    },
+    {
         "artist": "Blondie",
         "title": "One way or another",
         "url": "https://tabs.ultimate-guitar.com/tab/blondie/one-way-or-another-chords-467678",
