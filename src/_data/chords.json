@@ -1,6 +1,13 @@
 [
     {
         "artist": "Test",
+        "title": "Broken link 2",
+        "url": "https://broken.link.com/failing2",
+        "creationDate": 1701294429884,
+        "tags": []
+    },
+    {
+        "artist": "Test",
         "title": "Broken link",
         "url": "https://broken.link.com/failing",
         "creationDate": 1701294079423,
