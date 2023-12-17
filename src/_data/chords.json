@@ -14,20 +14,6 @@
         "tags": []
     },
     {
-        "artist": "Test",
-        "title": "Broken link 2",
-        "url": "https://broken.link.com/failing2",
-        "creationDate": 1701294429884,
-        "tags": []
-    },
-    {
-        "artist": "Test",
-        "title": "Broken link",
-        "url": "https://broken.link.com/failing",
-        "creationDate": 1701294079423,
-        "tags": []
-    },
-    {
         "artist": "Blondie",
         "title": "One way or another",
         "url": "https://tabs.ultimate-guitar.com/tab/blondie/one-way-or-another-chords-467678",
