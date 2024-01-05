@@ -1052,7 +1052,7 @@ There are still a number of features I&#39;d like to implement even in this squa
     &lt;/ul&gt;
 &lt;/div&gt;
 
-&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue@2.7&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;https://cdn.jsdelivr.net/gh/CodingTrain/QuadTree/quadtree.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;https://www.statox.fr/posts/2020/09/boids/sketch.js&quot;&gt;&lt;/script&gt;
