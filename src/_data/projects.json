@@ -1,5 +1,33 @@
 [
     {
+        "demo_url": "https://apps.statox.fr/songbook",
+        "code_url": "https://github.com/statox/apps/tree/main/src/routes/songbook",
+        "image": "images/projects/songbook.gif",
+        "name": "Song Book",
+        "description": "Reimplementation of he songbook which used to be on this book with the use of a backend API to track the links I click and more ways to sort the links."
+    },
+    {
+        "demo_url": "https://apps.statox.fr/metronome",
+        "code_url": "https://github.com/statox/apps/tree/main/src/routes/metronome",
+        "image": "images/projects/metronome.gif",
+        "name": "Metronome",
+        "description": "A simple metronome with beats subdivisions, tap tempo and visualization of the beats"
+    },
+    {
+        "demo_url": "https://apps.statox.fr/taptempo",
+        "code_url": "https://github.com/statox/apps/tree/main/src/routes/taptempo",
+        "image": "images/projects/taptempo.gif",
+        "name": "Tap Tempo",
+        "description": "Find a tempo by tapping it on the screen or the keyboard"
+    },
+    {
+        "demo_url": "https://apps.statox.fr/scales",
+        "code_url": "https://github.com/statox/apps/tree/main/src/routes/scales",
+        "image": "images/projects/scales.gif",
+        "name": "Scales & Chords progressions",
+        "description": "A tool to visualize music scales and common chords progressions."
+    },
+    {
         "demo_url": "https://statox.github.io/particles-life/reaction-diffusion",
         "code_url": "https://github.com/statox/particles-life/tree/main/src/lib/ReactionDiffusion",
         "article_url": "https://statox.github.io/particles-life/reaction-diffusion",
@@ -68,7 +96,7 @@
         "description": "Nasa Wallpaper of the Day. This is a script I made which automatically download <a href='https://apod.nasa.gov/apod/' target='_blank' rel='noopener noreferrer'>Nasa's Astronomy Picture of the Day</a> and sets it as my desktop wallpaper and my zoom virtual background. <i>As if I wasn't already talking enough about space exploration to my teammates!</i>"
     },
     {
-        "demo_url": "https://statox.github.io/chord-wheel/",
+        "demo_url": "https://apps.statox.fr/chordwheel",
         "code_url": "https://github.com/statox/chord-wheel",
         "image": "images/projects/chordwheel.gif",
         "name": "The Chord Wheel",
