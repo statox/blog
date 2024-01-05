@@ -14,8 +14,10 @@ Some user manuals I have collected over time and might need in the future.
 - [Boss OC3](https://static.roland.com/assets/media/pdf/OC-3_e01_W.pdf) (_[mirror](/pdf/pedal_user_manuals/boss_oc3_user_manual.pdf)_)
 - [Boss RC3](https://static.roland.com/assets/media/pdf/RC-3_eng03_W.pdf) (_[mirror](/pdf/pedal_user_manuals/boss_rc3_user_manual.pdf)_)
 - [Boss RC10-R](https://static.roland.com/assets/media/pdf/RC-10R_eng03_W.pdf) (_[mirror](/pdf/pedal_user_manuals/boss_rc10r_user_manual.pdf)_)
+- [Donner MiniPedal Dark Mouse](https://cdn.shopify.com/s/files/1/1384/9629/files/EC1178_Dark_Mouse__Manual_V02_190809.pdf?v=1597289663) (_[mirror](/pdf/pedal_user_manuals/donner_dark_mouse_manual.pdf)_)
 - [Electro-Harmonix Canyon](https://www.ehx.com/wp-content/uploads/2021/01/canyon-manual.pdf) (_[mirror](/pdf/pedal_user_manuals/ehx_canyon_manual.pdf)_)
-- [StroboStomp HD tuner](https://www.petersontuners.com/media/pdf/StroboStomp_HD_Manual_v1.1_EN.pdf) (_[mirror](/pdf/pedal_user_manuals/StroboStomp_HD_Manual_v1.1_EN.pdf)_)
+- [EarthQuaker Devices Afterneath](https://static1.squarespace.com/static/57cebe2c03596e075fca5f24/t/656fc46102d950061c2b9d06/1701823585949/EQD-Afterneath-Manual-R2-WEB.pdf) (_[mirror](/pdf/pedal_user_manuals/eqd_afterneath_manual.pdf)_)
+- [Peterson StroboStomp HD tuner](https://www.petersontuners.com/media/pdf/StroboStomp_HD_Manual_v1.1_EN.pdf) (_[mirror](/pdf/pedal_user_manuals/StroboStomp_HD_Manual_v1.1_EN.pdf)_)
 - [ZVEX Instant Lofi Junky](https://static1.squarespace.com/static/555e332ce4b0577e788c3a16/t/559efae5e4b0da93269a9ffb/1436482277079/ZVEX+Instant+Lo-Fi+Junky+Instructions.pdf) (_[mirror](/pdf/pedal_user_manuals/zvex_instant_lofi_junky_user_manual.pdf)_)
 
 ### Others Manuals
