@@ -38,10 +38,6 @@ I'm using this page to gather resources that I've found useful while learning mu
 </details>
 
 <details>
-    <summary><a href="https://statox.github.io/chord-wheel/" rel="noopener noreferrer" target="_blank">The Chords Wheel</a></summary>
-</details>
-
-<details>
     <summary><a href="https://www.guitare-improvisation.com/improviser_le-blues.php" rel="noopener noreferrer" target="_blank">Blues scale in A</a></summary>
 
 Position I ![Pentatonique mineur en La - Position I](/images/guitar/gamme-blues-de-LA-position-1.png)
@@ -91,7 +87,7 @@ Guitar open string on the staff:
 
 #### Common chord progressions
 <details>
-    <summary><a href="/guitar/chord-progressions" rel="noopener noreferrer" target="_blank">Common chords progressions</a></summary>
+    <summary><a href="https://apps.statox.fr/scales" rel="noopener noreferrer" target="_blank">Common chords progressions</a></summary>
 </details>
 
 #### LoFi

@@ -6,7 +6,9 @@ title: Implementing a search bar on my static website
 commentIssueId: 31
 ---
 
-Recently I added to my website [a page]({{'/chords/' | url}}) listing the chords of the songs I like to play on the guitar. This is useful for me to centralize all these bookmarks I had scattered over the years but since the list has almost 500 entries I also wanted to implement a search bar which would allow me to search for a song by its artist and by its title.
+**EDIT January 2024** The page I mention in this post does not exists anymore. I moved this song book to [my apps website](https://apps.statox.fr/songbook) to benefit from a full JS environment as the static setup of this blog was limiting the features I wanted to develop. The method I describe here though is still valid for eleventy websites.
+
+Recently I added to my website [a page]({{'/chords' | url}}) listing the chords of the songs I like to play on the guitar. This is useful for me to centralize all these bookmarks I had scattered over the years but since the list has almost 500 entries I also wanted to implement a search bar which would allow me to search for a song by its artist and by its title.
 
 Implementing this search feature was a good opportunity to learn a thing or two about front end technologies and also to create yet another dirty feature, just for fun. I ended up with an implementation using less than 10 lines of javascript and bit of CSS. In this post I'll explain how I did it because I'm happy with the result.
 

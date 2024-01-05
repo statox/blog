@@ -1,12 +1,3 @@
-// Notes sorted alphabetically by their title
-function notesAlphabetical(collection) {
-    return collection.getFilteredByGlob('src/notes/*.md').sort((a, b) => {
-        if (a.data.title > b.data.title) return 1;
-        else if (a.data.title < b.data.title) return -1;
-        else return 0;
-    });
-}
-
 // Transform the popular posts list in src/_data/popularposts.json to a collection
 // using the actual posts collection.
 // I could have simply put the title, url and creation date in popularPosts.json
@@ -54,7 +45,6 @@ function education(collection) {
 }
 
 module.exports = {
-    notesAlphabetical,
     popularPosts,
     work,
     education

@@ -94,24 +94,6 @@ function pageTitle(title) {
     return title || 'The stuff I do';
 }
 
-function sortChords(collection) {
-    return collection.sort((a, b) => {
-        if (a.artist !== b.artist) {
-            return a.artist.toLowerCase() < b.artist.toLowerCase() ? -1 : 1;
-        }
-        return a.title < b.title ? -1 : 1;
-    });
-}
-
-function getLatestAddedChords(collection, limit) {
-    return collection
-        .filter(c => c.creationDate)
-        .sort((a, b) => {
-            return b.creationDate - a.creationDate;
-        })
-        .slice(0, limit);
-}
-
 function dateToFormat(date, format) {
     return DateTime.fromJSDate(date, {zone: 'utc'}).toFormat(String(format));
 }
@@ -122,7 +104,5 @@ module.exports = {
     noteTags,
     relatedPosts,
     pageTitle,
-    sortChords,
-    getLatestAddedChords,
     dateToFormat
 };

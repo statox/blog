@@ -10,10 +10,15 @@ CSSFile: 'css/pages/music.css'
 
 When I'm coding I listen to music and when I'm not coding I try to play some music. In these pages I try to keep useful or interesting resources I have gathered from my researches.
 
-### [Chords](/chords/)
+### Apps
 
-A list of song chords I took from the internet or made by myself and like to play.
-[Chords page](/chords/)
+A list of useful apps I created for my music playing:
+
+- [Song Book](https://apps.statox.fr/songbook) A list of song chords I took from the internet or made by myself and like to play
+- [Metronome](https://apps.statox.fr/metronome) A metrone which works just as I want
+- [Tap Tempo](https://apps.statox.fr/taptempo) A Tap Tempo app
+- [Chord wheel](https://apps.statox.fr/chordwheel) The online implementation of a book by [Jim Flesser](https://chordwheel.com/)
+- [Scales visualizer and chords progressions](https://apps.statox.fr/scales) A tool I made to learn scale degrees
 
 ### [Production](https://soundcloud.com/statox/tracks)
 
