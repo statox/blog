@@ -1,0 +1,40 @@
+
+<!--
+   - This is a template I created when I changed the URI of all the posts from
+   -  /posts/category/post-name
+   -  to
+   -  /posts/year/date/post-name
+   - to avoid breaking links I already posted online.
+   - 
+   - It reads the data in src/_data/redirections.json and for each item creates
+   - a page which redirect from the old URI to the new one
+   -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Redirecting to .</title>
+    <meta http-equiv="refresh" content="0; URL=https://apps.statox.fr/songbook">
+    <link rel="canonical" href="https://apps.statox.fr/songbook">
+</head>
+
+
+<body>
+    <h1>Redirection</h1>
+    <p>
+    I know <a href="https://www.w3.org/Provider/Style/URI" target="_blank" rel="noopener noreferrer">cool URIs don't change</a>.
+    </p>
+    <p>
+    But I started this site without thinking too much of URIs and here I am with a clunky system that I need to evolve.
+    In theory this page should redirect you to the new url.
+    </p>
+    <p>
+    If it doesn't try to go directly on <a href="." target="_blank" rel="noopener noreferrer">https://www.statox.fr.</a>
+    and if that is still not the right page please <a href="https://www.statox.fr/about/#social" target="_blank" rel="noopener noreferrer">drop me a message</a>.
+    </p>
+
+    <script data-goatcounter="https://statoxblog.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
