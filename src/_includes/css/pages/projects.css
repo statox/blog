@@ -1,12 +1,13 @@
-/*
- * Check this site which seems to show what I want to do
- * https://blog.fullstackdigital.com/how-to-create-a-flawless-responsive-post-grid-with-flexbox-e5c7cc9d28e
- */
-
 .projects-board {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
+
+    /* Overflow from the body to be as large as the page */
+    position: absolute;
+    left: 0;
+    right: 0;
+    gap: 10px 10px;
 }
 
 .project-card {
@@ -18,9 +19,10 @@
     padding-top: 10px;
     margin: 10px;
 
-    /* By default two cards by row */
-    /* Need a bit less of 50% because of the margin (I think) */
-    width: 47%;
+    width: 400px;
+
+    display: flex;
+    flex-direction: column;
 }
 
 /* On smaller screens 1 card by row */
@@ -31,42 +33,48 @@
 }
 
 /* On mouse-over, add a deeper shadow */
-.project-card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5);
-    padding-top: 0px;
-}
-/* Trying to use active because hover doesn't work on mobile */
+/* Also using `active` because hover doesn't work on mobile */
+.project-card:hover,
 .project-card:active {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5);
     padding-top: 0px;
+    background: var(--nc-bg-2);
 }
 
 /* On mouse-over, mark the name as clickable */
-.project-card:hover div h3 {
-    color: var(--nc-lk-2);
-}
+.project-card:hover div h3 ,
 .project-card:active div h3 {
     color: var(--nc-lk-2);
 }
 
 .project-img {
-    width: 80%;
-    height: 250px;
+    width: 90%;
+    height: 350px;
     transition: 0.3s;
     border-radius: 10px 10px 10px 10px;
     margin-bottom: auto;
 }
 
-.project-card:hover .project-img {
-    width: 100%
-}
+.project-card:hover .project-img,
 .project-card:active .project-img {
-    width: 100%
+    width: 100%;
+    height: 360px;
 }
 
 .text-overlay {
     padding: 2px 16px;
-    border-radius: 0 0 10px 10px;
+
+    /* Make height 100% so that it spread until the bottom of the card
+     * then use display flex and flex-grow: 50 on project-description so that
+     * The code/demo/article links are aligned at the bottom of the cards
+     */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-description {
+    flex-grow: 50;
 }
 
 h3.project-title {
