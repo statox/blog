@@ -16,5 +16,11 @@
         "localSlug": "GitFixUm",
         "originalUrl": "https://sethrobertson.github.io/GitFixUm/fixup.html",
         "description": "A great decision tree for when you messed up your git repo"
+    },
+    {
+        "title": "Technical Interviewers Break Down the 7 Biggest Mistakes You Make",
+        "localSlug": "technical-interviewers-break-down-the-7-biggest-mistakes-you-make",
+        "originalUrl": "https://www.dice.com/career-advice/technical-interviewers-break-down-the-7-biggest-mistakes-you-make",
+        "description": "A Dice article about technical interviews where the author interviewed me and quoted me a few times"
     }
 ]
