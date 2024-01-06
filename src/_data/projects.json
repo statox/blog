@@ -73,7 +73,7 @@
     {
         "demo_url": "https://assisteer.space",
         "code_url": "https://github.com/statox/assisteer",
-        "image": "images/projects/assisteer.png",
+        "image": "images/projects/assisteer.gif",
         "name": "Assisteer",
         "description": "By far one of my most complete front-end projects. This is an assistant for the game Astroneer allowing the user to plan their production with graph, power and storage analysis and resource trading. The app also includes an encyclopedia of the game items. I didn't finish it completely because the game started bugging on me and that severly impacted my motivation to work on the tool but it was a huge learning experience, especially regarding the framework Svelte."
     },
@@ -197,14 +197,14 @@
     {
         "demo_url": "https://statox.github.io/bezier-experiment/",
         "code_url": "https://github.com/statox/bezier-experiment",
-        "image": "images/projects/bezier_experiment.png",
+        "image": "images/projects/bezier_experiment.gif",
         "name": "Bezier experiment",
         "description": "Generate a smooth path between a set of points using Bezier curves. This is an exploration before digging into a racetrack generation project."
     },
     {
         "demo_url": "https://statox.github.io/genetic-cars/",
         "code_url": "https://github.com/statox/genetic-cars",
-        "image": "images/projects/genetic_cars.png",
+        "image": "images/projects/genetic_cars.gif",
         "name": "Genetic cars",
         "description": "Another genetic algorithm experiment, this time trying to control some cars on a racetrack. It would need a better track generation to have more situations to learn from, this is what inspired me the \"Bezier experiement\" project."
     },
@@ -219,7 +219,7 @@
         "demo_url": "https://statox.github.io/reversi/",
         "code_url": "https://github.com/statox/reversi",
         "article_url": "https://www.statox.fr/posts/2021/01/reversi/",
-        "image": "images/projects/reversi.png",
+        "image": "images/projects/reversi.gif",
         "name": "Reversi",
         "description": "My implementation of the Reversi game with an AI opponent using the min max algorithm."
     },
@@ -227,7 +227,7 @@
         "demo_url": "https://statox.github.io/triomaster/",
         "code_url": "https://github.com/statox/triomaster",
         "article_url": "https://www.statox.fr/posts/2021/01/triomino/",
-        "image": "images/projects/triomaster.png",
+        "image": "images/projects/triomaster.gif",
         "name": "Triomaster",
         "description": "My implementation of the triomono game with a not very efficient AI opponent."
     },
@@ -257,14 +257,14 @@
         "demo_url": "https://statox.github.io/ants-colony/",
         "code_url": "https://github.com/statox/ants-colony",
         "article_url": "https://www.statox.fr/posts/2020/11/ants/",
-        "image": "images/projects/ants_colony.png",
+        "image": "images/projects/ants_colony.gif",
         "name": "Ants colony",
         "description": "My first attempt at simulating an Ant colony. They go out of the anthill, look for food and use pheromones to get back home and form efficient paths."
     },
     {
         "demo_url": "https://www.statox.fr/posts/2020/09/boids/",
         "code_url": "https://github.com/statox/boids",
-        "image": "images/projects/boids.png",
+        "image": "images/projects/boids.gif",
         "name": "Boids",
         "description": "Simulating a flock of virtual birds to experiment with emerging behaviors."
     },
@@ -272,7 +272,7 @@
         "demo_url": "https://asteroides.statox.fr/",
         "code_url": "https://github.com/statox/asteroides",
         "article_url": "https://www.statox.fr/posts/2020/10/asteroids/",
-        "image": "images/projects/asteroids.png",
+        "image": "images/projects/asteroids.gif",
         "name": "Asteroids 🔊",
         "description": "My implementation of the famous video game from the 80's Asteroids with my own sound effects as a bonus."
     },
@@ -280,7 +280,7 @@
         "demo_url": "https://statox.github.io/p5-maze/",
         "code_url": "https://github.com/statox/p5-maze",
         "article_url": "https://www.statox.fr/posts/2020/03/p5-maze/",
-        "image": "images/projects/mazes.png",
+        "image": "images/projects/mazes.gif",
         "name": "Maze",
         "description": "Using several algorithms to generate mazes and then solve them with different methods."
     },
@@ -294,7 +294,7 @@
         "demo_url": "https://statox.github.io/p5-circles/",
         "code_url": "https://github.com/statox/p5-circles",
         "article_url": "https://www.statox.fr/posts/2020/06/p5-circle-packing/",
-        "image": "images/projects/kitten_circles.png",
+        "image": "images/projects/kitten_circles.gif",
         "name": "Kitten circles",
         "description": "Using a circle packing algorithm to recreate pictures of kitten."
     },
@@ -302,14 +302,14 @@
         "demo_url": "https://statox.github.io/p5-cellular-automaton/",
         "code_url": "https://github.com/statox/p5-cellular-automaton",
         "article_url": "https://www.statox.fr/posts/2020/05/p5-cellular-automaton/",
-        "image": "images/projects/cellular_automaton.png",
+        "image": "images/projects/cellular_automaton.gif",
         "name": "Cellular automaton",
         "description": "A cellular automaton framework in the browser: Test different neighboring rules and survival conditions to recreate the Game of Life or discover new automaton."
     },
     {
         "demo_url": "https://www.statox.fr/posts/2020/09/p5-jump/",
         "code_url": "https://codepen.io/statox/pen/yLOoraP",
-        "image": "images/projects/jump.png",
+        "image": "images/projects/jump.gif",
         "name": "Jump",
         "description": "A very simple game I used to experiment with bouncing and jumping behaviors"
     },
@@ -317,7 +317,7 @@
         "demo_url": "https://statox.github.io/p5-genetics/",
         "code_url": "https://github.com/statox/p5-genetics",
         "article_url": "https://www.statox.fr/posts/2020/01/p5-genetic-algorithms/",
-        "image": "images/projects/genetic_robots.png",
+        "image": "images/projects/genetic_robots.gif",
         "name": "Genetic robots",
         "description": "My first attempt at using genetic algorithms. Trying to teach a flock of Roombas to reach a target."
     },
@@ -325,7 +325,7 @@
         "demo_url": "https://statox.github.io/p5-pool/",
         "code_url": "https://github.com/statox/p5-pool",
         "article_url": "https://www.statox.fr/posts/2019/01/p5-pool/",
-        "image": "images/projects/pool.png",
+        "image": "images/projects/pool.gif",
         "name": "Pool",
         "description": "A pool with a homemade physics engine."
     },
