@@ -28,6 +28,20 @@
         "description": "A tool to visualize music scales and common chords progressions."
     },
     {
+        "demo_url": "https://statox.github.io/p5-golf",
+        "code_url": "https://github.com/statox/p5-golf",
+        "image": "images/projects/p5-golf.gif",
+        "name": "P5 Golf",
+        "description": "My attempt at creating a physics engine in Javascript. There are some working bits and a few demos. The original goal was to create a 2D golf game, that was not completed."
+    },
+    {
+        "demo_url": "https://statox.github.io/WFC/",
+        "code_url": "https://github.com/statox/WFC",
+        "image": "images/projects/wfc.gif",
+        "name": "WFC",
+        "description": "A quick experimentation around Wave Function Collapse. A few tiles are created with possible connexions and a WFC algorithm is implemented to generate random but similar images."
+    },
+    {
         "demo_url": "https://statox.github.io/particles-life/reaction-diffusion",
         "code_url": "https://github.com/statox/particles-life/tree/main/src/lib/ReactionDiffusion",
         "article_url": "https://statox.github.io/particles-life/reaction-diffusion",
@@ -123,7 +137,6 @@
         "name": "Points & Lines",
         "description": "This is a quick recreation of an animation I saw on <a href='https://dalinhuang99.github.io' target='_blank' rel='noopener noreferrer'>this blog</a>. Nothing fancy just a bunch of moving points connected to their closest neighbors."
     },
-
     {
         "demo_url": "https://statox.github.io/procedural-race/",
         "code_url": "https://github.com/statox/procedural-race/",
@@ -327,6 +340,12 @@
         "image": "images/projects/vim.png",
         "name": "GOD.vim",
         "description": "The most useful plugin I've written for Vim. Easily quote the doc to post it on stackexchange.com or any markdown file."
+    },
+    {
+        "code_url": "https://github.com/statox/vim-compare-lines",
+        "image": "images/projects/vim-compare-lines.gif",
+        "name": "vim-compare-lines",
+        "description": "A Vim plugin to easily diff between two lines."
     },
     {
         "code_url": "https://github.com/statox/markov-reddit",
