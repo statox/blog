@@ -7,7 +7,7 @@ eleventyNavigation:
   order: 4
 ---
 
-### Stuff I use
+## Stuff I use
 
 At one point I got limited by the fact that this blog is statically generated and was getting in the way of the helper apps I was creating for myself.
 
