@@ -40,7 +40,7 @@ Signal chain:
 | EarthQuaker Devices | Afterneath | A crazy reverb pedal. It's quite hard to describe but creates crazy ambient sounds which reverberate to the infinity. The user manual is worth a read, it approaches the pedal as a role playing game | [EQD](https://static1.squarespace.com/static/57cebe2c03596e075fca5f24/t/656fc46102d950061c2b9d06/1701823585949/EQD-Afterneath-Manual-R2-WEB.pdf) (_[mirror](/pdf/pedal_user_manuals/eqd_afterneath_manual.pdf)_)
 | ToneCity | Tiny Spring | A discreet reverb. Always on to add some space to the sound | [device.report](https://device.report/m/2a2f8a0f7cf833579a89c3817b61a29cd74144e0d5414496ffd212cabed59c0c_optim.pdf) (_[mirror](/pdf/pedal_user_manuals/tonecity_tinyspring_manual.jpg)_)
 | Boss | RC-3 | Loop station with "start record on play", tap tempo and a drum machine | [Roland](https://static.roland.com/assets/media/pdf/RC-3_eng03_W.pdf) (_[mirror](/pdf/pedal_user_manuals/boss_rc3_user_manual.pdf)_)
-| Boss | RC-10r | Loop station with two parts loop and larger drums than the RC-3 | [Rolan](https://static.roland.com/assets/media/pdf/RC-10R_eng03_W.pdf) (_[mirror](/pdf/pedal_user_manuals/boss_rc10r_user_manual.pdf)_)
+| Boss | RC-10r | Loop station with two parts loop and larger drums than the RC-3 | [Owner's manual](https://static.roland.com/assets/media/pdf/RC-10R_eng03_W.pdf) (_[mirror](/pdf/pedal_user_manuals/boss_rc10r_user_manual.pdf)_) / [Parameter guide](https://static.roland.com/assets/media/pdf/RC-10R_parameter_eng01_W.pdf) (_[mirror](/pdf/pedal_user_manuals/boss_rc10r_parameter_guide.pdf)_)
 
 ![My pedalboard in Feb. 2022](/images/pedals/pedalboard_02_2022.jpg)
 <center>
