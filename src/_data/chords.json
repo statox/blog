@@ -35,20 +35,6 @@
         "tags": ["happy","loud"]
     },
     {
-        "artist": "Dire Straits",
-        "title": "Where do you think you’re going? (Tabs)",
-        "url": "https://tabs.ultimate-guitar.com/tab/dire-straits/where-do-you-think-youre-going-tabs-681021",
-        "creationDate": 1703853213421,
-        "tags": ["slow","andalusian_cadence"]
-    },
-    {
-        "artist": "Dire Straits",
-        "title": "Where do you think you’re going?",
-        "url": "https://tabs.ultimate-guitar.com/tab/dire-straits/where-do-you-think-youre-going-chords-827282",
-        "creationDate": 1703852567201,
-        "tags": ["slow","andalusian_cadence"]
-    },
-    {
         "artist": "Leonard Cohen",
         "title": "Suzanne",
         "url": "https://tabs.ultimate-guitar.com/tab/leonard-cohen/suzanne-chords-29753",
@@ -126,13 +112,6 @@
         "tags": []
     },
     {
-        "artist": "Georges Moustaki",
-        "title": "Ma liberté",
-        "url": "https://tabs.ultimate-guitar.com/tab/1171040",
-        "creationDate": 1689871510486,
-        "tags": []
-    },
-    {
         "artist": "Flogging Molly",
         "title": "Drunken lullabies",
         "url": "https://tabs.ultimate-guitar.com/tab/flogging-molly/drunken-lullabies-chords-484194",
@@ -203,13 +182,6 @@
         "tags": []
     },
     {
-        "artist": "The Pogues",
-        "title": "Dirty old town",
-        "url": "https://tabs.ultimate-guitar.com/tab/the-pogues/dirty-old-town-chords-814642",
-        "creationDate": 1679420016905,
-        "tags": []
-    },
-    {
         "artist": "Traditional",
         "title": "Wiskey in the jar",
         "url": "https://tabs.ultimate-guitar.com/tab/the-dubliners/whiskey-in-the-jar-chords-764863",
@@ -221,20 +193,6 @@
         "title": "Molly Malone",
         "url": "https://tabs.ultimate-guitar.com/tab/misc-traditional/molly-malone-chords-816941",
         "creationDate": 1679418733522,
-        "tags": []
-    },
-    {
-        "artist": "The Grateful Dead",
-        "title": "Ripple",
-        "url": "https://www.youtube.com/watch?v=HmXcOCWJ2n8",
-        "creationDate": 1678729230278,
-        "tags": []
-    },
-    {
-        "artist": "The Grateful Dead",
-        "title": "Ripple",
-        "url": "https://tabs.ultimate-guitar.com/tab/grateful-dead/ripple-chords-462863",
-        "creationDate": 1678729191472,
         "tags": []
     },
     {
@@ -291,13 +249,6 @@
         "title": "All about that bass",
         "url": "https://tabs.ultimate-guitar.com/tab/meghan-trainor/all-about-that-bass-chords-1494750",
         "creationDate": 1664114494802,
-        "tags": []
-    },
-    {
-        "artist": "The Pixies",
-        "title": "Where is my mind",
-        "url": "https://tabs.ultimate-guitar.com/tab/pixies/where-is-my-mind-chords-89446",
-        "creationDate": 1663238795514,
         "tags": []
     },
     {
@@ -364,13 +315,6 @@
         "tags": ["group","english"]
     },
     {
-        "artist": "The Beatles",
-        "title": "Hey Jude",
-        "url": "https://tabs.ultimate-guitar.com/tab/the-beatles/hey-jude-chords-1061739",
-        "creationDate": 1658340922955,
-        "tags": ["english"]
-    },
-    {
         "artist": "Aretha Franklin",
         "title": "Say a little prayer",
         "url": "https://tabs.ultimate-guitar.com/tab/aretha-franklin/i-say-a-little-prayer-chords-276769",
@@ -431,13 +375,6 @@
         "title": "All Star (Shrek theme)",
         "url": "https://tabs.ultimate-guitar.com/tab/smash-mouth/all-star-chords-428803",
         "creationDate": 1657278498065,
-        "tags": []
-    },
-    {
-        "artist": "John Lennon",
-        "title": "Imagine",
-        "url": "https://tabs.ultimate-guitar.com/tab/john-lennon/imagine-chords-9306",
-        "creationDate": 1657009661636,
         "tags": []
     },
     {
@@ -700,7 +637,7 @@
         "tags": []
     },
     {
-        "artist": "Les wampas",
+        "artist": "Les Wampas",
         "title": "Christine",
         "url": "https://www.francetabs.com/tablatures-partitions/Les+Wampas/christine-tab-guitare3005.html",
         "creationDate": 1637280000000,
@@ -763,13 +700,6 @@
         "tags": []
     },
     {
-        "artist": "Rose",
-        "title": "La liste",
-        "url": "https://tabs.ultimate-guitar.com/tab/rose-france/la-liste-chords-2548263",
-        "creationDate": 0,
-        "tags": []
-    },
-    {
         "artist": "Dolly Parton",
         "title": "Jolene",
         "url": "https://tabs.ultimate-guitar.com/tab/dolly-parton/jolene-chords-183019",
@@ -805,13 +735,6 @@
         "tags": []
     },
     {
-        "artist": "Joan Baez",
-        "title": "Here's to you",
-        "url": "https://tabs.ultimate-guitar.com/tab/joan-baez/heres-to-you-chords-732248",
-        "creationDate": 0,
-        "tags": []
-    },
-    {
         "artist": "The Beatles",
         "title": "Octopus's garden",
         "url": "https://tabs.ultimate-guitar.com/tab/the-beatles/octopuss-garden-chords-17333",
@@ -833,13 +756,6 @@
         "tags": []
     },
     {
-        "artist": "Moriarty",
-        "title": "Jimmy",
-        "url": "https://tabs.ultimate-guitar.com/tab/moriarty/jimmy-chords-790948",
-        "creationDate": 0,
-        "tags": []
-    },
-    {
         "artist": "The Beatles",
         "title": "Norwegian wood",
         "url": "https://www.e-chords.com/chords/the-beatles/norwegian-wood",
@@ -850,20 +766,6 @@
         "artist": "The Beatles",
         "title": "In my life",
         "url": "https://tabs.ultimate-guitar.com/tab/the-beatles/in-my-life-chords-531847",
-        "creationDate": 0,
-        "tags": []
-    },
-    {
-        "artist": "T\u00e9l\u00e9phone",
-        "title": "Cendrillon",
-        "url": "https://tabs.ultimate-guitar.com/tab/1540387",
-        "creationDate": 0,
-        "tags": []
-    },
-    {
-        "artist": "The Eagles",
-        "title": "Hotel California",
-        "url": "https://tabs.ultimate-guitar.com/tab/eagles/hotel-california-chords-46190",
         "creationDate": 0,
         "tags": []
     },
@@ -987,13 +889,6 @@
         "tags": []
     },
     {
-        "artist": "Tracy Chapman",
-        "title": "Talking about a revolution",
-        "url": "https://tabs.ultimate-guitar.com/tab/tracy-chapman/talkin-bout-a-revolution-chords-876284",
-        "creationDate": 0,
-        "tags": []
-    },
-    {
         "artist": "Inner circle",
         "title": "Sweat",
         "url": "https://tabs.ultimate-guitar.com/tab/inner-circle/sweat-chords-944294",
@@ -1085,22 +980,8 @@
         "tags": []
     },
     {
-        "artist": "The Doors",
-        "title": "Riders on the storm",
-        "url": "https://tabs.ultimate-guitar.com/tab/the-doors/riders-on-the-storm-chords-1051663",
-        "creationDate": 0,
-        "tags": []
-    },
-    {
-        "artist": "The Doors",
-        "title": "Riders on the storm (bass tabs)",
-        "url": "https://www.songsterr.com/a/wsa/doors-riders-on-the-storm-bass-tab-s23399",
-        "creationDate": 0,
-        "tags": []
-    },
-    {
         "artist": "Serge Gainsbourg",
-        "title": "Poup\u00e9e de cire, poup\u00e9e de son",
+        "title": "Poupée de cire, poupée de son",
         "url": "https://tabs.ultimate-guitar.com/tab/748906",
         "creationDate": 0,
         "tags": []
@@ -1114,7 +995,7 @@
     },
     {
         "artist": "Patrick Bruel",
-        "title": "Au caf\u00e9 des d\u00e9lices",
+        "title": "Au café des délices",
         "url": "https://tabs.ultimate-guitar.com/tab/1137629",
         "creationDate": 0,
         "tags": []
@@ -1128,7 +1009,7 @@
     },
     {
         "artist": "Annie Cordy",
-        "title": "Cigarettes, Whisy et p'tites p\u00e9p\u00e9s",
+        "title": "Cigarettes, Whisy et p'tites pépés",
         "url": "http://tontonremy.com/ukulele/partoches/world/page101/page352/page82/page82.html",
         "creationDate": 0,
         "tags": []
@@ -1218,13 +1099,6 @@
         "tags": []
     },
     {
-        "artist": "M et Vanessa Paradis",
-        "title": "La Seine",
-        "url": "https://www.e-chords.com/chords/matthieu-chedid/la-seine",
-        "creationDate": 0,
-        "tags": []
-    },
-    {
         "artist": "Joe Dassin",
         "title": "La fleur aux dents",
         "url": "https://www.e-chords.com/chords/joe-dassin/la-fleur-aux-dents",
@@ -1242,13 +1116,6 @@
         "artist": "Joe Dassin",
         "title": "Les petits pains au chocolat",
         "url": "https://tabs.ultimate-guitar.com/tab/joe-dassin/le-petit-pain-au-chocolat-chords-1727324",
-        "creationDate": 0,
-        "tags": []
-    },
-    {
-        "artist": "Joe Dassin",
-        "title": "Les Champs-\u00c9lys\u00e9es",
-        "url": "https://tabs.ultimate-guitar.com/tab/879366",
         "creationDate": 0,
         "tags": []
     },
@@ -1316,37 +1183,9 @@
         "tags": []
     },
     {
-        "artist": "Charles Aznavour",
-        "title": "Emmenez-moi",
-        "url": "https://tabs.ultimate-guitar.com/tab/charles-aznavour/emmenez-moi-chords-1766656",
-        "creationDate": 0,
-        "tags": []
-    },
-    {
-        "artist": "Charles Aznavour",
-        "title": "Mes emmerdes",
-        "url": "https://tabs.ultimate-guitar.com/tab/charles-aznavour/mes-emmerdes-chords-1197270",
-        "creationDate": 0,
-        "tags": []
-    },
-    {
         "artist": "David Bowie",
         "title": "Space Oddity",
         "url": "https://tabs.ultimate-guitar.com/tab/david-bowie/space-oddity-chords-105869",
-        "creationDate": 0,
-        "tags": []
-    },
-    {
-        "artist": "The band",
-        "title": "The weight",
-        "url": "https://tabs.ultimate-guitar.com/tab/the-band/the-weight-tabs-151721",
-        "creationDate": 0,
-        "tags": []
-    },
-    {
-        "artist": "The band",
-        "title": "The weight",
-        "url": "https://tabs.ultimate-guitar.com/tab/the-band/the-weight-chords-61592",
         "creationDate": 0,
         "tags": []
     },
@@ -1401,13 +1240,6 @@
     },
     {
         "artist": "The Beatles",
-        "title": "Lady Madonna",
-        "url": "https://tabs.ultimate-guitar.com/tab/the-beatles/lady-madonna-chords-727372",
-        "creationDate": 0,
-        "tags": []
-    },
-    {
-        "artist": "The Beatles",
         "title": "Here comes the sun",
         "url": "https://tabs.ultimate-guitar.com/tab/the-beatles/here-comes-the-sun-chords-1738813",
         "creationDate": 0,
@@ -1424,13 +1256,6 @@
         "artist": "T-rex",
         "title": "Cosmic dancer",
         "url": "https://tabs.ultimate-guitar.com/tab/t-rex/cosmic-dancer-chords-1469307",
-        "creationDate": 0,
-        "tags": []
-    },
-    {
-        "artist": "The kinks",
-        "title": "A well respected man",
-        "url": "https://tabs.ultimate-guitar.com/tab/the-kinks/a-well-respected-man-chords-10199",
         "creationDate": 0,
         "tags": []
     },
@@ -1487,13 +1312,6 @@
         "artist": "Eddy Mitchell",
         "title": "Toujours un coin qui me rappelle",
         "url": "https://www.chanson-et-guitare.com/tablatures/eddy-mitchell/toujours-un-coin-qui-me-rappelle.php?tab=19",
-        "creationDate": 0,
-        "tags": []
-    },
-    {
-        "artist": "Renaud",
-        "title": "La ballade nord irlandaise",
-        "url": "https://tabs.ultimate-guitar.com/tab/renaud/la-ballade-nord-irlandaise-chords-3233321",
         "creationDate": 0,
         "tags": []
     },
@@ -1596,13 +1414,6 @@
         "tags": []
     },
     {
-        "artist": "Oasis",
-        "title": "Wonderwall",
-        "url": "https://tabs.ultimate-guitar.com/tab/oasis/wonderwall-chords-27596",
-        "creationDate": 0,
-        "tags": []
-    },
-    {
         "artist": "Pink Floyd",
         "title": "Wish you were here",
         "url": "https://tabs.ultimate-guitar.com/tab/pink-floyd/wish-you-were-here-chords-44555",
@@ -1620,13 +1431,6 @@
         "artist": "Lynyrd Skynyrd",
         "title": "Sweet home Alabama",
         "url": "https://tabs.ultimate-guitar.com/tab/lynyrd-skynyrd/sweet-home-alabama-chords-849467",
-        "creationDate": 0,
-        "tags": []
-    },
-    {
-        "artist": "Izmael Kamakawiwo'ole",
-        "title": "Over the rainbow",
-        "url": "https://tabs.ultimate-guitar.com/tab/israel-kamakawiwoole/over-the-rainbow-chords-2135261",
         "creationDate": 0,
         "tags": []
     },
@@ -1725,13 +1529,6 @@
         "artist": "Dire Straits",
         "title": "Walk of life",
         "url": "https://tabs.ultimate-guitar.com/tab/dire-straits/walk-of-life-chords-1055528",
-        "creationDate": 0,
-        "tags": []
-    },
-    {
-        "artist": "The Cure",
-        "title": "Boys don't cry",
-        "url": "https://tabs.ultimate-guitar.com/tab/the-cure/boys-dont-cry-chords-956417",
         "creationDate": 0,
         "tags": []
     },
@@ -1960,13 +1757,6 @@
         "tags": []
     },
     {
-        "artist": "Jimmy Cliff",
-        "title": "I can see clearly now",
-        "url": "https://tabs.ultimate-guitar.com/tab/johnny-nash/i-can-see-clearly-now-chords-77897",
-        "creationDate": 0,
-        "tags": []
-    },
-    {
         "artist": "Serge Gainsbourg",
         "title": "La Gadoue",
         "url": "https://www.boiteachansons.net/partitions/jane-birkin/la-gadoue",
@@ -2072,13 +1862,6 @@
         "tags": []
     },
     {
-        "artist": "Tryo",
-        "title": "L'hymne de nos campagnes",
-        "url": "https://tabs.ultimate-guitar.com/tab/tryo/lhymne-de-nos-campagnes-chords-908718",
-        "creationDate": 0,
-        "tags": []
-    },
-    {
         "artist": "The Paragons",
         "title": "Riding high",
         "url": "https://tabs.ultimate-guitar.com/tab/the-paragons/riding-high-chords-1725025",
@@ -2103,13 +1886,6 @@
         "artist": "Jimmy Cliff",
         "title": "Many rivers to cross",
         "url": "https://tabs.ultimate-guitar.com/tab/jimmy-cliff/many-rivers-to-cross-chords-64797",
-        "creationDate": 0,
-        "tags": []
-    },
-    {
-        "artist": "Jimmy Cliff",
-        "title": "I can see clearly now",
-        "url": "https://tabs.ultimate-guitar.com/tab/jimmy-cliff/i-can-see-clearly-now-chords-1178668",
         "creationDate": 0,
         "tags": []
     },
@@ -2145,13 +1921,6 @@
         "artist": "Stupeflip",
         "title": "Je fume pu d'shit",
         "url": "https://tabs.ultimate-guitar.com/tab/stupeflip/je-fume-pu-d-shit-chords-3257888",
-        "creationDate": 0,
-        "tags": []
-    },
-    {
-        "artist": "The Beatles",
-        "title": "All my loving",
-        "url": "https://tabs.ultimate-guitar.com/tab/the-beatles/all-my-loving-chords-453882",
         "creationDate": 0,
         "tags": []
     },
@@ -2325,7 +2094,7 @@
     },
     {
         "artist": "Traditional",
-        "title": "Nicaragua Nicarag\u00fcita",
+        "title": "Nicaragua Nicaragüita",
         "url": "https://tabs.ultimate-guitar.com/tab/1656204",
         "creationDate": 0,
         "tags": []
@@ -2436,14 +2205,14 @@
         "tags": []
     },
     {
-        "artist": "Ana\u00efs",
+        "artist": "Anaïs",
         "title": "Malheureux",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/Ana\u00efs-Malheureux.doc",
         "creationDate": 0,
         "tags": []
     },
     {
-        "artist": "Ana\u00efs",
+        "artist": "Anaïs",
         "title": "Mon coeur, mon amour",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/Ana\u00efs-Moncoeur,monamour.doc",
         "creationDate": 0,
@@ -2457,63 +2226,63 @@
         "tags": []
     },
     {
-        "artist": "As de tr\u00e8fle",
+        "artist": "As de trèfle",
         "title": "A l'oreille de ta femme",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/Asdetrefle-Aloreilledetafemme.doc",
         "creationDate": 0,
         "tags": []
     },
     {
-        "artist": "As de tr\u00e8fle",
+        "artist": "As de trèfle",
         "title": "Aujourd'hui c'est dimanche",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/Asdetrfle-Aujourdhuicestdimanche.docx",
         "creationDate": 0,
         "tags": []
     },
     {
-        "artist": "As de tr\u00e8fle",
+        "artist": "As de trèfle",
         "title": "Chanson d'amur",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/Asdetrfle-chansondamur.docx",
         "creationDate": 0,
         "tags": []
     },
     {
-        "artist": "As de tr\u00e8fle",
+        "artist": "As de trèfle",
         "title": "Haut les mains",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/Asdetrfle-Hautlesmains.doc",
         "creationDate": 0,
         "tags": []
     },
     {
-        "artist": "As de tr\u00e8fle",
+        "artist": "As de trèfle",
         "title": "Haut les mains",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/Asdetrfle-Hautlesmains.docx",
         "creationDate": 0,
         "tags": []
     },
     {
-        "artist": "As de tr\u00e8fle",
+        "artist": "As de trèfle",
         "title": "Jessica",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/Asdetrfle-Jessica.doc",
         "creationDate": 0,
         "tags": []
     },
     {
-        "artist": "As de tr\u00e8fle",
+        "artist": "As de trèfle",
         "title": "Les poissons",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/Asdetrfle-lespoissons.doc",
         "creationDate": 0,
         "tags": []
     },
     {
-        "artist": "As de tr\u00e8fle",
+        "artist": "As de trèfle",
         "title": "Levons nos verres",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/Asdetrfle-Levonsnosverres.doc",
         "creationDate": 0,
         "tags": []
     },
     {
-        "artist": "As de tr\u00e8fle",
+        "artist": "As de trèfle",
         "title": "Un, deux, trois",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/Asdetrfle-Un,deux,trois.doc",
         "creationDate": 0,
@@ -2527,28 +2296,14 @@
         "tags": []
     },
     {
-        "artist": "B\u00e9nabar",
+        "artist": "Bénabar",
         "title": "A la Campagne",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/Bnabar-AlaCampagne.doc",
         "creationDate": 0,
         "tags": []
     },
     {
-        "artist": "B\u00e9nabar",
-        "title": "Le diner",
-        "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/Bnabar-Lediner.doc",
-        "creationDate": 0,
-        "tags": []
-    },
-    {
-        "artist": "B\u00e9nabar",
-        "title": "Le D\u00eener",
-        "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/Bnabar-LeD\u00eener.doc",
-        "creationDate": 0,
-        "tags": []
-    },
-    {
-        "artist": "B\u00e9nabar",
+        "artist": "Bénabar",
         "title": "Quatre murs et un toi",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/Bnabar-Quatremursetuntoi.doc",
         "creationDate": 0,
@@ -2605,7 +2360,7 @@
     },
     {
         "artist": "BO",
-        "title": "Les myst\u00e9rieuses cit\u00e9s d'or",
+        "title": "Les mystérieuses cités d'or",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/BOLesmystrieusescitsdor.doc",
         "creationDate": 0,
         "tags": []
@@ -2661,22 +2416,8 @@
     },
     {
         "artist": "Charles Aznavour",
-        "title": "Emmenez moi",
-        "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/CharlesAznavour-Emmenezmoi.docx",
-        "creationDate": 0,
-        "tags": []
-    },
-    {
-        "artist": "Charles Aznavour",
-        "title": "Les com\u00e9diens",
+        "title": "Les comédiens",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/CharlesAznavour-Lescomdiens.docx",
-        "creationDate": 0,
-        "tags": []
-    },
-    {
-        "artist": "Charles Aznavour",
-        "title": "Mes emmerdes",
-        "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/CharlesAznavour-Mesemmerdes.docx",
         "creationDate": 0,
         "tags": []
     },
@@ -2688,7 +2429,7 @@
         "tags": []
     },
     {
-        "artist": "Christophe Ma\u00e9",
+        "artist": "Christophe Maé",
         "title": "On s'attache",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/ChristopheMa-Onsattache.doc",
         "creationDate": 0,
@@ -2696,7 +2437,7 @@
     },
     {
         "artist": "Christophe Mali",
-        "title": "Le cur\u00e9 de ma chapelle",
+        "title": "Le curé de ma chapelle",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/ChristopheMali-Lecurdemachapelle.doc",
         "creationDate": 0,
         "tags": []
@@ -2724,7 +2465,7 @@
     },
     {
         "artist": "Cookie Dingler",
-        "title": "Femme Lib\u00e9r\u00e9e",
+        "title": "Femme Libérée",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/CookieDingler-FemmeLibre.doc",
         "creationDate": 0,
         "tags": []
@@ -2752,7 +2493,7 @@
     },
     {
         "artist": "Da Silva",
-        "title": "L'Ind\u00e9cision",
+        "title": "L'Indécision",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/DaSilva-lIndcision.doc",
         "creationDate": 0,
         "tags": []
@@ -2773,14 +2514,14 @@
     },
     {
         "artist": "Florent Pagny",
-        "title": "Ma libert\u00e9 de penser",
+        "title": "Ma liberté de penser",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/FLorentPagny-Malibertdepenser.doc",
         "creationDate": 0,
         "tags": []
     },
     {
         "artist": "Francis Cabrel",
-        "title": "Je l'aime \u00e0 mourir",
+        "title": "Je l'aime à mourir",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/FrancisCabrel-Jelaime\u00e0mourir.doc",
         "creationDate": 0,
         "tags": []
@@ -2801,7 +2542,7 @@
     },
     {
         "artist": "Francis Cabrel",
-        "title": "Le ch\u00eane li\u00e8ge",
+        "title": "Le chêne liège",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/FrancisCabrel-Lech\u00eanelige.doc",
         "creationDate": 0,
         "tags": []
@@ -2814,8 +2555,8 @@
         "tags": []
     },
     {
-        "artist": "Fran\u00e7oise Hardy",
-        "title": "Tous les gar\u00e7ons et les filles",
+        "artist": "Françoise Hardy",
+        "title": "Tous les garçons et les filles",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/Fran\u00e7oiseHardy-Touslesgar\u00e7onsetlesfilles.doc",
         "creationDate": 0,
         "tags": []
@@ -2836,7 +2577,7 @@
     },
     {
         "artist": "Georges Brassens",
-        "title": "Aupr\u00e8s de mon arbre",
+        "title": "Auprès de mon arbre",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/GeorgesBrassens-Auprsdemonarbre.doc",
         "creationDate": 0,
         "tags": []
@@ -2850,7 +2591,7 @@
     },
     {
         "artist": "Georges Brassens",
-        "title": "H\u00e9catombe",
+        "title": "Hécatombe",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/GeorgesBrassens-Hcatombe.doc",
         "creationDate": 0,
         "tags": []
@@ -2878,7 +2619,7 @@
     },
     {
         "artist": "Georges Brassens",
-        "title": "La mauvaise r\u00e9putation",
+        "title": "La mauvaise réputation",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/GeorgesBrassens-Lamauvaiserputation.doc",
         "creationDate": 0,
         "tags": []
@@ -2913,7 +2654,7 @@
     },
     {
         "artist": "Georges Brassens",
-        "title": "Mourir pour des id\u00e9es",
+        "title": "Mourir pour des idées",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/GeorgesBrassens-Mourirpourdesides.doc",
         "creationDate": 0,
         "tags": []
@@ -2926,14 +2667,7 @@
         "tags": []
     },
     {
-        "artist": "Georges Moustaki",
-        "title": "Ma libert\u00e9",
-        "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/GeorgesMoustaki-Malibert.doc",
-        "creationDate": 0,
-        "tags": []
-    },
-    {
-        "artist": "Gr\u00e9goire",
+        "artist": "Grégoire",
         "title": "Toi + moi",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/Grgoire-Toi+moi.doc",
         "creationDate": 0,
@@ -2969,7 +2703,7 @@
     },
     {
         "artist": "Indochine",
-        "title": "J'ai demand\u00e9 a la lune",
+        "title": "J'ai demandé a la lune",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/Indochine-Jaidemandalalune.doc",
         "creationDate": 0,
         "tags": []
@@ -2985,13 +2719,6 @@
         "artist": "Irma",
         "title": "I know",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/Irma-Iknow.docx",
-        "creationDate": 0,
-        "tags": []
-    },
-    {
-        "artist": "Izmael Kamakawiwo'ole",
-        "title": "Somewhere over the rainbow",
-        "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/IzmaelKamakawiwoole-Somewhereovertherainbow.doc",
         "creationDate": 0,
         "tags": []
     },
@@ -3018,7 +2745,7 @@
     },
     {
         "artist": "Jean Jacques Goldman",
-        "title": "A nos actes manqu\u00e9s",
+        "title": "A nos actes manqués",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/JeanJacquesGoldman-Anosactesmanqus.doc",
         "creationDate": 0,
         "tags": []
@@ -3074,7 +2801,7 @@
     },
     {
         "artist": "Jean Louis Aubert",
-        "title": "Temps \u00e0 nouveau",
+        "title": "Temps à nouveau",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/JeanLouisAubert-Temps\u00e0nouveau.docx",
         "creationDate": 0,
         "tags": []
@@ -3087,13 +2814,6 @@
         "tags": []
     },
     {
-        "artist": "Joan Baez",
-        "title": "Here's to you",
-        "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/JoanBaez-Herestoyou.doc",
-        "creationDate": 0,
-        "tags": []
-    },
-    {
         "artist": "Joe Dassin",
         "title": "BIlly le bordelais",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/JoeDassin-BIllylebordelais.doc",
@@ -3102,22 +2822,8 @@
     },
     {
         "artist": "Joe Dassin",
-        "title": "La bande \u00e0 Bonnot",
+        "title": "La bande à Bonnot",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/JoeDassin-Labande\u00e0Bonnot.doc",
-        "creationDate": 0,
-        "tags": []
-    },
-    {
-        "artist": "Joe Dassin",
-        "title": "Les champs \u00e9lys\u00e9es",
-        "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/JoeDassin-Leschampslyses.doc",
-        "creationDate": 0,
-        "tags": []
-    },
-    {
-        "artist": "John Lenon",
-        "title": "Imagine",
-        "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/JohnLenon-Imagine.doc",
         "creationDate": 0,
         "tags": []
     },
@@ -3171,77 +2877,77 @@
         "tags": []
     },
     {
-        "artist": "La rue K\u00e9tanou",
+        "artist": "La rue Kétanou",
         "title": "Elle est belle",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/LarueKtanou-Elleestbelle.doc",
         "creationDate": 0,
         "tags": []
     },
     {
-        "artist": "La rue K\u00e9tanou",
+        "artist": "La rue Kétanou",
         "title": "Germaine",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/LarueKtanou-Germaine.doc",
         "creationDate": 0,
         "tags": []
     },
     {
-        "artist": "La rue K\u00e9tanou",
+        "artist": "La rue Kétanou",
         "title": "La Chance",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/LarueKtanou-LaChance.doc",
         "creationDate": 0,
         "tags": []
     },
     {
-        "artist": "la rue K\u00e9tanou",
+        "artist": "La rue Kétanou",
         "title": "L'addition",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/laruektanou-laddition.docx",
         "creationDate": 0,
         "tags": []
     },
     {
-        "artist": "La rue K\u00e9tanou",
-        "title": "La rue K\u00e9tanou",
+        "artist": "La rue Kétanou",
+        "title": "La rue Kétanou",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/LarueKtanou-LarueKtanou.doc",
         "creationDate": 0,
         "tags": []
     },
     {
-        "artist": "La rue K\u00e9tanou",
+        "artist": "La rue Kétanou",
         "title": "Les Cigales",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/LarueKtanou-LesCigales.doc",
         "creationDate": 0,
         "tags": []
     },
     {
-        "artist": "La rue K\u00e9tanou",
+        "artist": "La rue Kétanou",
         "title": "Les hommes que j'aime",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/LarueKtanou-Leshommesquejaime.doc",
         "creationDate": 0,
         "tags": []
     },
     {
-        "artist": "La rue K\u00e9tanou",
-        "title": "O\u00f9 je vais",
+        "artist": "La rue Kétanou",
+        "title": "Où je vais",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/LarueKtanou-O\u00f9jevais.doc",
         "creationDate": 0,
         "tags": []
     },
     {
-        "artist": "La rue K\u00e9tanou",
-        "title": "P\u00e9p\u00e9",
+        "artist": "La rue Kétanou",
+        "title": "Pépé",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/LarueKtanou-Pp.doc",
         "creationDate": 0,
         "tags": []
     },
     {
-        "artist": "La rue K\u00e9tanou",
-        "title": "Si ma\u00eetre corbeau",
+        "artist": "La rue Kétanou",
+        "title": "Si maître corbeau",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/LarueKtanou-Sima\u00eetrecorbeau.doc",
         "creationDate": 0,
         "tags": []
     },
     {
-        "artist": "La rue K\u00e9tanou",
+        "artist": "La rue Kétanou",
         "title": "Tu parles trop",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/LarueKtanou-Tuparlestrop.doc",
         "creationDate": 0,
@@ -3269,15 +2975,15 @@
         "tags": []
     },
     {
-        "artist": "Les B\u00e9ruriers Noirs repris par Les Ogres de Barback",
-        "title": "Salut \u00e0 toi ",
+        "artist": "Les Béruriers Noirs repris par Les Ogres de Barback",
+        "title": "Salut à toi ",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/LesBruriersNoirsreprisparLesOgresdeBarback-Salut\u00e0toi.doc",
         "creationDate": 0,
         "tags": []
     },
     {
         "artist": "Les ogres de Barback",
-        "title": "Contes, vents et mar\u00e9e",
+        "title": "Contes, vents et marée",
         "url": "https://tabs.ultimate-guitar.com/tab/3387242",
         "creationDate": 0,
         "tags": []
@@ -3298,7 +3004,7 @@
     },
     {
         "artist": "Les Wriggles",
-        "title": "La for\u00eat",
+        "title": "La forêt",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/LesWriggles-Lafor\u00eat.doc",
         "creationDate": 0,
         "tags": []
@@ -3319,7 +3025,7 @@
     },
     {
         "artist": "Louise Attaque",
-        "title": "L\u00e9a",
+        "title": "Léa",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/LouiseAttaque-La.doc",
         "creationDate": 0,
         "tags": []
@@ -3347,7 +3053,7 @@
     },
     {
         "artist": "Manu Chao",
-        "title": "La vie \u00e0 deux",
+        "title": "La vie à deux",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/ManuChao-Lavie\u00e0deux.docx",
         "creationDate": 0,
         "tags": []
@@ -3367,13 +3073,6 @@
         "tags": []
     },
     {
-        "artist": "M et Vanessa Paradis",
-        "title": "La Seine",
-        "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/MetVanessaParadis-LaSeine.docx",
-        "creationDate": 0,
-        "tags": []
-    },
-    {
         "artist": "Michel Berger",
         "title": "Message Personnel",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/MichelBerger-MessagePersonnel.doc",
@@ -3382,7 +3081,7 @@
     },
     {
         "artist": "Michel Polnareff",
-        "title": "La poup\u00e9e qui fait non",
+        "title": "La poupée qui fait non",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/MichelPolnareff-Lapoupequifaitnon.doc",
         "creationDate": 0,
         "tags": []
@@ -3398,13 +3097,6 @@
         "artist": "Mickey 3d",
         "title": "Respire",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/Mickey3D-respire.doc",
-        "creationDate": 0,
-        "tags": []
-    },
-    {
-        "artist": "Moriarty",
-        "title": "Jimmy",
-        "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/Moriarty-Jimmy.doc",
         "creationDate": 0,
         "tags": []
     },
@@ -3437,15 +3129,8 @@
         "tags": []
     },
     {
-        "artist": "Oasis",
-        "title": "Wonderwall",
-        "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/Oasis-Wonderwall.doc",
-        "creationDate": 0,
-        "tags": []
-    },
-    {
         "artist": "Oldelaf et Monsieur D",
-        "title": "Le caf\u00e9",
+        "title": "Le café",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/oldelafetmonsieurd-lecaf.doc",
         "creationDate": 0,
         "tags": []
@@ -3486,13 +3171,6 @@
         "tags": []
     },
     {
-        "artist": "Peter Tosh",
-        "title": "I can see clearly now",
-        "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/PeterTosh-icanseeclearlynow.doc",
-        "creationDate": 0,
-        "tags": []
-    },
-    {
         "artist": "Pow Wow",
         "title": "Le lion est mort ce soir",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/PowWow-Lelionestmortcesoir.doc",
@@ -3529,7 +3207,7 @@
     },
     {
         "artist": "Renan Luce",
-        "title": "On est pas a une b\u00eatise pr\u00eat",
+        "title": "On est pas à une bêtise prêt",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/RenanLuce-Onestpasauneb\u00eatisepr\u00eat.doc",
         "creationDate": 0,
         "tags": []
@@ -3585,14 +3263,7 @@
     },
     {
         "artist": "Renaud",
-        "title": "La ballade Nord Irlandaise",
-        "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/Renaud-LaballadeNordIrlandaise.doc",
-        "creationDate": 0,
-        "tags": []
-    },
-    {
-        "artist": "Renaud",
-        "title": "La bande \u00e0 Lucien",
+        "title": "La bande à Lucien",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/Renaud-Labande\u00e0Lucien.docx",
         "creationDate": 0,
         "tags": []
@@ -3606,14 +3277,14 @@
     },
     {
         "artist": "Renaud",
-        "title": "Laisse b\u00e9ton",
+        "title": "Laisse béton",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/Renaud-laissebton.doc",
         "creationDate": 0,
         "tags": []
     },
     {
         "artist": "Renaud",
-        "title": "Le d\u00e9serteur",
+        "title": "Le déserteur",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/Renaud-Ledserteur.docx",
         "creationDate": 0,
         "tags": []
@@ -3634,14 +3305,14 @@
     },
     {
         "artist": "Renaud",
-        "title": "Marche \u00e0 l'ombre",
+        "title": "Marche à l'ombre",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/Renaud-Marche\u00e0lombre.docx",
         "creationDate": 0,
         "tags": []
     },
     {
         "artist": "Renaud",
-        "title": "Mon bistrot pr\u00e9f\u00e9r\u00e9",
+        "title": "Mon bistrot préféré",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/Renaud-Monbistrotprfr.docx",
         "creationDate": 0,
         "tags": []
@@ -3682,13 +3353,6 @@
         "tags": []
     },
     {
-        "artist": "Rose",
-        "title": "La Liste",
-        "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/Rose-LaListe.doc",
-        "creationDate": 0,
-        "tags": []
-    },
-    {
         "artist": "Roy Orbison",
         "title": "Pretty Woman",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/RoyOrbison-PrettyWoman.docx",
@@ -3717,21 +3381,21 @@
         "tags": []
     },
     {
-        "artist": "Sins\u00e9milia",
-        "title": "Jamais une m\u00e9lodie",
+        "artist": "Sinsémilia",
+        "title": "Jamais une mélodie",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/Sinsmilia-Jamaisunemlodie.docx",
         "creationDate": 0,
         "tags": []
     },
     {
-        "artist": "Sins\u00e9milia",
-        "title": "Marl\u00e8ne",
+        "artist": "Sinsémilia",
+        "title": "Marlène",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/Sinsmilia-Marlne.docx",
         "creationDate": 0,
         "tags": []
     },
     {
-        "artist": "Sins\u00e9milia",
+        "artist": "Sinsémilia",
         "title": "Tout le bonheur du monde",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/Sinsmilia-Toutlebonheurdumonde.doc",
         "creationDate": 0,
@@ -3752,51 +3416,37 @@
         "tags": []
     },
     {
-        "artist": "T\u00e9l\u00e9phone",
-        "title": "Cendrillon",
-        "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/Tlphone-Cendrillon.doc",
-        "creationDate": 0,
-        "tags": []
-    },
-    {
-        "artist": "T\u00e9l\u00e9phone",
+        "artist": "Téléphone",
         "title": "Faits divers",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/Telephone-Faitsdivers.docx",
         "creationDate": 0,
         "tags": []
     },
     {
-        "artist": "T\u00e9l\u00e9phone",
+        "artist": "Téléphone",
         "title": "La bombe humaine",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/Tlphone-labombehumaine.docx",
         "creationDate": 0,
         "tags": []
     },
     {
-        "artist": "T\u00e9l\u00e9phone",
-        "title": "Le jour s'est lev\u00e9",
+        "artist": "Téléphone",
+        "title": "Le jour s'est levé",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/Tlphone-Lejoursestlev.doc",
         "creationDate": 0,
         "tags": []
     },
     {
-        "artist": "T\u00e9l\u00e9phone",
+        "artist": "Téléphone",
         "title": "New York avec toi",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/Tlphone-NewYorkavectoi.doc",
         "creationDate": 0,
         "tags": []
     },
     {
-        "artist": "T\u00e9t\u00e9",
+        "artist": "Tété",
         "title": "A la faveur de l'automne",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/Tt-alafaveurdelautomne.doc",
-        "creationDate": 0,
-        "tags": []
-    },
-    {
-        "artist": "The Beatles",
-        "title": "All my loving",
-        "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/TheBeatles-Allmyloving.pdf",
         "creationDate": 0,
         "tags": []
     },
@@ -3858,20 +3508,6 @@
     },
     {
         "artist": "The Beatles",
-        "title": "Hey Jude",
-        "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/TheBeatles-HeyJude.pdf",
-        "creationDate": 0,
-        "tags": []
-    },
-    {
-        "artist": "The Beatles",
-        "title": "Lady Madonna",
-        "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/TheBeatles-LadyMadonna.pdf",
-        "creationDate": 0,
-        "tags": []
-    },
-    {
-        "artist": "The Beatles",
         "title": "Let it be",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/TheBeatles-Letitbe.pdf",
         "creationDate": 0,
@@ -3914,7 +3550,7 @@
     },
     {
         "artist": "The Beatles",
-        "title": "Sgt",
+        "title": "Sgt Peppers Lonely Hearts Club Band",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/TheBeatles-Sgt.Pepperslonelyheartsclubband.pdf",
         "creationDate": 0,
         "tags": []
@@ -3941,30 +3577,9 @@
         "tags": []
     },
     {
-        "artist": "the Cure",
-        "title": "Boys don't cry",
-        "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/thecure-boysdontcry.docx",
-        "creationDate": 0,
-        "tags": []
-    },
-    {
         "artist": "The Doors",
         "title": "People are strange",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/TheDoors-Peoplearestrange.doc",
-        "creationDate": 0,
-        "tags": []
-    },
-    {
-        "artist": "The Eagles",
-        "title": "Hotel california",
-        "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/TheEagles-Hotelcalifornia.doc",
-        "creationDate": 0,
-        "tags": []
-    },
-    {
-        "artist": "The kinks",
-        "title": "A wel respected man",
-        "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/Thekinks-Awelrespectedman.doc",
         "creationDate": 0,
         "tags": []
     },
@@ -3983,30 +3598,9 @@
         "tags": []
     },
     {
-        "artist": "The Pixies",
-        "title": "Where is my mind",
-        "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/ThePixies-Whereismymind.doc",
-        "creationDate": 0,
-        "tags": []
-    },
-    {
-        "artist": "The Pogues",
-        "title": "Dirty old town",
-        "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/ThePogues-Dirtyoldtown.doc",
-        "creationDate": 0,
-        "tags": []
-    },
-    {
         "artist": "The rolling stones",
         "title": "Paint it black",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/Therollingstones-Paintitblack.doc",
-        "creationDate": 0,
-        "tags": []
-    },
-    {
-        "artist": "Tracy Chapman",
-        "title": "Talking about a revolution",
-        "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/TracyChapman-Talkingaboutarevolution.doc",
         "creationDate": 0,
         "tags": []
     },
@@ -4033,7 +3627,7 @@
     },
     {
         "artist": "Tryo",
-        "title": "D\u00e9sol\u00e9 pour hier soir",
+        "title": "Désolé pour hier soir",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/Tryo-Dsolpourhiersoir.doc",
         "creationDate": 0,
         "tags": []
@@ -4049,13 +3643,6 @@
         "artist": "Tryo",
         "title": "La main verte",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/Tryo-lamainverte.doc",
-        "creationDate": 0,
-        "tags": []
-    },
-    {
-        "artist": "Tryo",
-        "title": "L'hymne de nos campagnes",
-        "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/Tryo-Lhymnedenoscampagnes.doc",
         "creationDate": 0,
         "tags": []
     },
@@ -4112,6 +3699,420 @@
         "artist": "Zaz",
         "title": "Je veux",
         "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/Zaz-jeveux.doc",
+        "creationDate": 0,
+        "tags": []
+    },
+
+    {
+        "artist": "Bénabar",
+        "title": "Le Dîner",
+        "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/Bnabar-Lediner.doc",
+        "creationDate": 0,
+        "tags": []
+    },
+    {
+        "artist": "Bénabar",
+        "title": "Le Dîner",
+        "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/Bnabar-LeD\u00eener.doc",
+        "creationDate": 0,
+        "tags": []
+    },
+    {
+        "artist": "Téléphone",
+        "title": "Cendrillon",
+        "url": "https://tabs.ultimate-guitar.com/tab/1540387",
+        "creationDate": 0,
+        "tags": []
+    },
+    {
+        "artist": "Téléphone",
+        "title": "Cendrillon",
+        "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/Tlphone-Cendrillon.doc",
+        "creationDate": 0,
+        "tags": []
+    },
+    {
+        "artist": "Tryo",
+        "title": "L'hymne de nos campagnes",
+        "url": "https://tabs.ultimate-guitar.com/tab/tryo/lhymne-de-nos-campagnes-chords-908718",
+        "creationDate": 0,
+        "tags": []
+    },
+    {
+        "artist": "Tryo",
+        "title": "L'hymne de nos campagnes",
+        "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/Tryo-Lhymnedenoscampagnes.doc",
+        "creationDate": 0,
+        "tags": []
+    },
+    {
+        "artist": "Tracy Chapman",
+        "title": "Talking about a revolution",
+        "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/TracyChapman-Talkingaboutarevolution.doc",
+        "creationDate": 0,
+        "tags": []
+    },
+    {
+        "artist": "Tracy Chapman",
+        "title": "Talking about a revolution",
+        "url": "https://tabs.ultimate-guitar.com/tab/tracy-chapman/talkin-bout-a-revolution-chords-876284",
+        "creationDate": 0,
+        "tags": []
+    },
+    {
+        "artist": "The Pogues",
+        "title": "Dirty old town",
+        "url": "https://tabs.ultimate-guitar.com/tab/the-pogues/dirty-old-town-chords-814642",
+        "creationDate": 1679420016905,
+        "tags": []
+    },
+    {
+        "artist": "The Pogues",
+        "title": "Dirty old town",
+        "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/ThePogues-Dirtyoldtown.doc",
+        "creationDate": 0,
+        "tags": []
+    },
+    {
+        "artist": "The Pixies",
+        "title": "Where is my mind",
+        "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/ThePixies-Whereismymind.doc",
+        "creationDate": 0,
+        "tags": []
+    },
+    {
+        "artist": "The Pixies",
+        "title": "Where is my mind",
+        "url": "https://tabs.ultimate-guitar.com/tab/pixies/where-is-my-mind-chords-89446",
+        "creationDate": 1663238795514,
+        "tags": []
+    },
+    {
+        "artist": "The kinks",
+        "title": "A well respected man",
+        "url": "https://tabs.ultimate-guitar.com/tab/the-kinks/a-well-respected-man-chords-10199",
+        "creationDate": 0,
+        "tags": []
+    },
+    {
+        "artist": "The kinks",
+        "title": "A well respected man",
+        "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/Thekinks-Awelrespectedman.doc",
+        "creationDate": 0,
+        "tags": []
+    },
+    {
+        "artist": "The Grateful Dead",
+        "title": "Ripple",
+        "url": "https://www.youtube.com/watch?v=HmXcOCWJ2n8",
+        "creationDate": 1678729230278,
+        "tags": []
+    },
+    {
+        "artist": "The Grateful Dead",
+        "title": "Ripple",
+        "url": "https://tabs.ultimate-guitar.com/tab/grateful-dead/ripple-chords-462863",
+        "creationDate": 1678729191472,
+        "tags": []
+    },
+    {
+        "artist": "The Eagles",
+        "title": "Hotel California",
+        "url": "https://tabs.ultimate-guitar.com/tab/eagles/hotel-california-chords-46190",
+        "creationDate": 0,
+        "tags": []
+    },
+    {
+        "artist": "The Eagles",
+        "title": "Hotel California",
+        "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/TheEagles-Hotelcalifornia.doc",
+        "creationDate": 0,
+        "tags": []
+    },
+    {
+        "artist": "The Doors",
+        "title": "Riders on the storm",
+        "url": "https://tabs.ultimate-guitar.com/tab/the-doors/riders-on-the-storm-chords-1051663",
+        "creationDate": 0,
+        "tags": []
+    },
+    {
+        "artist": "The Doors",
+        "title": "Riders on the storm (bass tabs)",
+        "url": "https://www.songsterr.com/a/wsa/doors-riders-on-the-storm-bass-tab-s23399",
+        "creationDate": 0,
+        "tags": []
+    },
+    {
+        "artist": "The Cure",
+        "title": "Boys don't cry",
+        "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/thecure-boysdontcry.docx",
+        "creationDate": 0,
+        "tags": []
+    },
+    {
+        "artist": "The Cure",
+        "title": "Boys don't cry",
+        "url": "https://tabs.ultimate-guitar.com/tab/the-cure/boys-dont-cry-chords-956417",
+        "creationDate": 0,
+        "tags": []
+    },
+    {
+        "artist": "The Beatles",
+        "title": "Lady Madonna",
+        "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/TheBeatles-LadyMadonna.pdf",
+        "creationDate": 0,
+        "tags": []
+    },
+    {
+        "artist": "The Beatles",
+        "title": "Lady Madonna",
+        "url": "https://tabs.ultimate-guitar.com/tab/the-beatles/lady-madonna-chords-727372",
+        "creationDate": 0,
+        "tags": []
+    },
+    {
+        "artist": "The Beatles",
+        "title": "Hey Jude",
+        "url": "https://tabs.ultimate-guitar.com/tab/the-beatles/hey-jude-chords-1061739",
+        "creationDate": 1658340922955,
+        "tags": ["english"]
+    },
+    {
+        "artist": "The Beatles",
+        "title": "Hey Jude",
+        "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/TheBeatles-HeyJude.pdf",
+        "creationDate": 0,
+        "tags": []
+    },
+    {
+        "artist": "The Beatles",
+        "title": "All my loving",
+        "url": "https://tabs.ultimate-guitar.com/tab/the-beatles/all-my-loving-chords-453882",
+        "creationDate": 0,
+        "tags": []
+    },
+    {
+        "artist": "The Beatles",
+        "title": "All my loving",
+        "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/TheBeatles-Allmyloving.pdf",
+        "creationDate": 0,
+        "tags": []
+    },
+    {
+        "artist": "The band",
+        "title": "The weight",
+        "url": "https://tabs.ultimate-guitar.com/tab/the-band/the-weight-tabs-151721",
+        "creationDate": 0,
+        "tags": []
+    },
+    {
+        "artist": "The band",
+        "title": "The weight",
+        "url": "https://tabs.ultimate-guitar.com/tab/the-band/the-weight-chords-61592",
+        "creationDate": 0,
+        "tags": []
+    },
+    {
+        "artist": "Rose",
+        "title": "La liste",
+        "url": "https://tabs.ultimate-guitar.com/tab/rose-france/la-liste-chords-2548263",
+        "creationDate": 0,
+        "tags": []
+    },
+    {
+        "artist": "Rose",
+        "title": "La liste",
+        "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/Rose-LaListe.doc",
+        "creationDate": 0,
+        "tags": []
+    },
+    {
+        "artist": "Renaud",
+        "title": "La ballade Nord Irlandaise",
+        "url": "https://tabs.ultimate-guitar.com/tab/renaud/la-ballade-nord-irlandaise-chords-3233321",
+        "creationDate": 0,
+        "tags": []
+    },
+    {
+        "artist": "Renaud",
+        "title": "La ballade Nord Irlandaise",
+        "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/Renaud-LaballadeNordIrlandaise.doc",
+        "creationDate": 0,
+        "tags": []
+    },
+    {
+        "artist": "Oasis",
+        "title": "Wonderwall",
+        "url": "https://tabs.ultimate-guitar.com/tab/oasis/wonderwall-chords-27596",
+        "creationDate": 0,
+        "tags": []
+    },
+    {
+        "artist": "Oasis",
+        "title": "Wonderwall",
+        "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/Oasis-Wonderwall.doc",
+        "creationDate": 0,
+        "tags": []
+    },
+    {
+        "artist": "Moriarty",
+        "title": "Jimmy",
+        "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/Moriarty-Jimmy.doc",
+        "creationDate": 0,
+        "tags": []
+    },
+    {
+        "artist": "Moriarty",
+        "title": "Jimmy",
+        "url": "https://tabs.ultimate-guitar.com/tab/moriarty/jimmy-chords-790948",
+        "creationDate": 0,
+        "tags": []
+    },
+    {
+        "artist": "M et Vanessa Paradis",
+        "title": "La Seine",
+        "url": "https://www.e-chords.com/chords/matthieu-chedid/la-seine",
+        "creationDate": 0,
+        "tags": []
+    },
+    {
+        "artist": "M et Vanessa Paradis",
+        "title": "La Seine",
+        "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/MetVanessaParadis-LaSeine.docx",
+        "creationDate": 0,
+        "tags": []
+    },
+    {
+        "artist": "John Lennon",
+        "title": "Imagine",
+        "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/JohnLenon-Imagine.doc",
+        "creationDate": 0,
+        "tags": []
+    },
+    {
+        "artist": "John Lennon",
+        "title": "Imagine",
+        "url": "https://tabs.ultimate-guitar.com/tab/john-lennon/imagine-chords-9306",
+        "creationDate": 1657009661636,
+        "tags": []
+    },
+    {
+        "artist": "Joe Dassin",
+        "title": "Les Champs-Élysées",
+        "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/JoeDassin-Leschampslyses.doc",
+        "creationDate": 0,
+        "tags": []
+    },
+    {
+        "artist": "Joe Dassin",
+        "title": "Les Champs-Élysées",
+        "url": "https://tabs.ultimate-guitar.com/tab/879366",
+        "creationDate": 0,
+        "tags": []
+    },
+    {
+        "artist": "Joan Baez",
+        "title": "Here's to you",
+        "url": "https://tabs.ultimate-guitar.com/tab/joan-baez/heres-to-you-chords-732248",
+        "creationDate": 0,
+        "tags": []
+    },
+    {
+        "artist": "Joan Baez",
+        "title": "Here's to you",
+        "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/JoanBaez-Herestoyou.doc",
+        "creationDate": 0,
+        "tags": []
+    },
+    {
+        "artist": "Jimmy Cliff",
+        "title": "I can see clearly now",
+        "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/PeterTosh-icanseeclearlynow.doc",
+        "creationDate": 0,
+        "tags": []
+    },
+    {
+        "artist": "Jimmy Cliff",
+        "title": "I can see clearly now",
+        "url": "https://tabs.ultimate-guitar.com/tab/johnny-nash/i-can-see-clearly-now-chords-77897",
+        "creationDate": 0,
+        "tags": []
+    },
+    {
+        "artist": "Jimmy Cliff",
+        "title": "I can see clearly now",
+        "url": "https://tabs.ultimate-guitar.com/tab/jimmy-cliff/i-can-see-clearly-now-chords-1178668",
+        "creationDate": 0,
+        "tags": []
+    },
+    {
+        "artist": "Izmael Kamakawiwo'ole",
+        "title": "Somewhere over the rainbow",
+        "url": "https://tabs.ultimate-guitar.com/tab/israel-kamakawiwoole/over-the-rainbow-chords-2135261",
+        "creationDate": 0,
+        "tags": []
+    },
+    {
+        "artist": "Izmael Kamakawiwo'ole",
+        "title": "Somewhere over the rainbow",
+        "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/IzmaelKamakawiwoole-Somewhereovertherainbow.doc",
+        "creationDate": 0,
+        "tags": []
+    },
+    {
+        "artist": "Georges Moustaki",
+        "title": "Ma liberté",
+        "url": "https://tabs.ultimate-guitar.com/tab/1171040",
+        "creationDate": 1689871510486,
+        "tags": []
+    },
+    {
+        "artist": "Georges Moustaki",
+        "title": "Ma liberté",
+        "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/GeorgesMoustaki-Malibert.doc",
+        "creationDate": 0,
+        "tags": []
+    },
+    {
+        "artist": "Dire Straits",
+        "title": "Where do you think you’re going? (Tabs)",
+        "url": "https://tabs.ultimate-guitar.com/tab/dire-straits/where-do-you-think-youre-going-tabs-681021",
+        "creationDate": 1703853213421,
+        "tags": ["slow","andalusian_cadence"]
+    },
+    {
+        "artist": "Dire Straits",
+        "title": "Where do you think you’re going?",
+        "url": "https://tabs.ultimate-guitar.com/tab/dire-straits/where-do-you-think-youre-going-chords-827282",
+        "creationDate": 1703852567201,
+        "tags": ["slow","andalusian_cadence"]
+    },
+    {
+        "artist": "Charles Aznavour",
+        "title": "Emmenez-moi",
+        "url": "https://tabs.ultimate-guitar.com/tab/charles-aznavour/emmenez-moi-chords-1766656",
+        "creationDate": 0,
+        "tags": []
+    },
+    {
+        "artist": "Charles Aznavour",
+        "title": "Emmenez moi",
+        "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/CharlesAznavour-Emmenezmoi.docx",
+        "creationDate": 0,
+        "tags": []
+    },
+    {
+        "artist": "Charles Aznavour",
+        "title": "Mes emmerdes",
+        "url": "https://s3.eu-west-3.amazonaws.com/chordsstorage.statox.fr/CharlesAznavour-Mesemmerdes.docx",
+        "creationDate": 0,
+        "tags": []
+    },
+    {
+        "artist": "Charles Aznavour",
+        "title": "Mes emmerdes",
+        "url": "https://tabs.ultimate-guitar.com/tab/charles-aznavour/mes-emmerdes-chords-1197270",
         "creationDate": 0,
         "tags": []
     }
