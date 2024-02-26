@@ -29,6 +29,9 @@ Some user manuals I have collected over time and might need in the future.
     - [Service manual](https://www.fmicassets.com/Damroot/Original/10001/SM_011394XXXX_Am_Pro_II_Telecaster.pdf) (_[mirror](/pdf/SM_011394XXXX_Am_Pro_II_Telecaster.pdf)_)
 - [Lottie Canto - Colour Palette](/pdf/lottie_canto_colour_palette.pdf)
 - Midi Controller [Akai MPK mini mk3](https://cdn.inmusicbrands.com/akai/mpk3mini/MPK-mini-Quickstart-Guide-v1_3.pdf) (_[mirror](/pdf/Akai_mpk_mini_mk3_quickstart_guide_v1_3.pdf)_)
+- Roland Aira Compact synths:
+    - [J6 chord synth](https://static.roland.com/assets/media/pdf/J-6_eng02_W.pdf) (_[mirror](/pdf/rolan_j6_owners_manual_english.pdf)_)
+    - [T8 beat machine](https://static.roland.com/assets/media/pdf/T-8_eng01_W.pdf) (_[mirror](/pdf/rolan_t8_owners_manual_english.pdf)_)
 
 ### Misc
 
