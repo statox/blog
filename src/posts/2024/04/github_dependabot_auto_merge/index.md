@@ -1,12 +1,14 @@
 ---
 layout: layouts/post.njk
-tags: ['post', 'github', 'dependabot']
+tags: ['post', 'github', 'dependabot', 'ci']
 date: 2024-04-20
 title: Automatically merging Dependabot PRs on Github
 commentIssueId: 35
 ---
 
 I have Dependabot set on many of my repos but I often get too lazy to check the PRs and merge them. On [my api](https://github.com/statox/api.statox.fr) repo this is an issue because I really want to keep dependencies up to date. Here is what I did to have Dependabot's PRs merged automatically as they are created.
+
+The file lives [there on Github](https://github.com/statox/api.statox.fr/blob/main/.github/workflows/dependabot-auto-merge.yml)
 
 **At no point there is a need to generate a github access token by yourself. Dependabot will use its own**
 
@@ -32,6 +34,8 @@ In the Github repo settings: Security > Code security and analysis > Dependabot
 <center>
     <i>Enable the Dependabot alerts</i>
 </center>
+
+For better configuration a file `github/dependabot.yml` can be created in the repo, see [the doc](https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file) for more details.
 
 
 ### Actions settings
@@ -75,7 +79,8 @@ We will trigger the workflow on PRs.
 - `types`: Using `edited` is useful to debug the workflow while setting it up: once the MR is open, you can edit the workflow, push, comment `@dependabot rebase` on the PR and the workflow will be re-run
 
 ```yaml
-name: Run tests on PRs
+name: Test and AutoMerge PRs
+
 on:
  pull_request:
     types: [opened, synchronize, edited]
@@ -102,6 +107,21 @@ Without these permissions the calls the the `gh` cli in the next steps fail with
     <i>Example of gh permission error</i>
 </center>
 
+### Filter dependabot
+
+One way to have the whole workflow triggered only for dependabot's PR is to add a condition for the job:
+
+```yaml
+jobs:
+ test-and-auto-merge:
+    if: github.actor == 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    steps:
+        # [...]
+```
+
+This could be improved to better factorize the code and have the tests running on all MR and the auto merge running only on dependabot PRs but since I'm the only one working on this repo and I don't use PRs for other reasons I will not bother with that.
+
 
 ### Repo setup and tests
 
@@ -116,10 +136,10 @@ If these steps fail the following one will fail too, so the PRs tests will fail 
 
 ```yaml
 jobs:
- test:
+ test-and-auto-merge:
     runs-on: ubuntu-latest
     steps:
-      - name: Set up Python
+      - name: Install python 3
         uses: actions/setup-python@v5
         with:
           python-version: '3.x'
@@ -130,7 +150,7 @@ jobs:
       - name: Install podman-compose
         run: pip3 install podman-compose
 
-      - name: Setup Node.js
+      - name: Install node.js
         uses: actions/setup-node@v4
         with:
           node-version: 'latest'
@@ -143,7 +163,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Start environement
+      - name: Start podman environment
         run: npm run env
 
       - name: Init db
@@ -163,7 +183,7 @@ Three important steps:
 
 ```yaml
 jobs:
- test:
+ test-and-auto-merge:
     runs-on: ubuntu-latest
     steps:
       # [...]
@@ -209,3 +229,7 @@ Once all of that is configured the Dependabot PRs should be automatically handle
 <center>
     <i>The various bots should have acted on the PR</i>
 </center>
+
+### Notification
+
+When all of that is succesful I get emails from Github both for when the bot approves the PR and for when it merges it.
