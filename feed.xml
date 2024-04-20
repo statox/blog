@@ -10,7 +10,7 @@
   <subtitle>statox&#39;s blog</subtitle>
   <link href="https://www.statox.fr/feed.xml" rel="self"/>
   <link href="https://www.statox.fr/"/>
-  <updated>2023-09-07T00:00:00Z</updated>
+  <updated>2024-04-20T00:00:00Z</updated>
   <id>https://www.statox.fr/</id>
   <author>
     <name>statox</name>
@@ -3175,6 +3175,164 @@ m&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot
 &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token comment&quot;&gt;//condition)print(result),Z&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Arguably this is not an example drawn from an actual challenge and in most of the case one could use &lt;code&gt;[array].find()&lt;/code&gt; or a similar function instead of iterating through the loop. But in some rare situations that can be useful.&lt;/p&gt;
 &lt;!-- vim: set spell: --&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>Automatically merging Dependabot PRs on Github</title>
+    <link href="https://www.statox.fr/posts/2024/04/github_dependabot_auto_merge/"/>
+    <updated>2024-04-20T00:00:00Z</updated>
+    <id>https://www.statox.fr/posts/2024/04/github_dependabot_auto_merge/</id>
+    <content type="html">&lt;p&gt;I have Dependabot set on many of my repos but I often get too lazy to check the PRs and merge them. On &lt;a href=&quot;https://github.com/statox/api.statox.fr&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;my api&lt;/a&gt; repo this is an issue because I really want to keep dependencies up to date. Here is what I did to have Dependabot&#39;s PRs merged automatically as they are created.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;At no point there is a need to generate a github access token by yourself. Dependabot will use its own&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&quot;setup-tests&quot; tabindex=&quot;-1&quot;&gt;Setup tests &lt;a class=&quot;header-anchor&quot; href=&quot;https://www.statox.fr/posts/2024/04/github_dependabot_auto_merge/#setup-tests&quot;&gt;🔗&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;For my api repo I use &lt;code&gt;mocha&lt;/code&gt; to run the tests. I have 3 commands to be able to run the tests&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;npm&lt;/span&gt; run &lt;span class=&quot;token function&quot;&gt;env&lt;/span&gt;            &lt;span class=&quot;token comment&quot;&gt;# This triggers a podman-compose command starting the containers&lt;/span&gt;
+./src/tools/init-db.sh &lt;span class=&quot;token comment&quot;&gt;# Create the test database in the container&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;npm&lt;/span&gt; run tests:all      &lt;span class=&quot;token comment&quot;&gt;# Call mocha and run the tests&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;setups-in-github&quot; tabindex=&quot;-1&quot;&gt;Setups in Github &lt;a class=&quot;header-anchor&quot; href=&quot;https://www.statox.fr/posts/2024/04/github_dependabot_auto_merge/#setups-in-github&quot;&gt;🔗&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;dependabot&quot; tabindex=&quot;-1&quot;&gt;Dependabot &lt;a class=&quot;header-anchor&quot; href=&quot;https://www.statox.fr/posts/2024/04/github_dependabot_auto_merge/#dependabot&quot;&gt;🔗&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Allow Dependabot to regularly create PRs with dependencies update.&lt;/p&gt;
+&lt;p&gt;In the Github repo settings: Security &amp;gt; Code security and analysis &amp;gt; Dependabot&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/04/github_dependabot_auto_merge/dependabot_setup.png&quot; alt=&quot;Dependabot setup screen&quot; /&gt;&lt;/p&gt;
+&lt;center&gt;
+    &lt;i&gt;Enable the Dependabot alerts&lt;/i&gt;
+&lt;/center&gt;
+&lt;h3 id=&quot;actions-settings&quot; tabindex=&quot;-1&quot;&gt;Actions settings &lt;a class=&quot;header-anchor&quot; href=&quot;https://www.statox.fr/posts/2024/04/github_dependabot_auto_merge/#actions-settings&quot;&gt;🔗&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Allow GitHub Actions to create and approve pull requests. This is needed because the workflow we will trigger will be responsible for approving the PR automatically.&lt;/p&gt;
+&lt;p&gt;In the Github repo settings: Code and automation &amp;gt; Actions &amp;gt; General &amp;gt; Workflow permissions&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/04/github_dependabot_auto_merge/allow_action_approve_PR.png&quot; alt=&quot;Actions settings screen&quot; /&gt;&lt;/p&gt;
+&lt;center&gt;
+    &lt;i&gt;Enable the actions to modify PRs&lt;/i&gt;
+&lt;/center&gt;
+&lt;h3 id=&quot;branch-protection&quot; tabindex=&quot;-1&quot;&gt;Branch protection &lt;a class=&quot;header-anchor&quot; href=&quot;https://www.statox.fr/posts/2024/04/github_dependabot_auto_merge/#branch-protection&quot;&gt;🔗&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;In the Github repo settings: Code and automation &amp;gt; Branches &amp;gt; Add rule&lt;/p&gt;
+&lt;p&gt;The rule needs to apply to the &lt;code&gt;main&lt;/code&gt; branch (i.e. the one we&#39;ll be merging to).&lt;/p&gt;
+&lt;p&gt;We need two checks enforced by the rule:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Require a pull request before merging&lt;/code&gt; and &lt;code&gt;Require approvals&lt;/code&gt;: The approval will be given by &lt;code&gt;github-action&lt;/code&gt; bot throught the workflow&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Require status checks to pass before merging&lt;/code&gt;: The checks will be the success of the workflow itself and we&#39;ll make the workflow fail if the tests for the repo are not validated.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/04/github_dependabot_auto_merge/branch_protection_setup.png&quot; alt=&quot;Branch protection screen&quot; /&gt;&lt;/p&gt;
+&lt;center&gt;
+    &lt;i&gt;Enforce PR approval and checks&lt;/i&gt;
+&lt;/center&gt;
+&lt;h2 id=&quot;setup-the-workflow&quot; tabindex=&quot;-1&quot;&gt;Setup the workflow &lt;a class=&quot;header-anchor&quot; href=&quot;https://www.statox.fr/posts/2024/04/github_dependabot_auto_merge/#setup-the-workflow&quot;&gt;🔗&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;In the repo create a file for the workflow like &lt;code&gt;.github/workflows/dependabot-auto-merge.yml&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&quot;trigger&quot; tabindex=&quot;-1&quot;&gt;Trigger &lt;a class=&quot;header-anchor&quot; href=&quot;https://www.statox.fr/posts/2024/04/github_dependabot_auto_merge/#trigger&quot;&gt;🔗&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;We will trigger the workflow on PRs.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;TODO&lt;/strong&gt; Find a way to trigger only for dependabot PRs, for now all MR will be automatically merged if they pass the tests.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;types&lt;/code&gt;: Using &lt;code&gt;edited&lt;/code&gt; is useful to debug the workflow while setting it up: once the MR is open, you can edit the workflow, push, comment &lt;code&gt;@dependabot rebase&lt;/code&gt; on the PR and the workflow will be re-run&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Run tests on PRs
+&lt;span class=&quot;token key atrule&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+ &lt;span class=&quot;token key atrule&quot;&gt;pull_request&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;types&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;opened&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; synchronize&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; edited&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;branches&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;main&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;permissions&quot; tabindex=&quot;-1&quot;&gt;Permissions &lt;a class=&quot;header-anchor&quot; href=&quot;https://www.statox.fr/posts/2024/04/github_dependabot_auto_merge/#permissions&quot;&gt;🔗&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;This changes the permissions of the github token that dependabot gets when creating the PR, we need two additional permissions.&lt;/p&gt;
+&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token key atrule&quot;&gt;permissions&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;# This is needed to approve the PR&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;pull-requests&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; write
+  &lt;span class=&quot;token comment&quot;&gt;# This is needed to merge the PR https://github.com/cli/cli/issues/6695#issuecomment-1348430969&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;contents&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; write&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Without these permissions the calls the the &lt;code&gt;gh&lt;/code&gt; cli in the next steps fail with errors similar to this:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/04/github_dependabot_auto_merge/auto_merge_permissions_error.png&quot; alt=&quot;gh cli permission error&quot; /&gt;&lt;/p&gt;
+&lt;center&gt;
+    &lt;i&gt;Example of gh permission error&lt;/i&gt;
+&lt;/center&gt;
+&lt;h3 id=&quot;repo-setup-and-tests&quot; tabindex=&quot;-1&quot;&gt;Repo setup and tests &lt;a class=&quot;header-anchor&quot; href=&quot;https://www.statox.fr/posts/2024/04/github_dependabot_auto_merge/#repo-setup-and-tests&quot;&gt;🔗&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;This is dependent on all repos though the important part is to run some tests. Here we need several setup steps:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Install &lt;code&gt;python&lt;/code&gt; throught a marketplace Github action to be able to install &lt;code&gt;podman-compose&lt;/code&gt; with &lt;code&gt;pip&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Install &lt;code&gt;podman&lt;/code&gt; throught a marketplace Github action.&lt;/li&gt;
+&lt;li&gt;Install &lt;code&gt;node&lt;/code&gt; to run build the project and run the tests.&lt;/li&gt;
+&lt;li&gt;Checkout the code, install the deps and run the tests.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If these steps fail the following one will fail too, so the PRs tests will fail and the code will not be merged.&lt;/p&gt;
+&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token key atrule&quot;&gt;jobs&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+ &lt;span class=&quot;token key atrule&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;runs-on&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; ubuntu&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;latest
+    &lt;span class=&quot;token key atrule&quot;&gt;steps&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Set up Python
+        &lt;span class=&quot;token key atrule&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; actions/setup&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;python@v5
+        &lt;span class=&quot;token key atrule&quot;&gt;with&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;python-version&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;3.x&#39;&lt;/span&gt;
+
+      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Install podman
+        &lt;span class=&quot;token key atrule&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; gacts/install&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;podman@v1
+
+      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Install podman&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;compose
+        &lt;span class=&quot;token key atrule&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; pip3 install podman&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;compose
+
+      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Setup Node.js
+        &lt;span class=&quot;token key atrule&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; actions/setup&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;node@v4
+        &lt;span class=&quot;token key atrule&quot;&gt;with&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;node-version&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;latest&#39;&lt;/span&gt;
+
+      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Checkout code
+        &lt;span class=&quot;token key atrule&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; actions/checkout@v2
+        &lt;span class=&quot;token key atrule&quot;&gt;with&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;ref&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; $&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; github.head_ref &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Install dependencies
+        &lt;span class=&quot;token key atrule&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; npm ci
+
+      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Start environement
+        &lt;span class=&quot;token key atrule&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; npm run env
+
+      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Init db
+        &lt;span class=&quot;token key atrule&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; ./src/tools/init&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;db.sh
+
+      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Run tests
+        &lt;span class=&quot;token key atrule&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; npm run tests&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;all&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;handle-the-pr&quot; tabindex=&quot;-1&quot;&gt;Handle the PR &lt;a class=&quot;header-anchor&quot; href=&quot;https://www.statox.fr/posts/2024/04/github_dependabot_auto_merge/#handle-the-pr&quot;&gt;🔗&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Three important steps:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Call the &lt;code&gt;fetch-metadata&lt;/code&gt; action to get the &lt;code&gt;$PR_URL&lt;/code&gt; variable referring to the current PR and used in the next steps.&lt;/li&gt;
+&lt;li&gt;Have the &lt;code&gt;github-action&lt;/code&gt; bot approve the PR&lt;/li&gt;
+&lt;li&gt;Have the &lt;code&gt;github-action&lt;/code&gt; bot set the &lt;code&gt;auto merge&lt;/code&gt; setting for the PR, which will trigger the merge of the PR because all the checks will succeed.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token key atrule&quot;&gt;jobs&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+ &lt;span class=&quot;token key atrule&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;runs-on&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; ubuntu&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;latest
+    &lt;span class=&quot;token key atrule&quot;&gt;steps&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token comment&quot;&gt;# [...]&lt;/span&gt;
+      &lt;span class=&quot;token comment&quot;&gt;# Setup and test steps&lt;/span&gt;
+      &lt;span class=&quot;token comment&quot;&gt;# [...]&lt;/span&gt;
+
+      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Dependabot metadata
+        &lt;span class=&quot;token key atrule&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; metadata
+        &lt;span class=&quot;token key atrule&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; dependabot/fetch&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;metadata@v2
+        &lt;span class=&quot;token key atrule&quot;&gt;with&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;github-token&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;${{secrets.GITHUB_TOKEN}}&quot;&lt;/span&gt;
+
+      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Approve the PR
+        &lt;span class=&quot;token key atrule&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; gh pr review &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;approve &quot;$PR_URL&quot;
+        &lt;span class=&quot;token key atrule&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;PR_URL&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; $&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;github.event.pull_request.html_url&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;GH_TOKEN&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; $&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;secrets.GITHUB_TOKEN&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Auto&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;merge the PR
+        &lt;span class=&quot;token key atrule&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; gh pr merge &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;rebase &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;auto &quot;$PR_URL&quot;
+        &lt;span class=&quot;token key atrule&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;PR_URL&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; $&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;github.event.pull_request.html_url&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;GH_TOKEN&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; $&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;secrets.GITHUB_TOKEN&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;result&quot; tabindex=&quot;-1&quot;&gt;Result &lt;a class=&quot;header-anchor&quot; href=&quot;https://www.statox.fr/posts/2024/04/github_dependabot_auto_merge/#result&quot;&gt;🔗&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Once all of that is configured the Dependabot PRs should be automatically handled.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/04/github_dependabot_auto_merge/PR_checks_tab.png&quot; alt=&quot;PR checks tab&quot; /&gt;&lt;/p&gt;
+&lt;center&gt;
+    &lt;i&gt;The check tab of the PR should have some results&lt;/i&gt;
+&lt;/center&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/04/github_dependabot_auto_merge/PR_check_result.png&quot; alt=&quot;PR checks results&quot; /&gt;&lt;/p&gt;
+&lt;center&gt;
+    &lt;i&gt;The checks should point to a succesful action&lt;/i&gt;
+&lt;/center&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/04/github_dependabot_auto_merge/PR_bots_results.png&quot; alt=&quot;PR bots results&quot; /&gt;&lt;/p&gt;
+&lt;center&gt;
+    &lt;i&gt;The various bots should have acted on the PR&lt;/i&gt;
+&lt;/center&gt;
 </content>
   </entry>
 </feed>
