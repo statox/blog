@@ -3184,6 +3184,7 @@ m&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot
     <updated>2024-04-20T00:00:00Z</updated>
     <id>https://www.statox.fr/posts/2024/04/github_dependabot_auto_merge/</id>
     <content type="html">&lt;p&gt;I have Dependabot set on many of my repos but I often get too lazy to check the PRs and merge them. On &lt;a href=&quot;https://github.com/statox/api.statox.fr&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;my api&lt;/a&gt; repo this is an issue because I really want to keep dependencies up to date. Here is what I did to have Dependabot&#39;s PRs merged automatically as they are created.&lt;/p&gt;
+&lt;p&gt;The file lives &lt;a href=&quot;https://github.com/statox/api.statox.fr/blob/main/.github/workflows/dependabot-auto-merge.yml&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;there on Github&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;At no point there is a need to generate a github access token by yourself. Dependabot will use its own&lt;/strong&gt;&lt;/p&gt;
 &lt;h2 id=&quot;setup-tests&quot; tabindex=&quot;-1&quot;&gt;Setup tests &lt;a class=&quot;header-anchor&quot; href=&quot;https://www.statox.fr/posts/2024/04/github_dependabot_auto_merge/#setup-tests&quot;&gt;🔗&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;For my api repo I use &lt;code&gt;mocha&lt;/code&gt; to run the tests. I have 3 commands to be able to run the tests&lt;/p&gt;
@@ -3226,7 +3227,8 @@ m&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;types&lt;/code&gt;: Using &lt;code&gt;edited&lt;/code&gt; is useful to debug the workflow while setting it up: once the MR is open, you can edit the workflow, push, comment &lt;code&gt;@dependabot rebase&lt;/code&gt; on the PR and the workflow will be re-run&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Run tests on PRs
+&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Test and AutoMerge PRs
+
 &lt;span class=&quot;token key atrule&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
  &lt;span class=&quot;token key atrule&quot;&gt;pull_request&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
     &lt;span class=&quot;token key atrule&quot;&gt;types&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;opened&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; synchronize&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; edited&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
@@ -3246,7 +3248,7 @@ m&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot
 &lt;h3 id=&quot;filter-dependabot&quot; tabindex=&quot;-1&quot;&gt;Filter dependabot &lt;a class=&quot;header-anchor&quot; href=&quot;https://www.statox.fr/posts/2024/04/github_dependabot_auto_merge/#filter-dependabot&quot;&gt;🔗&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;One way to have the whole workflow triggered only for dependabot&#39;s PR is to add a condition for the job:&lt;/p&gt;
 &lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token key atrule&quot;&gt;jobs&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
- &lt;span class=&quot;token key atrule&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+ &lt;span class=&quot;token key atrule&quot;&gt;test-and-auto-merge&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
     &lt;span class=&quot;token key atrule&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; github.actor == &#39;dependabot&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;bot&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&#39;
     &lt;span class=&quot;token key atrule&quot;&gt;runs-on&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; ubuntu&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;latest
     &lt;span class=&quot;token key atrule&quot;&gt;steps&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
@@ -3262,10 +3264,10 @@ m&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot
 &lt;/ul&gt;
 &lt;p&gt;If these steps fail the following one will fail too, so the PRs tests will fail and the code will not be merged.&lt;/p&gt;
 &lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token key atrule&quot;&gt;jobs&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
- &lt;span class=&quot;token key atrule&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+ &lt;span class=&quot;token key atrule&quot;&gt;test-and-auto-merge&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
     &lt;span class=&quot;token key atrule&quot;&gt;runs-on&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; ubuntu&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;latest
     &lt;span class=&quot;token key atrule&quot;&gt;steps&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Set up Python
+      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Install python 3
         &lt;span class=&quot;token key atrule&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; actions/setup&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;python@v5
         &lt;span class=&quot;token key atrule&quot;&gt;with&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
           &lt;span class=&quot;token key atrule&quot;&gt;python-version&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;3.x&#39;&lt;/span&gt;
@@ -3276,7 +3278,7 @@ m&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot
       &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Install podman&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;compose
         &lt;span class=&quot;token key atrule&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; pip3 install podman&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;compose
 
-      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Setup Node.js
+      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Install node.js
         &lt;span class=&quot;token key atrule&quot;&gt;uses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; actions/setup&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;node@v4
         &lt;span class=&quot;token key atrule&quot;&gt;with&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
           &lt;span class=&quot;token key atrule&quot;&gt;node-version&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;latest&#39;&lt;/span&gt;
@@ -3289,7 +3291,7 @@ m&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot
       &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Install dependencies
         &lt;span class=&quot;token key atrule&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; npm ci
 
-      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Start environement
+      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Start podman environment
         &lt;span class=&quot;token key atrule&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; npm run env
 
       &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Init db
@@ -3305,7 +3307,7 @@ m&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot
 &lt;li&gt;Have the &lt;code&gt;github-action&lt;/code&gt; bot set the &lt;code&gt;auto merge&lt;/code&gt; setting for the PR, which will trigger the merge of the PR because all the checks will succeed.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token key atrule&quot;&gt;jobs&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
- &lt;span class=&quot;token key atrule&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+ &lt;span class=&quot;token key atrule&quot;&gt;test-and-auto-merge&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
     &lt;span class=&quot;token key atrule&quot;&gt;runs-on&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; ubuntu&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;latest
     &lt;span class=&quot;token key atrule&quot;&gt;steps&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
       &lt;span class=&quot;token comment&quot;&gt;# [...]&lt;/span&gt;
