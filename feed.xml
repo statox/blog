@@ -3198,6 +3198,7 @@ m&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot
 &lt;center&gt;
     &lt;i&gt;Enable the Dependabot alerts&lt;/i&gt;
 &lt;/center&gt;
+&lt;p&gt;For better configuration a file &lt;code&gt;dependabot.yml&lt;/code&gt; can be created in the repo, see &lt;a href=&quot;https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;the doc&lt;/a&gt; for more details.&lt;/p&gt;
 &lt;h3 id=&quot;actions-settings&quot; tabindex=&quot;-1&quot;&gt;Actions settings &lt;a class=&quot;header-anchor&quot; href=&quot;https://www.statox.fr/posts/2024/04/github_dependabot_auto_merge/#actions-settings&quot;&gt;🔗&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Allow GitHub Actions to create and approve pull requests. This is needed because the workflow we will trigger will be responsible for approving the PR automatically.&lt;/p&gt;
 &lt;p&gt;In the Github repo settings: Code and automation &amp;gt; Actions &amp;gt; General &amp;gt; Workflow permissions&lt;/p&gt;
@@ -3242,6 +3243,15 @@ m&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot
 &lt;center&gt;
     &lt;i&gt;Example of gh permission error&lt;/i&gt;
 &lt;/center&gt;
+&lt;h3 id=&quot;filter-dependabot&quot; tabindex=&quot;-1&quot;&gt;Filter dependabot &lt;a class=&quot;header-anchor&quot; href=&quot;https://www.statox.fr/posts/2024/04/github_dependabot_auto_merge/#filter-dependabot&quot;&gt;🔗&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;One way to have the whole workflow triggered only for dependabot&#39;s PR is to add a condition for the job:&lt;/p&gt;
+&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token key atrule&quot;&gt;jobs&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+ &lt;span class=&quot;token key atrule&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; github.actor == &#39;dependabot&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;bot&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&#39;
+    &lt;span class=&quot;token key atrule&quot;&gt;runs-on&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; ubuntu&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;latest
+    &lt;span class=&quot;token key atrule&quot;&gt;steps&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token comment&quot;&gt;# [...]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This could be improved to better factorize the code and have the tests running on all MR and the auto merge running only on dependabot PRs but since I&#39;m the only one working on this repo and I don&#39;t use PRs for other reasons I will not bother with that.&lt;/p&gt;
 &lt;h3 id=&quot;repo-setup-and-tests&quot; tabindex=&quot;-1&quot;&gt;Repo setup and tests &lt;a class=&quot;header-anchor&quot; href=&quot;https://www.statox.fr/posts/2024/04/github_dependabot_auto_merge/#repo-setup-and-tests&quot;&gt;🔗&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;This is dependent on all repos though the important part is to run some tests. Here we need several setup steps:&lt;/p&gt;
 &lt;ul&gt;
@@ -3333,6 +3343,8 @@ m&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot
 &lt;center&gt;
     &lt;i&gt;The various bots should have acted on the PR&lt;/i&gt;
 &lt;/center&gt;
+&lt;h3 id=&quot;notification&quot; tabindex=&quot;-1&quot;&gt;Notification &lt;a class=&quot;header-anchor&quot; href=&quot;https://www.statox.fr/posts/2024/04/github_dependabot_auto_merge/#notification&quot;&gt;🔗&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;When all of that is succesful I get emails from Github both for when the bot approves the PR and for when it merges it.&lt;/p&gt;
 </content>
   </entry>
 </feed>
