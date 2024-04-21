@@ -1,5 +1,12 @@
 [
     {
+        "demo_url": "https://statox.github.io/sudoku",
+        "code_url": "https://github.com/statox/sudoku/",
+        "image": "images/projects/sudoku.gif",
+        "name": "Sudoku",
+        "description": "Some fun around the game of sudoku:<ul><li>A grid generator using the Wave Function Collapse algorithm</li><li>Two different solvers using DFS and a human-like approach</li><li>A complete game interface with hints and the ability to take notes</li><li>And some unfinished experiments around computer vision to try to parse a grid from a picture</li></ul>In addition to the algorithmic part the front end work was pretty challenging but I'm happy with the result."
+    },
+    {
         "demo_url": "https://apps.statox.fr/songbook",
         "code_url": "https://github.com/statox/apps/tree/main/src/routes/songbook",
         "image": "images/projects/songbook.gif",
