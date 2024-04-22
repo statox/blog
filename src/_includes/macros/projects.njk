@@ -14,7 +14,7 @@
         <a href="{{usedURL}}" target="_blank" rel="noopener noreferrer" data-goatcounter-click="project-{{usedURL}}" data-goatcounter-referrer="{{page.url}}">
             <h3 class="project-title">{{project.name}}</h3>
         </a>
-        <p class="project-description">{{project.description | safe}}</p>
+        <div class="project-description">{{project.description | safe}}</div>
         <p class="project-links">
             {% if project.code_url %}
             <a href="{{project.code_url}}" target="_blank" rel="noopener noreferrer" data-goatcounter-click="project-{{project.code_url}}" data-goatcounter-referrer="{{page.url}}">Code</a>

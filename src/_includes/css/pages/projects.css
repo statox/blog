@@ -75,6 +75,7 @@
 
 .project-description {
     flex-grow: 50;
+    margin-bottom: 1em;
 }
 
 h3.project-title {
