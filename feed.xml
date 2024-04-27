@@ -10,7 +10,7 @@
   <subtitle>statox&#39;s blog</subtitle>
   <link href="https://www.statox.fr/feed.xml" rel="self"/>
   <link href="https://www.statox.fr/"/>
-  <updated>2024-04-20T00:00:00Z</updated>
+  <updated>2024-04-27T00:00:00Z</updated>
   <id>https://www.statox.fr/</id>
   <author>
     <name>statox</name>
@@ -3347,6 +3347,103 @@ m&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot
 &lt;/center&gt;
 &lt;h3 id=&quot;notification&quot; tabindex=&quot;-1&quot;&gt;Notification &lt;a class=&quot;header-anchor&quot; href=&quot;https://www.statox.fr/posts/2024/04/github_dependabot_auto_merge/#notification&quot;&gt;🔗&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;When all of that is succesful I get emails from Github both for when the bot approves the PR and for when it merges it.&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>Using an OpenSearch (AWS&#39;s ElasticSearch) cluster to monitor my API</title>
+    <link href="https://www.statox.fr/posts/2024/04/api_logging_elasticsearch/"/>
+    <updated>2024-04-27T00:00:00Z</updated>
+    <id>https://www.statox.fr/posts/2024/04/api_logging_elasticsearch/</id>
+    <content type="html">&lt;p&gt;Notes about how I set up an &lt;a href=&quot;https://docs.aws.amazon.com/opensearch-service/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;OpenSearch&lt;/a&gt; cluster to manage the logs of &lt;a href=&quot;https://github.com/statox/api.statox.fr&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;my api&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Goal: Set up the cheapest ELK cluster possible to&lt;br /&gt;
+- Ingest the logs of my API&lt;br /&gt;
+- Maybe use as a tracking database for my habits&lt;/p&gt;
+&lt;p&gt;TODO:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Review costs after some usage. The idea was to benefit from the free tier, after one week it seems I don&#39;t get it.&lt;/li&gt;
+&lt;li&gt;Review &lt;a href=&quot;https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ultrawarm.html&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;UltraWarm&lt;/a&gt; nodes they might be usefull for my usage if I can&#39;t benefit from the free tier.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;setup-the-cluster-in-aws&quot; tabindex=&quot;-1&quot;&gt;Setup the cluster in AWS &lt;a class=&quot;header-anchor&quot; href=&quot;https://www.statox.fr/posts/2024/04/api_logging_elasticsearch/#setup-the-cluster-in-aws&quot;&gt;🔗&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Everything done easily from the AWS console. I had to use &amp;quot;Standard create&amp;quot; to be able to setup a smaller cluster than what AWS recommends because I have very small needs.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/04/api_logging_elasticsearch/cluster_standard_create.png&quot; alt=&quot;Setup screen 1&quot; /&gt;&lt;/p&gt;
+&lt;center&gt;
+    &lt;i&gt;Not using the default Easy mode&lt;/i&gt;
+&lt;/center&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/04/api_logging_elasticsearch/cluster_single_availability_zone.png&quot; alt=&quot;Setup screen 2&quot; /&gt;&lt;/p&gt;
+&lt;center&gt;
+    &lt;i&gt;Specifying a single availability zone to limit the costs.&lt;/i&gt;
+&lt;/center&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/04/api_logging_elasticsearch/cluster_single_data_node.png&quot; alt=&quot;Setup screen 3&quot; /&gt;&lt;/p&gt;
+&lt;center&gt;
+    &lt;i&gt;Using a single node both for master and data with the smallest possible EBS and minimum IOPS.&lt;/i&gt;
+&lt;/center&gt;
+&lt;p&gt;I also set up a custom endpoint so that I can reach my cluster from &lt;a href=&quot;http://logs.statox.fr/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;logs.statox.fr&lt;/a&gt; instead of the default long endpoint provided by ELK. The setup is simple: Create a certicate in ACM, setup a DNS verification to validate the certificate and use the certificate in the setup screen of OpenSearch.&lt;/p&gt;
+&lt;p&gt;The security is far from ideal but pretty convenient for a very-not-critical API like mine: The cluster is open to internet and the auth is done with ELK&#39;s built-in user store. (Note that the automatic software updates are enabled thank to the managed aspect of the cluster, I&#39;ll  need to make sure it doesn&#39;t break stuff when I don&#39;t do anything).&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/04/api_logging_elasticsearch/cluster_security.png&quot; alt=&quot;Setup screen 4&quot; /&gt;&lt;/p&gt;
+&lt;center&gt;
+    &lt;i&gt;Using a single node both for master and data with the smallest possible EBS and minimum IOPS.&lt;/i&gt;
+&lt;/center&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/04/api_logging_elasticsearch/cluster_security_2.png&quot; alt=&quot;Setup screen 5&quot; /&gt;&lt;/p&gt;
+&lt;center&gt;
+    &lt;i&gt;TODO: Check if I can better restrict this policy.&lt;/i&gt;
+&lt;/center&gt;
+&lt;p&gt;By default the cluster has hourly snapshots. The cluster takes several minutes to start up, once it is up we can test that it answers properly:&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token assign-left variable&quot;&gt;DOMAIN_ENDPOINT&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;https://logs.statox.fr&#39;&lt;/span&gt;
+&lt;span class=&quot;token assign-left variable&quot;&gt;ELASTIC_USER&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;xxxxxxxx&#39;&lt;/span&gt;
+&lt;span class=&quot;token assign-left variable&quot;&gt;ELASTIC_PASSWORD&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;xxxxxxxx&#39;&lt;/span&gt;
+
+
+&lt;span class=&quot;token function&quot;&gt;curl&lt;/span&gt;  &lt;span class=&quot;token parameter variable&quot;&gt;-H&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;Content-Type: application/json&#39;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;&#92;&lt;/span&gt;
+      &lt;span class=&quot;token parameter variable&quot;&gt;-XGET&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;--user&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$ELASTIC_USER&lt;/span&gt;:&lt;span class=&quot;token variable&quot;&gt;$ELASTIC_PASSWORD&lt;/span&gt;&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;&#92;&lt;/span&gt;
+      &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$DOMAIN_ENDPOINT&lt;/span&gt;/_cat/health&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;about-ingestion&quot; tabindex=&quot;-1&quot;&gt;About ingestion &lt;a class=&quot;header-anchor&quot; href=&quot;https://www.statox.fr/posts/2024/04/api_logging_elasticsearch/#about-ingestion&quot;&gt;🔗&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;AWS har a service &lt;a href=&quot;https://docs.aws.amazon.com/opensearch-service/latest/developerguide/osis-get-started.html&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;OpenSearch Ingestion&lt;/a&gt; which provides ingestion pipeline like Logstash would do in a regular ELK setup.&lt;/p&gt;
+&lt;p&gt;For now I don&#39;t use it because I want to avoid the additional costs but this has some big downsides, particularly I need to provide a timestemp fields when my clients send new logs, that sucks and is very error prone. Also the clients are responsible for sending the logs to the correct data stream, for now this is ok because I use the cluster only for my logging but when I start using it for other features I&#39;ll probably need to get to the ingestion part.&lt;/p&gt;
+&lt;h2 id=&quot;the-ui&quot; tabindex=&quot;-1&quot;&gt;The UI &lt;a class=&quot;header-anchor&quot; href=&quot;https://www.statox.fr/posts/2024/04/api_logging_elasticsearch/#the-ui&quot;&gt;🔗&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;AWS replaces Kibana with &lt;a href=&quot;https://docs.aws.amazon.com/opensearch-service/latest/developerguide/dashboards.html&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;OpenSearch Dashboards&lt;/a&gt; which is a rebranded version of Kibana. It is accessible to &lt;code&gt;https://logs.statox.fr/_dashboard&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The main difference with a self hosted Kibana is the &amp;quot;Management&amp;quot; section of the menu which changes, for example there is no &amp;quot;Stack Monitoring&amp;quot; section because the monitoring is done directly in AWS.&lt;/p&gt;
+&lt;h2 id=&quot;configuring-the-database&quot; tabindex=&quot;-1&quot;&gt;Configuring the database &lt;a class=&quot;header-anchor&quot; href=&quot;https://www.statox.fr/posts/2024/04/api_logging_elasticsearch/#configuring-the-database&quot;&gt;🔗&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Goal: Ingest my logs on a rolling index (weekly rollover)&lt;/p&gt;
+&lt;p&gt;I am going to use data steams instead of regular index to make it easier to configure the roll over.&lt;/p&gt;
+&lt;h3 id=&quot;1.-create-the-index-template.&quot; tabindex=&quot;-1&quot;&gt;1. Create the index template. &lt;a class=&quot;header-anchor&quot; href=&quot;https://www.statox.fr/posts/2024/04/api_logging_elasticsearch/#1.-create-the-index-template.&quot;&gt;🔗&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;This is the template of settings which will be applied to all the indices which will be used to create the data stream.&lt;/p&gt;
+&lt;p&gt;Important settings:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Specify that we are working with data streams&lt;/li&gt;
+&lt;li&gt;Specify the &lt;code&gt;timestamp&lt;/code&gt; field as the time field (which will allow the proper indexing and temporal search).&lt;/li&gt;
+&lt;li&gt;We are not really using index pattern as with regular indices because we are using a data stream, so the &lt;code&gt;index pattern&lt;/code&gt; property must have the name of the stream we will create later on. &lt;em&gt;Note: No * character&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/04/api_logging_elasticsearch/index_template_1.png&quot; alt=&quot;Index template settings 1&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;No need to specify an index alias because the data stream will take care of that. And I have only one node so it doesn&#39;t make sense to have more than one primary shard or any replica shard.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/04/api_logging_elasticsearch/index_template_2.png&quot; alt=&quot;Index template settings 2&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;The index mapping are useful to specify that a specific field is not a simple number but a timestamp or not a simple string but an IP. See the &lt;a href=&quot;https://opensearch.org/docs/latest/field-types/supported-field-types/index/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;supported fields types&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/04/api_logging_elasticsearch/index_template_3.png&quot; alt=&quot;Index template settings 3&quot; /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;2.-create-the-data-stream&quot; tabindex=&quot;-1&quot;&gt;2. Create the data stream &lt;a class=&quot;header-anchor&quot; href=&quot;https://www.statox.fr/posts/2024/04/api_logging_elasticsearch/#2.-create-the-data-stream&quot;&gt;🔗&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;If created with the name used in the index template&#39;s &lt;code&gt;index pattern&lt;/code&gt; field the stream will be associated to the template.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/04/api_logging_elasticsearch/data_stream_1.png&quot; alt=&quot;Data stream 1&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;Once the stream is created we can start pushing data to it, that will automatically create the underlying index:&lt;/p&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;curl&lt;/span&gt;  &lt;span class=&quot;token parameter variable&quot;&gt;-H&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;Content-Type: application/json&#39;&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-XPOST&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;--user&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$ELASTIC_USER&lt;/span&gt;:&lt;span class=&quot;token variable&quot;&gt;$ELASTIC_PASSWORD&lt;/span&gt;&quot;&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;$DOMAIN_ENDPOINT&lt;/span&gt;/api.statox.fr/_doc&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;&#92;&lt;/span&gt;
+    &lt;span class=&quot;token parameter variable&quot;&gt;-d&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;{&quot;message&quot;: &quot;Test message from bash&quot;, &quot;timestamp&quot;: $(date +&quot;%s&quot;)000}&#39;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# With a shitty hack to transform seconds to milliseconds&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;3.-create-the-index-pattern&quot; tabindex=&quot;-1&quot;&gt;3. Create the Index pattern &lt;a class=&quot;header-anchor&quot; href=&quot;https://www.statox.fr/posts/2024/04/api_logging_elasticsearch/#3.-create-the-index-pattern&quot;&gt;🔗&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;This is the entity which tells to Dashboards (Kibana) which indices to search when you are in the &lt;code&gt;Dicover&lt;/code&gt; tab.&lt;/p&gt;
+&lt;p&gt;The only thing needed when creating the pattern is to use the proper name &lt;code&gt;api.statox.fr&lt;/code&gt; (Again no need for &lt;code&gt;*&lt;/code&gt; thanks to the data stream which masks the complexity)&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/04/api_logging_elasticsearch/index_pattern_1.png&quot; alt=&quot;Index pattern settings 1&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;https://www.statox.fr/posts/2024/04/api_logging_elasticsearch/index_pattern_2.png&quot; alt=&quot;Index pattern settings 2&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;From there the logs are available in the &lt;code&gt;Discover&lt;/code&gt; tab:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/04/api_logging_elasticsearch/index_pattern_3.png&quot; alt=&quot;Index pattern in discover&quot; /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;4.-set-up-the-index-policy&quot; tabindex=&quot;-1&quot;&gt;4. Set up the index policy &lt;a class=&quot;header-anchor&quot; href=&quot;https://www.statox.fr/posts/2024/04/api_logging_elasticsearch/#4.-set-up-the-index-policy&quot;&gt;🔗&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;This is the final step to make sure the indices backing the data streams are regularly rotated (so that at one point they can be deleted to keep the volume of data below a certain threshold without dropping a unique index with all the logs).&lt;/p&gt;
+&lt;p&gt;An optional step 1 is to setup a Notification channel to be notified when the policy fails, settings up a notification on a slack webhook is super straight forward, just past the webhook URL and you&#39;re done.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/04/api_logging_elasticsearch/index_policy_1.png&quot; alt=&quot;Index policy settings&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;By using the correct index pattern, the policy will be applied to all the indices of the data stream and will rollover them.&lt;/p&gt;
+&lt;h2 id=&quot;conclusion&quot; tabindex=&quot;-1&quot;&gt;Conclusion &lt;a class=&quot;header-anchor&quot; href=&quot;https://www.statox.fr/posts/2024/04/api_logging_elasticsearch/#conclusion&quot;&gt;🔗&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;This kind of setup is something I&#39;m used to do on a much bigger scale in my day job so I see the cracks in this current setup but at least it&#39;s working conveniently for my small needs.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It would be great to terraform the AWS part (but, &lt;em&gt;la flemme&lt;/em&gt;)&lt;/li&gt;
+&lt;li&gt;I need to check if I can easily restore the automatic snapshots made by AWS and if that keeps the configurations I did in Kibana (in theory, yes)&lt;/li&gt;
+&lt;li&gt;Next I&#39;ll use this document store as part of the product of my api.&lt;/li&gt;
+&lt;/ul&gt;
 </content>
   </entry>
 </feed>
