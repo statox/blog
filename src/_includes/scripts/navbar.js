@@ -2,7 +2,7 @@
 // The bigScreen variable is used in navbarNavigate()
 const bigScreenQuery = window.matchMedia('(max-width: 600px)');
 let bigScreen = !bigScreenQuery.matches;
-bigScreenQuery.addListener(query => (bigScreen = !query.matches)); // Attach listener function on state changes
+bigScreenQuery.addListener((query) => (bigScreen = !query.matches)); // Attach listener function on state changes
 
 // This is the function called when user clicks on the links in the navbar
 // If we have a big screen we always navigate

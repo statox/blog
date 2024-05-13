@@ -23,7 +23,7 @@ function domReady(fn) {
 
 function countReactions(reactions) {
     const counts = {};
-    reactions.forEach(r => {
+    reactions.forEach((r) => {
         if (!counts[r.content]) {
             counts[r.content] = 1;
         } else {
@@ -86,7 +86,7 @@ async function getComments(issueId) {
         method: 'GET',
         mode: 'cors',
         cache: 'no-cache',
-        headers: {Accept: 'application/vnd.github.v3.html+json'}
+        headers: { Accept: 'application/vnd.github.v3.html+json' }
     });
     return response.json();
 }
@@ -97,7 +97,7 @@ async function getReactions(commentId) {
         method: 'GET',
         mode: 'cors',
         cache: 'no-cache',
-        headers: {Accept: 'application/vnd.github.squirrel-girl-preview+json'}
+        headers: { Accept: 'application/vnd.github.squirrel-girl-preview+json' }
     });
     return response.json();
 }
@@ -114,7 +114,7 @@ function setupCommentsInPage(commentIssueId) {
     domReady(async () => {
         const comments = await getComments(commentIssueId);
         await Promise.all(
-            comments.map(async c => {
+            comments.map(async (c) => {
                 c.reactions = await getReactions(c.id);
             })
         );
@@ -123,4 +123,4 @@ function setupCommentsInPage(commentIssueId) {
     });
 }
 
-setupCommentsInPage({commentIssueId});
+setupCommentsInPage({ commentIssueId });

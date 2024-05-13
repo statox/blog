@@ -169,17 +169,17 @@ function draw() {
         }
     }
 
-    predators.forEach(p => {
+    predators.forEach((p) => {
         predatorsQTree.insert(new Point(p.pos.x, p.pos.y, p.id));
     });
 
-    obstacles.forEach(o => {
+    obstacles.forEach((o) => {
         // TODO: I think it's not needed to do that at each iteration
         obstaclesQTree.insert(new Point(o.pos.x, o.pos.y, o.id));
         o.show();
     });
 
-    birds.forEach(b => {
+    birds.forEach((b) => {
         birdsQTree.insert(new Point(b.pos.x, b.pos.y, b.id));
     });
 
@@ -187,16 +187,16 @@ function draw() {
     // I thought there was an issue when the compute and the move were done
     // at the same time but now I'm not sure I see a visible change when
     // the computation is done with the move
-    birds.forEach(b => {
+    birds.forEach((b) => {
         b.computeMove();
     });
 
-    birds.forEach(b => {
+    birds.forEach((b) => {
         b.move();
         b.show();
     });
 
-    predators.forEach(p => {
+    predators.forEach((p) => {
         p.move();
         p.show();
     });

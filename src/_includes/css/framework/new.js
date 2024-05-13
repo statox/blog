@@ -20,10 +20,10 @@ function toggleDarkTheme() {
         '--nc-ac-tx'
     ];
     const replacement = isLight ? '-d' : '-l';
-    const targetVars = vars.map(v => {
-        return {current: v, target: v.slice(0, 4) + replacement + v.slice(4)};
+    const targetVars = vars.map((v) => {
+        return { current: v, target: v.slice(0, 4) + replacement + v.slice(4) };
     });
-    for (const {current, target} of targetVars) {
+    for (const { current, target } of targetVars) {
         const value = getComputedStyle(document.documentElement).getPropertyValue(target);
         document.documentElement.style.setProperty(current, value);
     }

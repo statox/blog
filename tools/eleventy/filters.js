@@ -1,4 +1,4 @@
-const {DateTime} = require('luxon');
+const { DateTime } = require('luxon');
 const execSync = require('child_process').execSync;
 
 function currentCommitInfo() {
@@ -17,7 +17,7 @@ function currentCommitInfo() {
 }
 
 function currentBuildInfo() {
-    const pad = v => v.toString().padStart(2, '0');
+    const pad = (v) => v.toString().padStart(2, '0');
     const now = new Date();
     const day = pad(now.getDate());
     const month = pad(now.getMonth() + 1);
@@ -46,8 +46,8 @@ function datePost(date) {
 // Format note tags for notes/ page and for individual note pages
 function noteTags(tags) {
     return tags
-        .filter(t => t !== 'note')
-        .map(t => '[' + t + ']')
+        .filter((t) => t !== 'note')
+        .map((t) => '[' + t + ']')
         .join('');
 }
 
@@ -55,10 +55,10 @@ function noteTags(tags) {
 // TODO: To be refactored to better use eleventy collections to avoid hack for drafts
 function relatedPosts(_collection, currentPost) {
     // Exclude drafts from collection
-    const collection = _collection.filter(p => !p.url.includes('drafts'));
-    const currentPostIndex = collection.findIndex(p => p.url === currentPost.url);
+    const collection = _collection.filter((p) => !p.url.includes('drafts'));
+    const currentPostIndex = collection.findIndex((p) => p.url === currentPost.url);
     const relatedPosts = [];
-    const transformPost = post => {
+    const transformPost = (post) => {
         return {
             date: post.date,
             url: post.url,
@@ -95,7 +95,7 @@ function pageTitle(title) {
 }
 
 function dateToFormat(date, format) {
-    return DateTime.fromJSDate(date, {zone: 'utc'}).toFormat(String(format));
+    return DateTime.fromJSDate(date, { zone: 'utc' }).toFormat(String(format));
 }
 
 module.exports = {

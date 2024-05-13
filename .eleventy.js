@@ -22,17 +22,17 @@ const env = process.env.ELEVENTY_ENV;
 
 module.exports = function (eleventyConfig) {
     // Filters
-    Object.keys(filters).forEach(filterName => {
+    Object.keys(filters).forEach((filterName) => {
         eleventyConfig.addFilter(filterName, filters[filterName]);
     });
 
     // Collections
-    Object.keys(collections).forEach(collectionName => {
+    Object.keys(collections).forEach((collectionName) => {
         eleventyConfig.addCollection(collectionName, collections[collectionName]);
     });
 
     // Transforms
-    Object.keys(transforms).forEach(transformName => {
+    Object.keys(transforms).forEach((transformName) => {
         eleventyConfig.addTransform(transformName, transforms[transformName]);
     });
 
@@ -73,7 +73,7 @@ module.exports = function (eleventyConfig) {
     };
 
     const markdownItAnchorOptions = {
-        permalink: markdownItAnchor.permalink.linkInsideHeader({symbol: '🔗'})
+        permalink: markdownItAnchor.permalink.linkInsideHeader({ symbol: '🔗' })
     };
 
     let markdownLib = markdownIt(markdownItOptions)
@@ -93,14 +93,18 @@ module.exports = function (eleventyConfig) {
      */
     eleventyConfig.addPassthroughCopy('fonts');
     eleventyConfig.addPassthroughCopy('mirror');
-    eleventyConfig.addPassthroughCopy({'./assets/images': '/images'});
-    eleventyConfig.addPassthroughCopy({'./assets/uploads': '/uploads'});
-    eleventyConfig.addPassthroughCopy({'./assets/pdf': '/pdf'});
+    eleventyConfig.addPassthroughCopy({ './assets/images': '/images' });
+    eleventyConfig.addPassthroughCopy({ './assets/uploads': '/uploads' });
+    eleventyConfig.addPassthroughCopy({ './assets/pdf': '/pdf' });
 
     if (env === 'prod') {
-        eleventyConfig.addPassthroughCopy({'./assets/favicons_prod': '/favicon'});
+        eleventyConfig.addPassthroughCopy({
+            './assets/favicons_prod': '/favicon'
+        });
     } else {
-        eleventyConfig.addPassthroughCopy({'./assets/favicons_dev': '/favicon'});
+        eleventyConfig.addPassthroughCopy({
+            './assets/favicons_dev': '/favicon'
+        });
     }
 
     /*

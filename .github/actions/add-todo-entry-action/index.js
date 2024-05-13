@@ -1,22 +1,22 @@
 const async = require('async');
-const {exec} = require('child_process');
+const { exec } = require('child_process');
 const fs = require('fs');
 const core = require('@actions/core');
 const github = require('@actions/github');
 const TODO_PATH = 'src/todo/';
 
 const body = core.getInput('comment');
-const tags_str = body.split('\r\n').find(l => l.trim().match(/^tags/i));
+const tags_str = body.split('\r\n').find((l) => l.trim().match(/^tags/i));
 let tagsArray = ['todo'];
 try {
     const tags = tags_str.split(':')[1];
-    tagsArray = tagsArray.concat(tags.split(',').map(t => t.trim()));
+    tagsArray = tagsArray.concat(tags.split(',').map((t) => t.trim()));
 } catch (e) {}
 
 const now = new Date();
 const timestamp = `${now.getFullYear()}-${(now.getMonth() + 1).toString().padStart(2, '0')}-${now.getDate()}`;
 
-const title = body.split('\r\n').find(l => l.match(/^#\s+.+/));
+const title = body.split('\r\n').find((l) => l.match(/^#\s+.+/));
 const cleanTitle = title.trim().replace(/^#\s+/, '').replace(/\s\+/g, ' ');
 
 const fileName =
@@ -27,11 +27,11 @@ const fileName =
 
 const FILE_PATH = TODO_PATH + fileName;
 
-console.log('Item to add', {title, timestamp, fileName, tagsArray});
+console.log('Item to add', { title, timestamp, fileName, tagsArray });
 
 async.auto(
     {
-        addNewContent: cb => {
+        addNewContent: (cb) => {
             // Add the new item to the truncated content
             // and write it to disk
             console.log('Adding new item to file');
@@ -44,7 +44,7 @@ async.auto(
                 '---\n\n' +
                 body
                     .split('\r\n')
-                    .filter(l => l !== title)
+                    .filter((l) => l !== title)
                     .join('\n');
 
             return fs.writeFile(FILE_PATH, newContent, cb);
@@ -124,7 +124,7 @@ async.auto(
     },
     (error, result) => {
         if (error) {
-            console.log({error});
+            console.log({ error });
             core.setFailed(error);
         }
         console.log('Done adding item');

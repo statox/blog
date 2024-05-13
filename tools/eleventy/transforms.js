@@ -14,7 +14,7 @@ async function htmlmin(content, outputPath) {
         return content;
     }
 
-    const prettified = await prettier.format(content, {parser: 'html'});
+    const prettified = await prettier.format(content, { parser: 'html' });
 
     const minified = htmlminifier.minify(prettified, {
         keepClosingSlash: true,

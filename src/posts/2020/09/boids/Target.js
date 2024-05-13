@@ -67,7 +67,7 @@ function Target(id) {
         const nearCircle = new Circle(this.pos.x, this.pos.y, targetsSettings.AVOID_BIRD_RADIUS);
         birdsQTree.query(nearCircle, localBirds);
 
-        localBirds.forEach(b => {
+        localBirds.forEach((b) => {
             const acc = b.acc;
             const steer = this.pos.copy().sub(acc);
             cohesionSteer.add(steer);
@@ -92,8 +92,8 @@ function Target(id) {
 
         const obstacleSteer = new p5.Vector(0, 0);
         myobstacles
-            .map(i => i.userData)
-            .forEach(id => {
+            .map((i) => i.userData)
+            .forEach((id) => {
                 const o = obstacles[id];
                 const steer = p5.Vector.sub(this.pos, o.pos);
                 obstacleSteer.add(steer);

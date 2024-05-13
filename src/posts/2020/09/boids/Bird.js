@@ -33,18 +33,18 @@ function Bird(id, pos, vel) {
         const predatorsCircle = new Circle(this.pos.x, this.pos.y, boidsSettings.PREDATOR_RADIUS);
         predatorsQTree.query(predatorsCircle, predators);
 
-        const isInFieldOfView = otherPos => {
+        const isInFieldOfView = (otherPos) => {
             const directionToOther = this.pos.copy().sub(otherPos);
             const angleToOther = this.vel.angleBetween(directionToOther);
             return Math.abs(angleToOther) >= PI - radians(boidsSettings.MAX_WIGGLE_ANGLE / 2);
         };
 
-        this.alignmentFriends = alignment.map(i => i.userData).filter(id => isInFieldOfView(birds[id].pos));
-        this.separationFriends = separation.map(i => i.userData).filter(id => isInFieldOfView(birds[id].pos));
-        this.cohesionFriends = cohesion.map(i => i.userData).filter(id => isInFieldOfView(birds[id].pos));
-        this.nearObstacles = myobstacles.map(i => i.userData).filter(id => isInFieldOfView(obstacles[id].pos));
+        this.alignmentFriends = alignment.map((i) => i.userData).filter((id) => isInFieldOfView(birds[id].pos));
+        this.separationFriends = separation.map((i) => i.userData).filter((id) => isInFieldOfView(birds[id].pos));
+        this.cohesionFriends = cohesion.map((i) => i.userData).filter((id) => isInFieldOfView(birds[id].pos));
+        this.nearObstacles = myobstacles.map((i) => i.userData).filter((id) => isInFieldOfView(obstacles[id].pos));
         try {
-            this.nearPredators = predators.map(i => i.userData).filter(id => isInFieldOfView(predators[id].pos));
+            this.nearPredators = predators.map((i) => i.userData).filter((id) => isInFieldOfView(predators[id].pos));
         } catch (e) {
             debugger; // AFA
         }
@@ -108,7 +108,7 @@ function Bird(id, pos, vel) {
         }
 
         const alignmentSteer = new p5.Vector(0, 0);
-        this.alignmentFriends.forEach(id => {
+        this.alignmentFriends.forEach((id) => {
             if (id === this.id) {
                 return;
             }
@@ -132,7 +132,7 @@ function Bird(id, pos, vel) {
         }
 
         const separationSteer = new p5.Vector(0, 0);
-        this.separationFriends.forEach(id => {
+        this.separationFriends.forEach((id) => {
             if (id === this.id) {
                 return;
             }
@@ -157,7 +157,7 @@ function Bird(id, pos, vel) {
         }
 
         const cohesionSteer = new p5.Vector(0, 0);
-        this.cohesionFriends.forEach(id => {
+        this.cohesionFriends.forEach((id) => {
             if (id === this.id) {
                 return;
             }
@@ -206,7 +206,7 @@ function Bird(id, pos, vel) {
     this.getObstaclesAvoidingAcceleration = () => {
         const obstacleSteer = new p5.Vector(0, 0);
 
-        this.nearObstacles.forEach(id => {
+        this.nearObstacles.forEach((id) => {
             const o = obstacles[id];
             const steer = p5.Vector.sub(this.pos, o.pos);
             obstacleSteer.add(steer);
@@ -220,7 +220,7 @@ function Bird(id, pos, vel) {
     this.getPredatorsAvoidingAcceleration = () => {
         const predatorSteer = new p5.Vector(0, 0);
 
-        this.nearPredators.forEach(id => {
+        this.nearPredators.forEach((id) => {
             const o = predators[id];
             const steer = p5.Vector.sub(this.pos, o.pos);
             predatorSteer.add(steer);
@@ -246,7 +246,7 @@ function Bird(id, pos, vel) {
         ];
 
         const netAcceleration = new p5.Vector(0, 0);
-        forcesToApply.forEach(f => {
+        forcesToApply.forEach((f) => {
             if (f) {
                 netAcceleration.add(f.limit(2));
             }
@@ -271,13 +271,13 @@ function Bird(id, pos, vel) {
         noFill();
 
         if (this.id === birds[0].id) {
-            birds.forEach(b => {
+            birds.forEach((b) => {
                 b.marked = false;
                 b.color = null;
             });
             if (boidsSettings.enableShowPerception) {
                 if (boidsSettings.enableAlignment) {
-                    this.alignmentFriends.forEach(id => {
+                    this.alignmentFriends.forEach((id) => {
                         birds[id].marked = true;
                         birds[id].color = 'rgba(100,255,100,0.5)';
                     });
@@ -286,7 +286,7 @@ function Bird(id, pos, vel) {
                     circle(0, 0, boidsSettings.ALIGNMENT_FRIENDS_RADIUS * 2);
                 }
                 if (boidsSettings.enableSeparation) {
-                    this.separationFriends.forEach(id => {
+                    this.separationFriends.forEach((id) => {
                         birds[id].marked = true;
                         birds[id].color = 'rgba(255,100,100,0.5)';
                     });
@@ -295,7 +295,7 @@ function Bird(id, pos, vel) {
                     circle(0, 0, boidsSettings.SEPARATION_FRIENDS_RADIUS * 2);
                 }
                 if (boidsSettings.enableCohesion) {
-                    this.cohesionFriends.forEach(id => {
+                    this.cohesionFriends.forEach((id) => {
                         birds[id].marked = true;
                         birds[id].color = 'rgba(100,100,255,0.5)';
                     });

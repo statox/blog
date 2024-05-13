@@ -9,8 +9,8 @@ const squareIJToIndex = (i, j) => {
     return i + SQUARES * j;
 };
 
-const squareIdToXY = index => {
-    const {i, j} = squareIdToIJ(index);
+const squareIdToXY = (index) => {
+    const { i, j } = squareIdToIJ(index);
     const square_w = width / SQUARES;
     const square_h = height / SQUARES;
     return {

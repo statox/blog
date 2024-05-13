@@ -4,12 +4,20 @@
 function adaptToScreenSize(x) {
     const postDate = new Date('{{page.date}}');
 
-    let datePostContent = postDate.toLocaleDateString(undefined, {year: 'numeric', month: 'long', day: 'numeric'});
+    let datePostContent = postDate.toLocaleDateString(undefined, {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    });
     let commentWordSpanContent = 'comments';
 
     if (x.matches) {
         // Small screens
-        datePostContent = postDate.toLocaleDateString(undefined, {year: 'numeric', month: 'numeric', day: 'numeric'});
+        datePostContent = postDate.toLocaleDateString(undefined, {
+            year: 'numeric',
+            month: 'numeric',
+            day: 'numeric'
+        });
         commentWordSpanContent = '💬';
     }
 

@@ -1,6 +1,6 @@
 #!/usr/env/node
 
-const {Octokit} = require('@octokit/rest');
+const { Octokit } = require('@octokit/rest');
 const https = require('follow-redirects').https;
 const fs = require('fs');
 const path = require('path');
@@ -38,8 +38,8 @@ function getIssues(cb) {
             owner: OWNER,
             repo: REPO_NAME
         })
-        .then(({data}) => cb(null, data))
-        .catch(e => cb(e));
+        .then(({ data }) => cb(null, data))
+        .catch((e) => cb(e));
 }
 
 /*
@@ -48,7 +48,7 @@ function getIssues(cb) {
 var walkSync = function (dir, filelist) {
     const files = fs.readdirSync(dir);
     filelist = filelist || [];
-    files.forEach(file => {
+    files.forEach((file) => {
         if (fs.statSync(dir + file).isDirectory()) {
             filelist = walkSync(dir + file + '/', filelist);
         } else {
@@ -64,8 +64,8 @@ var walkSync = function (dir, filelist) {
  */
 function convertPostHeader(postHeader) {
     return postHeader
-        .filter(l => l.length > 0)
-        .map(l => l.split(': '))
+        .filter((l) => l.length > 0)
+        .map((l) => l.split(': '))
         .reduce((o, l) => {
             if (l && l[0] === 'commentIssueId') {
                 o['commentIssueId'] = Number(l[1]);
@@ -94,7 +94,7 @@ function getPosts(cb) {
     async.map(
         files,
         (file, cb) => {
-            return fs.readFile(file, {encoding: 'utf-8'}, (error, content) => {
+            return fs.readFile(file, { encoding: 'utf-8' }, (error, content) => {
                 if (error) {
                     return cb(error);
                 }
@@ -117,7 +117,7 @@ function getPosts(cb) {
             // Only keep the published posts
             return cb(
                 null,
-                results.filter(p => p.eleventyExcludeFromCollections !== true && p.title)
+                results.filter((p) => p.eleventyExcludeFromCollections !== true && p.title)
             );
         }
     );
@@ -128,7 +128,7 @@ function getPosts(cb) {
  */
 function createIssue(issue, cb) {
     if (DRY_RUN) {
-        console.log('DRY RUN: creating issue', {issue});
+        console.log('DRY RUN: creating issue', { issue });
         return cb();
     }
 
@@ -138,8 +138,8 @@ function createIssue(issue, cb) {
             repo: REPO_NAME,
             title: JSON.stringify(issue.title)
         })
-        .then(response => cb(null, response))
-        .catch(e => cb(e));
+        .then((response) => cb(null, response))
+        .catch((e) => cb(e));
 }
 
 /*
@@ -149,7 +149,7 @@ function createMissingIssues(issuesToCreate, cb) {
     async.eachSeries(
         issuesToCreate,
         (issue, cb) => {
-            return createIssue(issue, error => {
+            return createIssue(issue, (error) => {
                 if (error) {
                     return cb(error);
                 }
@@ -165,8 +165,8 @@ function createMissingIssues(issuesToCreate, cb) {
 if (require.main === module) {
     async.auto(
         {
-            issues: cb => getIssues(cb),
-            posts: cb => getPosts(cb)
+            issues: (cb) => getIssues(cb),
+            posts: (cb) => getPosts(cb)
         },
         (error, result) => {
             if (error) {
@@ -174,7 +174,7 @@ if (require.main === module) {
                 process.exit(1);
             }
 
-            const {issues, posts} = result;
+            const { issues, posts } = result;
             const sortedIssues = issues.sort((a, b) => a.number - b.number);
             const sortedPosts = posts.sort((a, b) => a.commentIssueId - b.commentIssueId);
 
@@ -202,7 +202,7 @@ if (require.main === module) {
                 process.exit(0);
             }
 
-            createMissingIssues(issuesToCreate, error => {
+            createMissingIssues(issuesToCreate, (error) => {
                 if (error) {
                     console.log('Error creating issues');
                     console.log(error);
