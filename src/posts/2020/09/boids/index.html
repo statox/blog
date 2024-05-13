@@ -9,29 +9,41 @@ CSSFile: 'css/pages/boids.css'
 
 <h3>What is this?</h3>
 <div>
-    <p>This is a simulation of Boids: some little digital creatures invented by <a
-            href="http://www.red3d.com/cwr/boids/" target="_blank" rel="noopener noreferrer">Craig Renolds</a>. Each
-        Boid has its own perception circle i.e. a limited circle around the creature where it has the ability to see its
+    <p>
+        This is a simulation of Boids: some little digital creatures invented by
+        <a href="http://www.red3d.com/cwr/boids/" target="_blank" rel="noopener noreferrer">Craig Renolds</a>. Each Boid
+        has its own perception circle i.e. a limited circle around the creature where it has the ability to see its
         neighbors and how they behave. In addition to this perception circle all the Boids follow the same basic rules
-        depending on their neighbors behavior.</p>
-    <p>This kind of simple individual rules allow the emerging of group behaviors which are fascinating to
-        observe <i>-at least to me :)-</i> as they are not lead by a single element of the group but are the result
-        of
-        combined individual
-        behaviors.</p>
+        depending on their neighbors behavior.
+    </p>
+    <p>
+        This kind of simple individual rules allow the emerging of group behaviors which are fascinating to observe
+        <i>-at least to me :)-</i> as they are not lead by a single element of the group but are the result of combined
+        individual behaviors.
+    </p>
     <p>This kind of simulation has been used for example to generate crowds of people or flocks of animals in CGI.</p>
 
     <pre>TODO: Add a scene of the Uruk Hai walking from LOTR (or something less dorky but still illustrative)</pre>
 
-    <p>You can play with the different controls over and under the simulation to have a sense of how it works. To get a
+    <p>
+        You can play with the different controls over and under the simulation to have a sense of how it works. To get a
         better understanding you can have a read at <a href="#explanation">the explanation</a> which should help you to
-        understand step by step what is going on here.</p>
+        understand step by step what is going on here.
+    </p>
 
-    <p style="color: red;"><i>The controls of the simulation are not compatible with mobile devices and prevent some
-            features from working. Namely the creation of Boids, by clicking on the screen.</i></p>
+    <p style="color: red">
+        <i>
+            The controls of the simulation are not compatible with mobile devices and prevent some features from
+            working. Namely the creation of Boids, by clicking on the screen.
+        </i>
+    </p>
 
-    <p><i>This page is a work in progress which might never get finished as I'm planning another implementation with a
-            different framework, so... to be continued.</i></p>
+    <p>
+        <i>
+            This page is a work in progress which might never get finished as I'm planning another implementation with a
+            different framework, so... to be continued.
+        </i>
+    </p>
 </div>
 
 <!-- This raw annotation is used to be able to use Vuejs in nunchuck templates -->
@@ -40,7 +52,7 @@ CSSFile: 'css/pages/boids.css'
 <div class="boids" id="boidsApp">
     <div>
         <label>Flock population</label>
-        <input id="flockSizeInput" type="number" v-model.number="CROWD_SIZE">
+        <input id="flockSizeInput" type="number" v-model.number="CROWD_SIZE" />
         <button id="flockSizeBtn" onclick="resetBirds()">Reset flock</button>
         <button id="flockSizeBtn" onclick="resetObstacles()">Reset obstacles</button>
     </div>
@@ -48,20 +60,33 @@ CSSFile: 'css/pages/boids.css'
         <table>
             <tr>
                 <td>
-                    <button v-bind:class="{active: enableFollowMouse, inactive: !enableFollowMouse}"
-                        id="followMouseButton">Follow mouse</button>
+                    <button
+                        v-bind:class="{active: enableFollowMouse, inactive: !enableFollowMouse}"
+                        id="followMouseButton"
+                    >
+                        Follow mouse
+                    </button>
                 </td>
                 <td>
-                    <button v-bind:class="{active: enableFollowTarget, inactive: !enableFollowTarget}"
-                        id="followTargetButton">Follow target</button>
+                    <button
+                        v-bind:class="{active: enableFollowTarget, inactive: !enableFollowTarget}"
+                        id="followTargetButton"
+                    >
+                        Follow target
+                    </button>
                 </td>
                 <td>
-                    <button v-bind:class="{active: enableWrapEdges, inactive: !enableWrapEdges}"
-                        id="wrapEdgesButton">Edge wrapping</button>
+                    <button v-bind:class="{active: enableWrapEdges, inactive: !enableWrapEdges}" id="wrapEdgesButton">
+                        Edge wrapping
+                    </button>
                 </td>
                 <td>
-                    <button v-bind:class="{active: enableShowPerception, inactive: !enableShowPerception}"
-                        id="showPerceptionCirclesButton">Show perception</button>
+                    <button
+                        v-bind:class="{active: enableShowPerception, inactive: !enableShowPerception}"
+                        id="showPerceptionCirclesButton"
+                    >
+                        Show perception
+                    </button>
                 </td>
             </tr>
         </table>
@@ -77,65 +102,162 @@ CSSFile: 'css/pages/boids.css'
             <tr class="settings-table-values">
                 <td>
                     <div>
-                        <button v-bind:class="{active: enableWiggle, inactive: !enableWiggle}"
-                            id="toggleWiggleButton">Toggle wiggling</button>
+                        <button v-bind:class="{active: enableWiggle, inactive: !enableWiggle}" id="toggleWiggleButton">
+                            Toggle wiggling
+                        </button>
 
-                        <p>Allowed angle <span id="wiggleAngleMarker">{{MAX_WIGGLE_ANGLE}}</span></p>
-                        <input type="range" min="0" max="360" v-model.number="MAX_WIGGLE_ANGLE" step="0.5"
-                            class="slider" id="wiggleAngleSlider">
-
-                        <p>Intensity <span id="wiggleIntensityeMarker">{{WIGGLE_ACC_INTENSITY}}</span></p>
-                        <input type="range" min="0" max="5" v-model.number="WIGGLE_ACC_INTENSITY" step="0.1"
-                            class="slider" id="wiggleIntensitySlider">
-
-                        <p>Max velocity <span id="maxSpeedMarker">{{MAX_SPEED}}</span></p>
-                        <input type="range" min="0" max="20" v-model.number="MAX_SPEED" step="0.1" class="slider"
-                            id="boidSpeedSlider">
-                    </div>
-                </td>
-                <td>
-                    <div>
-                        <button v-bind:class="{active: enableAlignment, inactive: !enableAlignment}"
-                            id="toggleAlignmentButton">Toggle alignment</button>
-
-                        <p>Perception distance <span
-                                id="alignmentPerceptionMarker">{{ALIGNMENT_FRIENDS_RADIUS}}</span>px</p>
-                        <input type="range" min="1" max="500" v-model.number="ALIGNMENT_FRIENDS_RADIUS" class="slider"
-                            id="alignementPerceptionDistanceSlider">
-
-                        <p>Intensity <span id="alignmentIntensityMarker">{{ALIGNMENT_ACC_INTENSITY}}</span>N</p>
-                        <input type="range" min="0" max="5" v-model.number="ALIGNMENT_ACC_INTENSITY" step="0.1"
-                            class="slider" id="alignementIntensitySlider">
-                    </div>
-                </td>
-                <td>
-                    <div>
-                        <button v-bind:class="{active: enableSeparation, inactive: !enableSeparation}"
-                            id="toggleSeparationButton">Toggle separation</button>
-
-                        <p>Perception distance <span
-                                id="separationPerceptionMarker">{{SEPARATION_FRIENDS_RADIUS}}</span>px</p>
-                        <input type="range" min="1" max="500" v-model.number="SEPARATION_FRIENDS_RADIUS" class="slider"
-                            id="separationPerceptionDistanceSlider">
-
-                        <p>Intensity <span id="separationIntensityMarker">{{SEPARATION_ACC_INTENSITY}}</span>N</p>
-                        <input type="range" min="0" max="5" v-model.number="SEPARATION_ACC_INTENSITY" step="0.1"
-                            class="slider" id="separationIntensitySlider">
-                    </div>
-                </td>
-                <td>
-                    <div>
-                        <button v-bind:class="{active: enableCohesion, inactive: !enableCohesion}"
-                            id="toggleCohesionButton">Toggle cohesion</button>
-
-                        <p>Perception distance <span id="cohesionPerceptionMarker">{{COHESION_FRIENDS_RADIUS}}</span>px
+                        <p>
+                            Allowed angle
+                            <span id="wiggleAngleMarker">{{MAX_WIGGLE_ANGLE}}</span>
                         </p>
-                        <input type="range" min="1" max="500" v-model.number="COHESION_FRIENDS_RADIUS" class="slider"
-                            id="cohesionPerceptionDistanceSlider">
+                        <input
+                            type="range"
+                            min="0"
+                            max="360"
+                            v-model.number="MAX_WIGGLE_ANGLE"
+                            step="0.5"
+                            class="slider"
+                            id="wiggleAngleSlider"
+                        />
 
-                        <p>Intensity <span id="cohesionIntensityMarker">{{COHESION_ACC_INTENSITY}}</span>N</p>
-                        <input type="range" min="0" max="5" v-model.number="COHESION_ACC_INTENSITY" step="0.1"
-                            class="slider" id="cohesionIntensitySlider">
+                        <p>
+                            Intensity
+                            <span id="wiggleIntensityeMarker">{{WIGGLE_ACC_INTENSITY}}</span>
+                        </p>
+                        <input
+                            type="range"
+                            min="0"
+                            max="5"
+                            v-model.number="WIGGLE_ACC_INTENSITY"
+                            step="0.1"
+                            class="slider"
+                            id="wiggleIntensitySlider"
+                        />
+
+                        <p>
+                            Max velocity
+                            <span id="maxSpeedMarker">{{MAX_SPEED}}</span>
+                        </p>
+                        <input
+                            type="range"
+                            min="0"
+                            max="20"
+                            v-model.number="MAX_SPEED"
+                            step="0.1"
+                            class="slider"
+                            id="boidSpeedSlider"
+                        />
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        <button
+                            v-bind:class="{active: enableAlignment, inactive: !enableAlignment}"
+                            id="toggleAlignmentButton"
+                        >
+                            Toggle alignment
+                        </button>
+
+                        <p>
+                            Perception distance
+                            <span id="alignmentPerceptionMarker">{{ALIGNMENT_FRIENDS_RADIUS}}</span>px
+                        </p>
+                        <input
+                            type="range"
+                            min="1"
+                            max="500"
+                            v-model.number="ALIGNMENT_FRIENDS_RADIUS"
+                            class="slider"
+                            id="alignementPerceptionDistanceSlider"
+                        />
+
+                        <p>
+                            Intensity
+                            <span id="alignmentIntensityMarker">{{ALIGNMENT_ACC_INTENSITY}}</span>N
+                        </p>
+                        <input
+                            type="range"
+                            min="0"
+                            max="5"
+                            v-model.number="ALIGNMENT_ACC_INTENSITY"
+                            step="0.1"
+                            class="slider"
+                            id="alignementIntensitySlider"
+                        />
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        <button
+                            v-bind:class="{active: enableSeparation, inactive: !enableSeparation}"
+                            id="toggleSeparationButton"
+                        >
+                            Toggle separation
+                        </button>
+
+                        <p>
+                            Perception distance
+                            <span id="separationPerceptionMarker">{{SEPARATION_FRIENDS_RADIUS}}</span>px
+                        </p>
+                        <input
+                            type="range"
+                            min="1"
+                            max="500"
+                            v-model.number="SEPARATION_FRIENDS_RADIUS"
+                            class="slider"
+                            id="separationPerceptionDistanceSlider"
+                        />
+
+                        <p>
+                            Intensity
+                            <span id="separationIntensityMarker">{{SEPARATION_ACC_INTENSITY}}</span>N
+                        </p>
+                        <input
+                            type="range"
+                            min="0"
+                            max="5"
+                            v-model.number="SEPARATION_ACC_INTENSITY"
+                            step="0.1"
+                            class="slider"
+                            id="separationIntensitySlider"
+                        />
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        <button
+                            v-bind:class="{active: enableCohesion, inactive: !enableCohesion}"
+                            id="toggleCohesionButton"
+                        >
+                            Toggle cohesion
+                        </button>
+
+                        <p>
+                            Perception distance
+                            <span id="cohesionPerceptionMarker">{{COHESION_FRIENDS_RADIUS}}</span>px
+                        </p>
+                        <input
+                            type="range"
+                            min="1"
+                            max="500"
+                            v-model.number="COHESION_FRIENDS_RADIUS"
+                            class="slider"
+                            id="cohesionPerceptionDistanceSlider"
+                        />
+
+                        <p>
+                            Intensity
+                            <span id="cohesionIntensityMarker">{{COHESION_ACC_INTENSITY}}</span>N
+                        </p>
+                        <input
+                            type="range"
+                            min="0"
+                            max="5"
+                            v-model.number="COHESION_ACC_INTENSITY"
+                            step="0.1"
+                            class="slider"
+                            id="cohesionIntensitySlider"
+                        />
                     </div>
                 </td>
             </tr>
@@ -146,16 +268,28 @@ CSSFile: 'css/pages/boids.css'
         <table>
             <tr>
                 <td>
-                    <button v-bind:class="{active: enableRoundShape, inactive: !enableRoundShape}"
-                        id="changeShapeButton">Change shape</button>
+                    <button
+                        v-bind:class="{active: enableRoundShape, inactive: !enableRoundShape}"
+                        id="changeShapeButton"
+                    >
+                        Change shape
+                    </button>
                 </td>
                 <td>
-                    <button v-bind:class="{active: enableObstaclesDrawing, inactive: !enableObstaclesDrawing}"
-                        id="obstaclesDrawingButton">Obstacles</button>
+                    <button
+                        v-bind:class="{active: enableObstaclesDrawing, inactive: !enableObstaclesDrawing}"
+                        id="obstaclesDrawingButton"
+                    >
+                        Obstacles
+                    </button>
                 </td>
                 <td>
-                    <button v-bind:class="{active: enablePredatorDrawing, inactive: !enablePredatorDrawing}"
-                        id="predatorDrawingButton">Predators</button>
+                    <button
+                        v-bind:class="{active: enablePredatorDrawing, inactive: !enablePredatorDrawing}"
+                        id="predatorDrawingButton"
+                    >
+                        Predators
+                    </button>
                 </td>
             </tr>
         </table>
@@ -172,101 +306,151 @@ CSSFile: 'css/pages/boids.css'
 <br />
 <h3 id="explanation">Explanation</h3>
 <div>
-    <p>In this part of the page I will detail the different rules followed by the Boids to show how they combine. Each
-        button moves the page to the simulation and sets the rules as I want you to see them when you are reading .</p>
+    <p>
+        In this part of the page I will detail the different rules followed by the Boids to show how they combine. Each
+        button moves the page to the simulation and sets the rules as I want you to see them when you are reading.
+    </p>
     <p>Note that you can use the "Back to explanation" to go back to where you were.</p>
     <h4>Basic behavior</h4>
-    <p id="basicBehaviorAnchor">First let's create a single Boid (<a href="#canvasDiv"
-            onclick="scenarioOneBoidNoWiggle()">Click here</a>)</p>
+    <p id="basicBehaviorAnchor">
+        First let's create a single Boid (<a href="#canvasDiv" onclick="scenarioOneBoidNoWiggle()">Click here</a>)
+    </p>
     <p>Our Boid is living a monotonous life randomly flying in its 2 dimensional space.</p>
-    <p>To move, our Boid has two 2 dimensional vectors with a x and y component. One is its speed which allows it to go
+    <p>
+        To move, our Boid has two 2 dimensional vectors with a x and y component. One is its speed which allows it to go
         forward in a direction. And the second vector is its acceleration which is used to change the direction of the
-        speed, allowing the Boid to move smoothly like an actual object on a 2D plan.</p>
-    <p>We set its allowed wiggling angle to 0° which means that currently the vector representing its acceleration will
-        not change of direction. Consequently our Boid moves in straight lines.</p>
+        speed, allowing the Boid to move smoothly like an actual object on a 2D plan.
+    </p>
+    <p>
+        We set its allowed wiggling angle to 0° which means that currently the vector representing its acceleration will
+        not change of direction. Consequently our Boid moves in straight lines.
+    </p>
     <p>You can change its "Max velocity" setting to see it moving faster or slower</p>
 
-    <p id="basicBehavior2Anchor">Now let's change its allowed wiggling angle to 50° (<a href="#canvasDiv"
-            onclick="scenarioOneBoidWiggle()">Click here</a>).
-        Our Boid is not moving in straight lines anymore: each time it moves the vector representing its acceleration is
-        randomly rotated which gives it this happy wiggling attitude.
+    <p id="basicBehavior2Anchor">
+        Now let's change its allowed wiggling angle to 50° (<a href="#canvasDiv" onclick="scenarioOneBoidWiggle()">
+            Click here</a
+        >). Our Boid is not moving in straight lines anymore: each time it moves the vector representing its
+        acceleration is randomly rotated which gives it this happy wiggling attitude.
     </p>
 
-    <p>If you increase its max velocity observe how it seems to wiggle less: This is because its speed vector becomes
+    <p>
+        If you increase its max velocity observe how it seems to wiggle less: This is because its speed vector becomes
         more important than its acceleration vector. To change that in a limited way you can also increase the intensity
-        of the wiggling vector</p>
+        of the wiggling vector
+    </p>
 
-    <p id="basicBehavior3Anchor">This is the basic behavior of our Boid, you can click on the screen to add more Boids
-        (or <a href='#canvasDiv' onclick="scenarioMultipleBoidsWiggle()">Click here</a>) and you will
-        notice that they all behave as rubber balls bouncing on the edges of the screen... Not really exciting I agree.
+    <p id="basicBehavior3Anchor">
+        This is the basic behavior of our Boid, you can click on the screen to add more Boids (or
+        <a href="#canvasDiv" onclick="scenarioMultipleBoidsWiggle()">Click here</a>) and you will notice that they all
+        behave as rubber balls bouncing on the edges of the screen... Not really exciting I agree.
     </p>
 
     <h4>Alignment</h4>
-    <p id="alignmentAnchor">To start observing some cool behavior let's enable the first rule: Alignment (<a
-            href="#canvasDiv" onclick="scenarioBoidsAlignment()">Click here</a>)</p>
-    <p>The green circle around a Boid is the actual representation of its perception circle for the alignment rule: all
-        the neighbors within this circle are "seen" by the Boids and used in the alignment rule</p>
-    <p>Now we can see that our flock doesn't look as random as before: Boids close to each other start going in the same
-        direction. The alignment rule makes each Boid look at its neighbors' acceleration and incorporate the average of
-        their acceleration it its own. Its acceleration is now a mix of both its own random wiggling and the average
-        acceleration of its neighbors, making them following each other.</p>
+    <p id="alignmentAnchor">
+        To start observing some cool behavior let's enable the first rule: Alignment (<a
+            href="#canvasDiv"
+            onclick="scenarioBoidsAlignment()"
+            >Click here</a
+        >)
+    </p>
+    <p>
+        The green circle around a Boid is the actual representation of its perception circle for the alignment rule: all
+        the neighbors within this circle are "seen" by the Boids and used in the alignment rule
+    </p>
+    <p>
+        Now we can see that our flock doesn't look as random as before: Boids close to each other start going in the
+        same direction. The alignment rule makes each Boid look at its neighbors' acceleration and incorporate the
+        average of their acceleration it its own. Its acceleration is now a mix of both its own random wiggling and the
+        average acceleration of its neighbors, making them following each other.
+    </p>
     <p>This is our first emerging behavior!</p>
-    <p>As there are only a few Boids on the screen they eventually end up going all in the same direction in a pretty
-        compact group.</p>
+    <p>
+        As there are only a few Boids on the screen they eventually end up going all in the same direction in a pretty
+        compact group.
+    </p>
 
     <h4>Separation</h4>
-    <p>Having our Boids going in the same direction is great but they are literally walking (Flying? Crawling?) on top
-        of each other. This is not ideal lets give them some individual space!</p>
-    <p id="separationAnchor">To do so we can enable the separation rule (<a href="#canvasDiv"
-            onclick="scenarioBoidsSeparation()">Click here</a>)</p>
+    <p>
+        Having our Boids going in the same direction is great but they are literally walking (Flying? Crawling?) on top
+        of each other. This is not ideal lets give them some individual space!
+    </p>
+    <p id="separationAnchor">
+        To do so we can enable the separation rule (<a href="#canvasDiv" onclick="scenarioBoidsSeparation()"
+            >Click here</a
+        >)
+    </p>
     <p>The perception circle for this rule is shown in red</p>
-    <p>This adds a new rule to our Boids behavior: They "see" the position of each of their close neighbors and
-        their acceleration is moved towards the least crowded direction. In other words they continue following the same
-        direction as their friends but they also continually move away from them.</p>
+    <p>
+        This adds a new rule to our Boids behavior: They "see" the position of each of their close neighbors and their
+        acceleration is moved towards the least crowded direction. In other words they continue following the same
+        direction as their friends but they also continually move away from them.
+    </p>
     <p>With enough time this gives us the same flock as before but this time it is much more spaced out.</p>
 
     <h4>Cohesion</h4>
-    <p id="cohesionAnchor">Let's introduce the last rule of our Boids behavior: Cohesion (<a href="#canvasDiv"
-            onclick="scenarioBoidsCohesion()">Click here</a>)</p>
+    <p id="cohesionAnchor">
+        Let's introduce the last rule of our Boids behavior: Cohesion (<a
+            href="#canvasDiv"
+            onclick="scenarioBoidsCohesion()"
+            >Click here</a
+        >)
+    </p>
 
     <p>The perception circle for this rule is shown in blue</p>
-    <p>This rule is not the most obvious to observe right now. It shifts the acceleration of our Boids towards the
-        center of mass of their local flock.</p>
-    <p>What that means is that each Boids looks at its close neighbors and move towards the center of this group of
-        Boids.
-        This allow the creation of small groups of Boids going in the same direction and staying together (but still not
-        too close to each other, thanks to the separation rule)</p>
+    <p>
+        This rule is not the most obvious to observe right now. It shifts the acceleration of our Boids towards the
+        center of mass of their local flock.
+    </p>
+    <p>
+        What that means is that each Boids looks at its close neighbors and move towards the center of this group of
+        Boids. This allow the creation of small groups of Boids going in the same direction and staying together (but
+        still not too close to each other, thanks to the separation rule)
+    </p>
 
     <p>That's it! We now have the basic behavior ruling our Boids moves. Now let's add some troubles to their life</p>
 
     <h4>Goal</h4>
-    <p id="targetAnchor">To be able observe some emerging behavior let's add a goal to our birds: we will create a
-        target moving
-        randomly on the screen. (<a href="#canvasDiv" onclick="scenarioTarget()">Click here</a>).
+    <p id="targetAnchor">
+        To be able observe some emerging behavior let's add a goal to our birds: we will create a target moving randomly
+        on the screen. (<a href="#canvasDiv" onclick="scenarioTarget()">Click here</a>).
     </p>
-    <p>This target attracts the Boids close to its position: we could see it as a prey
-        like a group of insect for a flock of birds.</p>
-    <p>Our flock now has a goal! Remember than none of the individual members of the flock is programmed to lead its
-        friends they only obey a list of rules working given what they can see in their circle of perception.</p>
-    <p>So far our little birds are happily floating in their space and reaching their goal, now let's scare them out!
+    <p>
+        This target attracts the Boids close to its position: we could see it as a prey like a group of insect for a
+        flock of birds.
+    </p>
+    <p>
+        Our flock now has a goal! Remember than none of the individual members of the flock is programmed to lead its
+        friends they only obey a list of rules working given what they can see in their circle of perception.
+    </p>
+    <p>
+        So far our little birds are happily floating in their space and reaching their goal, now let's scare them out!
     </p>
 
     <h4>Predators and obstacles</h4>
-    <p id="predatorsAnchor">To make this visualization more interesting let's add some obstacles that our birds can't go
-        through and some
+    <p id="predatorsAnchor">
+        To make this visualization more interesting let's add some obstacles that our birds can't go through and some
         predators which will fly through the float and that Boids will try to avoid as much as possible. (<a
-            href="#canvasDiv" onclick="scenarioPredators()">Click here</a>)</p>
+            href="#canvasDiv"
+            onclick="scenarioPredators()"
+            >Click here</a
+        >)
+    </p>
 
-    <p>Look at our Boids! Trying to reach their target while avoiding these mean red circles, aren't they the cutest?
-        😍</p>
+    <p>
+        Look at our Boids! Trying to reach their target while avoiding these mean red circles, aren't they the cutest?
+        😍
+    </p>
 
     <h4>Playing around</h4>
     <p>Now that you understand how these little creature behave don't hesitate to play with them!</p>
-    <p>I did this simulation to allow the user to change the perception circle for each rule as well as its intensity
+    <p>
+        I did this simulation to allow the user to change the perception circle for each rule as well as its intensity
         (i.e. how strong it is compared to the other rules and to the birds wiggling). And I have spent a faire amount
-        of time changing all these parameters to create different behaviors... If that is your thing you might have
-        some fun, if it's not you might think that I'm crazy but it's fine because I had a lot of fun creating this
-        page and in the end that is what matters when you code: Having fun!</p>
+        of time changing all these parameters to create different behaviors... If that is your thing you might have some
+        fun, if it's not you might think that I'm crazy but it's fine because I had a lot of fun creating this page and
+        in the end that is what matters when you code: Having fun!
+    </p>
 </div>
 
 <h3>Resources</h3>
@@ -274,29 +458,33 @@ CSSFile: 'css/pages/boids.css'
     <p>Here is a bunch of resources I've been using to create this page</p>
     <ul>
         <li>
-            <a href="https://youtu.be/w-Oy4TYDnoQ" target="_blank" rel="noopener noreferrer">This cool Youtube video (in
-                French) which introduced me to the concept of Boids</a>
+            <a href="https://youtu.be/w-Oy4TYDnoQ" target="_blank" rel="noopener noreferrer">
+                This cool Youtube video (in French) which introduced me to the concept of Boids
+            </a>
         </li>
         <li>
-            <a href="http://www.red3d.com/cwr/boids/" target="_blank" rel="noopener noreferrer">Craig Renolds' page
-                about his Boids</a> which is interesting to get an history of his research and an explanation of the
-            rules.
+            <a href="http://www.red3d.com/cwr/boids/" target="_blank" rel="noopener noreferrer">
+                Craig Renolds' page about his Boids
+            </a>
+            which is interesting to get an history of his research and an explanation of the rules.
         </li>
         <li>
             <a href="https://youtu.be/6vX8wT1G798">Daniel Shiffman's amazing Nature of Code video series</a>. Which is
             an great resource to get started with simulating "natural" things in the browser.
         </li>
         <li>
-            <a href="http://www.vergenet.net/~conrad/boids/pseudocode.html" target="_blank" rel="noopener noreferrer">A
-                pseudocode explanation of Boids</a>
+            <a href="http://www.vergenet.net/~conrad/boids/pseudocode.html" target="_blank" rel="noopener noreferrer">
+                A pseudocode explanation of Boids
+            </a>
         </li>
         <li>
             <a href="https://github.com/jackaperkins/boids">A implementation of Boids in processing</a>
         </li>
         <li>
-            <a href="https://www.raymondcamden.com/2020/04/03/quick-tip-on-using-vue-with-eleventy">Nothing to do with
-                Boids but a cool tips about integrating VueJS to an eleventy website</a> which was pretty helpful to get
-            the controls to work.
+            <a href="https://www.raymondcamden.com/2020/04/03/quick-tip-on-using-vue-with-eleventy">
+                Nothing to do with Boids but a cool tips about integrating VueJS to an eleventy website
+            </a>
+            which was pretty helpful to get the controls to work.
         </li>
     </ul>
 </div>

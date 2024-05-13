@@ -8,45 +8,74 @@ CSSFile: 'css/pages/minesweeper.css'
 ---
 
 <p>
-The first posts I wrote on this site and which were about p5.js applications are based on code that I wrote before creating the site. As I already hosted the applications on their own Github pages it was easier to simply have a link to these pages in the posts. For example check my <a href="{{ '../p5-cellular-automaton/' | url }}">cellular automata post</a>.
+    The first posts I wrote on this site and which were about p5.js applications are based on code that I wrote before
+    creating the site. As I already hosted the applications on their own Github pages it was easier to simply have a
+    link to these pages in the posts. For example check my
+    <a href="{{ '../p5-cellular-automaton/' | url }}">cellular automata post</a>.
 </p>
 <p>
-Now that this site is created I wanted to see how I could integrate a p5.js application directly in its pages. This is now done with this simple minesweeper demo. It didn't required a lot of work other than adding a call to a cdn in the post source to get p5.js and updating my <code>.eleventy.js</code> to add <code>.js</code> files to the list of template files to compile.
+    Now that this site is created I wanted to see how I could integrate a p5.js application directly in its pages. This
+    is now done with this simple minesweeper demo. It didn't required a lot of work other than adding a call to a cdn in
+    the post source to get p5.js and updating my
+    <code>.eleventy.js</code> to add <code>.js</code> files to the list of template files to compile.
 </p>
-<p>
-For now I am happy with this test but there are still a few things I'd like to test:
-</p>
+<p>For now I am happy with this test but there are still a few things I'd like to test:</p>
 <ul>
-    <li>Check how to put this kind on posts in their own Github repo and add them to the site's source code as git submodules</li>
-    <li>Check how I can integrate a framework like Vue.js to avoid having to create my own <code>interface.js</code> with some ugly functions to update the UI and send the data to the p5.js sketch</li>
-    <li>Investigate how to make this kind of demo more mobile friendly because for now it clearly doesn't work on a touch screen</li>
+    <li>
+        Check how to put this kind on posts in their own Github repo and add them to the site's source code as git
+        submodules
+    </li>
+    <li>
+        Check how I can integrate a framework like Vue.js to avoid having to create my own
+        <code>interface.js</code> with some ugly functions to update the UI and send the data to the p5.js sketch
+    </li>
+    <li>
+        Investigate how to make this kind of demo more mobile friendly because for now it clearly doesn't work on a
+        touch screen
+    </li>
 </ul>
 
 <h2>The minesweeper</h2>
 
 <p>
-To create this first p5.js integrated demo I wanted something simple to code which I could have running pretty fast. Recreating a minesweeper has several advantages:
+    To create this first p5.js integrated demo I wanted something simple to code which I could have running pretty fast.
+    Recreating a minesweeper has several advantages:
 </p>
 
 <ul>
-    <li>This is a well known game which wouldn't require me to do some research on how to make its UI or which corner cases rules exist.</li>
-    <li>It includes a kind of maze solving algorithm to automatically open the cells clicked when they are not near a mine. And I <em>love</em> this kind of algorithm, even though this one is fairly short and simple.</li>
-    <li>It is a nice way to prepare a future project of creating a minesweeper on an hexagonal grid. Actually that was my initial project but I realized that it's not as trivial as I would have expected and thus it would be better to make it a completely seperated project.</li>
+    <li>
+        This is a well known game which wouldn't require me to do some research on how to make its UI or which corner
+        cases rules exist.
+    </li>
+    <li>
+        It includes a kind of maze solving algorithm to automatically open the cells clicked when they are not near a
+        mine. And I <em>love</em> this kind of algorithm, even though this one is fairly short and simple.
+    </li>
+    <li>
+        It is a nice way to prepare a future project of creating a minesweeper on an hexagonal grid. Actually that was
+        my initial project but I realized that it's not as trivial as I would have expected and thus it would be better
+        to make it a completely seperated project.
+    </li>
 </ul>
 
 <p>
-There are still a number of features I'd like to implement even in this squared grid minesweeper like having a deterministic grid (i.e. not having cases where the user has to choose a cell randomly), having cells with several mines to make it a bit harder to play, adding a zoom feature to be able to have larger grids or even creating an AI which would open the cases based on probabilities... But for now that's a nice little demo, even though I must admit that it was more fun to create it than to play with it (because personally I find minesweeper to be a terribly boring game!)
+    There are still a number of features I'd like to implement even in this squared grid minesweeper like having a
+    deterministic grid (i.e. not having cases where the user has to choose a cell randomly), having cells with several
+    mines to make it a bit harder to play, adding a zoom feature to be able to have larger grids or even creating an AI
+    which would open the cases based on probabilities... But for now that's a nice little demo, even though I must admit
+    that it was more fun to create it than to play with it (because personally I find minesweeper to be a terribly
+    boring game!)
 </p>
 
-<h2>The demo</h2> 
+<h2>The demo</h2>
 <div>
-    <span>Grid size <input  id="COLInput" type="number" min="1" onchange="updateParams()"></span>
-    <span>Filling ratio <input id="RATIOInput" type="number" max="1" onchange="updateParams()"></span>
+    <span>Grid size <input id="COLInput" type="number" min="1" onchange="updateParams()" /></span>
+    <span>Filling ratio <input id="RATIOInput" type="number" max="1" onchange="updateParams()" /></span>
 </div>
 <div oncontextmenu="return false;" id="canvasDiv">
-    <span style="color:red; font-family: D7CR" id="timeSpan">0</span>
+    <span style="color: red; font-family: D7CR" id="timeSpan">0</span>
     <span id="resetSpan"><button onclick="newGame()">Reset</button></span>
-    <span style="color:red; font-family: D7CR" id="flagsSpan">0</span>
+    <span style="color: red; font-family: D7CR" id="flagsSpan">0</span>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>

@@ -3,23 +3,27 @@ title: Not Found
 permalink: 404.html
 layout: layouts/base.njk
 ---
+
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }}</title>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{{ title }}</title>
 
-    <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
-    <script src="404/sketch.js"></script>
-    <script src="404/Cell.js"></script>
-  </head>
-  <body>
-    <div>
-        <h2 class="not-found">{{ title }}</h2>
-        <p class="not-found">This page does not exist and it's unlikely to have ever existed. If you thing this is an error, please <a href="{{ '/about/#social' | url }}">let me know</a>.</p>
-    </div>
-    <div oncontextmenu="return false;" id="canvasDiv"></div>
-    <script data-goatcounter="https://statoxblog.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-  </body>
+        <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
+        <script src="404/sketch.js"></script>
+        <script src="404/Cell.js"></script>
+    </head>
+    <body>
+        <div>
+            <h2 class="not-found">{{ title }}</h2>
+            <p class="not-found">
+                This page does not exist and it's unlikely to have ever existed. If you thing this is an error, please
+                <a href="{{ '/about/#social' | url }}">let me know</a>.
+            </p>
+        </div>
+        <div oncontextmenu="return false;" id="canvasDiv"></div>
+        <script data-goatcounter="https://statoxblog.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    </body>
 </html>
