@@ -1,1 +1,10 @@
 src/mirror/**/*
+**/*.gif
+**/*.png
+**/*.jpeg
+**/*.pdf
+
+# Have to ignore this one because it is injected in nunjucks templates
+# and it uses `setupCommentsInPage({{ commentIssueId }});` which is not valid JS
+# but becomes valid once the nunjucks injects the code and replaces `{ commentIssueId }`
+src/_includes/scripts/githubComments.js

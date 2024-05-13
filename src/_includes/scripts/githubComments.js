@@ -123,5 +123,5 @@ function setupCommentsInPage(commentIssueId) {
     });
 }
 
-// prettier-ignore `{ commentIssueId }` is actually nunjucks data once this script is injected in pages
+// `{ commentIssueId }` is actually nunjucks data once this script is injected in the pages
 setupCommentsInPage({{ commentIssueId }});
