@@ -21,6 +21,7 @@ As the name of the project suggest I was aiming for an IA mastering the Triomino
 When I started thinking about this project I had in mind a [great article on redblobgame](http://www-cs-students.stanford.edu/~amitp/game-programming/grids/) about different kind of grids and how to implement them I had read several months ago and thought it would be useful. But being impatient to start coding I went straight in and didn't read it again, probably making some mistakes which I could have avoided.
 
 ![Screenshot of my Triomino implementation](./triomino.png)
+
 <center>
     <i>Another obvious proof of my UX/UI designer genius</i>
 </center>
@@ -68,10 +69,9 @@ Things got messy when I finished displaying the triangles and started thinking a
 
 One of the main issue was to keep the `Sprite` position synced with its parent object position (mainly because I handled the `Triomino` moves terribly). After some tweaks it ended up working.
 
-
 #### AI
 
-At first I wanted to go with a clever AI which would use some kind of A* algorithm to find the best possible move to do.  However my first AI version was much simpler: Looking for all the possible moves and placing the triomino with the highest score.
+At first I wanted to go with a clever AI which would use some kind of A\* algorithm to find the best possible move to do. However my first AI version was much simpler: Looking for all the possible moves and placing the triomino with the highest score.
 
 To have a working AI I needed to implement the [complete set of scoring rules](https://www.pressmantoy.com/wp-content/uploads/2018/01/Tri-Ominos.pdf), but I only implemented the basic rule of "when the player places a tile her score is incremented by the sum of the digits on the tile" and the bonus points at the beginning of the game. I didn't implemented the bonus points granted when a shape is completed.
 

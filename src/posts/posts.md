@@ -1,7 +1,6 @@
 ---
 layout: layouts/posts.njk
 eleventyNavigation:
-  key: Posts
-  order: 2
+    key: Posts
+    order: 2
 ---
-

@@ -39,6 +39,7 @@ _I am also in the process of adding a `creationDate` field so that I can have mo
 Now that the list is available to my templates I created a new nunjucks template to show all my songs:
 
 {% raw %}
+
 ```jinja2
 {% set sortedChords = chords | sortChords | groupby("artist") %}
 <table>
@@ -62,6 +63,7 @@ Now that the list is available to my templates I created a new nunjucks template
     {% endfor %}
 </table>
 ```
+
 {% endraw %}
 
 There is nothing particularly clever here: In the first line `chords` is the raw data coming from the JSON file. `sortChords` is [an eleventy filter I wrote](https://github.com/statox/blog/blob/83c9fd3/tools/eleventy/filters.js#L96-L103) which sorts the data alphabetically by artist and by title. And the `groupby("artist")` nunjucks [buit-in filter](https://mozilla.github.io/nunjucks/templating.html#groupby) takes all the data and turns it into a map where the keys are the artist names and the values are lists of the items from the json file.
@@ -78,9 +80,9 @@ I'm happy with my list of 500 songs but it's not super easy to navigate: I need 
 
 I'm sure there are a lot of clever ways to do that but I decided to go with the inefficient and dirty way:
 
-- Create a text input;
-- Use its `oninput` property to call a short javascript function;
-- The javascript function will iterate over all the HTML elements and add a `.hidden` CSS class to the ones which don't match the query.
+-   Create a text input;
+-   Use its `oninput` property to call a short javascript function;
+-   The javascript function will iterate over all the HTML elements and add a `.hidden` CSS class to the ones which don't match the query.
 
 #### CSS
 
@@ -92,13 +94,12 @@ The first easy step is to create the `.hidden` class in a dedicated css file. Wh
 }
 ```
 
-
 #### Input
 
 The input element is super basic too:
 
 ```html
-<input id="searchInput" type="text" oninput="doSearch()">
+<input id="searchInput" type="text" oninput="doSearch()" />
 ```
 
 I used the `oninput` property instead of `onchange` because I want to see the songs filtered as I type and not when I'm done typing. That makes the search bar more convenient on mobile.
@@ -109,8 +110,8 @@ Before I can create the function to filter the HTML elements I need to bind some
 
 Here I have two types of elements I want to show/hide:
 
-- The `<tr>` rows which holds the artist and their songs;
-- The `<li>` items which holds only the song titles.
+-   The `<tr>` rows which holds the artist and their songs;
+-   The `<li>` items which holds only the song titles.
 
 And I want the search to act independently on each type of element: If an artist matches my search I want to see all of their songs and I also want to see all of the songs which title matches the search:
 
@@ -118,13 +119,14 @@ And I want the search to act independently on each type of element: If an artist
 
 To make that work I decided to add different data for each type of element:
 
-- For both the artist `<tr>` and the song `<li>` I put in the data attribute the name of the artist;
-- For the artists `<tr>` I add all the concatenated titles of their songs;
-- For the song `<li>` I add only the song title;
+-   For both the artist `<tr>` and the song `<li>` I put in the data attribute the name of the artist;
+-   For the artists `<tr>` I add all the concatenated titles of their songs;
+-   For the song `<li>` I add only the song title;
 
 I put all of this data in a `data-values` attribute and I used nunjucks loops once again to concatenate what needs to be concatenated. I also add a `;` separator between each value so that I'm sure the search will not overlap two different entries:
 
 {% raw %}
+
 ```jinja2
 {% set sortedChords = chords | sortChords | groupby("artist") %}
 <table>
@@ -148,6 +150,7 @@ I put all of this data in a `data-values` attribute and I used nunjucks loops on
     {% endfor %}
 </table>
 ```
+
 {% endraw %}
 
 I also added a CSS class `datarow` to both the `<tr>` and `<li>`. This is the selector I'll be using in my javascript to find the elements I need to manipulate in my page.
@@ -184,9 +187,9 @@ And here we have a working search bar which you can try live [on this page]({{'/
 
 It doesn't take an experienced web developer to see that this solution has its flaws:
 
-- I think that adding all this data in the data attributes increases the size of the page which is probably not great for loading times;
-- The search algorithm is quite dumb and it scans all the elements in the page, using a more efficient data structure would improve the performances;
-- I'm really not sure how this would scale with a list 10x or 100x bigger.
+-   I think that adding all this data in the data attributes increases the size of the page which is probably not great for loading times;
+-   The search algorithm is quite dumb and it scans all the elements in the page, using a more efficient data structure would improve the performances;
+-   I'm really not sure how this would scale with a list 10x or 100x bigger.
 
 But for my specific use case this is working fine and as it took me ~10 years to create the list of 500 songs I don't think the size will become an issue before many more years. Also I'm fairly confident that I'd be able to reuse these pieces of code to create other search bar on my site: All I need is to have html elements with the class `.datarow` and some data to filter in their `data-value` attributes.
 

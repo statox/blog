@@ -18,7 +18,7 @@ And if that was cute enough to make you want to see the code, [here you are](htt
 
 To quote [wiki](https://en.wikipedia.org/wiki/Circle_packing)
 
-> In geometry, circle packing is the study of the arrangement of circles (of equal or varying sizes) on a given surface such that no overlapping occurs and so that no circle can be enlarged without creating an overlap. 
+> In geometry, circle packing is the study of the arrangement of circles (of equal or varying sizes) on a given surface such that no overlapping occurs and so that no circle can be enlarged without creating an overlap.
 
 And to quote [the same source](https://en.wikipedia.org/wiki/Kitten)
 
@@ -26,17 +26,12 @@ And to quote [the same source](https://en.wikipedia.org/wiki/Kitten)
 
 So for this project I wanted to use some really cute pictures and duplicate them with a bunch of non overlapping circles.
 
-
 ### Loading the pictures
 
 Before packing circles on these cuties we first need to load the images in our p5.js sketch. To do so I created a `reset()` function which will be used each time I need a new image. It's goal is to get the color of each pixels on the image so that we can use the color later on:
 
-``` js
-const IMAGES = [
-    'data/kitten1.png',
-    'data/kitten2.jpg',
-    'data/kitten3.jpg'
-];
+```js
+const IMAGES = ['data/kitten1.png', 'data/kitten2.jpg', 'data/kitten3.jpg'];
 
 function reset() {
     // Stop calling draw() while we load the picture otherwise we break everything
@@ -57,13 +52,13 @@ function reset() {
 
         img.loadPixels();
         let d = img.pixels.length;
-        for (let i = 0; i < d; i+=4) {
+        for (let i = 0; i < d; i += 4) {
             r = img.pixels[i];
-            g = img.pixels[i+1];
-            b = img.pixels[i+2];
-            a = img.pixels[i+3];
+            g = img.pixels[i + 1];
+            b = img.pixels[i + 2];
+            a = img.pixels[i + 3];
 
-            imgColors.push(color(r, g, b, a))
+            imgColors.push(color(r, g, b, a));
         }
 
         // Start the packing again!
@@ -82,13 +77,13 @@ Once we looped through all these values we have an array `imgColors` containing 
 
 Before we pack the image with circles we need to generate one of them. Here our goal is the following: Return a new circle which does not overlap the others or return nothing (we will handle the failed generations later). So far the algorithm is not very complex: We have a list of existing circles `circles` (Empty at the beginning), we generate a random position `(x, y)` and a radius `r`, we then iterate on the list of existing circles and test if its distance to the newly generated one is larger than the sum of their radius (i.e. they don't overlap).
 
-``` js
+```js
 function newCircle() {
     let x = random(img.width);
     let y = random(img.height);
     let r = random(MAX_INITIAL_SIZE);
 
-    const intersection = circles.findIndex(other => {
+    const intersection = circles.findIndex((other) => {
         if (dist(x, y, other.x, other.y) < other.r + r) {
             return true;
         }
@@ -106,7 +101,7 @@ function newCircle() {
 
 Now that we can generate one circle let's make a function which tries to generate a given amount of circles so that one iteration will see several ones created:
 
-``` js
+```js
 function newCircles() {
     let totalNewCircles = NEW_CIRCLES_BY_ITERATION;
     let remainingAttemps = NEW_CIRCLES_ATTEMPTS;

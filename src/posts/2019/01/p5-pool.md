@@ -24,13 +24,13 @@ What do I need to do that?
 
 First of all I need a table and some balls rolling on it. This is pretty straightforward: a p5.js canvas will be my table, my balls are simple javascript objects with some coordinates, the ability to apply a force on it (i.e. incrementing the coordinates), a friction force to keep the ball from rolling forever and some tests to prevent the balls from falling out of the table.
 
-``` js
+```js
 function Ball(x, y, id, color) {
     this.pos = new p5.Vector(x, y);
     this.vel = new p5.Vector(0, 0);
     this.r = 10;
 
-    this.move = function() {
+    this.move = function () {
         // Add friction
         var coefficientOfFriction = 0.99;
         this.vel.mult(coefficientOfFriction);
@@ -41,12 +41,12 @@ function Ball(x, y, id, color) {
 
         // Check the limits
         if (this.pos.x - this.r < 0 || this.pos.x + this.r > W - this.r) {
-            this.vel.x *= - coefficientOfFriction;
+            this.vel.x *= -coefficientOfFriction;
         }
         if (this.pos.y - this.r < 0 || this.pos.y + this.r > L - this.r) {
-            this.vel.y *= - coefficientOfFriction;
+            this.vel.y *= -coefficientOfFriction;
         }
-    }
+    };
 }
 ```
 
@@ -54,8 +54,8 @@ Easy, right? With that I can apply a force to a ball (as it's velocity) and way 
 
 Let's add to that a simple function to know if a ball is colliding with another one. To do that we can simply check the distance between two balls is larger than the sum of the balls radius. I came up with something quick and dirty, but mostly dirty. Here I knew I wanted to tag all the balls part of a collision:
 
-``` js
-this.isColliding = function(otherBall) {
+```js
+this.isColliding = function (otherBall) {
     // Get the distance between the center of the two balls
     var dx = otherBall.pos.x - this.pos.x;
     var dy = otherBall.pos.y - this.pos.y;
@@ -69,7 +69,7 @@ this.isColliding = function(otherBall) {
         return true;
     }
     return false;
-}
+};
 ```
 
 Having this code I was able to create my pool, put balls on it, apply a force on them and change their color when they hit each other. That is cool... But now what?

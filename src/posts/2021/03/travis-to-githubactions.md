@@ -12,9 +12,9 @@ Last November travis-ci [announced](https://blog.travis-ci.com/2020-11-02-travis
 
 When I created this website I needed to setup a CI environment which would build the site using the static generator [eleventy](https://www.11ty.dev/) before it gets deployed to Github Pages. I wanted a tool which would be:
 
-- Free, because given the traffic on this website and the frequency of my commits I am not ready to put money in it;
-- Simple to use, because I figured out from my previous attempt at creating a blog that any friction in the creation of a post reduce drastically the chances that I'll write anything;
-- ... And that's it.
+-   Free, because given the traffic on this website and the frequency of my commits I am not ready to put money in it;
+-   Simple to use, because I figured out from my previous attempt at creating a blog that any friction in the creation of a post reduce drastically the chances that I'll write anything;
+-   ... And that's it.
 
 I had already used travis on a previous side project and I knew I could make something work pretty easily, especially because I had already an account set up. So I didn't give it too much thoughts and started creating my `.travis-ci.yml` file. And I have to say that after about 200 commits and 8 months of use I am still mostly satisfied this their service.
 
@@ -30,41 +30,41 @@ Before having a look at what changed let's see what my CI workflow needs to do.
 
 It is a pretty straight forward process with three main steps:
 
-- Run a script I made to check if I committed new posts with a reference to a Github issue that [I use to host comments]({{'../comments/'}}) and create the corresponding issue if it doesn't exists;
-- Build the website using eleventy. This requires to checkout the last changes I made in my templates and run a npm script I have which execute eleventy and output the resulting HTML in a specified directory.
-- Commit this built HTML to a `gh-pages` branch on the repo which is then served by Github Pages.
+-   Run a script I made to check if I committed new posts with a reference to a Github issue that [I use to host comments]({{'../comments/'}}) and create the corresponding issue if it doesn't exists;
+-   Build the website using eleventy. This requires to checkout the last changes I made in my templates and run a npm script I have which execute eleventy and output the resulting HTML in a specified directory.
+-   Commit this built HTML to a `gh-pages` branch on the repo which is then served by Github Pages.
 
 To do that I had a 20 lines `travis-ci.yml` file which looked like this:
 
 ```yaml
 language: node_js
 node_js:
-  - "stable"
+    - 'stable'
 cache:
-  directories:
-  - node_modules
+    directories:
+        - node_modules
 
 script:
     # Script to generate the issue in github used for comments
-  - npm run create-issues -- $GITHUB_TOKEN false
-  - npm run build
+    - npm run create-issues -- $GITHUB_TOKEN false
+    - npm run build
 
 deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN
-  keep_history: true
-  on:
-    branch: master
-  local_dir: docs/
-  fqdn: www.statox.fr
+    provider: pages
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN
+    keep_history: true
+    on:
+        branch: master
+    local_dir: docs/
+    fqdn: www.statox.fr
 ```
 
-- The first 3 blocks are used to setup the environment which will run the workflow: NodeJS is used to run my npm scripts, and we cache the `node_modules` which is still bigger than I'd want it to be (but that's another topic I'll try to tackle later).
+-   The first 3 blocks are used to setup the environment which will run the workflow: NodeJS is used to run my npm scripts, and we cache the `node_modules` which is still bigger than I'd want it to be (but that's another topic I'll try to tackle later).
 
-- The `script` block simply runs my npm script which creates the issues on Github and the one I use to run eleventy against my sources and output the result in a `docs` directory.
+-   The `script` block simply runs my npm script which creates the issues on Github and the one I use to run eleventy against my sources and output the result in a `docs` directory.
 
-- Finally the `deploy` block uses travis' deploy built-in provider ["pages"](https://docs.travis-ci.com/user/deployment/pages/) which commits the `docs` directory to the `gh-pages` branch.
+-   Finally the `deploy` block uses travis' deploy built-in provider ["pages"](https://docs.travis-ci.com/user/deployment/pages/) which commits the `docs` directory to the `gh-pages` branch.
 
 For all of this to work properly I had to [generate a personal access token](https://docs.github.com/en/enterprise-server@2.22/github/authenticating-to-github/creating-a-personal-access-token), store it in my repository secrets and copy it in my travis CI settings to be able to call the Github API to create issues and to commit my changes.
 
@@ -108,15 +108,15 @@ The `name` block is only to set up the name of the action which will be shown in
 
 ![deploy workflow](../../../../images/github_workflow.png)
 
-- The `on` blocks defines when the workflow is ran. I want to deploy every time I push something to the `master` branch and I also added the `workflow_dispatch` directive which create the `Run workflow` button in the UI to trigger it manually. I don't know if I'll ever need it but it doesn't hurt to have it.
+-   The `on` blocks defines when the workflow is ran. I want to deploy every time I push something to the `master` branch and I also added the `workflow_dispatch` directive which create the `Run workflow` button in the UI to trigger it manually. I don't know if I'll ever need it but it doesn't hurt to have it.
 
-- The `jobs` block defines the different steps will will be executed ([Github's doc](https://docs.github.com/en/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions) explain that clearly) and that's where I needed to recreate what was happening on travis.
+-   The `jobs` block defines the different steps will will be executed ([Github's doc](https://docs.github.com/en/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions) explain that clearly) and that's where I needed to recreate what was happening on travis.
 
-- The `checkout` and `setup-node` built-in actions setup the environment (`git checkout` the `master` branch and install node 12 with npm).
+-   The `checkout` and `setup-node` built-in actions setup the environment (`git checkout` the `master` branch and install node 12 with npm).
 
-- The `🔧 Install and build` step pulls the npm dependencies (which was done automatically on travis) and run my build script. And the `💬 Create issues for comments` step runs my custom script for issues.
+-   The `🔧 Install and build` step pulls the npm dependencies (which was done automatically on travis) and run my build script. And the `💬 Create issues for comments` step runs my custom script for issues.
 
-- Finally I use an action [from the action market place](https://github.com/marketplace/actions/deploy-to-github-pages) to commit my build to my `gh-pages` branch which is still served automatically by Github.
+-   Finally I use an action [from the action market place](https://github.com/marketplace/actions/deploy-to-github-pages) to commit my build to my `gh-pages` branch which is still served automatically by Github.
 
 Note that the main difference here compared to the travis configuration is that my access token was already in the secrets of my repository so I could access it directly with `{%raw%}${{ secrets.ACCESS_TOKEN }}{%endraw%}` without additional config.
 

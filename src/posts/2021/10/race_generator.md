@@ -8,18 +8,18 @@ commentIssueId: 29
 
 For several weeks now I have been working on and off on an ambitious project in which I want to procedurally generate a racetrack to create autonomous vehicles which will learn to drive on it thanks to a genetic algorithm. I did a lot of different experiments and even got some ~~cool~~ passable results but I am hitting a point where there is too much refactoring to be done to complete the project with the current code base. As I don't have the motivation to put more work to do things properly and as I also have other projects in mind that I want to start working on I'm writing this post to keep a trace of what I have done and what I would like to do differently. This writing will be messy and probably not very interesting for anyone else than myself but I hope that it will be helpful in a few months when I decide to build something on top of this experiment.
 
-
 ### Generating a racetrack
 
 My goal was to generate a racetrack which would be a loop with several turns with angles sufficiently difficult to be interesting. To do that I took a lot of inspiration from these two articles:
 
- - [How to generate procedural racetracks](http://blog.meltinglogic.com/2013/12/how-to-generate-procedural-racetracks/)
- - [Procedural racetrack generation](https://bitesofcode.wordpress.com/2020/04/09/procedural-racetrack-generation/)
+-   [How to generate procedural racetracks](http://blog.meltinglogic.com/2013/12/how-to-generate-procedural-racetracks/)
+-   [Procedural racetrack generation](https://bitesofcode.wordpress.com/2020/04/09/procedural-racetrack-generation/)
 
 In the first post Gustavo Maciel describes an idea to generate a racetrack in three simple steps:
-   - Generate a bunch of random points in the plan
-   - Calculate the hull of the polygon formed by these points. That is, simply put, the list which will wrap around all the points
-   - Finally interpolate the points of this hull to get a nice racetracky shape on which a car could drive
+
+-   Generate a bunch of random points in the plan
+-   Calculate the hull of the polygon formed by these points. That is, simply put, the list which will wrap around all the points
+-   Finally interpolate the points of this hull to get a nice racetracky shape on which a car could drive
 
 The second post is a second implementation of Maciel's idea, and my project is yet another implementation of the same idea but with my _very own_ bugs and design flaws which makes it very special to my eyes 🤩.
 
@@ -54,10 +54,9 @@ Fortunately the page has a pseudo code implementation so I was able to port that
 </p>
 <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
 
-
 After this successful attempt I decided that the hulls generated were too boring: I want some deadly turns!
 
-The gift wrapping algorithm generates a convex hull which is a simple, boring envelope of the points. A concave hull however is a polygon with at least one angle between 180 and 360 degrees exclusive, which means that this polygon has a much more interesting shape with much more complex turns. It is however more complex to generate.  So I explored the web a bit more and ended up on [Concave hull: A k-nearest neighbours approach for the computation of the region occupied by a set of points](https://repositorium.sdum.uminho.pt/bitstream/1822/6429/1/ConcaveHull_ACM_MYS.pdf). This paper describes an algorithm to generate a concave hull using the same idea as the gift wrapping but at each step, instead of choosing the next point among the complete list of generated point, we restrict the search the nearest neighbors of the current point.
+The gift wrapping algorithm generates a convex hull which is a simple, boring envelope of the points. A concave hull however is a polygon with at least one angle between 180 and 360 degrees exclusive, which means that this polygon has a much more interesting shape with much more complex turns. It is however more complex to generate. So I explored the web a bit more and ended up on [Concave hull: A k-nearest neighbours approach for the computation of the region occupied by a set of points](https://repositorium.sdum.uminho.pt/bitstream/1822/6429/1/ConcaveHull_ACM_MYS.pdf). This paper describes an algorithm to generate a concave hull using the same idea as the gift wrapping but at each step, instead of choosing the next point among the complete list of generated point, we restrict the search the nearest neighbors of the current point.
 
 This looks much more interesting:
 
@@ -70,19 +69,18 @@ This looks much more interesting:
 
 However with concave hull come two big issues:
 
-- It is not uncommon that two segments of the polygon intersect: that creates an issue because if you create a crossroad in a racetrack things get messy (Well, there _are_ some [figure 8 racing](https://youtu.be/6ZZyP7VlZcM) competitions but for our purpose that creates too many issues to count laps and detect if cars followed the right path)
-- Even when they don't intersect sometimes the vertices are at an angle which is just too narrow to make a good race track.
+-   It is not uncommon that two segments of the polygon intersect: that creates an issue because if you create a crossroad in a racetrack things get messy (Well, there _are_ some [figure 8 racing](https://youtu.be/6ZZyP7VlZcM) competitions but for our purpose that creates too many issues to count laps and detect if cars followed the right path)
+-   Even when they don't intersect sometimes the vertices are at an angle which is just too narrow to make a good race track.
 
 There are several ways to get rid of these issues:
 
-- Detecting the intersection of two segments is super easy when you have a [`collideLineLine()`](https://github.com/bmoren/p5.collide2D/blob/0988172c15aeef/p5.collide2d.js#L196-L235) function like the one I shamelessly stole from the [p5.collide2D](https://github.com/bmoren/p5.collide2D) library. Determining the angle formed by three points and comparing it to an arbitrary threshold is enough too (cf. `threePointsAngle` in the previous codepen). Using this information one could simply ignore the bad tracks and keep generating new tracks until one fits all the criterion.
-- For intersections a correction can be made by taking the point where two lines intersect, making this point a new point of the hull replacing the ones which are in the inner loop.
-- For angles it is also possible to use the same principle as what I used to push my initial points apart: Take all your points, when three of them form an angle too narrow move one of them, and keep going until things are stable.
+-   Detecting the intersection of two segments is super easy when you have a [`collideLineLine()`](https://github.com/bmoren/p5.collide2D/blob/0988172c15aeef/p5.collide2d.js#L196-L235) function like the one I shamelessly stole from the [p5.collide2D](https://github.com/bmoren/p5.collide2D) library. Determining the angle formed by three points and comparing it to an arbitrary threshold is enough too (cf. `threePointsAngle` in the previous codepen). Using this information one could simply ignore the bad tracks and keep generating new tracks until one fits all the criterion.
+-   For intersections a correction can be made by taking the point where two lines intersect, making this point a new point of the hull replacing the ones which are in the inner loop.
+-   For angles it is also possible to use the same principle as what I used to push my initial points apart: Take all your points, when three of them form an angle too narrow move one of them, and keep going until things are stable.
 
 **I think that the important thing here anyway is to have your hull as clean as possible before you move on to the next step otherwise it will inevitably bite you.**
 
 I'm putting the previous sentence in bold because of course I was too impatient to get to the next step so, of course, after thinking about the possible solutions for half an hour I decided to ignore the problem until it's too late.
-
 
 #### Interpolating the points
 
@@ -98,7 +96,6 @@ So I kept my two hull algorithms (the gift wrapping and the k-nearest neighbors)
 <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
 
 The results are quite nice we can see something which could look like a racetrack, that's the right path! However our issues with interesctions and narrow angles are still here and once again I decided that fixing them was a problem for future me 🤷.
-
 
 #### Adding some width
 
@@ -117,7 +114,6 @@ Here you can see in <span style="color:blue;">blue</span> the initial hull, in <
 
 It's also at this point that I finally decided to start fixing the intersection issue. And of course I did it in a not very bright way: When the angle between three point is less than an arbitrary threshold I simply remove the middle point. That give this weird correction algorithm that you see in action in the previous codepen. And that introduces a worst problem which is that by doing that I change the width of the track on some portions.
 
-
 While I was trying to fix this issue I also wondered how I would paint the road because p5.js doesn't have a way to create concave shapes. I came up with a simple solution which is to change the way I draw the line of the hull: By making the stroke weight much bigger I get something which looks even more like a racetrack:
 
 <p class="codepen" data-height="700" data-default-tab="result" data-slug-hash="zYzPJvY" data-user="statox" style="height: 700px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
@@ -129,7 +125,6 @@ While I was trying to fix this issue I also wondered how I would paint the road 
 
 With this implementation I thought I could display the track and have not-very-precise-but-still-good-enough border representation for the cars to run but realized that this is not good enough. So I came up with a solution which I find quite interesting.
 
-
 #### Detecting that a car is not on the road
 
 At this point I started merging everything I had done before into [a real Github project](https://www.github.com/statox/procedural-race/) with typescript, a real linter and all the right tools to develop this project properly. I tagged my commits properly at each steps so that I could showcase the progress of my project, but now I'm just too lazy to do that so I won't show demos.
@@ -138,12 +133,13 @@ One of the interesting ideas I had in the project was to find a way to easily ch
 
 I think this is a pertinent approach as once the track is stored in memory the check is in constant time however my implementation was not the smartest:
 
-- As I draw the track on the canvas, I need to wait the first iteration of `draw()` to run to check the color of the canvas, this is super inconvenient. I should have drawn the track on a different `P5.Graphic` than the canvas this way I can do all the computations in `setup()` making the `draw()` function much simpler.
-- I should have normalized my track to a simple white on black display, instead I used the colors I has already started to use to show my track which makes the color comparison unnecessarily tricky.
+-   As I draw the track on the canvas, I need to wait the first iteration of `draw()` to run to check the color of the canvas, this is super inconvenient. I should have drawn the track on a different `P5.Graphic` than the canvas this way I can do all the computations in `setup()` making the `draw()` function much simpler.
+-   I should have normalized my track to a simple white on black display, instead I used the colors I has already started to use to show my track which makes the color comparison unnecessarily tricky.
 
 ### Making smart cars
 
 #### Ray tracing
+
 As I am impatient and stubborn I started creating my vehicles before my racetrack was fully ready, which unsurprisingly made things harder. At first things were going well: I had a codepen, I reused some ray tracing code made by the amazing Daniel Shiffman for [one of his coding challenges](https://editor.p5js.org/codingtrain/sketches/Nqsq3DFv-), I plugged that on a car that is controlled with the arrow keys, <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> or <kbd>Z</kbd><kbd>Q</kbd><kbd>S</kbd><kbd>D</kbd> and here we are:
 
 <p class="codepen" data-height="700" data-default-tab="result" data-slug-hash="QWggBpz" data-user="statox" style="height: 700px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
@@ -167,10 +163,10 @@ The evaluation function also has an issue to keep track of laps: It is super imp
 
 At this point I started to frantically code more and more ~~technical debt~~ features in my code:
 
-- I created some basic cars which trace several rays in front of them, gather average distance on the right and on the left and decide to steer proportionally to these distances. This simple model works surprisingly well. I also wanted to factor the acceleration based on these distances but I didn't get to that and simply made them accelerate more and more for each laps they do.
-- I then made the factors used to steer some random numbers acting as the genes of a genetic algorithm, I created a pool of cars and made them reproduce and mix these genes. At these points the results were not super convincing because my algorithm isn't super well tuned. But I think I validated the basic idea: With a better track generation, a mode decoupled data model I should be able to make a working algorithm.
-- I also tried to use [dannjs](https://dannjs.org/) which is a nice little neural network library. My idea was to train a neural network via neuro-evolution algorithms. I did several tests but I ended up realizing that neural networks aren't that simple and that you still need to study the math underneath to use them properly.
-- I added some broken statistics capabilities to my pool to have an idea of how my cars perform. I'm not convinced my stats are really relevant and I had a big plan of creating real time graphs visualization a bit like the [Primer videos](https://www.youtube.com/c/PrimerLearning) but that didn't happen.
+-   I created some basic cars which trace several rays in front of them, gather average distance on the right and on the left and decide to steer proportionally to these distances. This simple model works surprisingly well. I also wanted to factor the acceleration based on these distances but I didn't get to that and simply made them accelerate more and more for each laps they do.
+-   I then made the factors used to steer some random numbers acting as the genes of a genetic algorithm, I created a pool of cars and made them reproduce and mix these genes. At these points the results were not super convincing because my algorithm isn't super well tuned. But I think I validated the basic idea: With a better track generation, a mode decoupled data model I should be able to make a working algorithm.
+-   I also tried to use [dannjs](https://dannjs.org/) which is a nice little neural network library. My idea was to train a neural network via neuro-evolution algorithms. I did several tests but I ended up realizing that neural networks aren't that simple and that you still need to study the math underneath to use them properly.
+-   I added some broken statistics capabilities to my pool to have an idea of how my cars perform. I'm not convinced my stats are really relevant and I had a big plan of creating real time graphs visualization a bit like the [Primer videos](https://www.youtube.com/c/PrimerLearning) but that didn't happen.
 
 ### Thinking of the future
 

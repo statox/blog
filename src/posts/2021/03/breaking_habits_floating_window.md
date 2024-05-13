@@ -39,11 +39,11 @@ Here is the solution I came up with:
 
 This floating window is shown when I press a command I want to avoid. There are a few features I wanted to have in this solution:
 
-- The window is spawned in the middle of Neovim UI so that I can't miss it;
-- The borders of the window are delimited with ascii characters to make it more visible;
-- It should be easy to close the window both with regular commands (like `:close`) and with specific keys like <kbd>Escape</kbd>, <kbd>Enter</kbd> or <kbd>Space</kbd> (which is my leader key);
-- I should have a convenient command to "disable" several normal mode commands with this window;
-- The message shown in the window should be multi-lines, centered and configurable depending on the disabled command.
+-   The window is spawned in the middle of Neovim UI so that I can't miss it;
+-   The borders of the window are delimited with ascii characters to make it more visible;
+-   It should be easy to close the window both with regular commands (like `:close`) and with specific keys like <kbd>Escape</kbd>, <kbd>Enter</kbd> or <kbd>Space</kbd> (which is my leader key);
+-   I should have a convenient command to "disable" several normal mode commands with this window;
+-   The message shown in the window should be multi-lines, centered and configurable depending on the disabled command.
 
 ### Implementing the solution
 
@@ -82,9 +82,9 @@ We then need to call [`nvim_list_uis()`](https://neovim.io/doc/user/api.html#nvi
 
 Finally we can use `nvim_open_win()` to open the floating window. The function takes three arguments:
 
-- The handle of the buffer we previously created and which will be used in the window.
-- A boolean specifying if the window should be focused immediately after its creation. Here we set it to `v:true` because we want the window to be focused to close it easily.
-- A map defining the window configuration. [The doc](https://neovim.io/doc/user/api.html#nvim_open_win%28%29) describes all the available options. Here we especially make use of `width` and `height` to define the size of the window and `anchor`, `col` and `row` to define where on the screen we will place it.
+-   The handle of the buffer we previously created and which will be used in the window.
+-   A boolean specifying if the window should be focused immediately after its creation. Here we set it to `v:true` because we want the window to be focused to close it easily.
+-   A map defining the window configuration. [The doc](https://neovim.io/doc/user/api.html#nvim_open_win%28%29) describes all the available options. Here we especially make use of `width` and `height` to define the size of the window and `anchor`, `col` and `row` to define where on the screen we will place it.
 
 Calling this function with `:call BreakHabitsWindow()` will spawn a simple empty floating window:
 
@@ -157,15 +157,15 @@ endfor
 
 The parameters are as follow:
 
-- The buffer handle which we already used in the `nvim_open_win()`;
-- The mode of the mapping, here we use `n` for normal mode mappings (this is the equivalent of using [`nmap`](http://vimhelp.appspot.com/map.txt.html#%3Anmap));
-- The `closingKey` variable holds the left hand side of the mapping;
-- The 4th parameter is the right hand side of the mapping;
-- And finally we give the mapping options in a map:
-  - `silent` to avoid showing the command used,
-  - `nowait` to avoid waiting for follow up keys in the mapping
-  - and `noremap` to create a non recursive mapping.
-  If you are not familiar with these options see [`:h :map-arguments`](https://neovim.io/doc/user/map.html#%3amap-arguments).
+-   The buffer handle which we already used in the `nvim_open_win()`;
+-   The mode of the mapping, here we use `n` for normal mode mappings (this is the equivalent of using [`nmap`](http://vimhelp.appspot.com/map.txt.html#%3Anmap));
+-   The `closingKey` variable holds the left hand side of the mapping;
+-   The 4th parameter is the right hand side of the mapping;
+-   And finally we give the mapping options in a map:
+    -   `silent` to avoid showing the command used,
+    -   `nowait` to avoid waiting for follow up keys in the mapping
+    -   and `noremap` to create a non recursive mapping.
+        If you are not familiar with these options see [`:h :map-arguments`](https://neovim.io/doc/user/map.html#%3amap-arguments).
 
 With this added to `BreakHabitsWindow()` we can now close the window quickly with our defined keys.
 

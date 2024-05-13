@@ -11,6 +11,7 @@ commentIssueId: 18
 After not finishing my [triomino project](../triomino/) I started working on an implementation of the [Reversi game](https://en.wikipedia.org/wiki/Reversi). According to Wikipedia my implementation is technically an Othello game but this name was patented in Japan in 1971 and I decided to play it safe and calling it Reversi (no doubt that the owner of the name would have felt greatly threatened by my _amazing_ implementation of his game).
 
 ![Screenshot of my Reversi implementation](./reversi.png)
+
 <center>
     <i>My patent infrigement material</i>
 </center>
@@ -43,32 +44,32 @@ It turns out that for a game of Othello there are a lot of different possibiliti
 
 While I was implementing my different AIs I needed to compare them together to make sure I was heading in the right direction, so in addition of the GUI I also developed a testing program which runs thousands of games and collects some simple statistics. Here are some results:
 
-|Random vs. Random | win percentages | nb of games won|
-|:-----------------|----------------:|---------------:|
-|Random            | 49.11%          | 4911           |
-|Random            | 50.89%          | 5089           |
+| Random vs. Random | win percentages | nb of games won |
+| :---------------- | --------------: | --------------: |
+| Random            |          49.11% |            4911 |
+| Random            |          50.89% |            5089 |
 
-|Random vs. Most disks | win percentages | nb of games won|
-|:---------------------|----------------:|---------------:|
-|Random                | 42.82%          | 4282           |
-|Most disks            | 57.18%          | 5718           |
+| Random vs. Most disks | win percentages | nb of games won |
+| :-------------------- | --------------: | --------------: |
+| Random                |          42.82% |            4282 |
+| Most disks            |          57.18% |            5718 |
 
-|Random vs. MinMax (depth 3) | win percentages | nb of games won| avg. nodes evaluated by turn|
-|:---------------------------|----------------:|---------------:|----------------------------:|
-|Random                      | 26.55%          | 478            | -                           |
-|MinMax                      | 73.44%          | 1322           | 12 179 319                  |
+| Random vs. MinMax (depth 3) | win percentages | nb of games won | avg. nodes evaluated by turn |
+| :-------------------------- | --------------: | --------------: | ---------------------------: |
+| Random                      |          26.55% |             478 |                            - |
+| MinMax                      |          73.44% |            1322 |                   12 179 319 |
 
-|Random vs. AlphaBeta (depth 3) | win percentages | nb of games won| avg. nodes evaluated by turn|
-|:------------------------------|----------------:|---------------:|----------------------------:|
-|Random                         | 35.33%          | 1590           | -                           |
-|AlphaBeta                      | 64.66%          | 2910           | 2 785 672                   |
+| Random vs. AlphaBeta (depth 3) | win percentages | nb of games won | avg. nodes evaluated by turn |
+| :----------------------------- | --------------: | --------------: | ---------------------------: |
+| Random                         |          35.33% |            1590 |                            - |
+| AlphaBeta                      |          64.66% |            2910 |                    2 785 672 |
 
 Nothing really surprising here but at least the results seem to be pretty coherent with what I was expecting:
 
-- When two player play randomly they roughly have a 50% rate of victory, at least `Math.random()` seems to be working good enough for this use case
-- Trying to always flip as many disks as possible is a bit more efficient than playing randomly, at least if your opponent plays randomly.
-- My MinMax implementation is pretty effective against a random user, increasing the maximal depth would make it pretty good.  However given the time it takes to run I couldn't run as many games as for the other AIs.
-- My AlphaBeta pruning without a good heuristic is just a semi-broken MinMax: it's better than a random player but it prunes some valid nodes which makes it not as efficient as it could be.
+-   When two player play randomly they roughly have a 50% rate of victory, at least `Math.random()` seems to be working good enough for this use case
+-   Trying to always flip as many disks as possible is a bit more efficient than playing randomly, at least if your opponent plays randomly.
+-   My MinMax implementation is pretty effective against a random user, increasing the maximal depth would make it pretty good. However given the time it takes to run I couldn't run as many games as for the other AIs.
+-   My AlphaBeta pruning without a good heuristic is just a semi-broken MinMax: it's better than a random player but it prunes some valid nodes which makes it not as efficient as it could be.
 
 #### Demo
 

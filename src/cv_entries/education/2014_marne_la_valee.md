@@ -1,6 +1,6 @@
 ---
-title: "Licence sciences et technologies : mathématiques et informatique"
-organization: "Partenariat Efrei/Université Paris-Est Marne-La-Vallée"
+title: 'Licence sciences et technologies : mathématiques et informatique'
+organization: 'Partenariat Efrei/Université Paris-Est Marne-La-Vallée'
 end: 2014-07-01
 ---
 

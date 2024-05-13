@@ -74,6 +74,7 @@ docker exec -ti provitools sh -c "python --version"
 Adding docker compose (maybe too early but at least it will be there)
 
 `docker-compose.yml`
+
 ```dockerfile
 version: '3.7'
 
@@ -84,6 +85,7 @@ services:
 ```
 
 `build.sh`
+
 ```shell
 #!/usr/bin/env bash
 sudo docker build . -t provisioning/tools
@@ -91,6 +93,7 @@ sudo docker-compose build
 ```
 
 `start.sh`
+
 ```shell
 #!/usr/bin/env bash
 sudo docker-compose up -d
@@ -154,7 +157,6 @@ RUN pip install -r pip_requirements.txt
 ENTRYPOINT ["tail", "-f", "/dev/null"]
 ```
 
-
 ### Step 6
 
 We can run ansible playbook. And (somehow?) `aws` is installed on the container 🤷
@@ -186,5 +188,3 @@ I added `-e SSH_AUTH_SOCK=$SSH_AUTH_SOCK` to my alias but the directory is rando
 So I need to fix that.
 
 [This](https://www.jamesridgway.co.uk/sharing-an-ssh-agent-between-a-host-machine-and-a-docker-container/) provides a solution but my `SSH_AUTH_SOCK` variable is empty
-
-

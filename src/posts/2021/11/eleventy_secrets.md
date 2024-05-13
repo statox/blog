@@ -8,29 +8,27 @@ commentIssueId: 30
 
 This blog is a platform for me to experiment with front end technologies and to write about random stuff I do on my free time. I keep everything versioned [on Github](https://www.github.com/statox/blog) in a public repository because it's easy and because so far I didn't have anything to keep secret in this repo. This changed recently so I decided to use [`EncFS`](https://vgough.github.io/encfs/) to keep secret files encrypted in my Github repo and have them easily accessible on my local copy of the repo. Here is how I did it.
 
-
 ### Context and requirements
 
 Recently I started to collect pieces of wisdom I hear at my workplace. I intend to share this knowledge in some form because I believe it could be useful to a lot of my peers, but so far I'm not sure how I will do that so I want to keep track of them somewhere and this blog's repo is an easy place. So I started writing a couple of them in a draft and I also wrote the name of the coworkers who gave me these pieces of advice. Before I committed the document I realized that I was about to publish some personal thoughts of people I really appreciate and respect without asking for their consent, not cool.
 
 So here is what I wanted to have:
 
-- The ability to create new "secret" pages on this blog like I do with any other article.
-- They should be easily accessible on my local clone and they should be handled by eleventy on my local build.
-- They should not be built by eleventy on the CI I use to deploy the blog.
-- They should be versioned in the repo so that I don't have to keep track of data on different places.
-- The solution should work on Linux and I don't really care about the other OSes as I don't use them (though my solution also works on MacOS)
+-   The ability to create new "secret" pages on this blog like I do with any other article.
+-   They should be easily accessible on my local clone and they should be handled by eleventy on my local build.
+-   They should not be built by eleventy on the CI I use to deploy the blog.
+-   They should be versioned in the repo so that I don't have to keep track of data on different places.
+-   The solution should work on Linux and I don't really care about the other OSes as I don't use them (though my solution also works on MacOS)
 
 To do that I opted for the following solution:
 
-- I will have a `src/.secrets` directory in my repo. This directory will hold my secret files encrypted.
-- I will have another directory `src/secrets/` in which the secrets will be decrypted when I build the site locally, eleventy will have to build this directory too.
-- To make things easy I will have the decryption script running in the CI I use locally when building my site.
+-   I will have a `src/.secrets` directory in my repo. This directory will hold my secret files encrypted.
+-   I will have another directory `src/secrets/` in which the secrets will be decrypted when I build the site locally, eleventy will have to build this directory too.
+-   To make things easy I will have the decryption script running in the CI I use locally when building my site.
 
 **An important warning**
 
 **The solution I'm presenting here is dealing with very low importance documents. I don't plan to store any applications secrets like an API key or any sensitive document. So while I'm confident this solution fits my threat model I am in no way encouraging you to use it in production without a proper review of your risks.**
-
 
 ### The tool
 
@@ -88,9 +86,9 @@ encfs "${PWD}/$SECRET_DIR" "${PWD}/$CLEAR_DIR"
 
 This script will run when I build my site locally so it does the following:
 
-- Check that the clear directory is empty. If it's not it means that I had already mounted the secret directory (e.g. I restarted the build process because something broke it) so I can skip what's next.
-- Create the clear directory if needed.
-- Use `encfs` to mount the decrypted directory.
+-   Check that the clear directory is empty. If it's not it means that I had already mounted the secret directory (e.g. I restarted the build process because something broke it) so I can skip what's next.
+-   Create the clear directory if needed.
+-   Use `encfs` to mount the decrypted directory.
 
 ```bash
 # unmount_secrets.sh
@@ -101,7 +99,6 @@ fusermount -u "${PWD}/$CLEAR_DIR"
 ```
 
 This one is not in my local CI. I use it when I'm done working to unmount the clear directory.
-
 
 ### Configuring my build
 
@@ -119,28 +116,27 @@ With the `decrypt_secrets.sh` wrapper created I can update my `package.json`:
 
 So now when I use `npm run dev` in my local environment my decryption script is run. However when my CI on Github runs `npm run build` my secrets are not touched.
 
-
 ### Setting up the ignores
 
 There is one last piece of configuration to add: the ignored files. Until now I only had a `.gitignore` file in my repo with two purposes:
 
-- It prevented me to track changes in `node_modules/` and `docs/` (my local build file)
-- And it also prevented eleventy to try to build these directories.
+-   It prevented me to track changes in `node_modules/` and `docs/` (my local build file)
+-   And it also prevented eleventy to try to build these directories.
 
 Now I have a new directory `src/secrets` which I want eleventy to build (locally) but I don't want to track on git (since that would completely defeat the purpose of all this encryption thing I've been doing).
 
 So I had to do the following:
 
-- First tell eleventy to not use the `.gitignore` file. This is done by adding this to my `.eleventy.js` config file. Now git will still respect `.gitignore` but eleventy will use the `.eleventyignore` file to exclude files from the build.
+-   First tell eleventy to not use the `.gitignore` file. This is done by adding this to my `.eleventy.js` config file. Now git will still respect `.gitignore` but eleventy will use the `.eleventyignore` file to exclude files from the build.
 
-      eleventyConfig.setUseGitIgnore(false);
+        eleventyConfig.setUseGitIgnore(false);
 
-- Then my `.gitignore` remains untouched
-- And finally I added `.eleventyignore` with the following content:
+-   Then my `.gitignore` remains untouched
+-   And finally I added `.eleventyignore` with the following content:
 
-      node_modules/
-      docs/
-      src/secrets/
+        node_modules/
+        docs/
+        src/secrets/
 
 ### Voila!
 

@@ -20,4 +20,3 @@ The introduction really translate the melancholic side of the song until the bra
 </div>
 
 California Dreamin' is one of the songs with the most occurrences in my playlist but I think this version is by far my favorite.
-

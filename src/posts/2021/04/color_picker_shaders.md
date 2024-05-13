@@ -25,7 +25,7 @@ Before we begin here is a very quick reminder of what a shader is:
 
 To start working with shaders I wanted to keep things as simple as possible and I believe using [p5js](https://p5js.org/) is a great way to achieve that. I was already familiar with this framework and it makes it very easy to get going with a project. The cool thing with p5js is that we can start implementing our code in Javascript and then drop in the replacement for the particular areas we want to use a shader on.
 
- So I first created a simple fully javascript version on codepen. This was the opportunity for me to learn how [the HSB color system](https://en.wikipedia.org/wiki/HSL_and_HSV) works:
+So I first created a simple fully javascript version on codepen. This was the opportunity for me to learn how [the HSB color system](https://en.wikipedia.org/wiki/HSL_and_HSV) works:
 
 <p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="js,result" data-user="statox" data-slug-hash="poRKpEb" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Color picker">
   <span>
@@ -42,9 +42,9 @@ _Note that one could have used the [`pixels`](https://p5js.org/reference/#/p5/pi
 
 This first version allowed me to define the 3 main areas that I want to render with a shader:
 
-- The rainbow: This is the line on the top which allows the user to change the hue of the current color;
-- The picker: The rectangle on the left with a gradient on the current hue, the user will be able to choose a specific saturation and brightness by clicking there;
-- The sample: The rectangle on the right which shows the currently selected color.
+-   The rainbow: This is the line on the top which allows the user to change the hue of the current color;
+-   The picker: The rectangle on the left with a gradient on the current hue, the user will be able to choose a specific saturation and brightness by clicking there;
+-   The sample: The rectangle on the right which shows the currently selected color.
 
 ![Picker zones](../../../../images/color_picker_shader/picker_zones.png)
 
@@ -54,58 +54,56 @@ Before starting to dig into the code it's better to understand the color system 
 
 There is nothing too complex about it, and [this website](https://learnui.design/blog/the-hsb-color-system-practicioners-primer.html) does a great job at explaining in details how it works. Here are a few points to keep in mind:
 
-- **HSB** stands for **H**ue, **S**aturation and **B**rightness.
-- The hue value represent the raw color. It is expressed as an angle as shown on the color wheel here. This angle is between `0`-`360` degrees, but in a p5 sketch we map these values to the range `0`-`100`, and in a shader we will map it in the range `0.0`-`1.0`. But no matter which range we use the relative difference between the color is always the same.
-  ![color wheel](../../../../images/color_picker_shader/color_wheel.png)
-  <center>
-      <i>Color wheel borrowed from <a href="https://learnui.design/blog/the-hsb-color-system-practicioners-primer.html">this site</a></i>
-  </center>
-- The saturation is how rich the color is: A 100% saturation is very colorful while a 0% saturation is grey. With a 0% saturation no matter which hue you use you will always get the same grey
+-   **HSB** stands for **H**ue, **S**aturation and **B**rightness.
+-   The hue value represent the raw color. It is expressed as an angle as shown on the color wheel here. This angle is between `0`-`360` degrees, but in a p5 sketch we map these values to the range `0`-`100`, and in a shader we will map it in the range `0.0`-`1.0`. But no matter which range we use the relative difference between the color is always the same.
+    ![color wheel](../../../../images/color_picker_shader/color_wheel.png)
+    <center>
+        <i>Color wheel borrowed from <a href="https://learnui.design/blog/the-hsb-color-system-practicioners-primer.html">this site</a></i>
+    </center>
+-   The saturation is how rich the color is: A 100% saturation is very colorful while a 0% saturation is grey. With a 0% saturation no matter which hue you use you will always get the same grey
 
-  <p class='color-line'>
-    <span class='color-block text-black' style='background-color: hsl(0, 0%, 50%)'>0%</span>
-    <span class='color-block text-black' style='background-color: hsl(0, 25%, 50%)'>25%</span>
-    <span class='color-block text-black' style='background-color: hsl(0, 50%, 50%)'>50%</span>
-    <span class='color-block text-white' style='background-color: hsl(0, 75%, 50%)'>75%</span>
-    <span class='color-block text-white' style='background-color: hsl(0, 100%, 50%)'>100%</span>
-  </p>
-  <p class='color-line'>
-    <span class='color-block text-black' style='background-color: hsl(230, 0%, 50%)'>0%</span>
-    <span class='color-block text-black' style='background-color: hsl(230, 25%, 50%)'>25%</span>
-    <span class='color-block text-black' style='background-color: hsl(230, 50%, 50%)'>50%</span>
-    <span class='color-block text-white' style='background-color: hsl(230, 75%, 50%)'>75%</span>
-    <span class='color-block text-white' style='background-color: hsl(230, 100%, 50%)'>100%</span>
-  </p>
+    <p class='color-line'>
+      <span class='color-block text-black' style='background-color: hsl(0, 0%, 50%)'>0%</span>
+      <span class='color-block text-black' style='background-color: hsl(0, 25%, 50%)'>25%</span>
+      <span class='color-block text-black' style='background-color: hsl(0, 50%, 50%)'>50%</span>
+      <span class='color-block text-white' style='background-color: hsl(0, 75%, 50%)'>75%</span>
+      <span class='color-block text-white' style='background-color: hsl(0, 100%, 50%)'>100%</span>
+    </p>
+    <p class='color-line'>
+      <span class='color-block text-black' style='background-color: hsl(230, 0%, 50%)'>0%</span>
+      <span class='color-block text-black' style='background-color: hsl(230, 25%, 50%)'>25%</span>
+      <span class='color-block text-black' style='background-color: hsl(230, 50%, 50%)'>50%</span>
+      <span class='color-block text-white' style='background-color: hsl(230, 75%, 50%)'>75%</span>
+      <span class='color-block text-white' style='background-color: hsl(230, 100%, 50%)'>100%</span>
+    </p>
 
-- The brightness is how... bright is your color? Simply put: 0% brightness is complete black no matter the hue, 100% is white if saturation is 0% or just a very bright color.
-  <p class='color-line'>
-    <span class='color-block text-white' style="background-color: hsl(0, 100%, 0%)">0%</span>
-    <span class='color-block text-white' style="background-color: hsl(0, 100%, 25%)">25%</span>
-    <span class='color-block text-white' style="background-color: hsl(0, 100%, 50%)">50%</span>
-    <span class='color-block text-black' style="background-color: hsl(0, 100%, 75%)">75%</span>
-    <span class='color-block text-black' style="background-color: hsl(0, 100%, 100%)">100%</span>
-  </p>
-  <p class='color-line'>
-    <span class='color-block text-white' style="background-color: hsl(230, 100%, 0%)">0%</span>
-    <span class='color-block text-white' style="background-color: hsl(230, 100%, 25%)">25%</span>
-    <span class='color-block text-white' style="background-color: hsl(230, 100%, 50%)">50%</span>
-    <span class='color-block text-black' style="background-color: hsl(230, 100%, 75%)">75%</span>
-    <span class='color-block text-black' style="background-color: hsl(230, 100%, 100%)">100%</span>
-  </p>
+-   The brightness is how... bright is your color? Simply put: 0% brightness is complete black no matter the hue, 100% is white if saturation is 0% or just a very bright color.
+    <p class='color-line'>
+      <span class='color-block text-white' style="background-color: hsl(0, 100%, 0%)">0%</span>
+      <span class='color-block text-white' style="background-color: hsl(0, 100%, 25%)">25%</span>
+      <span class='color-block text-white' style="background-color: hsl(0, 100%, 50%)">50%</span>
+      <span class='color-block text-black' style="background-color: hsl(0, 100%, 75%)">75%</span>
+      <span class='color-block text-black' style="background-color: hsl(0, 100%, 100%)">100%</span>
+    </p>
+    <p class='color-line'>
+      <span class='color-block text-white' style="background-color: hsl(230, 100%, 0%)">0%</span>
+      <span class='color-block text-white' style="background-color: hsl(230, 100%, 25%)">25%</span>
+      <span class='color-block text-white' style="background-color: hsl(230, 100%, 50%)">50%</span>
+      <span class='color-block text-black' style="background-color: hsl(230, 100%, 75%)">75%</span>
+      <span class='color-block text-black' style="background-color: hsl(230, 100%, 100%)">100%</span>
+    </p>
 
 Note that you'll also find online some references to the color systems **HSV** and **HSL**. If I believe the wikipedia page **HSV** is the exact same thing as **HSB** excepted **B**rightness is named **V**alue. And **HSL** is **H**ue, **S**aturation, **L**ightness which is kind of the inverse of Brightness (if you want details, check wiki they explain it better than I'll do).
-
 
 ### Our first shader
 
 Now that we know what our project should look like and we understand our color system let's get started with shaders! The first step is to use a very basic shader in a p5js project. Fortunately the doc gives [a good example](https://p5js.org/examples/3d-basic-shader.html) of a very simple usage:
 
-
 ```javascript
 // this variable will hold our shader object
 let theShader;
 
-function preload(){
+function preload() {
     // load the shader
     theShader = loadShader('assets/basic.vert', 'assets/basic.frag');
 }
@@ -127,8 +125,8 @@ function draw() {
 
 This will use a shader named `basic` to draw a rectangle on screen. The interesting part is then to implement this shader. As we can see in the `loadShader()` call we need 2 files to define a shader:
 
-- `shader.vert`
-- `shader.frag`
+-   `shader.vert`
+-   `shader.frag`
 
 These files are written with [GLSL](https://en.wikipedia.org/wiki/OpenGL_Shading_Language) which is a widely used language to program shaders, this is the language we will use the shader files in the articles.
 
@@ -216,7 +214,7 @@ vec3 hsb2rgb(vec3 c)
 void main() {
     // Normalize the position (to be in range 0.0 - 1.0)
     // The .xy notation applies the same operation on both x and y components
-    vec2 st = gl_FragCoord.xy/u_resolution.xy; 
+    vec2 st = gl_FragCoord.xy/u_resolution.xy;
 
     // Use the x position of the pixel to define its hue
     // (with saturation and brightness to 1)
@@ -273,7 +271,7 @@ vec3 hsb2rgb(vec3 c)
 
 void main() {
     // Normalize the position between 0 and 1
-    vec2 st = gl_FragCoord.xy/u_resolution.xy; 
+    vec2 st = gl_FragCoord.xy/u_resolution.xy;
 
     // Set the pixel color using the current hue
     // and the position to make a gradient
@@ -286,8 +284,8 @@ void main() {
 
 The principle is very similar to the rainbow shader, two things change:
 
-- First we pass new uniform `u_hue` which determines the hue selected by the user. This hue is passed as a float ranging from `0.0` to `1.0` by the p5 sketch.
-- Then we use this hue as well as the normalized position to get the color of the pixel.
+-   First we pass new uniform `u_hue` which determines the hue selected by the user. This hue is passed as a float ranging from `0.0` to `1.0` by the p5 sketch.
+-   Then we use this hue as well as the normalized position to get the color of the pixel.
 
 In the `draw()` function we will use the following line to set the hue depending on the x component of the mouse position:
 
@@ -310,8 +308,8 @@ Now comes the part where we put everything together to get a working color picke
 
 The user will have two ways to interact with the picker:
 
-- When they click on the rainbow and move the mouse on it we will update the hue used in the picker rectangle.
-- When they click the picker and move the mouse on it we will update the saturation and brightness.
+-   When they click on the rainbow and move the mouse on it we will update the hue used in the picker rectangle.
+-   When they click the picker and move the mouse on it we will update the saturation and brightness.
 
 Each change in hue, saturation or brightness will be reflected in the sample rectangle showing the currently selected color.
 
@@ -438,15 +436,15 @@ An online demo is available [here](https://statox.github.io/color-picker/), it d
 
 ### A new world of opportunities
 
-This project was really fun to do and I hope that if you never played with shaders before it gave you some inspiration to do the same! I am really excited to use this new skill I learned because I've done [a few](https://www.statox.fr/posts/2020/11/ants/) [simulations](https://www.statox.fr/posts/2020/09/boids/) in the browser with p5 before but they were all limited by their performances. Offloading some of the work to the GPU should allow me to create simulations with much larger definitions. I'm thinking about trying to make a [Critters cellular automaton](https://en.wikipedia.org/wiki/Critters_(cellular_automaton)), exploring [fractal](https://www.shadertoy.com/view/lsX3W4) or maybe maps generation as seen in some of [Sebastian Lague's videos](https://www.youtube.com/channel/UCmtyQOKKmrMVaKuRXz02jbQ).
+This project was really fun to do and I hope that if you never played with shaders before it gave you some inspiration to do the same! I am really excited to use this new skill I learned because I've done [a few](https://www.statox.fr/posts/2020/11/ants/) [simulations](https://www.statox.fr/posts/2020/09/boids/) in the browser with p5 before but they were all limited by their performances. Offloading some of the work to the GPU should allow me to create simulations with much larger definitions. I'm thinking about trying to make a [Critters cellular automaton](<https://en.wikipedia.org/wiki/Critters_(cellular_automaton)>), exploring [fractal](https://www.shadertoy.com/view/lsX3W4) or maybe maps generation as seen in some of [Sebastian Lague's videos](https://www.youtube.com/channel/UCmtyQOKKmrMVaKuRXz02jbQ).
 
 If you also want to get started with shaders here is a list of some interesting resources:
 
-- [itp-xstory.github.io](https://itp-xstory.github.io/p5js-shaders) - An amazing introduction to using shaders with p5js
-- [aferriss/p5jsShaderExamples](https://github.com/aferriss/p5jsShaderExamples) - Some useful examples of GLSL shaders for p5js
-- [p5js.org](https://p5js.org/reference/#/p5/shader) - The p5js doc about shaders
-- [lea.codes](https://lea.codes/webgl/) - The personal website of a dev who does cool things with shaders and threejs
-- [The book of shaders](https://thebookofshaders.com/) - The Bible of shader programming
+-   [itp-xstory.github.io](https://itp-xstory.github.io/p5js-shaders) - An amazing introduction to using shaders with p5js
+-   [aferriss/p5jsShaderExamples](https://github.com/aferriss/p5jsShaderExamples) - Some useful examples of GLSL shaders for p5js
+-   [p5js.org](https://p5js.org/reference/#/p5/shader) - The p5js doc about shaders
+-   [lea.codes](https://lea.codes/webgl/) - The personal website of a dev who does cool things with shaders and threejs
+-   [The book of shaders](https://thebookofshaders.com/) - The Bible of shader programming
 
 If you know of other good resources or want to discuss a project idea, leave a comment on this article!
 

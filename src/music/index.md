@@ -1,8 +1,8 @@
 ---
 layout: layouts/base.njk
 eleventyNavigation:
-  key: Music
-  order: 5
+    key: Music
+    order: 5
 CSSFile: 'css/pages/music.css'
 ---
 
@@ -14,11 +14,11 @@ When I'm coding I listen to music and when I'm not coding I try to play some mus
 
 A list of useful apps I created for my music playing:
 
-- [Song Book](https://apps.statox.fr/songbook) A list of song chords I took from the internet or made by myself and like to play
-- [Metronome](https://apps.statox.fr/metronome) A metrone which works just as I want
-- [Tap Tempo](https://apps.statox.fr/taptempo) A Tap Tempo app
-- [Chord wheel](https://apps.statox.fr/chordwheel) The online implementation of a book by [Jim Flesser](https://chordwheel.com/)
-- [Scales visualizer and chords progressions](https://apps.statox.fr/scales) A tool I made to learn scale degrees
+-   [Song Book](https://apps.statox.fr/songbook) A list of song chords I took from the internet or made by myself and like to play
+-   [Metronome](https://apps.statox.fr/metronome) A metrone which works just as I want
+-   [Tap Tempo](https://apps.statox.fr/taptempo) A Tap Tempo app
+-   [Chord wheel](https://apps.statox.fr/chordwheel) The online implementation of a book by [Jim Flesser](https://chordwheel.com/)
+-   [Scales visualizer and chords progressions](https://apps.statox.fr/scales) A tool I made to learn scale degrees
 
 ### [Production](https://soundcloud.com/statox/tracks)
 
@@ -43,4 +43,3 @@ The user manuals for my gear as well as some PDF documents about music and elect
 
 One of my weird obsession is cover songs. I try to write a bit about my discoveries.
 [Cool covers page](/coolcovers/)
-

@@ -1,7 +1,7 @@
 ---
 layout: layouts/coolcover.njk
 tags: ['coolcovers']
-title: "Ca plane pour moi - The Presidents Of The United States Of America vs. Plastic Bertrand"
+title: 'Ca plane pour moi - The Presidents Of The United States Of America vs. Plastic Bertrand'
 ---
 
 When an American punk band from the 90s make a cover of an eccentric Belgian punk from the 70s the result is dumb, messy and a ton of fun!

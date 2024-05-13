@@ -1,33 +1,32 @@
 ---
 layout: layouts/base.njk
 eleventyNavigation:
-  key: Guitar
-  parent: Music
+    key: Guitar
+    parent: Music
 ---
 
 ## Guitar
 
 I'm using this page to gather resources that I've found useful while learning music. Maybe one day I will organize that properly to make it easier to read for anyone who is not me.
 
-
 ### Chords and staffs
 
- - https://www.hooktheory.com/theorytab
+-   https://www.hooktheory.com/theorytab
 
 ### Music theory - Scales, Chords, Fretboard...
 
 <details>
     <summary>Scales and chords visualization tools</summary>
 
- - [JGuitar scales, chords, harmonizers](https://jguitar.com/)
- - [Guitar scales - Online Guitar Book](https://onlineguitarbooks.com/guitar-scales/)
- - [The Guitar Grimoire - Adam Kadmon](http://mikesimm.djlemonk.com/bblog/Scales-and-Modes.pdf)
- - [FretFlip](https://fretflip.com/)
- - [Fretbo.ar](https://fretbo.ar/)
- - [muted.io](https://muted.io/)
- - [Triads visualizations](https://triadmapper.herokuapp.com/)
- - [All chords diagrams](https://images.template.net/wp-content/uploads/2016/05/05072432/PDF-Document-for-Suspended-Guitar-Chord-Templates.pdf)
- - [Keyboard scales](https://www.pianoscales.org/)
+-   [JGuitar scales, chords, harmonizers](https://jguitar.com/)
+-   [Guitar scales - Online Guitar Book](https://onlineguitarbooks.com/guitar-scales/)
+-   [The Guitar Grimoire - Adam Kadmon](http://mikesimm.djlemonk.com/bblog/Scales-and-Modes.pdf)
+-   [FretFlip](https://fretflip.com/)
+-   [Fretbo.ar](https://fretbo.ar/)
+-   [muted.io](https://muted.io/)
+-   [Triads visualizations](https://triadmapper.herokuapp.com/)
+-   [All chords diagrams](https://images.template.net/wp-content/uploads/2016/05/05072432/PDF-Document-for-Suspended-Guitar-Chord-Templates.pdf)
+-   [Keyboard scales](https://www.pianoscales.org/)
 </details>
 
 <details>
@@ -35,6 +34,7 @@ I'm using this page to gather resources that I've found useful while learning mu
 
 ![Notes sur le manche](/images/guitar/C_majeur_Entier.png)
 ![Guitar fingerboard chart](https://i.redd.it/hs2ewp5vznd81.jpg)
+
 </details>
 
 <details>
@@ -46,14 +46,15 @@ Position III ![Pentatonique mineur en La - Position III](/images/guitar/gamme-bl
 Position IV-1 ![Pentatonique mineur en La - Position IV 1](/images/guitar/gamme-blues-de-LA-position-4.png)
 Position IV-2 ![Pentatonique mineur en La - Position IV 2](/images/guitar/gamme-blues-de-LA-position-4_2.png)
 Position V ![Pentatonique mineur en La - Position V](/images/guitar/gamme-blues-de-LA-position-5.png)
+
 </details>
 
 <details>
     <summary>CAGED system</summary>
 
 [Pick up music - The CAGED system explained](https://www.youtube.com/watch?v=-nphFK6HFjY)
-</details>
 
+</details>
 
 <details>
     <summary>Learning to read a staff</summary>
@@ -63,6 +64,7 @@ Position V ![Pentatonique mineur en La - Position V](/images/guitar/gamme-blues-
 ![Points de reperes](/images/guitar/lire-les-notes-points-de-repere-clef-de-sol.webp)
 
 Mnemonic in French:
+
 <ul>
 <li><p>a<b>MI</b>s <b>SOL</b>dats <b>CI</b>-<b>RE</b>z <b>FA</b>cilement vos bottes</p></li>
 <li><p><b>FA</b>it <b>LA</b> <b>DO</b>r<b>MI</b>r</p></li>
@@ -73,19 +75,17 @@ Guitar open string on the staff:
 
 </details>
 
-
 <details>
     <summary>iOS applications</summary>
 
- - [Solfa](https://apps.apple.com/us/app/solfa-learn-musical-notes/id1436741307) Learning to read notes
- - [Hearing](https://apps.apple.com/us/app/hearing-ear-training-piano/id1474241582) Learning to identify notes by hear
+-   [Solfa](https://apps.apple.com/us/app/solfa-learn-musical-notes/id1436741307) Learning to read notes
+-   [Hearing](https://apps.apple.com/us/app/hearing-ear-training-piano/id1474241582) Learning to identify notes by hear
 </details>
-
-
 
 ### Chords progressions and licks
 
 #### Common chord progressions
+
 <details>
     <summary><a href="https://apps.statox.fr/scales" rel="noopener noreferrer" target="_blank">Common chords progressions</a></summary>
 </details>
@@ -101,6 +101,7 @@ G13     - 3x344x
 Cmin7   - x3534x
 Cmin9   - x3133x
 ```
+
 </details>
 
 <details>
@@ -125,6 +126,7 @@ Gmin9   - x 10 8 10 10 x
 Ebmaj7  - x  6 8  7  8 6
 Ebmin7  - x  6 8  6  7 6
 ```
+
 </details>
 
 <details>
@@ -135,6 +137,7 @@ C#min7  - x46454
 G#min7  - 4x444x
 F#min7  - x24222
 ```
+
 </details>
 
 #### Blues

@@ -26,8 +26,8 @@ The first step was to create a [codepen](https://codepen.io/statox/pen/abNVYZZ) 
 
 That resulted in some pretty rough animations and a not very well organized code, but at least it allowed me to validate what are the two main components I would need to implement in my project:
 
-- Some kind of state processing to handle the transitions between the "breath in" and "breath out" phases (as well as two additional "pause" phases, which I find more comfortable to add);
-- A "pluggable architecture" where I can write independent functions for different animations and only have to plug them in the existing canvas.
+-   Some kind of state processing to handle the transitions between the "breath in" and "breath out" phases (as well as two additional "pause" phases, which I find more comfortable to add);
+-   A "pluggable architecture" where I can write independent functions for different animations and only have to plug them in the existing canvas.
 
 <p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="js,result" data-user="statox" data-slug-hash="abNVYZZ" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="p5 - breathing">
   <span>See the Pen <a href="https://codepen.io/statox/pen/abNVYZZ">
@@ -46,7 +46,7 @@ The first module I needed to implement was my `StateComputer` which is used to k
 
 To do so it has an array of state representing the different steps and how long they should last:
 
-``` javascript
+```javascript
 this.currentStateIndex; // keep track of the current state
 this.states = [
     // durations are in milliseconds
@@ -93,7 +93,6 @@ this.updateState = () => {
 ```
 
 And finally a function call for each frame indicate where we are in percentage of the current step:
-
 
 ```javascript
 this.getCurrentPercentage = () => {
@@ -182,6 +181,7 @@ function SimpleCircleAlpha() {
 ```
 
 Here we draw a circle whose radius and color change depending on the progress of the state.
+
 ### Meditative coding
 
 Once the skeleton of the app was made (i.e. adding some buttons, a UI based on Vue.js to choose the duration of the session, playing with a "fullscreen" button, some CSS media queries and all the other boring details I didn't include here) all that is left for me to do is to add more animations. And, weirdly, spending time just creating some pleasing visuals on the rythm of a slow breathing really has something close to meditation.
