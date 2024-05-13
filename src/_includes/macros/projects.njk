@@ -8,7 +8,7 @@
 <div class="project-card">
     {% set usedURL = project.demo_url or project.article_url or project.code_url or '#' %}
     <a href="{{usedURL}}" target="_blank" rel="noopener noreferrer" data-goatcounter-click="project-{{usedURL}}" data-goatcounter-referrer="{{page.url}}">
-        <img class="project-img" loading="lazy" src="../{{project.image}}""/>
+        <img class="project-img" loading="lazy" src="../{{project.image}}" />
     </a>
     <div class="text-overlay">
         <a href="{{usedURL}}" target="_blank" rel="noopener noreferrer" data-goatcounter-click="project-{{usedURL}}" data-goatcounter-referrer="{{page.url}}">
