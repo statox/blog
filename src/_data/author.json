@@ -7,14 +7,7 @@
     "email": "adrienfabre@protonmail.com",
     "telephone": "+33 6 26 55 48 79",
     "website": "https://statox.fr",
-    "skills": [
-        "Nodejs",
-        "Typescript",
-        "Terraform",
-        "Ansible",
-        "Git",
-        "Linux system administration"
-    ],
+    "skills": ["Nodejs", "Typescript", "Terraform", "Ansible", "Git", "Linux system administration"],
     "languages": [
         {
             "name": "French",
