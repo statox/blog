@@ -5,7 +5,7 @@ const env = process.env.ELEVENTY_ENV;
 // HTML minifier transform
 // Also minifies JS and CSS
 // TODO Check continueOnParseError option and how to handle failure in CI
-function htmlmin(content, outputPath) {
+async function htmlmin(content, outputPath) {
     if (!outputPath.endsWith('.html')) {
         return content;
     }
@@ -14,7 +14,7 @@ function htmlmin(content, outputPath) {
         return content;
     }
 
-    const prettified = prettier.format(content, {parser: 'html'});
+    const prettified = await prettier.format(content, {parser: 'html'});
 
     const minified = htmlminifier.minify(prettified, {
         keepClosingSlash: true,
