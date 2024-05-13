@@ -14,7 +14,6 @@ const sitemap = require('@quasibit/eleventy-plugin-sitemap');
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 const wordCount = require('eleventy-plugin-wordcount').wordCount;
 
-const fs = require('fs');
 const filters = require('./tools/eleventy/filters.js');
 const collections = require('./tools/eleventy/collections.js');
 const transforms = require('./tools/eleventy/transforms.js');
