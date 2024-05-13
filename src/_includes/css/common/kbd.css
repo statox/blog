@@ -7,7 +7,7 @@ kbd {
     --black-075: #e4e6e8;
     --black-300: #9fa6ad;
     --s-prose-line-height: 1.5;
-    --ff-sans: Arial,"Helvetica Neue",Helvetica,sans-serif;
+    --ff-sans: Arial, 'Helvetica Neue', Helvetica, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -21,8 +21,8 @@ kbd {
 
 kbd {
     display: inline-block;
-    margin: 0 .1em;
-    padding: .1em .6em;
+    margin: 0 0.1em;
+    padding: 0.1em 0.6em;
     font-family: var(--nc-font-sans);
     font-size: 11px;
     line-height: var(--s-prose-line-height);
@@ -31,6 +31,8 @@ kbd {
     background-color: var(--black-075);
     border: 1px solid var(--black-300);
     border-radius: 3px;
-    box-shadow: 0 1px 1px rgba(12,13,14,0.15),inset 0 1px 0 0 #fff;
+    box-shadow:
+        0 1px 1px rgba(12, 13, 14, 0.15),
+        inset 0 1px 0 0 #fff;
     overflow-wrap: break-word;
 }

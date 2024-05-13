@@ -1,8 +1,8 @@
 .profile-picture {
-  border-radius: 50%;
-  height: auto;
-  width: auto;
-  max-width: 200px;
-  max-height: 200px;
-  float: right;
+    border-radius: 50%;
+    height: auto;
+    width: auto;
+    max-width: 200px;
+    max-height: 200px;
+    float: right;
 }

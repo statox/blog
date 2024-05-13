@@ -1,4 +1,5 @@
-.cv h2,h3 {
+.cv h2,
+h3 {
     text-align: center;
 }
 .cv-contact {
@@ -7,7 +8,7 @@
 
 .cv-contact div {
     padding: 0 1em;
-    width: calc(100%/2)
+    width: calc(100% / 2);
 }
 
 .cv-contact-right {

@@ -20,14 +20,14 @@ a {
 
 /* Limit the size of code snippets */
 pre {
-    max-height: 50rem
+    max-height: 50rem;
 }
 
 /* Center all images */
 img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 ul {

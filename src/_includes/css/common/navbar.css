@@ -11,10 +11,13 @@
 
 /* Pure CSS way to create a hamburger menu icon */
 .hamburger {
-    width:20px;
-    height:2px;
-    box-shadow:inset 0 0 0 32px,0 -6px,0 6px;
-    margin:16px 7px;
+    width: 20px;
+    height: 2px;
+    box-shadow:
+        inset 0 0 0 32px,
+        0 -6px,
+        0 6px;
+    margin: 16px 7px;
     display: block;
 }
 
@@ -22,7 +25,7 @@
  * Hide the hamburger icon by default (will be shown only on smaller screens)
  */
 .topnav .icon {
-  display: none;
+    display: none;
 }
 
 /*
@@ -30,7 +33,9 @@
  * Show the hamburger that should open and close the topnav (.icon)
  */
 @media screen and (max-width: 600px) {
-    .topnav span.nav-item:not(.active) {display: none;}
+    .topnav span.nav-item:not(.active) {
+        display: none;
+    }
     .topnav span.icon {
         float: right;
         display: block;
@@ -47,7 +52,9 @@
      * The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon.
      * When clicked show all the pages in the navbar
      */
-    .topnav.responsive {position: relative;}
+    .topnav.responsive {
+        position: relative;
+    }
     .topnav.responsive span.icon {
         position: absolute;
         right: 0;
@@ -61,5 +68,7 @@
     }
 
     /* Hack otherwise only the current page is shown in the menu when deployed */
-    .topnav.responsive span.nav-item:not(.active) {display: block;}
+    .topnav.responsive span.nav-item:not(.active) {
+        display: block;
+    }
 }

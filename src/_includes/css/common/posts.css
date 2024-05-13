@@ -7,7 +7,6 @@
     font-family: var(--nc-font-mono);
 }
 
-
 /* On big screen we show the date of the post so no list-style-type */
 ul.post-list {
     list-style-type: none;

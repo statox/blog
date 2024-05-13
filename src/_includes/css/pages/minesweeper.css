@@ -1,6 +1,7 @@
 /* Used for the counters in the minesweeper posts */
 @font-face {
-  font-family: D7CR;
-  src: url('../../../../fonts/DSEG7Classic-Regular.ttf') format('ttf'), 
-    url('../../../../fonts/DSEG7Classic-Regular.woff') format('woff');
+    font-family: D7CR;
+    src:
+        url('../../../../fonts/DSEG7Classic-Regular.ttf') format('ttf'),
+        url('../../../../fonts/DSEG7Classic-Regular.woff') format('woff');
 }

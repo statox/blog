@@ -3,32 +3,32 @@
  */
 
 :root {
-    --is-light-theme:1;
+    --is-light-theme: 1;
 
     /* Light theme */
     --nc-l-tx-1: #546e7a;
     --nc-l-tx-2: #161d21;
     --nc-l-tx-3: #6d7169;
-    --nc-l-bg-1: #F4F4F4;
+    --nc-l-bg-1: #f4f4f4;
     --nc-l-bg-2: #eae8e8;
-    --nc-l-bg-3: #FAFAFA;
+    --nc-l-bg-3: #fafafa;
     --nc-l-lk-1: #176166;
     --nc-l-lk-2: #528aff;
-    --nc-l-lk-tx: #F3F4F5;
-    --nc-l-ac-1: #91B859;
-    --nc-l-ac-tx: #FAFAFA;
+    --nc-l-lk-tx: #f3f4f5;
+    --nc-l-ac-1: #91b859;
+    --nc-l-ac-tx: #fafafa;
 
     /* Dark theme */
-    --nc-d-tx-1: #FFFFFF;
-    --nc-d-tx-2: #B7B7B7;
+    --nc-d-tx-1: #ffffff;
+    --nc-d-tx-2: #b7b7b7;
     --nc-d-tx-3: #8a8d87;
-    --nc-d-bg-1: #1E272C;
+    --nc-d-bg-1: #1e272c;
     --nc-d-bg-2: #161d21;
     --nc-d-bg-3: #263238;
-    --nc-d-lk-1: #5E92FF;
+    --nc-d-lk-1: #5e92ff;
     --nc-d-lk-2: #99b2e8;
-    --nc-d-lk-tx: #2E3C43;
-    --nc-d-ac-1: #C3E88D;
+    --nc-d-lk-tx: #2e3c43;
+    --nc-d-ac-1: #c3e88d;
     --nc-d-ac-tx: #263238;
 }
 
@@ -39,7 +39,7 @@
  */
 @media (prefers-color-scheme: dark) {
     :root {
-        --is-light-theme:0;
+        --is-light-theme: 0;
         --nc-tx-1: var(--nc-d-tx-1);
         --nc-tx-2: var(--nc-d-tx-2);
         --nc-tx-3: var(--nc-d-tx-3);
