@@ -33,11 +33,13 @@
         "url": "git+https://github.com/statox/blog.git"
     },
     "scripts": {
-        "debug": "npm run build:clean && npm run secrets:decrypt && DEBUG=Eleventy* ELEVENTY_ENV=dev npx @11ty/eleventy --input=src --output=docs --serve",
-        "dev": "npm run build:clean && npm run secrets:decrypt && ELEVENTY_ENV=dev npx @11ty/eleventy --input=src --output=docs --serve",
         "build": "ELEVENTY_ENV=prod npx @11ty/eleventy --input=src --output=docs",
         "build:clean": "rm -rf docs",
         "create-issues": "node tools/createIssues.js",
+        "debug": "npm run build:clean && npm run secrets:decrypt && DEBUG=Eleventy* ELEVENTY_ENV=dev npx @11ty/eleventy --input=src --output=docs --serve",
+        "dev": "npm run build:clean && npm run secrets:decrypt && ELEVENTY_ENV=dev npx @11ty/eleventy --input=src --output=docs --serve",
+        "prettier": "prettier --check .",
+        "prettier:fix": "prettier --write .",
         "secrets:decrypt": "./tools/secrets/decrypt_secrets",
         "secrets:unmount": "./tools/secrets/unmount_secrets"
     },

@@ -1,8 +1,17 @@
 {
-  "singleQuote": true,
-  "printWidth": 120,
-  "tabWidth": 4,
-  "arrowParens": "avoid",
-  "trailingComma": "none",
-  "bracketSpacing": false
+    "bracketSpacing": true,
+    "printWidth": 120,
+    "singleQuote": true,
+    "tabWidth": 4,
+    "trailingComma": "none",
+    "useTabs": false,
+    "overrides": [
+        {
+            "files": ["*.yml", "*.yaml"],
+            "options": {
+                "tabWidth": 2,
+                "singleQuote": true
+            }
+        }
+    ]
 }
