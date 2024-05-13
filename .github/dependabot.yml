@@ -3,22 +3,15 @@ updates:
   - package-ecosystem: npm
     directory: '/'
     schedule:
-      interval: daily
-      time: '04:00'
-    open-pull-requests-limit: 10
-    ignore:
-      - dependency-name: '@octokit/rest'
-        versions:
-          - 18.0.15
-          - 18.1.1
-          - 18.2.1
-          - 18.3.0
-          - 18.3.2
-          - 18.3.4
-          - 18.4.0
-      - dependency-name: '@11ty/eleventy-plugin-rss'
-        versions:
-          - 1.1.0
-      - dependency-name: '@11ty/eleventy-plugin-syntaxhighlight'
-        versions:
-          - 3.0.6
+      interval: 'daily'
+    groups:
+      dev-dependencies:
+        update-types:
+          - 'minor'
+          - 'patch'
+
+  - package-ecosystem: 'github-actions'
+    # Workflow files stored in the default location of `.github/workflows`. (You don't need to specify `/.github/workflows` for `directory`. You can use `directory: "/"`.)
+    directory: '/'
+    schedule:
+      interval: 'daily'
