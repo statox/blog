@@ -15,7 +15,7 @@ function Cell(index, bomb) {
         game.openedCells.add(this.index);
         if (!this.neighbors) {
             this.neighbors = this.getNeighbors();
-            this.countBombNeighbors = this.neighbors.filter(n => n.bomb).length;
+            this.countBombNeighbors = this.neighbors.filter((n) => n.bomb).length;
         }
     };
 

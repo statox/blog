@@ -56,8 +56,8 @@ function Predator(id, pos, vel, r) {
         birdsQTree.query(nearCircle, localBirds);
 
         localBirds
-            .map(i => i.userData)
-            .forEach(id => {
+            .map((i) => i.userData)
+            .forEach((id) => {
                 const pos = birds[id].pos;
                 const steer = pos.copy().sub(this.pos);
                 cohesionSteer.add(steer);

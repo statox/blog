@@ -1,5 +1,5 @@
-let cells=[];
-let COLS=50;
+let cells = [];
+let COLS = 50;
 let CELL_SIZE;
 let backgroundColor;
 let cellColor;
@@ -9,8 +9,7 @@ function setup() {
     const myCanvas = createCanvas(windowWidth, windowHeight);
     myCanvas.position(0, 0);
     myCanvas.id('not-found-canvas');
-    myCanvas.parent("canvasDiv");
-
+    myCanvas.parent('canvasDiv');
 
     const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
     if (userPrefersDark) {
@@ -27,7 +26,9 @@ function setup() {
 
 function draw() {
     background(backgroundColor);
-    cells.forEach(c => {c.show()});
+    cells.forEach((c) => {
+        c.show();
+    });
 }
 
 function windowResized() {
@@ -37,18 +38,18 @@ function windowResized() {
 
 function resetGOL() {
     CELL_SIZE = width / COLS;
-    for (let j=0; j<COLS; j++) {
-        for (let i=0; i<COLS; i++) {
+    for (let j = 0; j < COLS; j++) {
+        for (let i = 0; i < COLS; i++) {
             cells.push(new Cell(i, j));
         }
     }
-    for (let i=0; i<cells.length; i++) {
+    for (let i = 0; i < cells.length; i++) {
         cells[i].setupNeighbors();
     }
 }
 
 function iterate() {
-    cells.forEach(c => {
+    cells.forEach((c) => {
         const countN = c.countNeighbors();
         c.nextAlive = false;
         if (!c.alive && countN === 3) {
@@ -59,7 +60,7 @@ function iterate() {
         }
     });
 
-    cells.forEach(c => {
+    cells.forEach((c) => {
         c.alive = c.nextAlive;
     });
 }

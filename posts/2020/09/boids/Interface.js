@@ -4,47 +4,47 @@ function customResizeCanvas() {
 }
 
 function initializeButtons() {
-    document.getElementById('toggleWiggleButton').addEventListener('click', e => {
+    document.getElementById('toggleWiggleButton').addEventListener('click', (e) => {
         boidsSettings.enableWiggle = !boidsSettings.enableWiggle;
     });
 
-    document.getElementById('changeShapeButton').addEventListener('click', e => {
+    document.getElementById('changeShapeButton').addEventListener('click', (e) => {
         boidsSettings.enableRoundShape = !boidsSettings.enableRoundShape;
     });
 
-    document.getElementById('toggleAlignmentButton').addEventListener('click', e => {
+    document.getElementById('toggleAlignmentButton').addEventListener('click', (e) => {
         boidsSettings.enableAlignment = !boidsSettings.enableAlignment;
     });
 
-    document.getElementById('toggleSeparationButton').addEventListener('click', e => {
+    document.getElementById('toggleSeparationButton').addEventListener('click', (e) => {
         boidsSettings.enableSeparation = !boidsSettings.enableSeparation;
     });
 
-    document.getElementById('toggleCohesionButton').addEventListener('click', e => {
+    document.getElementById('toggleCohesionButton').addEventListener('click', (e) => {
         boidsSettings.enableCohesion = !boidsSettings.enableCohesion;
     });
 
-    document.getElementById('followMouseButton').addEventListener('click', e => {
+    document.getElementById('followMouseButton').addEventListener('click', (e) => {
         boidsSettings.enableFollowMouse = !boidsSettings.enableFollowMouse;
     });
 
-    document.getElementById('followTargetButton').addEventListener('click', e => {
+    document.getElementById('followTargetButton').addEventListener('click', (e) => {
         boidsSettings.enableFollowTarget = !boidsSettings.enableFollowTarget;
     });
 
-    document.getElementById('wrapEdgesButton').addEventListener('click', e => {
+    document.getElementById('wrapEdgesButton').addEventListener('click', (e) => {
         boidsSettings.enableWrapEdges = !boidsSettings.enableWrapEdges;
     });
 
-    document.getElementById('showPerceptionCirclesButton').addEventListener('click', e => {
+    document.getElementById('showPerceptionCirclesButton').addEventListener('click', (e) => {
         boidsSettings.enableShowPerception = !boidsSettings.enableShowPerception;
     });
 
-    document.getElementById('obstaclesDrawingButton').addEventListener('click', e => {
+    document.getElementById('obstaclesDrawingButton').addEventListener('click', (e) => {
         boidsSettings.enableObstaclesDrawing = !boidsSettings.enableObstaclesDrawing;
     });
 
-    document.getElementById('predatorDrawingButton').addEventListener('click', e => {
+    document.getElementById('predatorDrawingButton').addEventListener('click', (e) => {
         boidsSettings.enablePredatorDrawing = !boidsSettings.enablePredatorDrawing;
     });
 }
