@@ -22,9 +22,10 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '18'
-      - name: 🔧 Install and build
+      - name: 🔧 Install, check and build
         run: |
           npm ci
+          npm run prettier
           npm run build
       - name: 💬 Create issues for comments
         run: npm run create-issues -- ${{ secrets.TRAVIS_ACCESS_TOKEN }} false
