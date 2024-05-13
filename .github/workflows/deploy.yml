@@ -29,8 +29,7 @@ jobs:
       - name: 💬 Create issues for comments
         run: npm run create-issues -- ${{ secrets.TRAVIS_ACCESS_TOKEN }} false
       - name: 🚀 Deploy
-        uses: JamesIves/github-pages-deploy-action@4.0.0
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages # The branch the action should deploy to.
           folder: docs # The folder the action should deploy.
-          token: ${{ secrets.TRAVIS_ACCESS_TOKEN }}
