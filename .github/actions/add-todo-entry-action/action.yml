@@ -4,16 +4,16 @@ author: 'statox'
 
 inputs:
   issueId:
-    description: "Id of the commented issue"
+    description: 'Id of the commented issue'
     required: false
   login:
-    description: "login of the commenter"
+    description: 'login of the commenter'
     required: false
   commenterId:
-    description: "id of the commenter"
+    description: 'id of the commenter'
     required: false
   comment:
-    description: "body of the comment"
+    description: 'body of the comment'
     required: true
 
 runs:

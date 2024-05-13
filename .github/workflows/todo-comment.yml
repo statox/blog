@@ -32,4 +32,3 @@ jobs:
           login: ${{ github.event.sender.login }}
           commenterId: ${{ github.event.sender.id }}
           comment: ${{ github.event.comment.body }}
-

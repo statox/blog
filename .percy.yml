@@ -3,15 +3,15 @@ snapshot:
     - 375
     # - 1280
   minHeight: 1024
-  percyCSS: ""
+  percyCSS: ''
 discovery:
   allowedHostnames: []
   networkIdleTimeout: 100
   disableCache: false
 static:
   baseUrl: /
-  files: "**/*.{html,htm}"
-  ignore: "/drafts/"
+  files: '**/*.{html,htm}'
+  ignore: '/drafts/'
 upload:
-  files: "**/*.{png,jpg,jpeg}"
-  ignore: ""
+  files: '**/*.{png,jpg,jpeg}'
+  ignore: ''

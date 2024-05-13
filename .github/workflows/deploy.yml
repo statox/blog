@@ -3,13 +3,13 @@ name: deploy
 on:
   # Trigger on push on master branch
   push:
-    branches: [ master ]
+    branches: [master]
   # Trigger manually
   workflow_dispatch:
   # Trigger on "song-chords-comment.yml" completion
   # CAUTION  it is triggered no matter the sucess state of the previous workflow
   workflow_run:
-    workflows: ["Add song chords", "Add todo entries"]
+    workflows: ['Add song chords', 'Add todo entries']
     types:
       - completed
 jobs:

@@ -1,7 +1,7 @@
 name: Test and AutoMerge PRs
 
 on:
- pull_request:
+  pull_request:
     types: [opened, synchronize, edit]
     branches: [master]
 
@@ -11,9 +11,8 @@ permissions:
   # This is needed to merge the PR https://github.com/cli/cli/issues/6695#issuecomment-1348430969
   contents: write
 
-
 jobs:
- build:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -31,15 +30,15 @@ jobs:
         id: cache-nodemodules
         uses: actions/cache@v4
         env:
-            cache-name: cache-node-modules
+          cache-name: cache-node-modules
         with:
-            # caching node_modules
-            path: node_modules
-            key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-            restore-keys: |
-                ${{ runner.os }}-build-${{ env.cache-name }}-
-                ${{ runner.os }}-build-
-                ${{ runner.os }}-
+          # caching node_modules
+          path: node_modules
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
 
       - name: Install Dependencies
         if: steps.cache-nodemodules.outputs.cache-hit != 'true'
@@ -48,7 +47,7 @@ jobs:
       - name: Build site
         run: npm run build
 
- auto-merge-dependabot:
+  auto-merge-dependabot:
     needs: [build]
     runs-on: ubuntu-latest
     if: github.actor == 'dependabot[bot]'

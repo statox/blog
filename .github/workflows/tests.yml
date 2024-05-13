@@ -19,6 +19,6 @@ jobs:
       - name: 👀 Visual tests
         uses: percy/snapshot-action@v0.1.2
         with:
-          build-directory: "docs"
+          build-directory: 'docs'
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
