@@ -18,7 +18,7 @@ jobs:
       - name: 🔀 Checkout
         uses: actions/checkout@v2
       - name: 🚩 Configure node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
           node-version: '18'
       - name: 🔧 Install, check and build
