@@ -97,8 +97,6 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy({'./assets/images': '/images'});
     eleventyConfig.addPassthroughCopy({'./assets/uploads': '/uploads'});
     eleventyConfig.addPassthroughCopy({'./assets/pdf': '/pdf'});
-    // This one is used for the randomChordsButton script for the chords page
-    eleventyConfig.addPassthroughCopy({'src/_data/chords.json': '/chords.json'});
 
     if (env === 'prod') {
         eleventyConfig.addPassthroughCopy({'./assets/favicons_prod': '/favicon'});
@@ -109,7 +107,7 @@ module.exports = function (eleventyConfig) {
     /*
      * By default eleventy ignores the files in gitignore I want to avoid that
      * because src/secrets/ is ignored because it contains the clear text of src/.secrets
-     * but I still want to built it locally.
+     * but I still want to build it locally.
      * The file .eleventyignore is the one responsible for not building node_modules
      */
     eleventyConfig.setUseGitIgnore(false);
