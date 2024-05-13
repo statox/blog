@@ -123,4 +123,4 @@ function setupCommentsInPage(commentIssueId) {
     });
 }
 
-setupCommentsInPage({{commentIssueId}});
+setupCommentsInPage({commentIssueId});
