@@ -80,7 +80,7 @@ module.exports = function (eleventyConfig) {
     let markdownLib = markdownIt(markdownItOptions)
         .use(markdownItAnchor, markdownItAnchorOptions)
         .use(markdownItExternalLinks, markdownItExternalLinksOptions)
-        .use(markdownItEmoji);
+        .use(markdownItEmoji.full);
 
     eleventyConfig.setLibrary('md', markdownLib);
 
