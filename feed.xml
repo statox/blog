@@ -10,7 +10,7 @@
   <subtitle>statox&#39;s blog</subtitle>
   <link href="https://www.statox.fr/feed.xml" rel="self"/>
   <link href="https://www.statox.fr/"/>
-  <updated>2024-04-27T00:00:00Z</updated>
+  <updated>2024-06-18T00:00:00Z</updated>
   <id>https://www.statox.fr/</id>
   <author>
     <name>statox</name>
@@ -3590,6 +3590,90 @@ m &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&qu
 &lt;li&gt;I need to check if I can easily restore the automatic snapshots made by AWS and if that keeps the configurations I did in Kibana (in theory, yes)&lt;/li&gt;
 &lt;li&gt;Next I&#39;ll use this document store as part of the product of my api.&lt;/li&gt;
 &lt;/ul&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>Creating my handmade environmental sensors system</title>
+    <link href="https://www.statox.fr/posts/2024/06/environment_sensors/"/>
+    <updated>2024-06-18T00:00:00Z</updated>
+    <id>https://www.statox.fr/posts/2024/06/environment_sensors/</id>
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;This post is a work in progress. For now this is just a copy-past of a personnal message sent to a relative. English version upcoming (maybe).&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;L&#39;idée est de mettre en place des capteurs qui me remontent régulièrement la température et l&#39;humidité des différentes pièces de l&#39;appartement et de l&#39;extérieur de l&#39;appartement, de corréler ces données aux données de stations météo France autour de chez nous et de visualiser l&#39;évolution de ces données au cours du temps. Le but est d&#39;une part de mieux comprendre comment garder l&#39;appartement le plus frais possible pendant les canicules, mais surtout de m&#39;amuser avec de l&#39;électronique et en apprendre plus sur la météorologie!&lt;/p&gt;
+&lt;p&gt;L&#39;expérience débute avec la réalisation de capteurs environnementaux &amp;quot;maison&amp;quot;. D&#39;abord la version la plus simple possible qui sera équipée de l&#39;équivalent d&#39;un &lt;a href=&quot;https://learn.adafruit.com/adafruit-feather-huzzah-esp8266&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;arduino avec une puce wifi intégrée&lt;/a&gt; connecté à un &lt;a href=&quot;https://learn.adafruit.com/dht&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;capteur de température et d&#39;humidité&lt;/a&gt;. Un œil avisé remarquera trois résistances branchées entre le positif et la masse avec un fil qui part de l&#39;une d&#39;entre elle pour aller jusqu&#39;au circuit, le lecteur électronicien identifiera peut être un pont diviseur de tension: le système est alimenté par une petite batterie LiPo (à gauche de la photo), ces batteries ayant une fâcheuse tendance à exploser quand leur charge atteint un niveau trop bas il est nécessaire de surveiller le niveau de charge. Mais les entrées analogiques du circuit ne supportant une tension maximale que de 1V et la batterie délivrant entre 4.2V et 3.3V dans sa zone de sécurité, on a besoin d&#39;un pont diviseur pour ramener la tension de la batterie à une tension lisible par le circuit.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/06/environment_sensors/breadboard_dht11.jpg&quot; alt=&quot;Breadboard DHT11&quot; /&gt;&lt;/p&gt;
+&lt;center&gt;
+    &lt;i&gt;The early prototype: Breadboard version of ESP8266 reading from a DHT11&lt;/i&gt;
+&lt;/center&gt;
+&lt;p&gt;Une fois ce premier montage fonctionnant on se félicite de ne pas avoir fait exploser la batterie et on essaie d&#39;exploiter la donnée du capteur: Pour ce faire le circuit va relever la température et l&#39;humidité toutes les 10 minutes et utiliser sa puce wifi pour appeler un serveur. C&#39;est un serveur sur lequel le créateur travaille depuis plusieurs mois et dont la dernière fonctionnalité implémentée par ses soins permet de recevoir un appel HTTP contenant des informations et de les enregistrer dans une base de donnée spécialement conçue pour contenir des données &amp;quot;temporelles&amp;quot; (qui évoluent avec le temps).&lt;/p&gt;
+&lt;p&gt;On passera au lecteur les détails techniques et on retiendra que l&#39;on commence a obtenir des graphiques de ce genre représentant l&#39;évolution de la température et de l&#39;humidité et de la charge de la batterie au cours du temps. Le lecteur attentif remarquera que les données ne semblent pas significatives pour l&#39;instant: Le capteur n&#39;a pas fonctionné en continu pendant l&#39;expérience, les manipulations ont faussé les valeurs de température et la charge de la batterie est notée au delà de 100%. Le créateur y verra néanmoins un début prometteur!&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/06/environment_sensors/first_visualization.jpg&quot; alt=&quot;First Kibana Visualization&quot; /&gt;&lt;/p&gt;
+&lt;center&gt;
+    &lt;i&gt;The first Kibana visualization&lt;/i&gt;
+&lt;/center&gt;
+&lt;p&gt;Les étapes suivantes consisteront en deux avancées majeures: On passe du format &amp;quot;planche d&#39;expérimentation&amp;quot; (breadboard) au format &amp;quot;planche de prototypage&amp;quot; (protoboard) qui s&#39;enfiche directement sur les connections du circuit pour réduire l&#39;encombrement du capteur. On remplacera également le capteur DHT11 par un capteur DHT22, qui a l&#39;avantage d&#39;être plus stable dans ses relevés, d&#39;avoir une précision de température de ±0.5°C contre ±2°C pour l&#39;ancien capteur DHT11, un plus large champ de relevés d&#39;humidité (0-100% contre 20-80%) contre l&#39;inconvénient de ne pouvoir donner des résultats significatifs que toutes les 2 secondes (contre une fréquence d’échantillonnage minimale de toutes les 1 secondes pour le DHT11) ce qui n&#39;est pas un problème en soit vu que le système est conçu pour faire des relevés toutes les 10 minutes.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/06/environment_sensors/protoboard_dht22_1.jpg&quot; alt=&quot;Protoboard version&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;https://www.statox.fr/posts/2024/06/environment_sensors/protoboard_dht22_2.jpg&quot; alt=&quot;Protoboard version&quot; /&gt;&lt;/p&gt;
+&lt;center&gt;
+    &lt;i&gt;Moving the project to a protoboard&lt;/i&gt;
+&lt;/center&gt;
+&lt;p&gt;On aura réalisé 2 capteurs similaires pour commencer a comparer la précision des capteurs industriels achetés et on se félicitera de voir que sur la période du 25 au 30 mai où les capteurs sont resté placés l&#39;un à coté de l&#39;autre les valeurs sont très similaires!&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/06/environment_sensors/similar_curves_for_2_sensors.png&quot; alt=&quot;Similar curves for two different sensors&quot; /&gt;&lt;/p&gt;
+&lt;center&gt;
+    &lt;i&gt;Similar curves for two different sensors&lt;/i&gt;
+&lt;/center&gt;
+&lt;p&gt;À ce moment on commence à se poser la question du conditionnement des capteurs: Comment créer des boites qui permettent à la fois de protéger les capteurs des aléas d&#39;un environnement ménager tout en leur permettant d&#39;assurer au mieux leur fonction de relevés? Plusieurs pistes seront envisagées d&#39;une part un collègue propose de mettre à disposition son imprimante 3d afin de créer des boites parfaitement adaptées au système, d&#39;autre part le créateur envisage la conception de boites faites de pièces de Lego. Pour ce faire l&#39;auteur fera ressortir ses anciens cours de dessin industriel et tentera de relever au mieux les cotes du projet. Néanmoins la partie de création de boites est pour l&#39;instant à l’arrêt du fait d&#39;un manque de temps pour relancer l&#39;imprimante 3d et d&#39;un créateur qui a remis à plus tard l&#39;idée de maîtriser &lt;a href=&quot;https://www.mecabricks.com/en/workshop&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;l&#39;outil de conception d&#39;assemblage de Lego&lt;/a&gt; en 3d pour concevoir la boite uniquement depuis un ordinateur et sans pièces Lego à disposition.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/06/environment_sensors/sensor_quotes.jpg&quot; alt=&quot;Sensor quotes&quot; /&gt;&lt;/p&gt;
+&lt;center&gt;
+    &lt;i&gt;Handmade sensor quotes&lt;/i&gt;
+&lt;/center&gt;
+&lt;p&gt;À défaut de boite artisanales adaptées à l&#39;environnement intérieur le créateur se lance ensuite dans la réalisation d&#39;une boite &amp;quot;weather-proof&amp;quot; qui pourra accueillir le capteur en milieu extérieur, on s&#39;appuiera alors sur un boîtier issu du commerce et équipé d&#39;un joint torique dans lequel on réalisera une ouverture afin de faire passer un passe cable étanche. Le but étant d&#39;assurer au circuit et à sa batterie un environnement à l&#39;humidité stable tout en permettant au capteur d&#39;être placé en extérieur afin de mesure au mieux son environnement:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/06/environment_sensors/weatherproof_enclosure.jpg&quot; alt=&quot;Weather-proof enclosure&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;https://www.statox.fr/posts/2024/06/environment_sensors/weatherproof_enclosure_with_cable_gland.jpg&quot; alt=&quot;Weather-proof enclosure with cable gland&quot; /&gt;&lt;/p&gt;
+&lt;center&gt;
+    &lt;i&gt;Sensor in a weather-proof enclosure&lt;/i&gt;
+&lt;/center&gt;
+&lt;p&gt;Ce système sera testé via la méthode dite &amp;quot;de la bonne grosse douche bien chaude&amp;quot;: On placera le capteur dans son boîtier étanche (&amp;quot;dev-sensor-2&amp;quot; courbe bleue) dans une salle de bain pendant la douche du créateur pendant qu&#39;un second capteur non protégé (&amp;quot;dev-sensor&amp;quot; courbe verte) sera placé derrière la porte de la-dite salle de bain . Le lecteur pourra observer que si le boîtier étanche ne protège pas le circuit des changements de températeurs (courbe de gauche) l&#39;humidité à l&#39;intérieur du boîtier, elle, reste constante quand l&#39;humidité à l&#39;extérieur de la salle de bain augmente significativement: Réussite notre boiter étanche est bien étanche!&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/06/environment_sensors/weatherproof_enclosure_metrics.PNG&quot; alt=&quot;Metrics in the weather-proof enclosure&quot; /&gt;&lt;/p&gt;
+&lt;center&gt;
+    &lt;i&gt;Metrics in the weather-proof enclosure&lt;/i&gt;
+&lt;/center&gt;
+&lt;p&gt;La suite consiste désormais à intégrer &lt;a href=&quot;https://whadda.com/product/bme280-temperature-humidity-and-pressure-sensor-wpse335/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;un nouveau type de capteur&lt;/a&gt; afin qu&#39;une fois en extérieur les relevés puissent intégrer la pression atmosphérique, composante cruciale de la prévision météo. L&#39;auteur profitera de l&#39;occasion pour se documenter sur les systèmes météorologiques d&#39;anticyclone, de dépression, de fonts chauds, froids et composites, des différents facteurs ayant une influence sur la pression atmosphérique, ainsi que sur les recommendations d&#39;installations de stations météo amateur.&lt;/p&gt;
+&lt;p&gt;(En haut à gauche le nouveau capteur BME280 combinant pression, température et humidité -meme si 6 connections sont accessibles seulement 4 sont vraiment utilisées dans notre système-. L&#39;ancien capteur DHT22 reste également connecté pour comparer les relevés)&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/06/environment_sensors/protoboard_bme280.jpg&quot; alt=&quot;Protoboard with BME280&quot; /&gt;&lt;/p&gt;
+&lt;center&gt;
+    &lt;i&gt;Protoboard with BME280&lt;/i&gt;
+&lt;/center&gt;
+&lt;p&gt;En plus de ce nouveau capteur l&#39;auteur aura pris soin d&#39;incorporer à ses tableaux de mesures les informations fournies par les stations MétéoFrance installées dans Paris. En effet MétéoFrance met à la disposition du public un service permettant d&#39;interroger ses bases de données en temps réel et de recevoir les mises à jour horaires de ses différentes stations. Toutes les stations ne renvoient pas les mêmes informations par exemple seulement Longchamp et Montsouris fournissent des relevés d&#39;humidité:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/06/environment_sensors/meteo_france_metrics.png&quot; alt=&quot;Meteo-France metrics&quot; /&gt;&lt;/p&gt;
+&lt;center&gt;
+    &lt;i&gt;Meteo-France temperature and humidity&lt;/i&gt;
+&lt;/center&gt;
+&lt;p&gt;Sur le graph de gauche le lecteur avisé s&#39;interrogera sûrement sur la station renvoyant une température constamment inférieure a toutes les autres: cette station est en fait située au sommet les 330 mètres de la Tour Eiffel, ce qui explique une température en moyenne 3 degrés inférieurs à l&#39;ensemble des autres stations qui se situent en moyenne a 1m20 du sol.&lt;/p&gt;
+&lt;p&gt;On récupère également les niveaux de précipitations de certaines stations (On notera que ces données semblent toutes arrondies à l&#39;entier le plus proche, une interrogation en cours pour l&#39;auteur, plus de détails dans un prochain épisode)&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/06/environment_sensors/meteo_france_precipitations.png&quot; alt=&quot;Meteo-France precipitations&quot; /&gt;&lt;/p&gt;
+&lt;center&gt;
+    &lt;i&gt;Meteo-France precipitations&lt;/i&gt;
+&lt;/center&gt;
+&lt;p&gt;Enfin on récupère la pression atmosphérique renvoyée uniquement par la stations de Montsouris (en jaune) et en la compare à la pression relevée par notre capteur maison. Le lecteur pourra s’enthousiasmer du niveau de précision du capteur qui suit de très près les variations de la station:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/06/environment_sensors/atmospheric_pressure.png&quot; alt=&quot;Atmospheric pressure&quot; /&gt;&lt;/p&gt;
+&lt;center&gt;
+    &lt;i&gt;Atmospheric pressure&lt;/i&gt;
+&lt;/center&gt;
+&lt;p&gt;Mais si les variations sont suivies de près on notera que les valeurs remontées ont un écart constant de 4hPa ce qui nous amène à la question cruciale du moment: Comment les capteurs sont-ils calibrés et comment mesurer compenser leur défaut s&#39;il existe?&lt;/p&gt;
+&lt;p&gt;Prenons par exemple les mesures d&#39;humidité:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/06/environment_sensors/humidity_with_error.png&quot; alt=&quot;Humidity with error&quot; /&gt;&lt;/p&gt;
+&lt;center&gt;
+    &lt;i&gt;Humidity with error&lt;/i&gt;
+&lt;/center&gt;
+&lt;p&gt;Nous avons en tout 3 capteurs: 2 DHT22 (courbe verte et courbe bleue) et 1 BME280 (courbe rose). À première vue les allures sont similaires mais on remarque que le BME280 à l&#39;air d&#39;avoir une erreur d&#39;environ 4.8%, on peut donc tracer la courbe 4.8% plus haut mais on se rend compte alors que le capteur n&#39;a peut être pas qu&#39;un défaut de décalage mais aussi un défaut d&#39;échelle: Pourquoi les pics roses sont-ils plus hauts que les pics verts et bleus?&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/06/environment_sensors/humidity_correction_hypothesis.png&quot; alt=&quot;Humidity correction hypothesis&quot; /&gt;&lt;/p&gt;
+&lt;center&gt;
+    &lt;i&gt;Humidity correction hypothesis&lt;/i&gt;
+&lt;/center&gt;
+&lt;p&gt;Les resources en ligne décrivent des protocoles expérimentaux pour tenter de quantifier ce genres de décalages. Une méthode possible consiste à remplir une bouteille Thermos de glace pilée réalisée a partir d&#39;eau déminéralisée pour atteindre une température exacte de zéro degrés et à partir de cette température connue observer les relevés des capteurs et en déduire le biais. Ce genre d&#39;expériences pourraient bien occuper les prochains weekends du créateur, qui ne manquera pas de tenir son lecteur informé des évolutions du projet!&lt;/p&gt;
 </content>
   </entry>
 </feed>
