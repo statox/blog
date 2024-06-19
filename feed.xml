@@ -3594,86 +3594,357 @@ m &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&qu
   </entry>
   
   <entry>
-    <title>Creating my handmade environmental sensors system</title>
-    <link href="https://www.statox.fr/posts/2024/06/environment_sensors/"/>
-    <updated>2024-06-18T00:00:00Z</updated>
-    <id>https://www.statox.fr/posts/2024/06/environment_sensors/</id>
+    <title>Capteurs environnementaux maison</title>
+    <link href="https://www.statox.fr/posts/2024/06/station_meteo_maison/"/>
+    <updated>2024-06-17T00:00:00Z</updated>
+    <id>https://www.statox.fr/posts/2024/06/station_meteo_maison/</id>
     <content type="html">&lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;This post is a work in progress. For now this is just a copy-past of a personnal message sent to a relative. English version upcoming (maybe).&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;This post is a copy-past of a personnal message sent to a relative to talk about my project. A more complete and technical version is available &lt;a href=&quot;https://www.statox.fr/posts/2024/06/environment_sensors/&quot;&gt;here&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;L&#39;idée est de mettre en place des capteurs qui me remontent régulièrement la température et l&#39;humidité des différentes pièces de l&#39;appartement et de l&#39;extérieur de l&#39;appartement, de corréler ces données aux données de stations météo France autour de chez nous et de visualiser l&#39;évolution de ces données au cours du temps. Le but est d&#39;une part de mieux comprendre comment garder l&#39;appartement le plus frais possible pendant les canicules, mais surtout de m&#39;amuser avec de l&#39;électronique et en apprendre plus sur la météorologie!&lt;/p&gt;
 &lt;p&gt;L&#39;expérience débute avec la réalisation de capteurs environnementaux &amp;quot;maison&amp;quot;. D&#39;abord la version la plus simple possible qui sera équipée de l&#39;équivalent d&#39;un &lt;a href=&quot;https://learn.adafruit.com/adafruit-feather-huzzah-esp8266&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;arduino avec une puce wifi intégrée&lt;/a&gt; connecté à un &lt;a href=&quot;https://learn.adafruit.com/dht&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;capteur de température et d&#39;humidité&lt;/a&gt;. Un œil avisé remarquera trois résistances branchées entre le positif et la masse avec un fil qui part de l&#39;une d&#39;entre elle pour aller jusqu&#39;au circuit, le lecteur électronicien identifiera peut être un pont diviseur de tension: le système est alimenté par une petite batterie LiPo (à gauche de la photo), ces batteries ayant une fâcheuse tendance à exploser quand leur charge atteint un niveau trop bas il est nécessaire de surveiller le niveau de charge. Mais les entrées analogiques du circuit ne supportant une tension maximale que de 1V et la batterie délivrant entre 4.2V et 3.3V dans sa zone de sécurité, on a besoin d&#39;un pont diviseur pour ramener la tension de la batterie à une tension lisible par le circuit.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/06/environment_sensors/breadboard_dht11.jpg&quot; alt=&quot;Breadboard DHT11&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/06/station_meteo_maison/breadboard_dht11.jpg&quot; alt=&quot;Breadboard DHT11&quot; /&gt;&lt;/p&gt;
 &lt;center&gt;
     &lt;i&gt;The early prototype: Breadboard version of ESP8266 reading from a DHT11&lt;/i&gt;
 &lt;/center&gt;
 &lt;p&gt;Une fois ce premier montage fonctionnant on se félicite de ne pas avoir fait exploser la batterie et on essaie d&#39;exploiter la donnée du capteur: Pour ce faire le circuit va relever la température et l&#39;humidité toutes les 10 minutes et utiliser sa puce wifi pour appeler un serveur. C&#39;est un serveur sur lequel le créateur travaille depuis plusieurs mois et dont la dernière fonctionnalité implémentée par ses soins permet de recevoir un appel HTTP contenant des informations et de les enregistrer dans une base de donnée spécialement conçue pour contenir des données &amp;quot;temporelles&amp;quot; (qui évoluent avec le temps).&lt;/p&gt;
 &lt;p&gt;On passera au lecteur les détails techniques et on retiendra que l&#39;on commence a obtenir des graphiques de ce genre représentant l&#39;évolution de la température et de l&#39;humidité et de la charge de la batterie au cours du temps. Le lecteur attentif remarquera que les données ne semblent pas significatives pour l&#39;instant: Le capteur n&#39;a pas fonctionné en continu pendant l&#39;expérience, les manipulations ont faussé les valeurs de température et la charge de la batterie est notée au delà de 100%. Le créateur y verra néanmoins un début prometteur!&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/06/environment_sensors/first_visualization.jpg&quot; alt=&quot;First Kibana Visualization&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/06/station_meteo_maison/first_visualization.jpg&quot; alt=&quot;First Kibana Visualization&quot; /&gt;&lt;/p&gt;
 &lt;center&gt;
     &lt;i&gt;The first Kibana visualization&lt;/i&gt;
 &lt;/center&gt;
 &lt;p&gt;Les étapes suivantes consisteront en deux avancées majeures: On passe du format &amp;quot;planche d&#39;expérimentation&amp;quot; (breadboard) au format &amp;quot;planche de prototypage&amp;quot; (protoboard) qui s&#39;enfiche directement sur les connections du circuit pour réduire l&#39;encombrement du capteur. On remplacera également le capteur DHT11 par un capteur DHT22, qui a l&#39;avantage d&#39;être plus stable dans ses relevés, d&#39;avoir une précision de température de ±0.5°C contre ±2°C pour l&#39;ancien capteur DHT11, un plus large champ de relevés d&#39;humidité (0-100% contre 20-80%) contre l&#39;inconvénient de ne pouvoir donner des résultats significatifs que toutes les 2 secondes (contre une fréquence d’échantillonnage minimale de toutes les 1 secondes pour le DHT11) ce qui n&#39;est pas un problème en soit vu que le système est conçu pour faire des relevés toutes les 10 minutes.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/06/environment_sensors/protoboard_dht22_1.jpg&quot; alt=&quot;Protoboard version&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;https://www.statox.fr/posts/2024/06/environment_sensors/protoboard_dht22_2.jpg&quot; alt=&quot;Protoboard version&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/06/station_meteo_maison/protoboard_dht22_1.jpg&quot; alt=&quot;Protoboard version&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;https://www.statox.fr/posts/2024/06/station_meteo_maison/protoboard_dht22_2.jpg&quot; alt=&quot;Protoboard version&quot; /&gt;&lt;/p&gt;
 &lt;center&gt;
     &lt;i&gt;Moving the project to a protoboard&lt;/i&gt;
 &lt;/center&gt;
 &lt;p&gt;On aura réalisé 2 capteurs similaires pour commencer a comparer la précision des capteurs industriels achetés et on se félicitera de voir que sur la période du 25 au 30 mai où les capteurs sont resté placés l&#39;un à coté de l&#39;autre les valeurs sont très similaires!&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/06/environment_sensors/similar_curves_for_2_sensors.png&quot; alt=&quot;Similar curves for two different sensors&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/06/station_meteo_maison/similar_curves_for_2_sensors.png&quot; alt=&quot;Similar curves for two different sensors&quot; /&gt;&lt;/p&gt;
 &lt;center&gt;
     &lt;i&gt;Similar curves for two different sensors&lt;/i&gt;
 &lt;/center&gt;
 &lt;p&gt;À ce moment on commence à se poser la question du conditionnement des capteurs: Comment créer des boites qui permettent à la fois de protéger les capteurs des aléas d&#39;un environnement ménager tout en leur permettant d&#39;assurer au mieux leur fonction de relevés? Plusieurs pistes seront envisagées d&#39;une part un collègue propose de mettre à disposition son imprimante 3d afin de créer des boites parfaitement adaptées au système, d&#39;autre part le créateur envisage la conception de boites faites de pièces de Lego. Pour ce faire l&#39;auteur fera ressortir ses anciens cours de dessin industriel et tentera de relever au mieux les cotes du projet. Néanmoins la partie de création de boites est pour l&#39;instant à l’arrêt du fait d&#39;un manque de temps pour relancer l&#39;imprimante 3d et d&#39;un créateur qui a remis à plus tard l&#39;idée de maîtriser &lt;a href=&quot;https://www.mecabricks.com/en/workshop&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;l&#39;outil de conception d&#39;assemblage de Lego&lt;/a&gt; en 3d pour concevoir la boite uniquement depuis un ordinateur et sans pièces Lego à disposition.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/06/environment_sensors/sensor_quotes.jpg&quot; alt=&quot;Sensor quotes&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/06/station_meteo_maison/sensor_quotes.jpg&quot; alt=&quot;Sensor quotes&quot; /&gt;&lt;/p&gt;
 &lt;center&gt;
     &lt;i&gt;Handmade sensor quotes&lt;/i&gt;
 &lt;/center&gt;
 &lt;p&gt;À défaut de boite artisanales adaptées à l&#39;environnement intérieur le créateur se lance ensuite dans la réalisation d&#39;une boite &amp;quot;weather-proof&amp;quot; qui pourra accueillir le capteur en milieu extérieur, on s&#39;appuiera alors sur un boîtier issu du commerce et équipé d&#39;un joint torique dans lequel on réalisera une ouverture afin de faire passer un passe cable étanche. Le but étant d&#39;assurer au circuit et à sa batterie un environnement à l&#39;humidité stable tout en permettant au capteur d&#39;être placé en extérieur afin de mesure au mieux son environnement:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/06/environment_sensors/weatherproof_enclosure.jpg&quot; alt=&quot;Weather-proof enclosure&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;https://www.statox.fr/posts/2024/06/environment_sensors/weatherproof_enclosure_with_cable_gland.jpg&quot; alt=&quot;Weather-proof enclosure with cable gland&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/06/station_meteo_maison/weatherproof_enclosure.jpg&quot; alt=&quot;Weather-proof enclosure&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;https://www.statox.fr/posts/2024/06/station_meteo_maison/weatherproof_enclosure_with_cable_gland.jpg&quot; alt=&quot;Weather-proof enclosure with cable gland&quot; /&gt;&lt;/p&gt;
 &lt;center&gt;
     &lt;i&gt;Sensor in a weather-proof enclosure&lt;/i&gt;
 &lt;/center&gt;
 &lt;p&gt;Ce système sera testé via la méthode dite &amp;quot;de la bonne grosse douche bien chaude&amp;quot;: On placera le capteur dans son boîtier étanche (&amp;quot;dev-sensor-2&amp;quot; courbe bleue) dans une salle de bain pendant la douche du créateur pendant qu&#39;un second capteur non protégé (&amp;quot;dev-sensor&amp;quot; courbe verte) sera placé derrière la porte de la-dite salle de bain . Le lecteur pourra observer que si le boîtier étanche ne protège pas le circuit des changements de températeurs (courbe de gauche) l&#39;humidité à l&#39;intérieur du boîtier, elle, reste constante quand l&#39;humidité à l&#39;extérieur de la salle de bain augmente significativement: Réussite notre boiter étanche est bien étanche!&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/06/environment_sensors/weatherproof_enclosure_metrics.PNG&quot; alt=&quot;Metrics in the weather-proof enclosure&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/06/station_meteo_maison/weatherproof_enclosure_metrics.PNG&quot; alt=&quot;Metrics in the weather-proof enclosure&quot; /&gt;&lt;/p&gt;
 &lt;center&gt;
     &lt;i&gt;Metrics in the weather-proof enclosure&lt;/i&gt;
 &lt;/center&gt;
 &lt;p&gt;La suite consiste désormais à intégrer &lt;a href=&quot;https://whadda.com/product/bme280-temperature-humidity-and-pressure-sensor-wpse335/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;un nouveau type de capteur&lt;/a&gt; afin qu&#39;une fois en extérieur les relevés puissent intégrer la pression atmosphérique, composante cruciale de la prévision météo. L&#39;auteur profitera de l&#39;occasion pour se documenter sur les systèmes météorologiques d&#39;anticyclone, de dépression, de fonts chauds, froids et composites, des différents facteurs ayant une influence sur la pression atmosphérique, ainsi que sur les recommendations d&#39;installations de stations météo amateur.&lt;/p&gt;
 &lt;p&gt;(En haut à gauche le nouveau capteur BME280 combinant pression, température et humidité -meme si 6 connections sont accessibles seulement 4 sont vraiment utilisées dans notre système-. L&#39;ancien capteur DHT22 reste également connecté pour comparer les relevés)&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/06/environment_sensors/protoboard_bme280.jpg&quot; alt=&quot;Protoboard with BME280&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/06/station_meteo_maison/protoboard_bme280.jpg&quot; alt=&quot;Protoboard with BME280&quot; /&gt;&lt;/p&gt;
 &lt;center&gt;
     &lt;i&gt;Protoboard with BME280&lt;/i&gt;
 &lt;/center&gt;
 &lt;p&gt;En plus de ce nouveau capteur l&#39;auteur aura pris soin d&#39;incorporer à ses tableaux de mesures les informations fournies par les stations MétéoFrance installées dans Paris. En effet MétéoFrance met à la disposition du public un service permettant d&#39;interroger ses bases de données en temps réel et de recevoir les mises à jour horaires de ses différentes stations. Toutes les stations ne renvoient pas les mêmes informations par exemple seulement Longchamp et Montsouris fournissent des relevés d&#39;humidité:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/06/environment_sensors/meteo_france_metrics.png&quot; alt=&quot;Meteo-France metrics&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/06/station_meteo_maison/meteo_france_metrics.png&quot; alt=&quot;Meteo-France metrics&quot; /&gt;&lt;/p&gt;
 &lt;center&gt;
     &lt;i&gt;Meteo-France temperature and humidity&lt;/i&gt;
 &lt;/center&gt;
 &lt;p&gt;Sur le graph de gauche le lecteur avisé s&#39;interrogera sûrement sur la station renvoyant une température constamment inférieure a toutes les autres: cette station est en fait située au sommet les 330 mètres de la Tour Eiffel, ce qui explique une température en moyenne 3 degrés inférieurs à l&#39;ensemble des autres stations qui se situent en moyenne a 1m20 du sol.&lt;/p&gt;
 &lt;p&gt;On récupère également les niveaux de précipitations de certaines stations (On notera que ces données semblent toutes arrondies à l&#39;entier le plus proche, une interrogation en cours pour l&#39;auteur, plus de détails dans un prochain épisode)&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/06/environment_sensors/meteo_france_precipitations.png&quot; alt=&quot;Meteo-France precipitations&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/06/station_meteo_maison/meteo_france_precipitations.png&quot; alt=&quot;Meteo-France precipitations&quot; /&gt;&lt;/p&gt;
 &lt;center&gt;
     &lt;i&gt;Meteo-France precipitations&lt;/i&gt;
 &lt;/center&gt;
 &lt;p&gt;Enfin on récupère la pression atmosphérique renvoyée uniquement par la stations de Montsouris (en jaune) et en la compare à la pression relevée par notre capteur maison. Le lecteur pourra s’enthousiasmer du niveau de précision du capteur qui suit de très près les variations de la station:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/06/environment_sensors/atmospheric_pressure.png&quot; alt=&quot;Atmospheric pressure&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/06/station_meteo_maison/atmospheric_pressure.png&quot; alt=&quot;Atmospheric pressure&quot; /&gt;&lt;/p&gt;
 &lt;center&gt;
     &lt;i&gt;Atmospheric pressure&lt;/i&gt;
 &lt;/center&gt;
 &lt;p&gt;Mais si les variations sont suivies de près on notera que les valeurs remontées ont un écart constant de 4hPa ce qui nous amène à la question cruciale du moment: Comment les capteurs sont-ils calibrés et comment mesurer compenser leur défaut s&#39;il existe?&lt;/p&gt;
 &lt;p&gt;Prenons par exemple les mesures d&#39;humidité:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/06/environment_sensors/humidity_with_error.png&quot; alt=&quot;Humidity with error&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/06/station_meteo_maison/humidity_with_error.png&quot; alt=&quot;Humidity with error&quot; /&gt;&lt;/p&gt;
 &lt;center&gt;
     &lt;i&gt;Humidity with error&lt;/i&gt;
 &lt;/center&gt;
 &lt;p&gt;Nous avons en tout 3 capteurs: 2 DHT22 (courbe verte et courbe bleue) et 1 BME280 (courbe rose). À première vue les allures sont similaires mais on remarque que le BME280 à l&#39;air d&#39;avoir une erreur d&#39;environ 4.8%, on peut donc tracer la courbe 4.8% plus haut mais on se rend compte alors que le capteur n&#39;a peut être pas qu&#39;un défaut de décalage mais aussi un défaut d&#39;échelle: Pourquoi les pics roses sont-ils plus hauts que les pics verts et bleus?&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/06/environment_sensors/humidity_correction_hypothesis.png&quot; alt=&quot;Humidity correction hypothesis&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/06/station_meteo_maison/humidity_correction_hypothesis.png&quot; alt=&quot;Humidity correction hypothesis&quot; /&gt;&lt;/p&gt;
 &lt;center&gt;
     &lt;i&gt;Humidity correction hypothesis&lt;/i&gt;
 &lt;/center&gt;
 &lt;p&gt;Les resources en ligne décrivent des protocoles expérimentaux pour tenter de quantifier ce genres de décalages. Une méthode possible consiste à remplir une bouteille Thermos de glace pilée réalisée a partir d&#39;eau déminéralisée pour atteindre une température exacte de zéro degrés et à partir de cette température connue observer les relevés des capteurs et en déduire le biais. Ce genre d&#39;expériences pourraient bien occuper les prochains weekends du créateur, qui ne manquera pas de tenir son lecteur informé des évolutions du projet!&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>Creating my homemade environmental sensors system</title>
+    <link href="https://www.statox.fr/posts/2024/06/environment_sensors/"/>
+    <updated>2024-06-18T00:00:00Z</updated>
+    <id>https://www.statox.fr/posts/2024/06/environment_sensors/</id>
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;This article is a work in progress&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;supporting-software-architecture&quot; tabindex=&quot;-1&quot;&gt;Supporting software architecture &lt;a class=&quot;header-anchor&quot; href=&quot;https://www.statox.fr/posts/2024/06/environment_sensors/#supporting-software-architecture&quot;&gt;🔗&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The first component needed for this system is a logging system which allows me to&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Receive HTTP calls from the sensors&lt;/li&gt;
+&lt;li&gt;Store and display applicative logs of these calls for debugging purpose&lt;/li&gt;
+&lt;li&gt;Store and display the metrics gathered by the sensors&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;To get these features I&#39;m using &lt;a href=&quot;https://github.com/statox/api.statox.fr&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;my API&lt;/a&gt; and an Elasticsearch cluster &lt;a href=&quot;https://www.statox.fr/posts/2024/04/api_logging_elasticsearch/&quot;&gt;that I setup earlier&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The API has an endpoint dedicated to reporting data from the sensors. The endpoint uses a JSON schema to validate the body of the &lt;code&gt;POST&lt;/code&gt; requests it receives and only allows a specific list of fields to be sent. When a valid request is received, the data is sent via a JSON message to logstash with a specific message indicating that the log contains sensor data.&lt;/p&gt;
+&lt;p&gt;When logstash received this message, its pipeline detects the specific message and writes the log to a dedicated data stream meant to contain only environmental metrics. I can then use Kibana to create all the visualizations I need to this metric data.&lt;/p&gt;
+&lt;p&gt;I cut a few corners to get things working for now, but a few things could be reworked in this system:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;I am currently implementing API key-based authentication to ensure only my sensors can call my API.&lt;/li&gt;
+&lt;li&gt;Having my sensors connected to the internet and calling my API directly is not an ideal security situation. Once my system is stable, a future iteration will involve having the sensors call a gateway on their local network, with the gateway responsible for sending the data to my API.&lt;/li&gt;
+&lt;li&gt;I probably could leverage the ELK stack&#39;s ability to handle metrics and avoid sending logs to logstash. This is a topic I need to dig.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;breadboard-prototyping&quot; tabindex=&quot;-1&quot;&gt;Breadboard prototyping &lt;a class=&quot;header-anchor&quot; href=&quot;https://www.statox.fr/posts/2024/06/environment_sensors/#breadboard-prototyping&quot;&gt;🔗&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;I went through several iterations to get a working sensor. The goal was to create a device with the following features:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Read environmental data from one or several sensors. At a minimum, temperature and humidity, ideally also atmospheric pressure, and maybe as a bonus, luminosity, air quality, precipitation volume, ambient noise level, etc.&lt;/li&gt;
+&lt;li&gt;Send this data to a remote server via a Wi-Fi network.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Safely&lt;/strong&gt; operate on battery power.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For the basis of my devices, I chose to use the &lt;a href=&quot;https://learn.adafruit.com/adafruit-feather-huzzah-esp8266&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Adafruit Feather HUZZAH ESP8266&lt;/a&gt;. I chose it for its ability to connect to a Wi-Fi network without hassle, the several input pins it offers, and its compatibility with the &lt;a href=&quot;https://learn.adafruit.com/featherwing-proto-and-doubler&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;FeatherWing Proto&lt;/a&gt;, which allows creating a self-contained device without having to design and print a complete PCB.&lt;/p&gt;
+&lt;h3 id=&quot;vma320&quot; tabindex=&quot;-1&quot;&gt;VMA320 &lt;a class=&quot;header-anchor&quot; href=&quot;https://www.statox.fr/posts/2024/06/environment_sensors/#vma320&quot;&gt;🔗&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;I created my first iterations on a breadboard, and the first sensor I tried was a &lt;a href=&quot;https://www.velleman.eu/products/view/?id=435554&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;VMA320&lt;/a&gt;, which I had laying around in my toolkit. The VMA320 returns the current temperature on its data pin with an analog output.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;VMA320
+
+temperature range: -55 °C to 125 °C
+accuracy: ± 0.5°C
+connection: analog output
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The analog output of the VMA320 is proportional to the logic voltage we apply to it. Since the ESP8266 has a 3V logic, the output can go up to 3V, but the analog input pin of the ESP8266 can handle only up to 1V. So I needed to create a voltage divider to be able to read the output of the sensor.&lt;/p&gt;
+&lt;p&gt;This had two major drawbacks:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Because of the inaccuracies in my resistor values and the code I used to read from the voltage divider, I was not very confident in the data I got from the sensor.&lt;/li&gt;
+&lt;li&gt;The ESP8266 only has one analog input pin, which I knew I would need later on to monitor the battery.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;With this first version I confirmed that I was able to&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Upload code to the ESP8266&lt;/li&gt;
+&lt;li&gt;Interface with its pin&lt;/li&gt;
+&lt;li&gt;Debug my code when running on the SoC&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/06/environment_sensors/breadboard_vma320.jpg&quot; alt=&quot;Breadboard VMA320&quot; /&gt;&lt;/p&gt;
+&lt;center&gt;
+    &lt;i&gt;The early prototype: Breadboard version of ESP8266 reading from a VMA320&lt;/i&gt;
+&lt;/center&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/06/environment_sensors/schematics_vma320.jpg&quot; alt=&quot;Schematics VMA320&quot; /&gt;&lt;/p&gt;
+&lt;center&gt;
+    &lt;i&gt;The early prototype: Schematics version of ESP8266 reading from a VMA320&lt;/i&gt;
+&lt;/center&gt;
+&lt;pre class=&quot;language-arduino&quot;&gt;&lt;code class=&quot;language-arduino&quot;&gt;&lt;span class=&quot;token macro property&quot;&gt;&lt;span class=&quot;token directive-hash&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;token directive keyword&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&amp;lt;math.h&gt;&lt;/span&gt;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;/*
+ * Code for the VMA320 temperature sensor
+ * https://www.velleman.eu/products/view/?country=be&amp;amp;lang=fr&amp;amp;id=435554
+ */&lt;/span&gt;
+
+&lt;span class=&quot;token macro property&quot;&gt;&lt;span class=&quot;token directive-hash&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;token directive keyword&quot;&gt;define&lt;/span&gt; &lt;span class=&quot;token macro-name&quot;&gt;SENSOR_PIN&lt;/span&gt; &lt;span class=&quot;token expression&quot;&gt;A0 &lt;/span&gt;&lt;span class=&quot;token comment&quot;&gt;// Input PIN: ADC (The only analogue pin on ESP8266)&lt;/span&gt;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;// Based on https://stackoverflow.com/a/44932077/4194289&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;analogToCelsius&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; RawADC&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;double&lt;/span&gt; Temp&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    Temp &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;10000.0&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1024.0&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;RawADC&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// for pull-up configuration&lt;/span&gt;
+    Temp &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0.001129148&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0.000234125&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0.0000000876741&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; Temp &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; Temp &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; Temp &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    Temp &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Temp &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;273.15&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;            &lt;span class=&quot;token comment&quot;&gt;// Convert Kelvin to Celcius&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; Temp&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;readTempCelsius&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; sensorvalue &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;analogRead&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;SENSOR_PIN&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;double&lt;/span&gt; celsius &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;analogToCelsius&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;sensorvalue&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; celsius&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;center&gt;
+    &lt;i&gt;The code to read from the VMA320 is awkward&lt;/i&gt;
+&lt;/center&gt;
+&lt;h3 id=&quot;dht11-and-battery-level&quot; tabindex=&quot;-1&quot;&gt;DHT11 and battery level &lt;a class=&quot;header-anchor&quot; href=&quot;https://www.statox.fr/posts/2024/06/environment_sensors/#dht11-and-battery-level&quot;&gt;🔗&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;My second iteration replaced the VMA320 with a &lt;a href=&quot;https://www.adafruit.com/product/386&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;DHT11&lt;/a&gt; I also had from an earlier attempt at this project. This allowed me to free the ESP8266 analog pin and to benefit from the more accurate sensor.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;DHT11
+
+temperature range: 0 °C to 50 °C
+accuracy: ± 2°C
+
+humidity range: 20% to 80%
+accuracy: ± 5%
+
+connection: digital output
+sampling rate: 0.5Hz to 1Hz (Depending on the sources)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/06/environment_sensors/breadboard_dht11.jpg&quot; alt=&quot;Breadboard DHT11&quot; /&gt;&lt;/p&gt;
+&lt;center&gt;
+    &lt;i&gt;Early prototype: Breadboard version of ESP8266 reading from a DHT11&lt;/i&gt;
+&lt;/center&gt;
+&lt;p&gt;To read the sensor&#39;s data I used &lt;a href=&quot;https://github.com/adafruit/DHT-sensor-library&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;adafruit&#39;s DHT library&lt;/a&gt; which allowed me to greatly simplify my code:&lt;/p&gt;
+&lt;pre class=&quot;language-arduino&quot;&gt;&lt;code class=&quot;language-arduino&quot;&gt;&lt;span class=&quot;token macro property&quot;&gt;&lt;span class=&quot;token directive-hash&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;token directive keyword&quot;&gt;define&lt;/span&gt; &lt;span class=&quot;token macro-name&quot;&gt;DHTPIN&lt;/span&gt; &lt;span class=&quot;token expression&quot;&gt;&lt;span class=&quot;token number&quot;&gt;13&lt;/span&gt;      &lt;/span&gt;&lt;span class=&quot;token comment&quot;&gt;// Pin used to read the DHT sensor&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token macro property&quot;&gt;&lt;span class=&quot;token directive-hash&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;token directive keyword&quot;&gt;define&lt;/span&gt; &lt;span class=&quot;token macro-name&quot;&gt;DHTTYPE&lt;/span&gt; &lt;span class=&quot;token expression&quot;&gt;DHT11  &lt;/span&gt;&lt;span class=&quot;token comment&quot;&gt;// Can be changed for DHT22 sensors&lt;/span&gt;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;// Initialize DHT sensor for normal 16mhz Arduino&lt;/span&gt;
+DHT &lt;span class=&quot;token function&quot;&gt;dht&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;DHTPIN&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; DHTTYPE&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;initDHT&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    dht&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;begin&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+float&lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;readDHT&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// Reading temperature or humidity takes about 250 milliseconds!&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// Sensor readings may also be up to 2 seconds &#39;old&#39; (its a very slow sensor)&lt;/span&gt;
+    float h &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; dht&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;readHumidity&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// Read temperature as Celsius&lt;/span&gt;
+    float t &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; dht&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;readTemperature&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    float&lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; result &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; float&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    result&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; t&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    result&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; h&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token comment&quot;&gt;// Check if any reads failed&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;isnan&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;h&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;isnan&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;t&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token builtin&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Failed to read from DHT sensor!&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; result&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;With this version I also started using a Li-Po battery to power the system. This is the part that I was most worried about because Li-Po batteries tend to be explode pretty impressively when mishandled and I&#39;m not keen on seeing that happening in my house. Using this type of battery requires a basic understanding of how they work to avoid pushing them into unsafe zones.&lt;/p&gt;
+&lt;p&gt;The Li-Po voltage is around 4.2V when fully charged. It then decreases to around 3.7V and remains stable at this voltage for a relatively long time. Subsequently, the voltage drops quickly. It is recommended to stop using the battery below 3.3V, and the battery&#39;s protection circuitry is designed to shut it down completely at around 2.5V.&lt;/p&gt;
+&lt;p&gt;To monitor the battery level, I created a voltage divider to scale the 4.2V voltage down to 1V, which I could then read from the ESP8266 analog pin. As shown in the schematic, I could also use my voltmeter to directly measure the battery&#39;s output voltage.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/06/environment_sensors/schematics_battery_voltage_divider.jpg&quot; alt=&quot;Battery voltage divider&quot; /&gt;&lt;/p&gt;
+&lt;center&gt;
+    &lt;i&gt;Voltage divider schematic to read battery level&lt;/i&gt;
+&lt;/center&gt;
+&lt;p&gt;After adding some code to convert the analog reading into a percentage of charge and send it to the server, I successfully created my first visualization with a graph showing the temperature, humidity, and battery level.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/06/environment_sensors/first_visualization.jpg&quot; alt=&quot;First Kibana Visualization&quot; /&gt;&lt;/p&gt;
+&lt;center&gt;
+    &lt;i&gt;The first Kibana visualization&lt;/i&gt;
+&lt;/center&gt;
+&lt;p&gt;At this point the main loop of the arduino code was as follow:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Read from the sensor&lt;/li&gt;
+&lt;li&gt;Send the readings to the server&lt;/li&gt;
+&lt;li&gt;Use &lt;a href=&quot;https://www.arduino.cc/reference/en/language/functions/time/delay/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;&lt;code&gt;delay()&lt;/code&gt;&lt;/a&gt; to pause the program for 10 minutes&lt;/li&gt;
+&lt;li&gt;Repeat.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I decided to let the system run for several hours to observe its performance, and it seemed to work well. I got confused by my battery readings and ended up &lt;a href=&quot;https://forums.adafruit.com/viewtopic.php?p=1016286&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;asking for help on the adafruit forum&lt;/a&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The battery continued operating at voltages much lower than I had expected.
+&lt;ul&gt;
+&lt;li&gt;I learned that the shutdown voltage of the battery circuitry is not standardized and varies by manufacturer.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Despite the low battery voltage, the ESP8266 continued running.
+&lt;ul&gt;
+&lt;li&gt;I learned that the board is more efficient than I had realized, and its ability to operate at lower voltages is a feature.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Even though my calculations for the battery percentage were slightly inaccurate, the discharge curve of my battery matched exactly what I had expected based on my research into Li-Po batteries. Therefore, both my voltage divider and raw readings were correct!&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/06/environment_sensors/kibana_battery_overuse.png&quot; alt=&quot;Kibana battery overuse&quot; /&gt;&lt;/p&gt;
+&lt;center&gt;
+    &lt;i&gt;Battery tension dropping&lt;/i&gt;
+&lt;/center&gt;
+&lt;h2 id=&quot;from-the-breadboard-to-the-protoboard&quot; tabindex=&quot;-1&quot;&gt;From the breadboard to the protoboard &lt;a class=&quot;header-anchor&quot; href=&quot;https://www.statox.fr/posts/2024/06/environment_sensors/#from-the-breadboard-to-the-protoboard&quot;&gt;🔗&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;With my initial tests successful, I decided to transition my sensor setup from the breadboard to a more permanent solution that would be easier to move around the house and manipulate. To achieve this, I mounted the Feather on a mini breadboard and utilized the FeatherWing to establish connections to the sensor and implement the voltage divider for the battery.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/06/environment_sensors/protoboard_dht22_1.jpg&quot; alt=&quot;Protoboard version&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;https://www.statox.fr/posts/2024/06/environment_sensors/protoboard_dht22_2.jpg&quot; alt=&quot;Protoboard version&quot; /&gt;&lt;/p&gt;
+&lt;center&gt;
+    &lt;i&gt;Moving the project to a protoboard&lt;/i&gt;
+&lt;/center&gt;
+&lt;h3 id=&quot;dht22&quot; tabindex=&quot;-1&quot;&gt;DHT22 &lt;a class=&quot;header-anchor&quot; href=&quot;https://www.statox.fr/posts/2024/06/environment_sensors/#dht22&quot;&gt;🔗&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;At this point, I replaced the DHT11 sensor with a &lt;a href=&quot;https://whadda.com/product/cm2302-dht22-temperature-humidity-sensor-module-wpse345/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;DHT22 module&lt;/a&gt;. The DHT22 is essentially an upgraded version of the DHT11, and the module includes a convenient pull-up resistor.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;DHT22
+
+temperature range: -40 °C to 80 °C
+accuracy: ± 0.5°C
+
+humidity range: 0% to 100%
+accuracy: ± 2-5%
+
+connection: digital output
+sampling rate: 0.5Hz
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Adafruit has an interesting &lt;a href=&quot;https://learn.adafruit.com/dht&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;comparison page&lt;/a&gt;. Switching to the DHT22 was quite convenient: the DHT library functions the same way for both sensors, so it was simply a matter of connecting it to the same pins and changing the &lt;code&gt;DHTTYPE&lt;/code&gt; constant in my code.&lt;/p&gt;
+&lt;p&gt;I also created a second device identical to the first one and let them run for several days to compare their readings. The following graph shows these readings:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Between the 22nd and the 26th, the sensors were placed at two opposite corners of the same room.&lt;/li&gt;
+&lt;li&gt;Between the 26th and the 30th, they were placed right next to each other.&lt;/li&gt;
+&lt;li&gt;After the 30th, they were placed in two different rooms in a fairly small apartment.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/06/environment_sensors/similar_curves_for_2_sensors.png&quot; alt=&quot;Similar curves for two different sensors&quot; /&gt;&lt;/p&gt;
+&lt;center&gt;
+    &lt;i&gt;Similar curves for two different sensors&lt;/i&gt;
+&lt;/center&gt;
+&lt;p&gt;I am pleased with the results. Although my methodology is not the most scientific, I am fairly confident to say that:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Since both curves generally follow the same pattern, both sensors have similar reaction times and sensitivity.&lt;/li&gt;
+&lt;li&gt;The minimal differences observed when the sensors are next to each other suggest they are calibrated similarly.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;With these results, I&#39;m not certain about the absolute accuracy of the readings (e.g., whether the sensors accurately reflect the current temperature: when they indicate 24°C is it really 24°C or 22°C or 26°C?), but they should be meaningful and sufficient for my goal of understanding how temperature evolves in my apartment.&lt;/p&gt;
+&lt;h3 id=&quot;bme280&quot; tabindex=&quot;-1&quot;&gt;BME280 &lt;a class=&quot;header-anchor&quot; href=&quot;https://www.statox.fr/posts/2024/06/environment_sensors/#bme280&quot;&gt;🔗&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Another metric I wanted to track in my system is atmospheric pressure. For this, I used &lt;a href=&quot;https://whadda.com/product/bme280-temperature-humidity-and-pressure-sensor-wpse335/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;a BME280&lt;/a&gt; sensor, which I connected to one of my devices that already had a DHT22. This allowed me to have both sensors in the same location and use a single ESP8266 to read from them.&lt;/p&gt;
+&lt;p&gt;I opted to use the BME280 in I2C connection mode, requiring only 4 pins to connect to the board: 2 for power supply and 2 for data reading. The I2C connection also means that the sampling rate is essentially as fast as I want now (not that it matters since I am still polling the sensors every 10 minutes).&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;BME280
+
+temperature range: -40 °C to 85 °C
+accuracy: ± 0.5°C
+
+humidity range: 0% to 100%
+accuracy: ± 3%
+
+pressure range: 300hPa to 1100 hPa
+accuracy: ± 1hPa
+
+connection: I2C (also support SPI)
+sampling rate: -
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/06/environment_sensors/protoboard_bme280.jpg&quot; alt=&quot;Protoboard with BME280&quot; /&gt;&lt;/p&gt;
+&lt;center&gt;
+    &lt;i&gt;Protoboard with BME280&lt;/i&gt;
+&lt;/center&gt;
+&lt;p&gt;I then compared the readings of the BME280 with those of the two DHT22 sensors to check for calibration issues. The raw values show the BME280 as the pink curve, while the blue and green curves represent the two DHT22 sensors.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/06/environment_sensors/bme_280_raw_comparison.png&quot; alt=&quot;Raw values comparison&quot; /&gt;&lt;/p&gt;
+&lt;center&gt;
+    &lt;i&gt;The BME280 is not calibrated the same way as the DHT22 (left: temperatures, right: humidity)&lt;/i&gt;
+&lt;/center&gt;
+&lt;p&gt;For the temperature, the BME280 closely follows the trend of the other two sensors but with an offset of about 0.6°C. Regarding humidity, the situation is more complex: there appears to be both an offset and a scaling issue. After adjusting the humidity curve using the formula &lt;code&gt;20 + (0.7 * last_value(document.humidity2, kql=&#39;&amp;quot;document.humidity2&amp;quot;: *&#39;))&lt;/code&gt;, I obtained the following results:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/06/environment_sensors/bme_280_corrected_comparison.png&quot; alt=&quot;Corrected values comparison&quot; /&gt;&lt;/p&gt;
+&lt;center&gt;
+    &lt;i&gt;However the readings can be transformed to better fit the DHT22 readings (left: temperatures, right: humidity)&lt;/i&gt;
+&lt;/center&gt;
+&lt;p&gt;Good enough for me! Again, I&#39;m unsure about the absolute calibration of the sensors, but they are consistent with each other, so my measurements should be reliable.&lt;/p&gt;
+&lt;p&gt;I also really liked &lt;a href=&quot;https://www.kandrsmith.org/RJS/Misc/Hygrometers/absolutetemperature.html&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;this article&lt;/a&gt; by Robert Smith about his process for calibrating thermometers. At some point, I intend to try a similar ice bath experiment.&lt;/p&gt;
+&lt;h2 id=&quot;adding-an-enclosure&quot; tabindex=&quot;-1&quot;&gt;Adding an enclosure &lt;a class=&quot;header-anchor&quot; href=&quot;https://www.statox.fr/posts/2024/06/environment_sensors/#adding-an-enclosure&quot;&gt;🔗&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Now that I&#39;m confident my sensors work well, I want to enclose them properly. I have two different needs: enclosures for the indoor sensors to tidy up cables and protect them from daily life, and enclosures for the outdoor sensors that need to be weatherproof.&lt;/p&gt;
+&lt;h3 id=&quot;indoor-enclosure&quot; tabindex=&quot;-1&quot;&gt;Indoor enclosure &lt;a class=&quot;header-anchor&quot; href=&quot;https://www.statox.fr/posts/2024/06/environment_sensors/#indoor-enclosure&quot;&gt;🔗&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;For my indoor enclosure I am considering two options:&lt;/p&gt;
+&lt;p&gt;Mastering &lt;a href=&quot;https://www.mecabricks.com/en/workshop&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Mecabricks&lt;/a&gt; to design a Lego enclosure and then using the Lego &lt;a href=&quot;https://www.lego.com/fr-fr/pick-and-build/pick-a-brick&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Pick a Brick&lt;/a&gt; to acquire the necessary bricks. However, this option is on hold until I improve my skills with the online tool.&lt;/p&gt;
+&lt;p&gt;Using a colleague&#39;s 3D printer to print a suitable enclosure. I have started to gather quotes for the project, but this is also on hold for now.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/06/environment_sensors/sensor_quotes.jpg&quot; alt=&quot;Sensor quotes&quot; /&gt;&lt;/p&gt;
+&lt;center&gt;
+    &lt;i&gt;Behold my incredible technical drawing skills!&lt;/i&gt;
+&lt;/center&gt;
+&lt;h3 id=&quot;outdoor-enclosure&quot; tabindex=&quot;-1&quot;&gt;Outdoor enclosure &lt;a class=&quot;header-anchor&quot; href=&quot;https://www.statox.fr/posts/2024/06/environment_sensors/#outdoor-enclosure&quot;&gt;🔗&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;This enclosure is more complex because it needs to protect the board and the battery from significant humidity changes while allowing the sensor to be exposed to the environment for accurate readings. I have no experience with this type of project, but I intuition tells me that exposing electronic components and sensitive batteries outdoors requires some caution.&lt;/p&gt;
+&lt;p&gt;Therefore, I began by researching and educating myself:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://vbn.aau.dk/ws/portalfiles/portal/221557312/2015IMAPS_breathing_effect.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Humidity evolution (breathing effect) in enclosures with electronics&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.researchgate.net/profile/Zheng-Guilin/publication/232616036_Modeling_and_Simulation_of_Humidity_Inside_Sealed_Boxes/links/540d5b550cf2f2b29a383bf9/Modeling-and-Simulation-of-Humidity-Inside-Sealed-Boxes.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Modeling and Simulation of Humidity Inside Sealed Boxes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.agmcontainer.com/blog/how-to/engineering-moisture-pressure-protection-guide/&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;A Guide to Engineering Moisture &amp;amp; Pressure Protection for Sealed Enclosures&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://forum.mysensors.org/topic/1560/how-to-protect-your-outdoor-sensor&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;forum discussion about sensors protection&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;These papers are super interesting but I ended up winging it: I bought a small plastic enclosure similar &lt;a href=&quot;https://www.adafruit.com/product/903&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;to this one&lt;/a&gt; with a toric joint for waterproofing and a weatherproof cable gland. The idea is to have the sensor outside of the box while the ESP8266 and its battery remain safe in a waterprood box.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/06/environment_sensors/weatherproof_enclosure.jpg&quot; alt=&quot;Weather-proof enclosure&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;https://www.statox.fr/posts/2024/06/environment_sensors/weatherproof_enclosure_with_cable_gland.jpg&quot; alt=&quot;Weather-proof enclosure with cable gland&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;To test this enclosure I used my two DHT22 sensors: One in the box and one not in the box:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/posts/2024/06/environment_sensors/weatherproof_enclosure_metrics_long.png&quot; alt=&quot;Metrics in the weather-proof enclosure&quot; /&gt;&lt;/p&gt;
+&lt;center&gt;
+    &lt;i&gt;Metrics in the weather-proof enclosure&lt;/i&gt;
+&lt;/center&gt;
+&lt;p&gt;I found that the box doesn&#39;t prevent temperature changes (as expected), but it does maintain the humidity level at what it was when sealed. This should be sufficient for my upcoming initial tests of the outdoor sensor.&lt;/p&gt;
 </content>
   </entry>
 </feed>
