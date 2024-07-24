@@ -1,9 +1,7 @@
 #!/usr/env/node
 
 const { Octokit } = require('@octokit/rest');
-const https = require('follow-redirects').https;
 const fs = require('fs');
-const path = require('path');
 const async = require('async');
 
 /*
