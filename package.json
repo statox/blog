@@ -18,7 +18,7 @@
         "eleventy-plugin-wordcount": "^1.0.5",
         "follow-redirects": "^1.15.6",
         "html-minifier": "^4.0.0",
-        "luxon": "^3.4.4",
+        "luxon": "^3.5.0",
         "markdown-it-anchor": "^9.0.1",
         "markdown-it-emoji": "^3.0.0",
         "markdown-it-external-links": "^0.0.6",
