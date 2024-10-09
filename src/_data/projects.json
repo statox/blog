@@ -78,7 +78,7 @@
         "description": "Using tic tac toe variants as an excuse to experiment with more front-end development and with game theory. I implemented an online version of the game Gobblet Gobblers and various IA playing the game."
     },
     {
-        "demo_url": "https://assisteer.space",
+        "demo_url": "https://statox.github.io/assisteer/",
         "code_url": "https://github.com/statox/assisteer",
         "image": "images/projects/assisteer.gif",
         "name": "Assisteer",
