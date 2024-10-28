@@ -1,8 +1,8 @@
 #!/usr/env/node
 
-const { Octokit } = require('@octokit/rest');
-const fs = require('fs');
-const async = require('async');
+import { Octokit } from '@octokit/rest';
+import { readdirSync, statSync, readFile } from 'fs';
+import { map, eachSeries, auto } from 'async';
 
 /*
  * Script to be run by the CI to create the issues used for comments for each published posts
@@ -44,10 +44,10 @@ function getIssues(cb) {
  * Synchronously list all files in a directory recursively
  */
 var walkSync = function (dir, filelist) {
-    const files = fs.readdirSync(dir);
+    const files = readdirSync(dir);
     filelist = filelist || [];
     files.forEach((file) => {
-        if (fs.statSync(dir + file).isDirectory()) {
+        if (statSync(dir + file).isDirectory()) {
             filelist = walkSync(dir + file + '/', filelist);
         } else {
             filelist.push(dir + file);
@@ -89,10 +89,10 @@ function convertPostHeader(postHeader) {
 function getPosts(cb) {
     const files = walkSync('src/posts/');
 
-    async.map(
+    map(
         files,
         (file, cb) => {
-            return fs.readFile(file, { encoding: 'utf-8' }, (error, content) => {
+            return readFile(file, { encoding: 'utf-8' }, (error, content) => {
                 if (error) {
                     return cb(error);
                 }
@@ -144,7 +144,7 @@ function createIssue(issue, cb) {
  * Create a list of issues in github in the order they are in the array
  */
 function createMissingIssues(issuesToCreate, cb) {
-    async.eachSeries(
+    eachSeries(
         issuesToCreate,
         (issue, cb) => {
             return createIssue(issue, (error) => {
@@ -160,56 +160,54 @@ function createMissingIssues(issuesToCreate, cb) {
     );
 }
 
-if (require.main === module) {
-    async.auto(
-        {
-            issues: (cb) => getIssues(cb),
-            posts: (cb) => getPosts(cb)
-        },
-        (error, result) => {
+auto(
+    {
+        issues: (cb) => getIssues(cb),
+        posts: (cb) => getPosts(cb)
+    },
+    (error, result) => {
+        if (error) {
+            console.error(error);
+            process.exit(1);
+        }
+
+        const { issues, posts } = result;
+        const sortedIssues = issues.sort((a, b) => a.number - b.number);
+        const sortedPosts = posts.sort((a, b) => a.commentIssueId - b.commentIssueId);
+
+        // Get the index of the first post which doesn't have a corresponding issue
+        let notCreatedPostsIndex = 0;
+        const lastIssueNumber = sortedIssues.length ? sortedIssues[sortedIssues.length - 1].number : 0;
+        while (
+            notCreatedPostsIndex <= sortedPosts.length - 1 &&
+            sortedPosts[notCreatedPostsIndex].commentIssueId <= lastIssueNumber
+        ) {
+            notCreatedPostsIndex++;
+        }
+
+        const issuesToCreate = [];
+        for (let i = notCreatedPostsIndex; i < sortedPosts.length; i++) {
+            const post = sortedPosts[i];
+            issuesToCreate.push({
+                title: post.title,
+                expectedNumber: post.commentIssueId
+            });
+        }
+
+        if (!issuesToCreate.length) {
+            console.log('No missing issues to create');
+            process.exit(0);
+        }
+
+        createMissingIssues(issuesToCreate, (error) => {
             if (error) {
-                console.error(error);
+                console.log('Error creating issues');
+                console.log(error);
                 process.exit(1);
             }
 
-            const { issues, posts } = result;
-            const sortedIssues = issues.sort((a, b) => a.number - b.number);
-            const sortedPosts = posts.sort((a, b) => a.commentIssueId - b.commentIssueId);
-
-            // Get the index of the first post which doesn't have a corresponding issue
-            let notCreatedPostsIndex = 0;
-            const lastIssueNumber = sortedIssues.length ? sortedIssues[sortedIssues.length - 1].number : 0;
-            while (
-                notCreatedPostsIndex <= sortedPosts.length - 1 &&
-                sortedPosts[notCreatedPostsIndex].commentIssueId <= lastIssueNumber
-            ) {
-                notCreatedPostsIndex++;
-            }
-
-            const issuesToCreate = [];
-            for (let i = notCreatedPostsIndex; i < sortedPosts.length; i++) {
-                const post = sortedPosts[i];
-                issuesToCreate.push({
-                    title: post.title,
-                    expectedNumber: post.commentIssueId
-                });
-            }
-
-            if (!issuesToCreate.length) {
-                console.log('No missing issues to create');
-                process.exit(0);
-            }
-
-            createMissingIssues(issuesToCreate, (error) => {
-                if (error) {
-                    console.log('Error creating issues');
-                    console.log(error);
-                    process.exit(1);
-                }
-
-                console.log('Issues created');
-                process.exit(0);
-            });
-        }
-    );
-}
+            console.log('Issues created');
+            process.exit(0);
+        });
+    }
+);

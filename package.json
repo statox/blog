@@ -35,7 +35,7 @@
     "scripts": {
         "build": "ELEVENTY_ENV=prod npx @11ty/eleventy --input=src --output=docs",
         "build:clean": "rm -rf docs",
-        "create-issues": "node tools/createIssues.js",
+        "create-issues": "node tools/createIssues.mjs",
         "debug": "npm run build:clean && npm run secrets:decrypt && DEBUG=Eleventy* ELEVENTY_ENV=dev npx @11ty/eleventy --input=src --output=docs --serve",
         "dev": "npm run build:clean && npm run secrets:decrypt && ELEVENTY_ENV=dev npx @11ty/eleventy --input=src --output=docs --serve",
         "prettier": "prettier --check .",
