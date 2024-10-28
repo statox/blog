@@ -4,6 +4,7 @@ pagination:
     size: 1
     alias: redirection
 permalink: "{{redirection.oldUrl | url}}"
+eleventyExcludeFromCollections: true
 ---
 
 <!--
@@ -15,6 +16,9 @@ permalink: "{{redirection.oldUrl | url}}"
    - 
    - It reads the data in src/_data/redirections.json and for each item creates
    - a page which redirect from the old URI to the new one
+   -
+   - NOTE I added eleventyExcludeFromCollections to this page because it broke
+   - the sitemap plugin to have it in collection.
    -->
 
 <!DOCTYPE html>

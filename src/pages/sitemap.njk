@@ -4,13 +4,4 @@ layout: null
 eleventyExcludeFromCollections: true
 ---
 
-{# Commented while migrating to eleventy 3.0 The eleventy-plugin-sitemap broke with this trace #}
-{# [11ty] Problem writing Eleventy templates: #}
-{# [11ty] 1. Having trouble rendering njk template ./src/pages/sitemap.njk (via TemplateContentRenderError) #}
-{# [11ty] 2. Tried to use templateContent too early on ./src/redirects/redirect.njk (via TemplateContentPrematureUseError) #}
-{# [11ty] #}
-{# [11ty] Original error stack trace: TemplateContentPrematureUseError: Tried to use templateContent too early on ./src/redirects/redirect.njk #}
-
-{# This seems to be the only thing breaking during the migration #}
-
-{# {% sitemap collections.all %} #}
+{% sitemap collections.all %}
