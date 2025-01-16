@@ -13,11 +13,11 @@ The track should be circular.
 The player starts at an angle of 0 and the goal is to make as many full cycles as possible.
 The progress detection could be:
 
--   Start at angle 0
--   On each frame check the current angle
-    -   If it's larger than the previous max value update it
-    -   If it's larger than 2 pi, add 1 turn to the counter and reset with the difference to zero
-    -   Make sure to handle <0 angle to avoid counting "reverse" turns
+- Start at angle 0
+- On each frame check the current angle
+    - If it's larger than the previous max value update it
+    - If it's larger than 2 pi, add 1 turn to the counter and reset with the difference to zero
+    - Make sure to handle <0 angle to avoid counting "reverse" turns
 
 The obstacles could be generated either from the angle 0 or directly behind the player and starting in the opposite direction.
 

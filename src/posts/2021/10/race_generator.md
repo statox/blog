@@ -12,14 +12,14 @@ For several weeks now I have been working on and off on an ambitious project in 
 
 My goal was to generate a racetrack which would be a loop with several turns with angles sufficiently difficult to be interesting. To do that I took a lot of inspiration from these two articles:
 
--   [How to generate procedural racetracks](http://blog.meltinglogic.com/2013/12/how-to-generate-procedural-racetracks/)
--   [Procedural racetrack generation](https://bitesofcode.wordpress.com/2020/04/09/procedural-racetrack-generation/)
+- [How to generate procedural racetracks](http://blog.meltinglogic.com/2013/12/how-to-generate-procedural-racetracks/)
+- [Procedural racetrack generation](https://bitesofcode.wordpress.com/2020/04/09/procedural-racetrack-generation/)
 
 In the first post Gustavo Maciel describes an idea to generate a racetrack in three simple steps:
 
--   Generate a bunch of random points in the plan
--   Calculate the hull of the polygon formed by these points. That is, simply put, the list which will wrap around all the points
--   Finally interpolate the points of this hull to get a nice racetracky shape on which a car could drive
+- Generate a bunch of random points in the plan
+- Calculate the hull of the polygon formed by these points. That is, simply put, the list which will wrap around all the points
+- Finally interpolate the points of this hull to get a nice racetracky shape on which a car could drive
 
 The second post is a second implementation of Maciel's idea, and my project is yet another implementation of the same idea but with my _very own_ bugs and design flaws which makes it very special to my eyes 🤩.
 
@@ -69,14 +69,14 @@ This looks much more interesting:
 
 However with concave hull come two big issues:
 
--   It is not uncommon that two segments of the polygon intersect: that creates an issue because if you create a crossroad in a racetrack things get messy (Well, there _are_ some [figure 8 racing](https://youtu.be/6ZZyP7VlZcM) competitions but for our purpose that creates too many issues to count laps and detect if cars followed the right path)
--   Even when they don't intersect sometimes the vertices are at an angle which is just too narrow to make a good race track.
+- It is not uncommon that two segments of the polygon intersect: that creates an issue because if you create a crossroad in a racetrack things get messy (Well, there _are_ some [figure 8 racing](https://youtu.be/6ZZyP7VlZcM) competitions but for our purpose that creates too many issues to count laps and detect if cars followed the right path)
+- Even when they don't intersect sometimes the vertices are at an angle which is just too narrow to make a good race track.
 
 There are several ways to get rid of these issues:
 
--   Detecting the intersection of two segments is super easy when you have a [`collideLineLine()`](https://github.com/bmoren/p5.collide2D/blob/0988172c15aeef/p5.collide2d.js#L196-L235) function like the one I shamelessly stole from the [p5.collide2D](https://github.com/bmoren/p5.collide2D) library. Determining the angle formed by three points and comparing it to an arbitrary threshold is enough too (cf. `threePointsAngle` in the previous codepen). Using this information one could simply ignore the bad tracks and keep generating new tracks until one fits all the criterion.
--   For intersections a correction can be made by taking the point where two lines intersect, making this point a new point of the hull replacing the ones which are in the inner loop.
--   For angles it is also possible to use the same principle as what I used to push my initial points apart: Take all your points, when three of them form an angle too narrow move one of them, and keep going until things are stable.
+- Detecting the intersection of two segments is super easy when you have a [`collideLineLine()`](https://github.com/bmoren/p5.collide2D/blob/0988172c15aeef/p5.collide2d.js#L196-L235) function like the one I shamelessly stole from the [p5.collide2D](https://github.com/bmoren/p5.collide2D) library. Determining the angle formed by three points and comparing it to an arbitrary threshold is enough too (cf. `threePointsAngle` in the previous codepen). Using this information one could simply ignore the bad tracks and keep generating new tracks until one fits all the criterion.
+- For intersections a correction can be made by taking the point where two lines intersect, making this point a new point of the hull replacing the ones which are in the inner loop.
+- For angles it is also possible to use the same principle as what I used to push my initial points apart: Take all your points, when three of them form an angle too narrow move one of them, and keep going until things are stable.
 
 **I think that the important thing here anyway is to have your hull as clean as possible before you move on to the next step otherwise it will inevitably bite you.**
 
@@ -133,8 +133,8 @@ One of the interesting ideas I had in the project was to find a way to easily ch
 
 I think this is a pertinent approach as once the track is stored in memory the check is in constant time however my implementation was not the smartest:
 
--   As I draw the track on the canvas, I need to wait the first iteration of `draw()` to run to check the color of the canvas, this is super inconvenient. I should have drawn the track on a different `P5.Graphic` than the canvas this way I can do all the computations in `setup()` making the `draw()` function much simpler.
--   I should have normalized my track to a simple white on black display, instead I used the colors I has already started to use to show my track which makes the color comparison unnecessarily tricky.
+- As I draw the track on the canvas, I need to wait the first iteration of `draw()` to run to check the color of the canvas, this is super inconvenient. I should have drawn the track on a different `P5.Graphic` than the canvas this way I can do all the computations in `setup()` making the `draw()` function much simpler.
+- I should have normalized my track to a simple white on black display, instead I used the colors I has already started to use to show my track which makes the color comparison unnecessarily tricky.
 
 ### Making smart cars
 
@@ -163,10 +163,10 @@ The evaluation function also has an issue to keep track of laps: It is super imp
 
 At this point I started to frantically code more and more ~~technical debt~~ features in my code:
 
--   I created some basic cars which trace several rays in front of them, gather average distance on the right and on the left and decide to steer proportionally to these distances. This simple model works surprisingly well. I also wanted to factor the acceleration based on these distances but I didn't get to that and simply made them accelerate more and more for each laps they do.
--   I then made the factors used to steer some random numbers acting as the genes of a genetic algorithm, I created a pool of cars and made them reproduce and mix these genes. At these points the results were not super convincing because my algorithm isn't super well tuned. But I think I validated the basic idea: With a better track generation, a mode decoupled data model I should be able to make a working algorithm.
--   I also tried to use [dannjs](https://dannjs.org/) which is a nice little neural network library. My idea was to train a neural network via neuro-evolution algorithms. I did several tests but I ended up realizing that neural networks aren't that simple and that you still need to study the math underneath to use them properly.
--   I added some broken statistics capabilities to my pool to have an idea of how my cars perform. I'm not convinced my stats are really relevant and I had a big plan of creating real time graphs visualization a bit like the [Primer videos](https://www.youtube.com/c/PrimerLearning) but that didn't happen.
+- I created some basic cars which trace several rays in front of them, gather average distance on the right and on the left and decide to steer proportionally to these distances. This simple model works surprisingly well. I also wanted to factor the acceleration based on these distances but I didn't get to that and simply made them accelerate more and more for each laps they do.
+- I then made the factors used to steer some random numbers acting as the genes of a genetic algorithm, I created a pool of cars and made them reproduce and mix these genes. At these points the results were not super convincing because my algorithm isn't super well tuned. But I think I validated the basic idea: With a better track generation, a mode decoupled data model I should be able to make a working algorithm.
+- I also tried to use [dannjs](https://dannjs.org/) which is a nice little neural network library. My idea was to train a neural network via neuro-evolution algorithms. I did several tests but I ended up realizing that neural networks aren't that simple and that you still need to study the math underneath to use them properly.
+- I added some broken statistics capabilities to my pool to have an idea of how my cars perform. I'm not convinced my stats are really relevant and I had a big plan of creating real time graphs visualization a bit like the [Primer videos](https://www.youtube.com/c/PrimerLearning) but that didn't happen.
 
 ### Thinking of the future
 

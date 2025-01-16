@@ -22,8 +22,8 @@ So [here is](https://statox.github.io/p5-maze/) what I came up with.
 
 I had two main goals in this project:
 
--   Being able to visualize different algorithms solving the same maze at the same time. This would be what I call an AI fight.
--   Being able to generate a maze. Firstly because without a maze it's useless to have a solver, but also because I wanted to compare different ways to generate a maze.
+- Being able to visualize different algorithms solving the same maze at the same time. This would be what I call an AI fight.
+- Being able to generate a maze. Firstly because without a maze it's useless to have a solver, but also because I wanted to compare different ways to generate a maze.
 
 So I used p5.js again to create a grid of cells and destroy the walls between them to create ways. The web application allows to choose the classical backtracking solution as well as a recursive divisor generator. This is not fancy but this works.
 
@@ -31,6 +31,6 @@ However, doing some researched I also discovered that some cellular automata gen
 
 About the solvers so far I implemented four of them:
 
--   The depth first search and breadth first search algorithms: Classical and not really surprising.
--   The wall follower: This one is the less efficient of all but, given there is not island in a maze it will always find the exit. This one is cool because it can easily be applied in the real world.
--   The Euristic approach: This one is based on a very smart euristic I chose myself and which can be summed up like this: Between the four next possible cells, choose the one the closest to the exit. To my surprise it works reasonably well but I suspect this is because my mazes are not complex enough.
+- The depth first search and breadth first search algorithms: Classical and not really surprising.
+- The wall follower: This one is the less efficient of all but, given there is not island in a maze it will always find the exit. This one is cool because it can easily be applied in the real world.
+- The Euristic approach: This one is based on a very smart euristic I chose myself and which can be summed up like this: Between the four next possible cells, choose the one the closest to the exit. To my surprise it works reasonably well but I suspect this is because my mazes are not complex enough.

@@ -58,8 +58,8 @@ The rule needs to apply to the `main` branch (i.e. the one we'll be merging to).
 
 We need two checks enforced by the rule:
 
--   `Require a pull request before merging` and `Require approvals`: The approval will be given by `github-action` bot throught the workflow
--   `Require status checks to pass before merging`: The checks will be the success of the workflow itself and we'll make the workflow fail if the tests for the repo are not validated.
+- `Require a pull request before merging` and `Require approvals`: The approval will be given by `github-action` bot throught the workflow
+- `Require status checks to pass before merging`: The checks will be the success of the workflow itself and we'll make the workflow fail if the tests for the repo are not validated.
 
 ![Branch protection screen](./branch_protection_setup.png)
 
@@ -77,7 +77,7 @@ We will trigger the workflow on PRs.
 
 **TODO** Find a way to trigger only for dependabot PRs, for now all MR will be automatically merged if they pass the tests.
 
--   `types`: Using `edited` is useful to debug the workflow while setting it up: once the MR is open, you can edit the workflow, push, comment `@dependabot rebase` on the PR and the workflow will be re-run
+- `types`: Using `edited` is useful to debug the workflow while setting it up: once the MR is open, you can edit the workflow, push, comment `@dependabot rebase` on the PR and the workflow will be re-run
 
 ```yaml
 name: Test and AutoMerge PRs
@@ -127,10 +127,10 @@ This could be improved to better factorize the code and have the tests running o
 
 This is dependent on all repos though the important part is to run some tests. Here we need several setup steps:
 
--   Install `python` throught a marketplace Github action to be able to install `podman-compose` with `pip`
--   Install `podman` throught a marketplace Github action.
--   Install `node` to run build the project and run the tests.
--   Checkout the code, install the deps and run the tests.
+- Install `python` throught a marketplace Github action to be able to install `podman-compose` with `pip`
+- Install `podman` throught a marketplace Github action.
+- Install `node` to run build the project and run the tests.
+- Checkout the code, install the deps and run the tests.
 
 If these steps fail the following one will fail too, so the PRs tests will fail and the code will not be merged.
 
@@ -177,9 +177,9 @@ jobs:
 
 Three important steps:
 
--   Call the `fetch-metadata` action to get the `$PR_URL` variable referring to the current PR and used in the next steps.
--   Have the `github-action` bot approve the PR
--   Have the `github-action` bot set the `auto merge` setting for the PR, which will trigger the merge of the PR because all the checks will succeed.
+- Call the `fetch-metadata` action to get the `$PR_URL` variable referring to the current PR and used in the next steps.
+- Have the `github-action` bot approve the PR
+- Have the `github-action` bot set the `auto merge` setting for the PR, which will trigger the merge of the PR because all the checks will succeed.
 
 ```yaml
 jobs:

@@ -14,8 +14,8 @@ The `userChrome.css` file holds style rules for modifying Firefox's user interfa
 
 On linux the file is either in
 
--   `$HOME/.mozilla/firefox/[PROFILE_ID].default/chrome/userChrome.css`
--   or `$HOME/snap/firefox/common/.mozilla/firefox/[PROFILE_ID].default/chrome/userChrome.css` if you use the snap version
+- `$HOME/.mozilla/firefox/[PROFILE_ID].default/chrome/userChrome.css`
+- or `$HOME/snap/firefox/common/.mozilla/firefox/[PROFILE_ID].default/chrome/userChrome.css` if you use the snap version
 
 To locate the profile currently used by Firefox one can visit `about:support` and check the line `Profile Directory`.
 

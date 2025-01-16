@@ -11,23 +11,23 @@ I'm using this page to gather resources that I've found useful while learning mu
 
 ### Chords and staffs
 
--   https://www.hooktheory.com/theorytab
+- https://www.hooktheory.com/theorytab
 
 ### Music theory - Scales, Chords, Fretboard...
 
 <details>
     <summary>Scales and chords visualization tools</summary>
 
--   [JGuitar scales, chords, harmonizers](https://jguitar.com/)
--   [Guitar scales - Online Guitar Book](https://onlineguitarbooks.com/guitar-scales/)
--   [The Guitar Grimoire - Adam Kadmon](http://mikesimm.djlemonk.com/bblog/Scales-and-Modes.pdf)
--   [FretFlip](https://fretflip.com/)
--   [Fretbo.ar](https://fretbo.ar/)
--   [muted.io](https://muted.io/)
--   [Triads visualizations](https://triadmapper.herokuapp.com/)
--   [All chords diagrams](https://images.template.net/wp-content/uploads/2016/05/05072432/PDF-Document-for-Suspended-Guitar-Chord-Templates.pdf)
--   [Keyboard scales](https://www.pianoscales.org/)
-</details>
+- [JGuitar scales, chords, harmonizers](https://jguitar.com/)
+- [Guitar scales - Online Guitar Book](https://onlineguitarbooks.com/guitar-scales/)
+- [The Guitar Grimoire - Adam Kadmon](http://mikesimm.djlemonk.com/bblog/Scales-and-Modes.pdf)
+- [FretFlip](https://fretflip.com/)
+- [Fretbo.ar](https://fretbo.ar/)
+- [muted.io](https://muted.io/)
+- [Triads visualizations](https://triadmapper.herokuapp.com/)
+- [All chords diagrams](https://images.template.net/wp-content/uploads/2016/05/05072432/PDF-Document-for-Suspended-Guitar-Chord-Templates.pdf)
+- [Keyboard scales](https://www.pianoscales.org/)
+  </details>
 
 <details>
     <summary><a href="https://www.guitare-improvisation.com/les-bases_notes-du-manche.php" rel="noopener noreferrer" target="_blank">Notes on the fretboard</a></summary>
@@ -78,9 +78,9 @@ Guitar open string on the staff:
 <details>
     <summary>iOS applications</summary>
 
--   [Solfa](https://apps.apple.com/us/app/solfa-learn-musical-notes/id1436741307) Learning to read notes
--   [Hearing](https://apps.apple.com/us/app/hearing-ear-training-piano/id1474241582) Learning to identify notes by hear
-</details>
+- [Solfa](https://apps.apple.com/us/app/solfa-learn-musical-notes/id1436741307) Learning to read notes
+- [Hearing](https://apps.apple.com/us/app/hearing-ear-training-piano/id1474241582) Learning to identify notes by hear
+  </details>
 
 ### Chords progressions and licks
 

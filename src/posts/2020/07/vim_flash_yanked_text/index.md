@@ -29,15 +29,15 @@ In this article I will to relate the main steps I followed to get this feature w
 
 First a bit of Vim terminology about highlighting:
 
--   A `pattern` is basically a regular expression which can be used to search for some text.
+- A `pattern` is basically a regular expression which can be used to search for some text.
 
     Patterns can be as simple as plain text (e.g. `/TODO` ) or complex regexes with a lot of items as described in [`:h pattern`](http://vimhelp.appspot.com/pattern.txt.html#pattern).
 
--   A `highlighting group` is a named group of highlighting instructions.
+- A `highlighting group` is a named group of highlighting instructions.
 
     The [`:highlight`](http://vimhelp.appspot.com/syntax.txt.html#%3Ahighlight) command allows to list the existing groups when given no arguments. It also allows to create new groups or get details about the existing ones. By default both Vim and Neovim have an `IncSearch` highlighting group which we will reuse to highlight our text. You can see what it looks like on your system with the command `:highlight IncSearch`
 
--   Finally a `match` is a way to tell Vim to highlight a specific pattern using a specific highlighting group.
+- Finally a `match` is a way to tell Vim to highlight a specific pattern using a specific highlighting group.
 
     A match can be created with [`matchadd()`](http://vimhelp.appspot.com/eval.txt.html#matchadd%28%29). The first argument is the name of an highlighting group as shown in the result of `:highlight` and the second argument is a pattern:
 
@@ -63,10 +63,10 @@ let g:idTemporaryHighlight = matchadd('IncSearch', "\\%'\\[.*\\%']")
 
 The main items of the pattern are the following:
 
--   `'[` is the mark I mentioned before but `[` being a special character (used in [`:h /[]`](http://vimhelp.appspot.com/pattern.txt.html#%2f%5b%5d)) it needs to be escaped hence `'\\[`. Note that each `\` needs to be escaped to be used in the command.
--   Given this previous point, `\\%'\\[` is the way to use [`:h /\%'m`](http://vimhelp.appspot.com/pattern.txt.html#%2f%5c%25%27m) with the `'[` mark, matching the beginning of the previously yanked text.
--   `.*` allows to match any characters any number of time.
--   `\\%']` is the equivalent of the first item with the `']` mark. Note that here `]` doesn't need to be escaped since there is no risk of confusion with [`:h /[]`](http://vimhelp.appspot.com/pattern.txt.html#%2f%5b%5d).
+- `'[` is the mark I mentioned before but `[` being a special character (used in [`:h /[]`](http://vimhelp.appspot.com/pattern.txt.html#%2f%5b%5d)) it needs to be escaped hence `'\\[`. Note that each `\` needs to be escaped to be used in the command.
+- Given this previous point, `\\%'\\[` is the way to use [`:h /\%'m`](http://vimhelp.appspot.com/pattern.txt.html#%2f%5c%25%27m) with the `'[` mark, matching the beginning of the previously yanked text.
+- `.*` allows to match any characters any number of time.
+- `\\%']` is the equivalent of the first item with the `']` mark. Note that here `]` doesn't need to be escaped since there is no risk of confusion with [`:h /[]`](http://vimhelp.appspot.com/pattern.txt.html#%2f%5b%5d).
 
 This is a great first attempt which kind of works on some simple cases but fails when yanking text on several lines. This is because the [`.`](http://vimhelp.appspot.com/pattern.txt.html#%2f.) atom doesn't match end of lines characters, so we need to use [`\_.`](http://vimhelp.appspot.com/pattern.txt.html#%2f%5c_.) instead:
 
@@ -126,8 +126,8 @@ endfunction
 
 The previous code kind of works but some edge cases are problematic:
 
--   When I yank two different texts too quickly sometimes the `DeleteTemporaryMatch()` function doesn't have the time to delete the previous match.
--   More importantly, when I switch to another window just after yanking some text, `deletematches()` fails because the matches id are local to a window.
+- When I yank two different texts too quickly sometimes the `DeleteTemporaryMatch()` function doesn't have the time to delete the previous match.
+- More importantly, when I switch to another window just after yanking some text, `deletematches()` fails because the matches id are local to a window.
 
 So let's put the ids in a list, with the window id where they were created:
 

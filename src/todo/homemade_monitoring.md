@@ -9,6 +9,6 @@ Goal: Setup a cheap monitoring and alerting platform for my personal infrastruct
 
 Things to monitor:
 
--   Pihole
--   This website
--   Backups from my NAS
+- Pihole
+- This website
+- Backups from my NAS

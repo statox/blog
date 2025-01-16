@@ -16,9 +16,9 @@ Despite the fact that I never remember which spelling is singular or plural (`au
 
 The principle of a cellular automaton (CA) is quite simple:
 
--   Create a grid representing some cells;
--   The cells can either be dead or alive;
--   With each iteration the cells either stay in the same state or change state depending on a set of rules.
+- Create a grid representing some cells;
+- The cells can either be dead or alive;
+- With each iteration the cells either stay in the same state or change state depending on a set of rules.
 
 This is incredibly cool because given a few simple rules and some random inputs these objects can create surprising and sometimes counter intuitive patterns.
 The first CA I heard about was John Conway's game of life and it was something like 8 years ago. Since then I have found myself reimplementing a version of this CA every once in a while.
@@ -29,10 +29,10 @@ When I heard that John Conway passed away in 2020 I decided to create a tribute 
 
 For this implementation I had a few things in mind which really mattered to me:
 
--   First I wanted it to be executable in a browser. Mainly because I need to practice a bit my web development but also because it is easier to share my lovely shiny new project with people.
--   I wanted to use [p5.js](https://p5js.org/), an implementation of Processing in the browser which makes it super easy to create cool visuals in a web page.
--   I wanted to be able to customize the behavior of the CA very easily.
--   I wanted to have a result quickly and be able to iterate on that _(otherwise I get bored and never finish my side projects, which is probably the main issue for developers and side projects)_
+- First I wanted it to be executable in a browser. Mainly because I need to practice a bit my web development but also because it is easier to share my lovely shiny new project with people.
+- I wanted to use [p5.js](https://p5js.org/), an implementation of Processing in the browser which makes it super easy to create cool visuals in a web page.
+- I wanted to be able to customize the behavior of the CA very easily.
+- I wanted to have a result quickly and be able to iterate on that _(otherwise I get bored and never finish my side projects, which is probably the main issue for developers and side projects)_
 
 So I made [this little web application](https://statox.github.io/p5-cellular-automaton/) hosted on github pages and using p5.js, bootstrap and some vanilla javascript.
 

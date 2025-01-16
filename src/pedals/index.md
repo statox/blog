@@ -18,11 +18,11 @@ A work in progress list of resources for the effect pedals I use in my pedalboar
 
 Some stats:
 
--   20 Jack SquarePlug SP400 Mono hand-soldered by me
--   ~2m50 of patch cable
--   ~4m of velcro tape
--   ~5m of pre-made black electric cable
--   ~1m50 of transparent electric cable hand-soldered by me to power the OC-3, BO100, Dark Mouse and Instant Lofi Junky in parallel from one 100mA output
+- 20 Jack SquarePlug SP400 Mono hand-soldered by me
+- ~2m50 of patch cable
+- ~4m of velcro tape
+- ~5m of pre-made black electric cable
+- ~1m50 of transparent electric cable hand-soldered by me to power the OC-3, BO100, Dark Mouse and Instant Lofi Junky in parallel from one 100mA output
 
 The power supply is a [Donner DP-2](https://fr.audiofanzine.com/alimentation-pedale/donner/dp-2-power-supply/) I can't find a lot of references to it online but I'm quite happy with it: It is very quiet and just does the job.
 
@@ -70,11 +70,11 @@ _TODO: Turn that into images and come up with my own sample settings. Current se
 
 **Brighter Chorus with commpressed signal**
 
--   Volume: 60%
--   Speed: 60%
--   Comp/Lofi: 40%
--   Tone: 100%
--   Depth: 60%
+- Volume: 60%
+- Speed: 60%
+- Comp/Lofi: 40%
+- Tone: 100%
+- Depth: 60%
 
 Important part here is the `Tone` pot. Up: Let high cuts through. Down: Mellow things out.
 

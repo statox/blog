@@ -26,8 +26,8 @@ The first step was to create a [codepen](https://codepen.io/statox/pen/abNVYZZ) 
 
 That resulted in some pretty rough animations and a not very well organized code, but at least it allowed me to validate what are the two main components I would need to implement in my project:
 
--   Some kind of state processing to handle the transitions between the "breath in" and "breath out" phases (as well as two additional "pause" phases, which I find more comfortable to add);
--   A "pluggable architecture" where I can write independent functions for different animations and only have to plug them in the existing canvas.
+- Some kind of state processing to handle the transitions between the "breath in" and "breath out" phases (as well as two additional "pause" phases, which I find more comfortable to add);
+- A "pluggable architecture" where I can write independent functions for different animations and only have to plug them in the existing canvas.
 
 <p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="js,result" data-user="statox" data-slug-hash="abNVYZZ" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="p5 - breathing">
   <span>See the Pen <a href="https://codepen.io/statox/pen/abNVYZZ">

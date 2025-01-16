@@ -16,12 +16,12 @@ The full source of the script is included in the site repository [here](https://
 
 Here are the important steps to make all of this working:
 
--   Create a dedicated repo [blog-comments](https://github.com/statox/blog-comments/issues) which will contain the issues used to host comments;
--   Have the CI run the script each time a new article is published;
--   Give the script the ability to create new issues in the blog-comments repo;
--   Give each post a unique number representing the issue ID on Github. [Eleventy](https://www.11ty.dev/docs/data-cascade/) provides a simple way to do that;
--   Make the script parsing all the published posts, listing the posts without an associated issue and creating the issues;
--   Change the posts source code to inject the comments.
+- Create a dedicated repo [blog-comments](https://github.com/statox/blog-comments/issues) which will contain the issues used to host comments;
+- Have the CI run the script each time a new article is published;
+- Give the script the ability to create new issues in the blog-comments repo;
+- Give each post a unique number representing the issue ID on Github. [Eleventy](https://www.11ty.dev/docs/data-cascade/) provides a simple way to do that;
+- Make the script parsing all the published posts, listing the posts without an associated issue and creating the issues;
+- Change the posts source code to inject the comments.
 
 ### A quick update
 
@@ -216,9 +216,9 @@ And that's how I came up with a system which makes me save about one minute ever
 
 I still have a few more things I want to implement:
 
--   Improving how I handle the data coming from the posts to avoid parsing it myself
--   Adding a check to make sure my posts all have unique and sequential issues ID
--   Adding a mechanism to update the title of the issues if the title of the post change
--   Adding a content to the OP of the issue to have a link to the article
+- Improving how I handle the data coming from the posts to avoid parsing it myself
+- Adding a check to make sure my posts all have unique and sequential issues ID
+- Adding a mechanism to update the title of the issues if the title of the post change
+- Adding a content to the OP of the issue to have a link to the article
 
 But given the previous XKCD graph I'll see when I have time for that and if I really have a need for it too.

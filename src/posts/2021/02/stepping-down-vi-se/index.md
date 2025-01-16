@@ -130,8 +130,8 @@ What about my actual posts?
 
 Amongst the 60 questions and 500+ answers I wrote, some of them are more important to me than the others.Firstly, I pride myself in having two of my questions in the Top ~~10~~ 11 [most frequently visited questions](https://vi.stackexchange.com/questions?tab=Frequent):
 
--   [How to debug a mapping](https://vi.stackexchange.com/q/7722/1841) which is a question I decided to create when I saw how common were questions about mappings misunderstandings. I also self answered this question with a completely methodology which is my highest voted answer with 117 votes and around 18k views.
--   [What is the difference between the vim snippets plugins?](https://vi.stackexchange.com/q/7466/1841) which was an actual question I had when I tried different snippets plugins (which I ditched from my `.vimrc` since).
+- [How to debug a mapping](https://vi.stackexchange.com/q/7722/1841) which is a question I decided to create when I saw how common were questions about mappings misunderstandings. I also self answered this question with a completely methodology which is my highest voted answer with 117 votes and around 18k views.
+- [What is the difference between the vim snippets plugins?](https://vi.stackexchange.com/q/7466/1841) which was an actual question I had when I tried different snippets plugins (which I ditched from my `.vimrc` since).
 
 My most upvoted question is [What is the Vim8 package feature and how should I use it?](https://vi.stackexchange.com/q/9522/1841) which is another question I self answered. When Vim8 was released the new package feature which is a new way to install your plugins was not entirely trivial to understand, so once I had spent a bit of time reading the doc and testing the feature by myself I thought it would be useful for other people too. My 41k page views seems to say I was right 😎 (Yes, this is me openly bragging).
 

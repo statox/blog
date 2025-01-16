@@ -12,9 +12,9 @@ commentIssueId: 37
 
 The first component needed for this system is a logging system which allows me to
 
--   Receive HTTP calls from the sensors
--   Store and display applicative logs of these calls for debugging purpose
--   Store and display the metrics gathered by the sensors
+- Receive HTTP calls from the sensors
+- Store and display applicative logs of these calls for debugging purpose
+- Store and display the metrics gathered by the sensors
 
 To get these features I'm using [my API](https://github.com/statox/api.statox.fr) and an Elasticsearch cluster [that I setup earlier](/posts/2024/04/api_logging_elasticsearch/).
 
@@ -24,17 +24,17 @@ When logstash received this message, its pipeline detects the specific message a
 
 I cut a few corners to get things working for now, but a few things could be reworked in this system:
 
--   I am currently implementing API key-based authentication to ensure only my sensors can call my API.
--   Having my sensors connected to the internet and calling my API directly is not an ideal security situation. Once my system is stable, a future iteration will involve having the sensors call a gateway on their local network, with the gateway responsible for sending the data to my API.
--   I probably could leverage the ELK stack's ability to handle metrics and avoid sending logs to logstash. This is a topic I need to dig.
+- I am currently implementing API key-based authentication to ensure only my sensors can call my API.
+- Having my sensors connected to the internet and calling my API directly is not an ideal security situation. Once my system is stable, a future iteration will involve having the sensors call a gateway on their local network, with the gateway responsible for sending the data to my API.
+- I probably could leverage the ELK stack's ability to handle metrics and avoid sending logs to logstash. This is a topic I need to dig.
 
 ## Breadboard prototyping
 
 I went through several iterations to get a working sensor. The goal was to create a device with the following features:
 
--   Read environmental data from one or several sensors. At a minimum, temperature and humidity, ideally also atmospheric pressure, and maybe as a bonus, luminosity, air quality, precipitation volume, ambient noise level, etc.
--   Send this data to a remote server via a Wi-Fi network.
--   **Safely** operate on battery power.
+- Read environmental data from one or several sensors. At a minimum, temperature and humidity, ideally also atmospheric pressure, and maybe as a bonus, luminosity, air quality, precipitation volume, ambient noise level, etc.
+- Send this data to a remote server via a Wi-Fi network.
+- **Safely** operate on battery power.
 
 For the basis of my devices, I chose to use the [Adafruit Feather HUZZAH ESP8266](https://learn.adafruit.com/adafruit-feather-huzzah-esp8266). I chose it for its ability to connect to a Wi-Fi network without hassle, the several input pins it offers, and its compatibility with the [FeatherWing Proto](https://learn.adafruit.com/featherwing-proto-and-doubler), which allows creating a self-contained device without having to design and print a complete PCB.
 
@@ -54,14 +54,14 @@ The analog output of the VMA320 is proportional to the logic voltage we apply to
 
 This had two major drawbacks:
 
--   Because of the inaccuracies in my resistor values and the code I used to read from the voltage divider, I was not very confident in the data I got from the sensor.
--   The ESP8266 only has one analog input pin, which I knew I would need later on to monitor the battery.
+- Because of the inaccuracies in my resistor values and the code I used to read from the voltage divider, I was not very confident in the data I got from the sensor.
+- The ESP8266 only has one analog input pin, which I knew I would need later on to monitor the battery.
 
 With this first version I confirmed that I was able to
 
--   Upload code to the ESP8266
--   Interface with its pin
--   Debug my code when running on the SoC
+- Upload code to the ESP8266
+- Interface with its pin
+- Debug my code when running on the SoC
 
 ![Breadboard VMA320](./breadboard_vma320.jpg)
 
@@ -184,17 +184,17 @@ After adding some code to convert the analog reading into a percentage of charge
 
 At this point the main loop of the arduino code was as follow:
 
--   Read from the sensor
--   Send the readings to the server
--   Use [`delay()`](https://www.arduino.cc/reference/en/language/functions/time/delay/) to pause the program for 10 minutes
--   Repeat.
+- Read from the sensor
+- Send the readings to the server
+- Use [`delay()`](https://www.arduino.cc/reference/en/language/functions/time/delay/) to pause the program for 10 minutes
+- Repeat.
 
 I decided to let the system run for several hours to observe its performance, and it seemed to work well. I got confused by my battery readings and ended up [asking for help on the adafruit forum](https://forums.adafruit.com/viewtopic.php?p=1016286):
 
--   The battery continued operating at voltages much lower than I had expected.
-    -   I learned that the shutdown voltage of the battery circuitry is not standardized and varies by manufacturer.
--   Despite the low battery voltage, the ESP8266 continued running.
-    -   I learned that the board is more efficient than I had realized, and its ability to operate at lower voltages is a feature.
+- The battery continued operating at voltages much lower than I had expected.
+    - I learned that the shutdown voltage of the battery circuitry is not standardized and varies by manufacturer.
+- Despite the low battery voltage, the ESP8266 continued running.
+    - I learned that the board is more efficient than I had realized, and its ability to operate at lower voltages is a feature.
 
 Even though my calculations for the battery percentage were slightly inaccurate, the discharge curve of my battery matched exactly what I had expected based on my research into Li-Po batteries. Therefore, both my voltage divider and raw readings were correct!
 
@@ -236,9 +236,9 @@ Adafruit has an interesting [comparison page](https://learn.adafruit.com/dht). S
 
 I also created a second device identical to the first one and let them run for several days to compare their readings. The following graph shows these readings:
 
--   Between the 22nd and the 26th, the sensors were placed at two opposite corners of the same room.
--   Between the 26th and the 30th, they were placed right next to each other.
--   After the 30th, they were placed in two different rooms in a fairly small apartment.
+- Between the 22nd and the 26th, the sensors were placed at two opposite corners of the same room.
+- Between the 26th and the 30th, they were placed right next to each other.
+- After the 30th, they were placed in two different rooms in a fairly small apartment.
 
 ![Similar curves for two different sensors](./similar_curves_for_2_sensors.png)
 
@@ -248,8 +248,8 @@ I also created a second device identical to the first one and let them run for s
 
 I am pleased with the results. Although my methodology is not the most scientific, I am fairly confident to say that:
 
--   Since both curves generally follow the same pattern, both sensors have similar reaction times and sensitivity.
--   The minimal differences observed when the sensors are next to each other suggest they are calibrated similarly.
+- Since both curves generally follow the same pattern, both sensors have similar reaction times and sensitivity.
+- The minimal differences observed when the sensors are next to each other suggest they are calibrated similarly.
 
 With these results, I'm not certain about the absolute accuracy of the readings (e.g., whether the sensors accurately reflect the current temperature: when they indicate 24°C is it really 24°C or 22°C or 26°C?), but they should be meaningful and sufficient for my goal of understanding how temperature evolves in my apartment.
 
@@ -325,10 +325,10 @@ This enclosure is more complex because it needs to protect the board and the bat
 
 Therefore, I began by researching and educating myself:
 
--   [Humidity evolution (breathing effect) in enclosures with electronics](https://vbn.aau.dk/ws/portalfiles/portal/221557312/2015IMAPS_breathing_effect.pdf)
--   [Modeling and Simulation of Humidity Inside Sealed Boxes](https://www.researchgate.net/profile/Zheng-Guilin/publication/232616036_Modeling_and_Simulation_of_Humidity_Inside_Sealed_Boxes/links/540d5b550cf2f2b29a383bf9/Modeling-and-Simulation-of-Humidity-Inside-Sealed-Boxes.pdf)
--   [A Guide to Engineering Moisture & Pressure Protection for Sealed Enclosures](https://www.agmcontainer.com/blog/how-to/engineering-moisture-pressure-protection-guide/)
--   [forum discussion about sensors protection](https://forum.mysensors.org/topic/1560/how-to-protect-your-outdoor-sensor)
+- [Humidity evolution (breathing effect) in enclosures with electronics](https://vbn.aau.dk/ws/portalfiles/portal/221557312/2015IMAPS_breathing_effect.pdf)
+- [Modeling and Simulation of Humidity Inside Sealed Boxes](https://www.researchgate.net/profile/Zheng-Guilin/publication/232616036_Modeling_and_Simulation_of_Humidity_Inside_Sealed_Boxes/links/540d5b550cf2f2b29a383bf9/Modeling-and-Simulation-of-Humidity-Inside-Sealed-Boxes.pdf)
+- [A Guide to Engineering Moisture & Pressure Protection for Sealed Enclosures](https://www.agmcontainer.com/blog/how-to/engineering-moisture-pressure-protection-guide/)
+- [forum discussion about sensors protection](https://forum.mysensors.org/topic/1560/how-to-protect-your-outdoor-sensor)
 
 These papers are super interesting but I ended up winging it: I bought a small plastic enclosure similar [to this one](https://www.adafruit.com/product/903) with a toric joint for waterproofing and a weatherproof cable gland. The idea is to have the sensor outside of the box while the ESP8266 and its battery remain safe in a waterprood box.
 

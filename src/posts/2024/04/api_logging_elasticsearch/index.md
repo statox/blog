@@ -12,8 +12,8 @@ Goal: Set up the cheapest ELK cluster possible to - Ingest the logs of my API - 
 
 TODO:
 
--   Review costs after some usage. The idea was to benefit from the free tier, after one week it seems I don't get it.
--   Review [UltraWarm](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ultrawarm.html) nodes they might be usefull for my usage if I can't benefit from the free tier.
+- Review costs after some usage. The idea was to benefit from the free tier, after one week it seems I don't get it.
+- Review [UltraWarm](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ultrawarm.html) nodes they might be usefull for my usage if I can't benefit from the free tier.
 
 ## Setup the cluster in AWS
 
@@ -90,9 +90,9 @@ This is the template of settings which will be applied to all the indices which 
 
 Important settings:
 
--   Specify that we are working with data streams
--   Specify the `timestamp` field as the time field (which will allow the proper indexing and temporal search).
--   We are not really using index pattern as with regular indices because we are using a data stream, so the `index pattern` property must have the name of the stream we will create later on. _Note: No \* character_
+- Specify that we are working with data streams
+- Specify the `timestamp` field as the time field (which will allow the proper indexing and temporal search).
+- We are not really using index pattern as with regular indices because we are using a data stream, so the `index pattern` property must have the name of the stream we will create later on. _Note: No \* character_
 
 ![Index template settings 1](./index_template_1.png)
 
@@ -144,6 +144,6 @@ By using the correct index pattern, the policy will be applied to all the indice
 
 This kind of setup is something I'm used to do on a much bigger scale in my day job so I see the cracks in this current setup but at least it's working conveniently for my small needs.
 
--   It would be great to terraform the AWS part (but, _la flemme_)
--   I need to check if I can easily restore the automatic snapshots made by AWS and if that keeps the configurations I did in Kibana (in theory, yes)
--   Next I'll use this document store as part of the product of my api.
+- It would be great to terraform the AWS part (but, _la flemme_)
+- I need to check if I can easily restore the automatic snapshots made by AWS and if that keeps the configurations I did in Kibana (in theory, yes)
+- Next I'll use this document store as part of the product of my api.

@@ -42,9 +42,9 @@ _Note that one could have used the [`pixels`](https://p5js.org/reference/#/p5/pi
 
 This first version allowed me to define the 3 main areas that I want to render with a shader:
 
--   The rainbow: This is the line on the top which allows the user to change the hue of the current color;
--   The picker: The rectangle on the left with a gradient on the current hue, the user will be able to choose a specific saturation and brightness by clicking there;
--   The sample: The rectangle on the right which shows the currently selected color.
+- The rainbow: This is the line on the top which allows the user to change the hue of the current color;
+- The picker: The rectangle on the left with a gradient on the current hue, the user will be able to choose a specific saturation and brightness by clicking there;
+- The sample: The rectangle on the right which shows the currently selected color.
 
 ![Picker zones](../../../../images/color_picker_shader/picker_zones.png)
 
@@ -54,13 +54,13 @@ Before starting to dig into the code it's better to understand the color system 
 
 There is nothing too complex about it, and [this website](https://learnui.design/blog/the-hsb-color-system-practicioners-primer.html) does a great job at explaining in details how it works. Here are a few points to keep in mind:
 
--   **HSB** stands for **H**ue, **S**aturation and **B**rightness.
--   The hue value represent the raw color. It is expressed as an angle as shown on the color wheel here. This angle is between `0`-`360` degrees, but in a p5 sketch we map these values to the range `0`-`100`, and in a shader we will map it in the range `0.0`-`1.0`. But no matter which range we use the relative difference between the color is always the same.
-    ![color wheel](../../../../images/color_picker_shader/color_wheel.png)
+- **HSB** stands for **H**ue, **S**aturation and **B**rightness.
+- The hue value represent the raw color. It is expressed as an angle as shown on the color wheel here. This angle is between `0`-`360` degrees, but in a p5 sketch we map these values to the range `0`-`100`, and in a shader we will map it in the range `0.0`-`1.0`. But no matter which range we use the relative difference between the color is always the same.
+  ![color wheel](../../../../images/color_picker_shader/color_wheel.png)
     <center>
         <i>Color wheel borrowed from <a href="https://learnui.design/blog/the-hsb-color-system-practicioners-primer.html">this site</a></i>
     </center>
--   The saturation is how rich the color is: A 100% saturation is very colorful while a 0% saturation is grey. With a 0% saturation no matter which hue you use you will always get the same grey
+- The saturation is how rich the color is: A 100% saturation is very colorful while a 0% saturation is grey. With a 0% saturation no matter which hue you use you will always get the same grey
 
     <p class='color-line'>
       <span class='color-block text-black' style='background-color: hsl(0, 0%, 50%)'>0%</span>
@@ -77,7 +77,7 @@ There is nothing too complex about it, and [this website](https://learnui.design
       <span class='color-block text-white' style='background-color: hsl(230, 100%, 50%)'>100%</span>
     </p>
 
--   The brightness is how... bright is your color? Simply put: 0% brightness is complete black no matter the hue, 100% is white if saturation is 0% or just a very bright color.
+- The brightness is how... bright is your color? Simply put: 0% brightness is complete black no matter the hue, 100% is white if saturation is 0% or just a very bright color.
     <p class='color-line'>
       <span class='color-block text-white' style="background-color: hsl(0, 100%, 0%)">0%</span>
       <span class='color-block text-white' style="background-color: hsl(0, 100%, 25%)">25%</span>
@@ -125,8 +125,8 @@ function draw() {
 
 This will use a shader named `basic` to draw a rectangle on screen. The interesting part is then to implement this shader. As we can see in the `loadShader()` call we need 2 files to define a shader:
 
--   `shader.vert`
--   `shader.frag`
+- `shader.vert`
+- `shader.frag`
 
 These files are written with [GLSL](https://en.wikipedia.org/wiki/OpenGL_Shading_Language) which is a widely used language to program shaders, this is the language we will use the shader files in the articles.
 
@@ -284,8 +284,8 @@ void main() {
 
 The principle is very similar to the rainbow shader, two things change:
 
--   First we pass new uniform `u_hue` which determines the hue selected by the user. This hue is passed as a float ranging from `0.0` to `1.0` by the p5 sketch.
--   Then we use this hue as well as the normalized position to get the color of the pixel.
+- First we pass new uniform `u_hue` which determines the hue selected by the user. This hue is passed as a float ranging from `0.0` to `1.0` by the p5 sketch.
+- Then we use this hue as well as the normalized position to get the color of the pixel.
 
 In the `draw()` function we will use the following line to set the hue depending on the x component of the mouse position:
 
@@ -308,8 +308,8 @@ Now comes the part where we put everything together to get a working color picke
 
 The user will have two ways to interact with the picker:
 
--   When they click on the rainbow and move the mouse on it we will update the hue used in the picker rectangle.
--   When they click the picker and move the mouse on it we will update the saturation and brightness.
+- When they click on the rainbow and move the mouse on it we will update the hue used in the picker rectangle.
+- When they click the picker and move the mouse on it we will update the saturation and brightness.
 
 Each change in hue, saturation or brightness will be reflected in the sample rectangle showing the currently selected color.
 
@@ -440,11 +440,11 @@ This project was really fun to do and I hope that if you never played with shade
 
 If you also want to get started with shaders here is a list of some interesting resources:
 
--   [itp-xstory.github.io](https://itp-xstory.github.io/p5js-shaders) - An amazing introduction to using shaders with p5js
--   [aferriss/p5jsShaderExamples](https://github.com/aferriss/p5jsShaderExamples) - Some useful examples of GLSL shaders for p5js
--   [p5js.org](https://p5js.org/reference/#/p5/shader) - The p5js doc about shaders
--   [lea.codes](https://lea.codes/webgl/) - The personal website of a dev who does cool things with shaders and threejs
--   [The book of shaders](https://thebookofshaders.com/) - The Bible of shader programming
+- [itp-xstory.github.io](https://itp-xstory.github.io/p5js-shaders) - An amazing introduction to using shaders with p5js
+- [aferriss/p5jsShaderExamples](https://github.com/aferriss/p5jsShaderExamples) - Some useful examples of GLSL shaders for p5js
+- [p5js.org](https://p5js.org/reference/#/p5/shader) - The p5js doc about shaders
+- [lea.codes](https://lea.codes/webgl/) - The personal website of a dev who does cool things with shaders and threejs
+- [The book of shaders](https://thebookofshaders.com/) - The Bible of shader programming
 
 If you know of other good resources or want to discuss a project idea, leave a comment on this article!
 

@@ -14,8 +14,8 @@ In a world where Apple has a tool by default on most of its devices to change th
 
 To add this feature I made a very simple plugin which takes for variables as its configuration:
 
--   `g:dayTime` and `g:nightTime` which are two arrays used to describe when in the plugin should switch the colorscheme in the morning and in the evening.
--   `g:dayColorscheme` and `g:nightColorscheme` which are the names of the colorschemes to use for each time of the day.
+- `g:dayTime` and `g:nightTime` which are two arrays used to describe when in the plugin should switch the colorscheme in the morning and in the evening.
+- `g:dayColorscheme` and `g:nightColorscheme` which are the names of the colorschemes to use for each time of the day.
 
 The source code is on [Github](https://github.com/statox/colorscheme-changer.vim).
 
@@ -47,7 +47,7 @@ I noticed that my main pain point related to my colorscheme was when I switch vi
 
 The idea is very simple: Declare two variables holding the names of the colorschemes I want to use in normal mode and in diff mode and define some wrapper commands around diffmode:
 
--   `:DT` (For `DiffThis`) will change the colorscheme and then switch every window to diffmode
--   `:DO` (For `DiffOff`) will do the opposite: Switch back to default colorscheme and stop diff mode.
+- `:DT` (For `DiffThis`) will change the colorscheme and then switch every window to diffmode
+- `:DO` (For `DiffOff`) will do the opposite: Switch back to default colorscheme and stop diff mode.
 
 These lines having been [in my `.vimrc`](https://github.com/statox/dotfiles/blob/7fd57caab6f7e610529b976ec45728c650a1322b/vimrc#L381-L403) for a few time now and so far they fit my needs. Maybe in the future I'll also explain with more details how I handle the diff mode in Vim.

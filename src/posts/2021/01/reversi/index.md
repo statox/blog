@@ -66,10 +66,10 @@ While I was implementing my different AIs I needed to compare them together to m
 
 Nothing really surprising here but at least the results seem to be pretty coherent with what I was expecting:
 
--   When two player play randomly they roughly have a 50% rate of victory, at least `Math.random()` seems to be working good enough for this use case
--   Trying to always flip as many disks as possible is a bit more efficient than playing randomly, at least if your opponent plays randomly.
--   My MinMax implementation is pretty effective against a random user, increasing the maximal depth would make it pretty good. However given the time it takes to run I couldn't run as many games as for the other AIs.
--   My AlphaBeta pruning without a good heuristic is just a semi-broken MinMax: it's better than a random player but it prunes some valid nodes which makes it not as efficient as it could be.
+- When two player play randomly they roughly have a 50% rate of victory, at least `Math.random()` seems to be working good enough for this use case
+- Trying to always flip as many disks as possible is a bit more efficient than playing randomly, at least if your opponent plays randomly.
+- My MinMax implementation is pretty effective against a random user, increasing the maximal depth would make it pretty good. However given the time it takes to run I couldn't run as many games as for the other AIs.
+- My AlphaBeta pruning without a good heuristic is just a semi-broken MinMax: it's better than a random player but it prunes some valid nodes which makes it not as efficient as it could be.
 
 #### Demo
 

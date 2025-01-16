@@ -5,8 +5,8 @@ For now the rest of this readme will probably be my cheatsheet/todo list.
 
 # Tools used
 
--   The [newcss](https://newcss.net/) css framework.
--   The [eleventy](https://www.11ty.dev/) static site generator.
+- The [newcss](https://newcss.net/) css framework.
+- The [eleventy](https://www.11ty.dev/) static site generator.
 
 # Commands
 
@@ -28,9 +28,9 @@ Github pages serves the `gh-pages` branch. The deployment is automated with Gith
 
 In [`.deploy.yml`](https://github.com/statox/blog/blob/master/.github/workflows/deploy.yml) I use the github pages provider which does the following:
 
--   Install everything
--   Use `npm run build` to generate the site in the `docs/` directory
--   Checkout the result on the `gh-pages` branch
+- Install everything
+- Use `npm run build` to generate the site in the `docs/` directory
+- Checkout the result on the `gh-pages` branch
 
 ## Analytics
 
@@ -45,5 +45,5 @@ The template syntax is [nunjucks](https://www.11ty.dev/docs/languages/nunjucks/)
 
 ## References
 
--   A blog made with the same tools https://github.com/11ty/eleventy-base-blog
--   Eleventy docs https://www.11ty.dev/docs/
+- A blog made with the same tools https://github.com/11ty/eleventy-base-blog
+- Eleventy docs https://www.11ty.dev/docs/

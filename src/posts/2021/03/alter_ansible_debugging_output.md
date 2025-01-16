@@ -10,8 +10,8 @@ Who knew that ansible output could be actually readable? 💡
 
 Yesterday I saw [this post](https://jpmens.net/2021/03/12/alter-ansible-s-output-on-debugging/) on lobste.rs showing how changing the environment variable `ANSIBLE_STDOUT_CALLBACK` to `yaml` helps improving the output of the `ansible-playbook` command. While I was happy to find a way to improve readability there were two things which didn't fit my needs:
 
--   First, the author uses a wrapper script to call `ansible-playbook` and I regularly call the command directly from the command line so I needed something directly available and transparent.
--   Secondly, the author `export`s the `ANSIBLE_STDOUT_CALLBACK` variable so if I want to get rid of the yaml formatting I need to change the variable manually again.
+- First, the author uses a wrapper script to call `ansible-playbook` and I regularly call the command directly from the command line so I needed something directly available and transparent.
+- Secondly, the author `export`s the `ANSIBLE_STDOUT_CALLBACK` variable so if I want to get rid of the yaml formatting I need to change the variable manually again.
 
 So I came up with a short solution to be added to one's `.bash_aliases` (or any prefered rc file holding your aliases):
 
