@@ -27,7 +27,7 @@ I'm using this page to gather resources that I've found useful while learning mu
 - [Triads visualizations](https://triadmapper.herokuapp.com/)
 - [All chords diagrams](https://images.template.net/wp-content/uploads/2016/05/05072432/PDF-Document-for-Suspended-Guitar-Chord-Templates.pdf)
 - [Keyboard scales](https://www.pianoscales.org/)
-  </details>
+    </details>
 
 <details>
     <summary><a href="https://www.guitare-improvisation.com/les-bases_notes-du-manche.php" rel="noopener noreferrer" target="_blank">Notes on the fretboard</a></summary>
@@ -80,7 +80,7 @@ Guitar open string on the staff:
 
 - [Solfa](https://apps.apple.com/us/app/solfa-learn-musical-notes/id1436741307) Learning to read notes
 - [Hearing](https://apps.apple.com/us/app/hearing-ear-training-piano/id1474241582) Learning to identify notes by hear
-  </details>
+    </details>
 
 ### Chords progressions and licks
 

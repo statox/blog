@@ -129,14 +129,18 @@ So I had to do the following:
 
 - First tell eleventy to not use the `.gitignore` file. This is done by adding this to my `.eleventy.js` config file. Now git will still respect `.gitignore` but eleventy will use the `.eleventyignore` file to exclude files from the build.
 
-        eleventyConfig.setUseGitIgnore(false);
+    ```
+    eleventyConfig.setUseGitIgnore(false);
+    ```
 
 - Then my `.gitignore` remains untouched
 - And finally I added `.eleventyignore` with the following content:
 
-        node_modules/
-        docs/
-        src/secrets/
+    ```
+    node_modules/
+    docs/
+    src/secrets/
+    ```
 
 ### Voila!
 

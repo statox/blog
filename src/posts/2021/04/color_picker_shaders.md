@@ -56,42 +56,50 @@ There is nothing too complex about it, and [this website](https://learnui.design
 
 - **HSB** stands for **H**ue, **S**aturation and **B**rightness.
 - The hue value represent the raw color. It is expressed as an angle as shown on the color wheel here. This angle is between `0`-`360` degrees, but in a p5 sketch we map these values to the range `0`-`100`, and in a shader we will map it in the range `0.0`-`1.0`. But no matter which range we use the relative difference between the color is always the same.
-  ![color wheel](../../../../images/color_picker_shader/color_wheel.png)
+
+    ![color wheel](../../../../images/color_picker_shader/color_wheel.png)
     <center>
-        <i>Color wheel borrowed from <a href="https://learnui.design/blog/the-hsb-color-system-practicioners-primer.html">this site</a></i>
+    <i>Color wheel borrowed from <a href="https://learnui.design/blog/the-hsb-color-system-practicioners-primer.html">this site</a></i>
     </center>
+
 - The saturation is how rich the color is: A 100% saturation is very colorful while a 0% saturation is grey. With a 0% saturation no matter which hue you use you will always get the same grey
 
+<div>
     <p class='color-line'>
-      <span class='color-block text-black' style='background-color: hsl(0, 0%, 50%)'>0%</span>
-      <span class='color-block text-black' style='background-color: hsl(0, 25%, 50%)'>25%</span>
-      <span class='color-block text-black' style='background-color: hsl(0, 50%, 50%)'>50%</span>
-      <span class='color-block text-white' style='background-color: hsl(0, 75%, 50%)'>75%</span>
-      <span class='color-block text-white' style='background-color: hsl(0, 100%, 50%)'>100%</span>
+        <span class='color-block text-black' style='background-color: hsl(0, 0%, 50%)'>0%</span>
+        <span class='color-block text-black' style='background-color: hsl(0, 25%, 50%)'>25%</span>
+        <span class='color-block text-black' style='background-color: hsl(0, 50%, 50%)'>50%</span>
+        <span class='color-block text-white' style='background-color: hsl(0, 75%, 50%)'>75%</span>
+        <span class='color-block text-white' style='background-color: hsl(0, 100%, 50%)'>100%</span>
     </p>
     <p class='color-line'>
-      <span class='color-block text-black' style='background-color: hsl(230, 0%, 50%)'>0%</span>
-      <span class='color-block text-black' style='background-color: hsl(230, 25%, 50%)'>25%</span>
-      <span class='color-block text-black' style='background-color: hsl(230, 50%, 50%)'>50%</span>
-      <span class='color-block text-white' style='background-color: hsl(230, 75%, 50%)'>75%</span>
-      <span class='color-block text-white' style='background-color: hsl(230, 100%, 50%)'>100%</span>
+        <span class='color-block text-black' style='background-color: hsl(230, 0%, 50%)'>0%</span>
+        <span class='color-block text-black' style='background-color: hsl(230, 25%, 50%)'>25%</span>
+        <span class='color-block text-black' style='background-color: hsl(230, 50%, 50%)'>50%</span>
+        <span class='color-block text-white' style='background-color: hsl(230, 75%, 50%)'>75%</span>
+        <span class='color-block text-white' style='background-color: hsl(230, 100%, 50%)'>100%</span>
     </p>
 
+</div>
+
 - The brightness is how... bright is your color? Simply put: 0% brightness is complete black no matter the hue, 100% is white if saturation is 0% or just a very bright color.
+
+<div>
     <p class='color-line'>
-      <span class='color-block text-white' style="background-color: hsl(0, 100%, 0%)">0%</span>
-      <span class='color-block text-white' style="background-color: hsl(0, 100%, 25%)">25%</span>
-      <span class='color-block text-white' style="background-color: hsl(0, 100%, 50%)">50%</span>
-      <span class='color-block text-black' style="background-color: hsl(0, 100%, 75%)">75%</span>
-      <span class='color-block text-black' style="background-color: hsl(0, 100%, 100%)">100%</span>
+        <span class='color-block text-white' style="background-color: hsl(0, 100%, 0%)">0%</span>
+        <span class='color-block text-white' style="background-color: hsl(0, 100%, 25%)">25%</span>
+        <span class='color-block text-white' style="background-color: hsl(0, 100%, 50%)">50%</span>
+        <span class='color-block text-black' style="background-color: hsl(0, 100%, 75%)">75%</span>
+        <span class='color-block text-black' style="background-color: hsl(0, 100%, 100%)">100%</span>
     </p>
     <p class='color-line'>
-      <span class='color-block text-white' style="background-color: hsl(230, 100%, 0%)">0%</span>
-      <span class='color-block text-white' style="background-color: hsl(230, 100%, 25%)">25%</span>
-      <span class='color-block text-white' style="background-color: hsl(230, 100%, 50%)">50%</span>
-      <span class='color-block text-black' style="background-color: hsl(230, 100%, 75%)">75%</span>
-      <span class='color-block text-black' style="background-color: hsl(230, 100%, 100%)">100%</span>
+        <span class='color-block text-white' style="background-color: hsl(230, 100%, 0%)">0%</span>
+        <span class='color-block text-white' style="background-color: hsl(230, 100%, 25%)">25%</span>
+        <span class='color-block text-white' style="background-color: hsl(230, 100%, 50%)">50%</span>
+        <span class='color-block text-black' style="background-color: hsl(230, 100%, 75%)">75%</span>
+        <span class='color-block text-black' style="background-color: hsl(230, 100%, 100%)">100%</span>
     </p>
+</div>
 
 Note that you'll also find online some references to the color systems **HSV** and **HSL**. If I believe the wikipedia page **HSV** is the exact same thing as **HSB** excepted **B**rightness is named **V**alue. And **HSL** is **H**ue, **S**aturation, **L**ightness which is kind of the inverse of Brightness (if you want details, check wiki they explain it better than I'll do).
 
@@ -447,5 +455,4 @@ If you also want to get started with shaders here is a list of some interesting 
 - [The book of shaders](https://thebookofshaders.com/) - The Bible of shader programming
 
 If you know of other good resources or want to discuss a project idea, leave a comment on this article!
-
 <!-- vim: set spell: -->
