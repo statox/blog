@@ -10,7 +10,7 @@
   <subtitle>statox&#39;s blog</subtitle>
   <link href="https://www.statox.fr/feed.xml" rel="self"/>
   <link href="https://www.statox.fr/"/>
-  <updated>2024-06-18T00:00:00Z</updated>
+  <updated>2025-01-20T00:00:00Z</updated>
   <id>https://www.statox.fr/</id>
   <author>
     <name>statox</name>
@@ -2207,51 +2207,51 @@ See the above repository for updates as well as full license text. */&lt;/span&g
 &lt;p&gt;Before starting to dig into the code it&#39;s better to understand the color system we&#39;ll be using in this article: The HSB color system!&lt;/p&gt;
 &lt;p&gt;There is nothing too complex about it, and &lt;a href=&quot;https://learnui.design/blog/the-hsb-color-system-practicioners-primer.html&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;this website&lt;/a&gt; does a great job at explaining in details how it works. Here are a few points to keep in mind:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;HSB&lt;/strong&gt; stands for &lt;strong&gt;H&lt;/strong&gt;ue, &lt;strong&gt;S&lt;/strong&gt;aturation and &lt;strong&gt;B&lt;/strong&gt;rightness.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;The hue value represent the raw color. It is expressed as an angle as shown on the color wheel here. This angle is between &lt;code&gt;0&lt;/code&gt;-&lt;code&gt;360&lt;/code&gt; degrees, but in a p5 sketch we map these values to the range &lt;code&gt;0&lt;/code&gt;-&lt;code&gt;100&lt;/code&gt;, and in a shader we will map it in the range &lt;code&gt;0.0&lt;/code&gt;-&lt;code&gt;1.0&lt;/code&gt;. But no matter which range we use the relative difference between the color is always the same.&lt;br /&gt;
-&lt;img src=&quot;https://www.statox.fr/images/color_picker_shader/color_wheel.png&quot; alt=&quot;color wheel&quot; /&gt;&lt;/p&gt;
-&lt;center&gt;
-    &lt;i&gt;Color wheel borrowed from &lt;a href=&quot;https://learnui.design/blog/the-hsb-color-system-practicioners-primer.html&quot;&gt;this site&lt;/a&gt;&lt;/i&gt;
-&lt;/center&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;The saturation is how rich the color is: A 100% saturation is very colorful while a 0% saturation is grey. With a 0% saturation no matter which hue you use you will always get the same grey&lt;/p&gt;
-&lt;p class=&quot;color-line&quot;&gt;
-  &lt;span class=&quot;color-block text-black&quot; style=&quot;background-color: hsl(0, 0%, 50%)&quot;&gt;0%&lt;/span&gt;
-  &lt;span class=&quot;color-block text-black&quot; style=&quot;background-color: hsl(0, 25%, 50%)&quot;&gt;25%&lt;/span&gt;
-  &lt;span class=&quot;color-block text-black&quot; style=&quot;background-color: hsl(0, 50%, 50%)&quot;&gt;50%&lt;/span&gt;
-  &lt;span class=&quot;color-block text-white&quot; style=&quot;background-color: hsl(0, 75%, 50%)&quot;&gt;75%&lt;/span&gt;
-  &lt;span class=&quot;color-block text-white&quot; style=&quot;background-color: hsl(0, 100%, 50%)&quot;&gt;100%&lt;/span&gt;
-&lt;/p&gt;
-&lt;p class=&quot;color-line&quot;&gt;
-  &lt;span class=&quot;color-block text-black&quot; style=&quot;background-color: hsl(230, 0%, 50%)&quot;&gt;0%&lt;/span&gt;
-  &lt;span class=&quot;color-block text-black&quot; style=&quot;background-color: hsl(230, 25%, 50%)&quot;&gt;25%&lt;/span&gt;
-  &lt;span class=&quot;color-block text-black&quot; style=&quot;background-color: hsl(230, 50%, 50%)&quot;&gt;50%&lt;/span&gt;
-  &lt;span class=&quot;color-block text-white&quot; style=&quot;background-color: hsl(230, 75%, 50%)&quot;&gt;75%&lt;/span&gt;
-  &lt;span class=&quot;color-block text-white&quot; style=&quot;background-color: hsl(230, 100%, 50%)&quot;&gt;100%&lt;/span&gt;
-&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;The brightness is how... bright is your color? Simply put: 0% brightness is complete black no matter the hue, 100% is white if saturation is 0% or just a very bright color.&lt;/p&gt;
-&lt;p class=&quot;color-line&quot;&gt;
-  &lt;span class=&quot;color-block text-white&quot; style=&quot;background-color: hsl(0, 100%, 0%)&quot;&gt;0%&lt;/span&gt;
-  &lt;span class=&quot;color-block text-white&quot; style=&quot;background-color: hsl(0, 100%, 25%)&quot;&gt;25%&lt;/span&gt;
-  &lt;span class=&quot;color-block text-white&quot; style=&quot;background-color: hsl(0, 100%, 50%)&quot;&gt;50%&lt;/span&gt;
-  &lt;span class=&quot;color-block text-black&quot; style=&quot;background-color: hsl(0, 100%, 75%)&quot;&gt;75%&lt;/span&gt;
-  &lt;span class=&quot;color-block text-black&quot; style=&quot;background-color: hsl(0, 100%, 100%)&quot;&gt;100%&lt;/span&gt;
-&lt;/p&gt;
-&lt;p class=&quot;color-line&quot;&gt;
-  &lt;span class=&quot;color-block text-white&quot; style=&quot;background-color: hsl(230, 100%, 0%)&quot;&gt;0%&lt;/span&gt;
-  &lt;span class=&quot;color-block text-white&quot; style=&quot;background-color: hsl(230, 100%, 25%)&quot;&gt;25%&lt;/span&gt;
-  &lt;span class=&quot;color-block text-white&quot; style=&quot;background-color: hsl(230, 100%, 50%)&quot;&gt;50%&lt;/span&gt;
-  &lt;span class=&quot;color-block text-black&quot; style=&quot;background-color: hsl(230, 100%, 75%)&quot;&gt;75%&lt;/span&gt;
-  &lt;span class=&quot;color-block text-black&quot; style=&quot;background-color: hsl(230, 100%, 100%)&quot;&gt;100%&lt;/span&gt;
-&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;HSB&lt;/strong&gt; stands for &lt;strong&gt;H&lt;/strong&gt;ue, &lt;strong&gt;S&lt;/strong&gt;aturation and &lt;strong&gt;B&lt;/strong&gt;rightness.&lt;/li&gt;
+&lt;li&gt;The hue value represent the raw color. It is expressed as an angle as shown on the color wheel here. This angle is between &lt;code&gt;0&lt;/code&gt;-&lt;code&gt;360&lt;/code&gt; degrees, but in a p5 sketch we map these values to the range &lt;code&gt;0&lt;/code&gt;-&lt;code&gt;100&lt;/code&gt;, and in a shader we will map it in the range &lt;code&gt;0.0&lt;/code&gt;-&lt;code&gt;1.0&lt;/code&gt;. But no matter which range we use the relative difference between the color is always the same.&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.statox.fr/images/color_picker_shader/color_wheel.png&quot; alt=&quot;color wheel&quot; /&gt;&lt;/p&gt;
+&lt;center&gt;
+&lt;i&gt;Color wheel borrowed from &lt;a href=&quot;https://learnui.design/blog/the-hsb-color-system-practicioners-primer.html&quot;&gt;this site&lt;/a&gt;&lt;/i&gt;
+&lt;/center&gt;
+&lt;ul&gt;
+&lt;li&gt;The saturation is how rich the color is: A 100% saturation is very colorful while a 0% saturation is grey. With a 0% saturation no matter which hue you use you will always get the same grey&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div&gt;
+    &lt;p class=&quot;color-line&quot;&gt;
+        &lt;span class=&quot;color-block text-black&quot; style=&quot;background-color: hsl(0, 0%, 50%)&quot;&gt;0%&lt;/span&gt;
+        &lt;span class=&quot;color-block text-black&quot; style=&quot;background-color: hsl(0, 25%, 50%)&quot;&gt;25%&lt;/span&gt;
+        &lt;span class=&quot;color-block text-black&quot; style=&quot;background-color: hsl(0, 50%, 50%)&quot;&gt;50%&lt;/span&gt;
+        &lt;span class=&quot;color-block text-white&quot; style=&quot;background-color: hsl(0, 75%, 50%)&quot;&gt;75%&lt;/span&gt;
+        &lt;span class=&quot;color-block text-white&quot; style=&quot;background-color: hsl(0, 100%, 50%)&quot;&gt;100%&lt;/span&gt;
+    &lt;/p&gt;
+    &lt;p class=&quot;color-line&quot;&gt;
+        &lt;span class=&quot;color-block text-black&quot; style=&quot;background-color: hsl(230, 0%, 50%)&quot;&gt;0%&lt;/span&gt;
+        &lt;span class=&quot;color-block text-black&quot; style=&quot;background-color: hsl(230, 25%, 50%)&quot;&gt;25%&lt;/span&gt;
+        &lt;span class=&quot;color-block text-black&quot; style=&quot;background-color: hsl(230, 50%, 50%)&quot;&gt;50%&lt;/span&gt;
+        &lt;span class=&quot;color-block text-white&quot; style=&quot;background-color: hsl(230, 75%, 50%)&quot;&gt;75%&lt;/span&gt;
+        &lt;span class=&quot;color-block text-white&quot; style=&quot;background-color: hsl(230, 100%, 50%)&quot;&gt;100%&lt;/span&gt;
+    &lt;/p&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;The brightness is how... bright is your color? Simply put: 0% brightness is complete black no matter the hue, 100% is white if saturation is 0% or just a very bright color.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div&gt;
+    &lt;p class=&quot;color-line&quot;&gt;
+        &lt;span class=&quot;color-block text-white&quot; style=&quot;background-color: hsl(0, 100%, 0%)&quot;&gt;0%&lt;/span&gt;
+        &lt;span class=&quot;color-block text-white&quot; style=&quot;background-color: hsl(0, 100%, 25%)&quot;&gt;25%&lt;/span&gt;
+        &lt;span class=&quot;color-block text-white&quot; style=&quot;background-color: hsl(0, 100%, 50%)&quot;&gt;50%&lt;/span&gt;
+        &lt;span class=&quot;color-block text-black&quot; style=&quot;background-color: hsl(0, 100%, 75%)&quot;&gt;75%&lt;/span&gt;
+        &lt;span class=&quot;color-block text-black&quot; style=&quot;background-color: hsl(0, 100%, 100%)&quot;&gt;100%&lt;/span&gt;
+    &lt;/p&gt;
+    &lt;p class=&quot;color-line&quot;&gt;
+        &lt;span class=&quot;color-block text-white&quot; style=&quot;background-color: hsl(230, 100%, 0%)&quot;&gt;0%&lt;/span&gt;
+        &lt;span class=&quot;color-block text-white&quot; style=&quot;background-color: hsl(230, 100%, 25%)&quot;&gt;25%&lt;/span&gt;
+        &lt;span class=&quot;color-block text-white&quot; style=&quot;background-color: hsl(230, 100%, 50%)&quot;&gt;50%&lt;/span&gt;
+        &lt;span class=&quot;color-block text-black&quot; style=&quot;background-color: hsl(230, 100%, 75%)&quot;&gt;75%&lt;/span&gt;
+        &lt;span class=&quot;color-block text-black&quot; style=&quot;background-color: hsl(230, 100%, 100%)&quot;&gt;100%&lt;/span&gt;
+    &lt;/p&gt;
+&lt;/div&gt;
 &lt;p&gt;Note that you&#39;ll also find online some references to the color systems &lt;strong&gt;HSV&lt;/strong&gt; and &lt;strong&gt;HSL&lt;/strong&gt;. If I believe the wikipedia page &lt;strong&gt;HSV&lt;/strong&gt; is the exact same thing as &lt;strong&gt;HSB&lt;/strong&gt; excepted &lt;strong&gt;B&lt;/strong&gt;rightness is named &lt;strong&gt;V&lt;/strong&gt;alue. And &lt;strong&gt;HSL&lt;/strong&gt; is &lt;strong&gt;H&lt;/strong&gt;ue, &lt;strong&gt;S&lt;/strong&gt;aturation, &lt;strong&gt;L&lt;/strong&gt;ightness which is kind of the inverse of Brightness (if you want details, check wiki they explain it better than I&#39;ll do).&lt;/p&gt;
 &lt;h3 id=&quot;our-first-shader&quot; tabindex=&quot;-1&quot;&gt;Our first shader &lt;a class=&quot;header-anchor&quot; href=&quot;https://www.statox.fr/posts/2021/04/color_picker_shaders/#our-first-shader&quot;&gt;🔗&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Now that we know what our project should look like and we understand our color system let&#39;s get started with shaders! The first step is to use a very basic shader in a p5js project. Fortunately the doc gives &lt;a href=&quot;https://p5js.org/examples/3d-basic-shader.html&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;a good example&lt;/a&gt; of a very simple usage:&lt;/p&gt;
@@ -2763,16 +2763,18 @@ fusermount &lt;span class=&quot;token parameter variable&quot;&gt;-u&lt;/span&gt
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;First tell eleventy to not use the &lt;code&gt;.gitignore&lt;/code&gt; file. This is done by adding this to my &lt;code&gt;.eleventy.js&lt;/code&gt; config file. Now git will still respect &lt;code&gt;.gitignore&lt;/code&gt; but eleventy will use the &lt;code&gt;.eleventyignore&lt;/code&gt; file to exclude files from the build.&lt;/p&gt;
-&lt;p&gt;eleventyConfig.setUseGitIgnore(false);&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;eleventyConfig.setUseGitIgnore(false);
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Then my &lt;code&gt;.gitignore&lt;/code&gt; remains untouched&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;And finally I added &lt;code&gt;.eleventyignore&lt;/code&gt; with the following content:&lt;/p&gt;
-&lt;p&gt;node_modules/&lt;br /&gt;
-docs/&lt;br /&gt;
-src/secrets/&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;node_modules/
+docs/
+src/secrets/
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&quot;voila!&quot; tabindex=&quot;-1&quot;&gt;Voila! &lt;a class=&quot;header-anchor&quot; href=&quot;https://www.statox.fr/posts/2021/11/eleventy_secrets/#voila!&quot;&gt;🔗&lt;/a&gt;&lt;/h3&gt;
@@ -3129,7 +3131,8 @@ services:
     <link href="https://www.statox.fr/posts/2021/05/javascript_golf_tips/"/>
     <updated>2023-09-07T00:00:00Z</updated>
     <id>https://www.statox.fr/posts/2021/05/javascript_golf_tips/</id>
-    <content type="html">&lt;center&gt;
+    <content type="html">&lt;p&gt;See also my &lt;a href=&quot;https://www.statox.fr/posts/2025/01/python_golf_tips/&quot;&gt;Python golf page&lt;/a&gt;&lt;/p&gt;
+&lt;center&gt;
 &lt;i style=&quot;color: grey;&quot;&gt;This page is a work in progress. I want to keep adding stuff I already know when I think of using it and new stuff when I discover it.&lt;/i&gt;
 &lt;/center&gt;
 &lt;br /&gt;
@@ -3945,6 +3948,18 @@ sampling rate: -
     &lt;i&gt;Metrics in the weather-proof enclosure&lt;/i&gt;
 &lt;/center&gt;
 &lt;p&gt;I found that the box doesn&#39;t prevent temperature changes (as expected), but it does maintain the humidity level at what it was when sealed. This should be sufficient for my upcoming initial tests of the outdoor sensor.&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>Python codegolf tips</title>
+    <link href="https://www.statox.fr/posts/2025/01/python_golf_tips/"/>
+    <updated>2025-01-20T00:00:00Z</updated>
+    <id>https://www.statox.fr/posts/2025/01/python_golf_tips/</id>
+    <content type="html">&lt;p&gt;See also my &lt;a href=&quot;https://www.statox.fr/posts/2021/05/javascript_golf_tips&quot;&gt;Javascript golf page&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;resources&quot; tabindex=&quot;-1&quot;&gt;Resources &lt;a class=&quot;header-anchor&quot; href=&quot;https://www.statox.fr/posts/2025/01/python_golf_tips/#resources&quot;&gt;🔗&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Useful code to copy/paste in codingame &amp;quot;fastest&amp;quot; challenges:&lt;/p&gt;
+&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;args&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;args&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;sys&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;stderr&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 </content>
   </entry>
 </feed>
