@@ -6,6 +6,8 @@ title: Javascript codegolf tips
 commentIssueId: 28
 ---
 
+See also my [Python golf page](/posts/2025/01/python_golf_tips/)
+
 <center>
 <i style="color: grey;">This page is a work in progress. I want to keep adding stuff I already know when I think of using it and new stuff when I discover it.</i>
 </center>
