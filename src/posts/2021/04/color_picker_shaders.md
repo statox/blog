@@ -57,10 +57,11 @@ There is nothing too complex about it, and [this website](https://learnui.design
 - **HSB** stands for **H**ue, **S**aturation and **B**rightness.
 - The hue value represent the raw color. It is expressed as an angle as shown on the color wheel here. This angle is between `0`-`360` degrees, but in a p5 sketch we map these values to the range `0`-`100`, and in a shader we will map it in the range `0.0`-`1.0`. But no matter which range we use the relative difference between the color is always the same.
 
-    ![color wheel](../../../../images/color_picker_shader/color_wheel.png)
-    <center>
-    <i>Color wheel borrowed from <a href="https://learnui.design/blog/the-hsb-color-system-practicioners-primer.html">this site</a></i>
-    </center>
+![color wheel](../../../../images/color_picker_shader/color_wheel.png)
+
+<center>
+<i>Color wheel borrowed from <a href="https://learnui.design/blog/the-hsb-color-system-practicioners-primer.html">this site</a></i>
+</center>
 
 - The saturation is how rich the color is: A 100% saturation is very colorful while a 0% saturation is grey. With a 0% saturation no matter which hue you use you will always get the same grey
 
@@ -455,4 +456,5 @@ If you also want to get started with shaders here is a list of some interesting 
 - [The book of shaders](https://thebookofshaders.com/) - The Bible of shader programming
 
 If you know of other good resources or want to discuss a project idea, leave a comment on this article!
+
 <!-- vim: set spell: -->

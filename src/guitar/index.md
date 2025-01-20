@@ -16,7 +16,7 @@ I'm using this page to gather resources that I've found useful while learning mu
 ### Music theory - Scales, Chords, Fretboard...
 
 <details>
-    <summary>Scales and chords visualization tools</summary>
+<summary>Scales and chords visualization tools</summary>
 
 - [JGuitar scales, chords, harmonizers](https://jguitar.com/)
 - [Guitar scales - Online Guitar Book](https://onlineguitarbooks.com/guitar-scales/)
@@ -27,10 +27,11 @@ I'm using this page to gather resources that I've found useful while learning mu
 - [Triads visualizations](https://triadmapper.herokuapp.com/)
 - [All chords diagrams](https://images.template.net/wp-content/uploads/2016/05/05072432/PDF-Document-for-Suspended-Guitar-Chord-Templates.pdf)
 - [Keyboard scales](https://www.pianoscales.org/)
-    </details>
+
+</details>
 
 <details>
-    <summary><a href="https://www.guitare-improvisation.com/les-bases_notes-du-manche.php" rel="noopener noreferrer" target="_blank">Notes on the fretboard</a></summary>
+<summary><a href="https://www.guitare-improvisation.com/les-bases_notes-du-manche.php" rel="noopener noreferrer" target="_blank">Notes on the fretboard</a></summary>
 
 ![Notes sur le manche](/images/guitar/C_majeur_Entier.png)
 ![Guitar fingerboard chart](https://i.redd.it/hs2ewp5vznd81.jpg)
@@ -38,7 +39,7 @@ I'm using this page to gather resources that I've found useful while learning mu
 </details>
 
 <details>
-    <summary><a href="https://www.guitare-improvisation.com/improviser_le-blues.php" rel="noopener noreferrer" target="_blank">Blues scale in A</a></summary>
+<summary><a href="https://www.guitare-improvisation.com/improviser_le-blues.php" rel="noopener noreferrer" target="_blank">Blues scale in A</a></summary>
 
 Position I ![Pentatonique mineur en La - Position I](/images/guitar/gamme-blues-de-LA-position-1.png)
 Position II ![Pentatonique mineur en La - Position II](/images/guitar/gamme-blues-de-LA-position-2.png)
@@ -50,14 +51,14 @@ Position V ![Pentatonique mineur en La - Position V](/images/guitar/gamme-blues-
 </details>
 
 <details>
-    <summary>CAGED system</summary>
+<summary>CAGED system</summary>
 
 [Pick up music - The CAGED system explained](https://www.youtube.com/watch?v=-nphFK6HFjY)
 
 </details>
 
 <details>
-    <summary>Learning to read a staff</summary>
+<summary>Learning to read a staff</summary>
 
 [Reference](https://www.apprendrelesolfege.com/lire-les-notes)
 
@@ -76,24 +77,25 @@ Guitar open string on the staff:
 </details>
 
 <details>
-    <summary>iOS applications</summary>
+<summary>iOS applications</summary>
 
 - [Solfa](https://apps.apple.com/us/app/solfa-learn-musical-notes/id1436741307) Learning to read notes
 - [Hearing](https://apps.apple.com/us/app/hearing-ear-training-piano/id1474241582) Learning to identify notes by hear
-    </details>
+
+</details>
 
 ### Chords progressions and licks
 
 #### Common chord progressions
 
 <details>
-    <summary><a href="https://apps.statox.fr/scales" rel="noopener noreferrer" target="_blank">Common chords progressions</a></summary>
+<summary><a href="https://apps.statox.fr/scales" rel="noopener noreferrer" target="_blank">Common chords progressions</a></summary>
 </details>
 
 #### LoFi
 
 <details>
-    <summary><a href="https://soundcloud.com/lately-lui/amsterdam" rel="noopener noreferrer" target="_blank">Lately Lui - Amsterdam</a></summary>
+<summary><a href="https://soundcloud.com/lately-lui/amsterdam" rel="noopener noreferrer" target="_blank">Lately Lui - Amsterdam</a></summary>
 
 ```
 Dmin7b5 - x5656x
@@ -130,7 +132,7 @@ Ebmin7  - x  6 8  6  7 6
 </details>
 
 <details>
-    <summary><a href="https://www.youtube.com/watch?v=FqyWHayvgtY" rel="noopener noreferrer" target="_blank">Mondo Loops - Lofi Hiphop Guitar</a></summary>
+<summary><a href="https://www.youtube.com/watch?v=FqyWHayvgtY" rel="noopener noreferrer" target="_blank">Mondo Loops - Lofi Hiphop Guitar</a></summary>
 
 ```
 C#min7  - x46454
@@ -143,9 +145,9 @@ F#min7  - x24222
 #### Blues
 
 <details>
-    <summary><a href="https://eatsleepguitarrepeat.com/12-bar-blues-variations-blues-rhythm-guitar-lesson-improve-your-blues/" rel="noopener noreferrer" target="_blank">12 bars blues variations</a></summary>
+<summary><a href="https://eatsleepguitarrepeat.com/12-bar-blues-variations-blues-rhythm-guitar-lesson-improve-your-blues/" rel="noopener noreferrer" target="_blank">12 bars blues variations</a></summary>
 </details>
 
 <details>
-    <summary><a href="https://www.youtube.com/playlist?list=PLUExMPmFbP3ohwQSByFUJ71dW5d61rErC" rel="noopener noreferrer" target="_blank">Blues backing tracks</a></summary>
+<summary><a href="https://www.youtube.com/playlist?list=PLUExMPmFbP3ohwQSByFUJ71dW5d61rErC" rel="noopener noreferrer" target="_blank">Blues backing tracks</a></summary>
 </details>
