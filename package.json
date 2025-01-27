@@ -7,11 +7,11 @@
     "devDependencies": {
         "@11ty/eleventy": "^3.0.0",
         "@11ty/eleventy-navigation": "^0.3.5",
-        "@11ty/eleventy-plugin-rss": "^2.0.2",
+        "@11ty/eleventy-plugin-rss": "^2.0.3",
         "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
         "@actions/core": "^1.11.1",
         "@actions/github": "^6.0.0",
-        "@octokit/rest": "21.0.2",
+        "@octokit/rest": "21.1.0",
         "@quasibit/eleventy-plugin-sitemap": "^2.2.0",
         "async": "^3.2.6",
         "eleventy-plugin-seo": "^0.5.2",
