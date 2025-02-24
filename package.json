@@ -11,7 +11,7 @@
         "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
         "@actions/core": "^1.11.1",
         "@actions/github": "^6.0.0",
-        "@octokit/rest": "21.1.0",
+        "@octokit/rest": "21.1.1",
         "@quasibit/eleventy-plugin-sitemap": "^2.2.0",
         "async": "^3.2.6",
         "eleventy-plugin-seo": "^0.5.2",
@@ -22,7 +22,7 @@
         "markdown-it-anchor": "^9.2.0",
         "markdown-it-emoji": "^3.0.0",
         "markdown-it-external-links": "^0.0.6",
-        "prettier": "^3.4.2"
+        "prettier": "^3.5.2"
     },
     "homepage": "www.statox.fr",
     "keywords": [],
