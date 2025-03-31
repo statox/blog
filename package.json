@@ -6,7 +6,7 @@
     "description": "A personal blog where I write about my side projects",
     "devDependencies": {
         "@11ty/eleventy": "^3.0.0",
-        "@11ty/eleventy-navigation": "^1.0.1",
+        "@11ty/eleventy-navigation": "^1.0.3",
         "@11ty/eleventy-plugin-rss": "^2.0.3",
         "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
         "@actions/core": "^1.11.1",
@@ -18,7 +18,7 @@
         "eleventy-plugin-wordcount": "^1.0.5",
         "follow-redirects": "^1.15.9",
         "html-minifier": "^4.0.0",
-        "luxon": "^3.5.0",
+        "luxon": "^3.6.0",
         "markdown-it-anchor": "^9.2.0",
         "markdown-it-emoji": "^3.0.0",
         "markdown-it-external-links": "^0.0.6",
