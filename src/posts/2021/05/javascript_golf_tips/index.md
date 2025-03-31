@@ -341,10 +341,8 @@ In some cases where you need to stop your program immediately it is possible to 
 This work because codingame validate the standard output of your program but not that it ran without errors. This is a bogus example just to show my point: Imagine you need to iterate through a list looking for the first value matching a condition, knowing that several values will match it. You'll want to avoid printing the next values so you need to stop the program altogether. You could use `process.exit()` but using `Z` (assuming that you didn't define the variable) is much shorter:
 
 ```javascript
-if (//condition)print(result),process.exit()
-if (//condition)print(result),Z
+if (/*condition*/)print(result),process.exit()
+if (/*condition*/)print(result),Z
 ```
-
-Arguably this is not an example drawn from an actual challenge and in most of the case one could use `[array].find()` or a similar function instead of iterating through the loop. But in some rare situations that can be useful.
 
 <!-- vim: set spell: -->
