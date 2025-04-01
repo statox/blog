@@ -316,13 +316,39 @@ m = r((n = r((i = 0))));
 
 ⚠ The order of calls made to `r()` is important here: The first call made to the function should be the most nested.
 
-#### Shorten the strings passed as arguments
+#### Use tagged templates to shorten some function calls
 
-I'm not completely sure how this trick works because I can't reproduce it in a browser or in node, but in codingame if you need to pass a string as an argument you can avoid the whole `('string')` syntax with a pair of back ticks. This can be useful to split a string or join an array:
+See the MDN doc for [tagged templates](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#tagged_templates)
+
+Basically if you pass to a function a template literal with some placeholders like this:
+
+```javascript
+myTagFn`str1 ${a} str2 ${b} str3`;
+```
+
+The function will get as parameters 1) the resulting array of splitting the template literal on each placeholders and 2) the different placeholders. E.g.:
+
+```
+const myTagFn = (strings, ...args) => {
+    console.log(strings); // [ 'str1 ', ' str2 ', ' str3' ]
+    console.log(args);    // [ 1, 2 ]
+}
+
+const a = 1
+const b = 2
+myTagFn`str1 ${a} str2 ${b} str3`
+```
+
+It turns out that many methods of the standard library work as tag functions which allows to remove the parenthesis around their arguments. For example:
 
 ```javascript
 'ab cd ef'.split(' ');
-'ab cd ef'.split` `[(1, 2, 3)].join('\r')[(1, 2, 3)].join`\r`;
+'ab cd ef'.split` `;
+```
+
+```javascript
+[1, 2, 3].join('\r');
+[1, 2, 3].join`\r`;
 ```
 
 #### Replace `console.log` by `print`
