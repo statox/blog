@@ -1,450 +1,949 @@
 [
     {
-        "demo_url": "https://apps.statox.fr/home-tracker",
-        "article_url": "https://www.statox.fr/posts/2024/06/environment_sensors/",
-        "image": "images/projects/home_tracker.gif",
         "name": "Home Tracker",
-        "description": "Home made environment monitoring system. This is my most complete project it involves several temperature and humidity sensors I created based on Adafruit's feather boards, my API to get the readings of the sensors, my ELK cluster to store the readings and a UI I created to display the readings."
+        "image": "images/projects/home_tracker.gif",
+        "description": "Home made environment monitoring system. This is my most complete project it involves several temperature and humidity sensors I created based on Adafruit's feather boards, my API to get the readings of the sensors, my ELK cluster to store the readings and a UI I created to display the readings.",
+        "links": [
+            {
+                "name": "demo",
+                "url": "https://apps.statox.fr/home-tracker"
+            },
+            {
+                "name": "article",
+                "url": "https://www.statox.fr/posts/2024/06/environment_sensors/"
+            }
+        ]
     },
     {
-        "demo_url": "https://apps.statox.fr/ephemerides",
-        "image": "images/projects/ephemerides.png",
         "name": "Ephemerides",
-        "description": "A dashboard of the current state of the moon and sun. For this project I re-implemented sun-calc.js in typescript and added more tests, I now want to distribute this rework properly, for now it is deeply coupled with my API repo."
+        "image": "images/projects/ephemerides.png",
+        "description": "A dashboard of the current state of the moon and sun. For this project I re-implemented sun-calc.js in typescript and added more tests, I now want to distribute this rework properly, for now it is deeply coupled with my API repo.",
+        "links": [
+            {
+                "name": "demo",
+                "url": "https://apps.statox.fr/ephemerides"
+            }
+        ]
     },
     {
-        "demo_url": "https://apps.statox.fr/webwatcher",
-        "image": "images/projects/web_watcher.png",
         "name": "Web Watcher",
-        "description": "Notify me when a web page changes. I created this app because I wanted to buy a new OVH server which is not often available and gets rapidly sold out when new ones are available. So I use my API to regularly run server-side checks to load an URL and either check the checksum of the response or extract a specific CSS selector and check if its value changed. The UI is integrated in my Apps website"
+        "image": "images/projects/web_watcher.png",
+        "description": "Notify me when a web page changes. I created this app because I wanted to buy a new OVH server which is not often available and gets rapidly sold out when new ones are available. So I use my API to regularly run server-side checks to load an URL and either check the checksum of the response or extract a specific CSS selector and check if its value changed. The UI is integrated in my Apps website",
+        "links": [
+            {
+                "name": "demo",
+                "url": "https://apps.statox.fr/webwatcher"
+            }
+        ]
     },
     {
-        "demo_url": "https://apps.statox.fr/notes",
-        "image": "images/projects/stuff_i_forget.png",
         "name": "Stuff I Forget",
-        "description": "List of code snippets, bash commands and other technical bits I always forget and don't want to google again. The page used to be on this website I moved it to my apps frontend. There are many features I want to add but it works well enough for my needs and I never get to actually rework it."
+        "image": "images/projects/stuff_i_forget.png",
+        "description": "List of code snippets, bash commands and other technical bits I always forget and don't want to google again. The page used to be on this website I moved it to my apps frontend. There are many features I want to add but it works well enough for my needs and I never get to actually rework it.",
+        "links": [
+            {
+                "name": "demo",
+                "url": "https://apps.statox.fr/notes"
+            }
+        ]
     },
     {
-        "code_url": "https://github.com/statox/statox-provisioning",
-        "image": "images/projects/provisioning.png",
         "name": "Provisioning",
-        "description": "I terraformed my whole infrastructure to make it easier to keep track of what I'm doing, my Cloudflare R2 buckets and DNS records, my AWS infra (users, S3 buckets, ec2 instances, ...). The state is stored remotely on a S3 bucket. The code is private because I don't trust completely trust myself with exposing my infra to the public."
+        "image": "images/projects/provisioning.png",
+        "description": "I terraformed my whole infrastructure to make it easier to keep track of what I'm doing, my Cloudflare R2 buckets and DNS records, my AWS infra (users, S3 buckets, ec2 instances, ...). The state is stored remotely on a S3 bucket. The code is private because I don't trust completely trust myself with exposing my infra to the public.",
+        "links": [
+            {
+                "name": "code",
+                "url": "https://github.com/statox/statox-provisioning"
+            }
+        ]
     },
     {
-        "demo_url": "https://apps.statox.fr/reactor",
-        "image": "images/projects/reactor.png",
         "name": "Reactor",
-        "description": "My database of memes. Based on the same code as my Clipboard app this app allows me to keep all my favorite memes at the same place to easily retrieve them and share them in in online discussions."
+        "image": "images/projects/reactor.png",
+        "description": "My database of memes. Based on the same code as my Clipboard app this app allows me to keep all my favorite memes at the same place to easily retrieve them and share them in in online discussions.",
+        "links": [
+            {
+                "name": "demo",
+                "url": "https://apps.statox.fr/reactor"
+            }
+        ]
     },
     {
-        "demo_url": "https://apps.statox.fr/clipboard",
-        "image": "images/projects/clipboard.png",
         "name": "Clipboard",
-        "description": "This was the project which prompted me to create my api and its apps frontend. The original goal was to be able to transfer an ebook from my computer to my e-reader without using a cable. This apps allows me to upload URLs or file when I'm logged in (the files are uploaded to an R2 bucket) and decide how long they should be available to non logged in users. The system also includes a server-side rendered page which doesn't require JS so that my e-reader's limited browser can load the page."
+        "image": "images/projects/clipboard.png",
+        "description": "This was the project which prompted me to create my api and its apps frontend. The original goal was to be able to transfer an ebook from my computer to my e-reader without using a cable. This apps allows me to upload URLs or file when I'm logged in (the files are uploaded to an R2 bucket) and decide how long they should be available to non logged in users. The system also includes a server-side rendered page which doesn't require JS so that my e-reader's limited browser can load the page.",
+        "links": [
+            {
+                "name": "demo",
+                "url": "https://apps.statox.fr/clipboard"
+            }
+        ]
     },
     {
-        "demo_url": "https://apps.statox.fr",
-        "code_url": "https://github.com/statox/apps.statox.fr",
-        "image": "images/projects/apps.png",
         "name": "Apps",
-        "description": "A collection of various tools I created for myself. This is a Svelte app that I use as a plateform to speed up the prototyping and development of various projects. Some of the apps are powered by my API."
+        "image": "images/projects/apps.png",
+        "description": "A collection of various tools I created for myself. This is a Svelte app that I use as a plateform to speed up the prototyping and development of various projects. Some of the apps are powered by my API.",
+        "links": [
+            {
+                "name": "code",
+                "url": "https://github.com/statox/apps.statox.fr"
+            },
+            {
+                "name": "demo",
+                "url": "https://apps.statox.fr"
+            }
+        ]
     },
     {
-        "demo_url": "https://api.statox.fr/health/getRemoteTime",
-        "code_url": "https://github.com/statox/api.statox.fr",
-        "image": "images/projects/api.png",
         "name": "API",
-        "description": "My personal API. I wanted to get my projects to the next level with server-side capabilities so I created my own API. Based on express.js to keep things simple, hosted on heroku, using a JawsDB hosted MySQL database, some R2 and S3 buckets, a self hosted ElasticSearch cluster, authentication powered by Auth0. This is now an evergreen project which I end up constantly tweaking and adding new endpoints."
+        "image": "images/projects/api.png",
+        "description": "My personal API. I wanted to get my projects to the next level with server-side capabilities so I created my own API. Based on express.js to keep things simple, hosted on heroku, using a JawsDB hosted MySQL database, some R2 and S3 buckets, a self hosted ElasticSearch cluster, authentication powered by Auth0. This is now an evergreen project which I end up constantly tweaking and adding new endpoints.",
+        "links": [
+            {
+                "name": "code",
+                "url": "https://github.com/statox/api.statox.fr"
+            },
+            {
+                "name": "demo",
+                "url": "https://api.statox.fr/health/getRemoteTime"
+            }
+        ]
     },
     {
-        "demo_url": "https://statox.github.io/sudoku",
-        "code_url": "https://github.com/statox/sudoku/",
-        "image": "images/projects/sudoku.gif",
         "name": "Sudoku",
-        "description": "Some fun around the game of sudoku:<ul><li>A grid generator using the Wave Function Collapse algorithm</li><li>Two different solvers using DFS and a human-like approach</li><li>A complete game interface with hints and the ability to take notes</li><li>And some unfinished experiments around computer vision to try to parse a grid from a picture</li></ul>In addition to the algorithmic part the front end work was pretty challenging but I'm happy with the result."
+        "image": "images/projects/sudoku.gif",
+        "description": "Some fun around the game of sudoku:<ul><li>A grid generator using the Wave Function Collapse algorithm</li><li>Two different solvers using DFS and a human-like approach</li><li>A complete game interface with hints and the ability to take notes</li><li>And some unfinished experiments around computer vision to try to parse a grid from a picture</li></ul>In addition to the algorithmic part the front end work was pretty challenging but I'm happy with the result.",
+        "links": [
+            {
+                "name": "code",
+                "url": "https://github.com/statox/sudoku/"
+            },
+            {
+                "name": "demo",
+                "url": "https://statox.github.io/sudoku"
+            }
+        ]
     },
     {
-        "demo_url": "https://apps.statox.fr/songbook",
-        "code_url": "https://github.com/statox/apps/tree/main/src/routes/songbook",
-        "image": "images/projects/songbook.gif",
         "name": "Song Book",
-        "description": "Reimplementation of he songbook which used to be on this site. Now using my backend API to track the links I visit and get more ways to sort the links."
+        "image": "images/projects/songbook.gif",
+        "description": "Reimplementation of he songbook which used to be on this site. Now using my backend API to track the links I visit and get more ways to sort the links.",
+        "links": [
+            {
+                "name": "code",
+                "url": "https://github.com/statox/apps/tree/main/src/routes/songbook"
+            },
+            {
+                "name": "demo",
+                "url": "https://apps.statox.fr/songbook"
+            }
+        ]
     },
     {
-        "demo_url": "https://apps.statox.fr/metronome",
-        "code_url": "https://github.com/statox/apps/tree/main/src/routes/metronome",
-        "image": "images/projects/metronome.gif",
         "name": "Metronome",
-        "description": "A simple metronome with beats subdivisions, tap tempo and visualization of the beats"
+        "image": "images/projects/metronome.gif",
+        "description": "A simple metronome with beats subdivisions, tap tempo and visualization of the beats",
+        "links": [
+            {
+                "name": "code",
+                "url": "https://github.com/statox/apps/tree/main/src/routes/metronome"
+            },
+            {
+                "name": "demo",
+                "url": "https://apps.statox.fr/metronome"
+            }
+        ]
     },
     {
-        "demo_url": "https://apps.statox.fr/taptempo",
-        "code_url": "https://github.com/statox/apps/tree/main/src/routes/taptempo",
-        "image": "images/projects/taptempo.gif",
         "name": "Tap Tempo",
-        "description": "Find a tempo by tapping it on the screen or the keyboard"
+        "image": "images/projects/taptempo.gif",
+        "description": "Find a tempo by tapping it on the screen or the keyboard",
+        "links": [
+            {
+                "name": "code",
+                "url": "https://github.com/statox/apps/tree/main/src/routes/taptempo"
+            },
+            {
+                "name": "demo",
+                "url": "https://apps.statox.fr/taptempo"
+            }
+        ]
     },
     {
-        "demo_url": "https://apps.statox.fr/scales",
-        "code_url": "https://github.com/statox/apps/tree/main/src/routes/scales",
-        "image": "images/projects/scales.gif",
         "name": "Scales & Chords progressions",
-        "description": "A tool to visualize music scales and common chords progressions."
+        "image": "images/projects/scales.gif",
+        "description": "A tool to visualize music scales and common chords progressions.",
+        "links": [
+            {
+                "name": "code",
+                "url": "https://github.com/statox/apps/tree/main/src/routes/scales"
+            },
+            {
+                "name": "demo",
+                "url": "https://apps.statox.fr/scales"
+            }
+        ]
     },
     {
-        "demo_url": "https://statox.github.io/p5-golf",
-        "code_url": "https://github.com/statox/p5-golf",
-        "image": "images/projects/p5-golf.gif",
         "name": "P5 Golf",
-        "description": "My attempt at creating a physics engine in Javascript. There are some working bits and a few demos. The original goal was to create a 2D golf game, that was not completed."
+        "image": "images/projects/p5-golf.gif",
+        "description": "My attempt at creating a physics engine in Javascript. There are some working bits and a few demos. The original goal was to create a 2D golf game, that was not completed.",
+        "links": [
+            {
+                "name": "code",
+                "url": "https://github.com/statox/p5-golf"
+            },
+            {
+                "name": "demo",
+                "url": "https://statox.github.io/p5-golf"
+            }
+        ]
     },
     {
-        "demo_url": "https://statox.github.io/WFC/",
-        "code_url": "https://github.com/statox/WFC",
-        "image": "images/projects/wfc.gif",
         "name": "WFC",
-        "description": "A quick experimentation around Wave Function Collapse. A few tiles are created with possible connexions and a WFC algorithm is implemented to generate random but similar images."
+        "image": "images/projects/wfc.gif",
+        "description": "A quick experimentation around Wave Function Collapse. A few tiles are created with possible connexions and a WFC algorithm is implemented to generate random but similar images.",
+        "links": [
+            {
+                "name": "code",
+                "url": "https://github.com/statox/WFC"
+            },
+            {
+                "name": "demo",
+                "url": "https://statox.github.io/WFC/"
+            }
+        ]
     },
     {
-        "demo_url": "https://statox.github.io/particles-life/reaction-diffusion",
-        "code_url": "https://github.com/statox/particles-life/tree/main/src/lib/ReactionDiffusion",
-        "article_url": "https://statox.github.io/particles-life/reaction-diffusion",
-        "image": "images/projects/gray-scott.gif",
         "name": "Gray-Scott model",
-        "description": "An implementation of the Gray-Scott model for Reaction-diffusion systems implemented on the GPU with WebGL. This time I used the regl library to make my code easier to write and maintain. The page contains a writting explaining more in detail what these systems are and how I implemented this project."
+        "image": "images/projects/gray-scott.gif",
+        "description": "An implementation of the Gray-Scott model for Reaction-diffusion systems implemented on the GPU with WebGL. This time I used the regl library to make my code easier to write and maintain. The page contains a writting explaining more in detail what these systems are and how I implemented this project.",
+        "links": [
+            {
+                "name": "article",
+                "url": "https://statox.github.io/particles-life/reaction-diffusion"
+            },
+            {
+                "name": "code",
+                "url": "https://github.com/statox/particles-life/tree/main/src/lib/ReactionDiffusion"
+            },
+            {
+                "name": "demo",
+                "url": "https://statox.github.io/particles-life/reaction-diffusion"
+            }
+        ]
     },
     {
-        "demo_url": "https://statox.github.io/particles-life/gameoflife",
-        "code_url": "https://github.com/statox/particles-life/tree/main/src/lib/GameOfLife",
-        "image": "images/projects/shader_game_of_life.gif",
         "name": "Game of Life (WebGL)",
-        "description": "A game of life implementation running on the GPU thanks to WebGL. This one taught me how to use vanilla WebGL and was an introduction to GPGPU: The world is actually held by a 2d texture and is updated with a shader program. And another shader program is responsible for rendering the texture to the screen. This was the opportunity for me to discover that using WebGL is very clunky and that while it's a good learning experience it is a good idea to use a framework like regljs to simplify WebGL code."
+        "image": "images/projects/shader_game_of_life.gif",
+        "description": "A game of life implementation running on the GPU thanks to WebGL. This one taught me how to use vanilla WebGL and was an introduction to GPGPU: The world is actually held by a 2d texture and is updated with a shader program. And another shader program is responsible for rendering the texture to the screen. This was the opportunity for me to discover that using WebGL is very clunky and that while it's a good learning experience it is a good idea to use a framework like regljs to simplify WebGL code.",
+        "links": [
+            {
+                "name": "code",
+                "url": "https://github.com/statox/particles-life/tree/main/src/lib/GameOfLife"
+            },
+            {
+                "name": "demo",
+                "url": "https://statox.github.io/particles-life/gameoflife"
+            }
+        ]
     },
     {
-        "demo_url": "https://statox.github.io/particles-life/",
-        "code_url": "https://github.com/statox/particles-life/tree/main/src/lib/particles",
-        "image": "images/projects/particles_life.gif",
         "name": "Particles Life",
-        "description": "My attempt at recreating the the original particle life application https://particle-life.com/. The performances with p5.js were too limited so I used web workers to update the particles and I reimplemented the graphical display from scratch using the HTML Canvas API. The results are coherent but still too slow to be really interesting. This project prompted me to explore more in depth shader computing in my next projects."
+        "image": "images/projects/particles_life.gif",
+        "description": "My attempt at recreating the the original particle life application https://particle-life.com/. The performances with p5.js were too limited so I used web workers to update the particles and I reimplemented the graphical display from scratch using the HTML Canvas API. The results are coherent but still too slow to be really interesting. This project prompted me to explore more in depth shader computing in my next projects.",
+        "links": [
+            {
+                "name": "code",
+                "url": "https://github.com/statox/particles-life/tree/main/src/lib/particles"
+            },
+            {
+                "name": "demo",
+                "url": "https://statox.github.io/particles-life/"
+            }
+        ]
     },
     {
-        "demo_url": "https://statox.github.io/tic-tac-wow/",
-        "code_url": "https://github.com/statox/tic-tac-wow",
-        "image": "images/projects/tic-tac-wow.gif",
         "name": "Tic Tac Wow",
-        "description": "Using tic tac toe variants as an excuse to experiment with more front-end development and with game theory. I implemented an online version of the game Gobblet Gobblers and various IA playing the game."
+        "image": "images/projects/tic-tac-wow.gif",
+        "description": "Using tic tac toe variants as an excuse to experiment with more front-end development and with game theory. I implemented an online version of the game Gobblet Gobblers and various IA playing the game.",
+        "links": [
+            {
+                "name": "code",
+                "url": "https://github.com/statox/tic-tac-wow"
+            },
+            {
+                "name": "demo",
+                "url": "https://statox.github.io/tic-tac-wow/"
+            }
+        ]
     },
     {
-        "demo_url": "https://statox.github.io/assisteer/",
-        "code_url": "https://github.com/statox/assisteer",
-        "image": "images/projects/assisteer.gif",
         "name": "Assisteer",
-        "description": "By far one of my most complete front-end projects. This is an assistant for the game Astroneer allowing the user to plan their production with graph, power and storage analysis and resource trading. The app also includes an encyclopedia of the game items. I didn't finish it completely because the game started bugging on me and that severly impacted my motivation to work on the tool but it was a huge learning experience, especially regarding the framework Svelte."
+        "image": "images/projects/assisteer.gif",
+        "description": "By far one of my most complete front-end projects. This is an assistant for the game Astroneer allowing the user to plan their production with graph, power and storage analysis and resource trading. The app also includes an encyclopedia of the game items. I didn't finish it completely because the game started bugging on me and that severly impacted my motivation to work on the tool but it was a huge learning experience, especially regarding the framework Svelte.",
+        "links": [
+            {
+                "name": "code",
+                "url": "https://github.com/statox/assisteer"
+            },
+            {
+                "name": "demo",
+                "url": "https://statox.github.io/assisteer/"
+            }
+        ]
     },
     {
-        "code_url": "https://github.com/statox/graphical-frameworks-test",
-        "image": "images/projects/graphical_frameworks.gif",
         "name": "Graphical frameworks benchmark",
-        "description": "A quick and dirty playgroud experimenting with particules simulation with different frameworks (P5, P5+webgl, Konva, TwoJS) and an attempt at using webasm. Conclusion: I haven't reached better performances than with the good ol' P5 framework and I'm too lazy to work with webasm for now."
+        "image": "images/projects/graphical_frameworks.gif",
+        "description": "A quick and dirty playgroud experimenting with particules simulation with different frameworks (P5, P5+webgl, Konva, TwoJS) and an attempt at using webasm. Conclusion: I haven't reached better performances than with the good ol' P5 framework and I'm too lazy to work with webasm for now.",
+        "links": [
+            {
+                "name": "code",
+                "url": "https://github.com/statox/graphical-frameworks-test"
+            }
+        ]
     },
     {
-        "code_url": "https://github.com/statox/setup",
-        "image": "images/projects/setup.png",
         "name": "Statox setup",
-        "description": "A collection of ansible playbooks to setup my computer."
+        "image": "images/projects/setup.png",
+        "description": "A collection of ansible playbooks to setup my computer.",
+        "links": [
+            {
+                "name": "code",
+                "url": "https://github.com/statox/setup"
+            }
+        ]
     },
     {
-        "demo_url": "https://statox.github.io/circular-automata/",
-        "code_url": "https://github.com/statox/circular-automata",
-        "image": "images/projects/circular_automata.gif",
         "name": "Circular automata",
-        "description": "A 2D circular automaton project where several parameters like the rule, the size of the grid and the color can be changed randomly. The twist is that the automata is represented in a circle rather than in a rectangle as it is usually the case."
+        "image": "images/projects/circular_automata.gif",
+        "description": "A 2D circular automaton project where several parameters like the rule, the size of the grid and the color can be changed randomly. The twist is that the automata is represented in a circle rather than in a rectangle as it is usually the case.",
+        "links": [
+            {
+                "name": "code",
+                "url": "https://github.com/statox/circular-automata"
+            },
+            {
+                "name": "demo",
+                "url": "https://statox.github.io/circular-automata/"
+            }
+        ]
     },
     {
-        "demo_url": "https://statox.github.io/procedural-race/",
-        "code_url": "https://github.com/statox/procedural-race",
-        "image": "images/projects/procedural_race.gif",
         "name": "Procedural race",
-        "description": "Another attempt at a procedurally generated racetrack with autonomous cars learning how to drive on it"
+        "image": "images/projects/procedural_race.gif",
+        "description": "Another attempt at a procedurally generated racetrack with autonomous cars learning how to drive on it",
+        "links": [
+            {
+                "name": "code",
+                "url": "https://github.com/statox/procedural-race"
+            },
+            {
+                "name": "demo",
+                "url": "https://statox.github.io/procedural-race/"
+            }
+        ]
     },
     {
-        "code_url": "https://github.com/statox/NWotD",
-        "image": "images/projects/nwotd.png",
         "name": "NWotD",
-        "description": "Nasa Wallpaper of the Day. This is a script I made which automatically download <a href='https://apod.nasa.gov/apod/' target='_blank' rel='noopener noreferrer'>Nasa's Astronomy Picture of the Day</a> and sets it as my desktop wallpaper and my zoom virtual background. <i>As if I wasn't already talking enough about space exploration to my teammates!</i>"
+        "image": "images/projects/nwotd.png",
+        "description": "Nasa Wallpaper of the Day. This is a script I made which automatically download <a href='https://apod.nasa.gov/apod/' target='_blank' rel='noopener noreferrer'>Nasa's Astronomy Picture of the Day</a> and sets it as my desktop wallpaper and my zoom virtual background. <i>As if I wasn't already talking enough about space exploration to my teammates!</i>",
+        "links": [
+            {
+                "name": "code",
+                "url": "https://github.com/statox/NWotD"
+            }
+        ]
     },
     {
-        "demo_url": "https://apps.statox.fr/chordwheel",
-        "code_url": "https://github.com/statox/chord-wheel",
-        "image": "images/projects/chordwheel.gif",
         "name": "The Chord Wheel",
-        "description": "Inspired by Jim Fleser's book <a href='https://www.chordwheel.com/' target='_blank' rel='noopener noreferrer'>The Chord Wheel</a>, this is an online implementation of his paper tool. It is used to identify major scales and their chords. In the future I want to recreate it with a wheel for the minor scales and one for the Ring of Fifths."
+        "image": "images/projects/chordwheel.gif",
+        "description": "Inspired by Jim Fleser's book <a href='https://www.chordwheel.com/' target='_blank' rel='noopener noreferrer'>The Chord Wheel</a>, this is an online implementation of his paper tool. It is used to identify major scales and their chords. In the future I want to recreate it with a wheel for the minor scales and one for the Ring of Fifths.",
+        "links": [
+            {
+                "name": "code",
+                "url": "https://github.com/statox/chord-wheel"
+            },
+            {
+                "name": "demo",
+                "url": "https://apps.statox.fr/chordwheel"
+            }
+        ]
     },
     {
-        "demo_url": "https://codepen.io/statox/full/qBPwaNo",
-        "code_url": "https://codepen.io/statox/pen/qBPwaNo",
-        "image": "images/projects/noisy_balls.gif",
         "name": "Noisy balls 🔊",
-        "description": "I wanted to create a new musical instrument, so this is a bunch of balls trapped in a circle which produce different notes based on where they hit the circle. This was a great opportunity to play with p5.js sounds capabilities."
+        "image": "images/projects/noisy_balls.gif",
+        "description": "I wanted to create a new musical instrument, so this is a bunch of balls trapped in a circle which produce different notes based on where they hit the circle. This was a great opportunity to play with p5.js sounds capabilities.",
+        "links": [
+            {
+                "name": "code",
+                "url": "https://codepen.io/statox/pen/qBPwaNo"
+            },
+            {
+                "name": "demo",
+                "url": "https://codepen.io/statox/full/qBPwaNo"
+            }
+        ]
     },
     {
-        "demo_url": "https://statox.github.io/pixijs-langton-ant/",
-        "code_url": "https://github.com/statox/pixijs-langton-ant",
-        "image": "images/projects/langtons_ant.gif",
         "name": "Langton's ant",
-        "description": "My first experimentation with the Pixijs framework. This is an implementation of the well known <a href=\"https://en.wikipedia.org/wiki/Langton's_ant\" target='_blank' rel='noopener noreferrer'>Langton's Ant</a> cellular automata invented in 1986. I also added a twist to fill the different groups of dead cells with different colors."
+        "image": "images/projects/langtons_ant.gif",
+        "description": "My first experimentation with the Pixijs framework. This is an implementation of the well known <a href=\"https://en.wikipedia.org/wiki/Langton's_ant\" target='_blank' rel='noopener noreferrer'>Langton's Ant</a> cellular automata invented in 1986. I also added a twist to fill the different groups of dead cells with different colors.",
+        "links": [
+            {
+                "name": "code",
+                "url": "https://github.com/statox/pixijs-langton-ant"
+            },
+            {
+                "name": "demo",
+                "url": "https://statox.github.io/pixijs-langton-ant/"
+            }
+        ]
     },
     {
-        "demo_url": "https://codepen.io/statox/full/zYdomWL",
-        "code_url": "https://codepen.io/statox/pen/zYdomWL",
-        "image": "images/projects/points_and_lines.gif",
         "name": "Points & Lines",
-        "description": "This is a quick recreation of an animation I saw on <a href='https://dalinhuang99.github.io' target='_blank' rel='noopener noreferrer'>this blog</a>. Nothing fancy just a bunch of moving points connected to their closest neighbors."
+        "image": "images/projects/points_and_lines.gif",
+        "description": "This is a quick recreation of an animation I saw on <a href='https://dalinhuang99.github.io' target='_blank' rel='noopener noreferrer'>this blog</a>. Nothing fancy just a bunch of moving points connected to their closest neighbors.",
+        "links": [
+            {
+                "name": "code",
+                "url": "https://codepen.io/statox/pen/zYdomWL"
+            },
+            {
+                "name": "demo",
+                "url": "https://codepen.io/statox/full/zYdomWL"
+            }
+        ]
     },
     {
-        "demo_url": "https://statox.github.io/procedural-race/",
-        "code_url": "https://github.com/statox/procedural-race/",
-        "article_url": "https://www.statox.fr/posts/2021/10/race_generator/",
-        "image": "images/projects/racetrack.gif",
         "name": "Procedural race track generation",
-        "description": "An incomplete project where I generated some race tracks procedurally and used machine learning algorithm to teach cars to drive on these tracks."
+        "image": "images/projects/racetrack.gif",
+        "description": "An incomplete project where I generated some race tracks procedurally and used machine learning algorithm to teach cars to drive on these tracks.",
+        "links": [
+            {
+                "name": "article",
+                "url": "https://www.statox.fr/posts/2021/10/race_generator/"
+            },
+            {
+                "name": "code",
+                "url": "https://github.com/statox/procedural-race/"
+            },
+            {
+                "name": "demo",
+                "url": "https://statox.github.io/procedural-race/"
+            }
+        ]
     },
     {
-        "code_url": "https://github.com/statox/tmnf_ai",
-        "image": "images/projects/ai_plays_tmnf.png",
         "name": "AI plays trackmania",
-        "description": "I wanted to create an AI playing simple tracks in Trackmania United Nation Forever. As there is no API I went with a rust application which screenshots the game, check some pixels in the bottom right corner to parse the current speed and which presses some keys on the keyboard to control the car. For now the bot is able to maintain the car at a given speed by pressing and releasing the up arrow key. The next step is to do some ray tracing to detect the borders of the track."
+        "image": "images/projects/ai_plays_tmnf.png",
+        "description": "I wanted to create an AI playing simple tracks in Trackmania United Nation Forever. As there is no API I went with a rust application which screenshots the game, check some pixels in the bottom right corner to parse the current speed and which presses some keys on the keyboard to control the car. For now the bot is able to maintain the car at a given speed by pressing and releasing the up arrow key. The next step is to do some ray tracing to detect the borders of the track.",
+        "links": [
+            {
+                "name": "code",
+                "url": "https://github.com/statox/tmnf_ai"
+            }
+        ]
     },
     {
-        "demo_url": "https://statox.github.io/sandpiles/",
-        "code_url": "https://github.com/statox/sandpiles",
-        "image": "images/projects/sandpiles2.gif",
         "name": "Sandpiles - 2",
-        "description": "An experiment with Abelian sandpiles. This was pretty quick to implement but I then realized that they are not as interesting as I would have expected."
+        "image": "images/projects/sandpiles2.gif",
+        "description": "An experiment with Abelian sandpiles. This was pretty quick to implement but I then realized that they are not as interesting as I would have expected.",
+        "links": [
+            {
+                "name": "code",
+                "url": "https://github.com/statox/sandpiles"
+            },
+            {
+                "name": "demo",
+                "url": "https://statox.github.io/sandpiles/"
+            }
+        ]
     },
     {
-        "demo_url": "https://codepen.io/statox/full/eYWYmpg",
-        "code_url": "https://codepen.io/statox/pen/eYWYmpg",
-        "image": "images/projects/sandpiles1.gif",
         "name": "Sandpiles - 1",
-        "description": "A simple Abelian sandpile project used to prepare 'Sandpiles -2'"
+        "image": "images/projects/sandpiles1.gif",
+        "description": "A simple Abelian sandpile project used to prepare 'Sandpiles -2'",
+        "links": [
+            {
+                "name": "code",
+                "url": "https://codepen.io/statox/pen/eYWYmpg"
+            },
+            {
+                "name": "demo",
+                "url": "https://codepen.io/statox/full/eYWYmpg"
+            }
+        ]
     },
     {
-        "demo_url": "https://codepen.io/statox/full/VwpVdRe",
-        "code_url": "https://codepen.io/statox/pen/VwpVdRe",
-        "image": "images/projects/color_worms.gif",
         "name": "Color worms",
-        "description": "A very small project with trails of color moving randomly on the screen and avoiding each other. I didn't take time to make it as beautiful as I originally expected."
+        "image": "images/projects/color_worms.gif",
+        "description": "A very small project with trails of color moving randomly on the screen and avoiding each other. I didn't take time to make it as beautiful as I originally expected.",
+        "links": [
+            {
+                "name": "code",
+                "url": "https://codepen.io/statox/pen/VwpVdRe"
+            },
+            {
+                "name": "demo",
+                "url": "https://codepen.io/statox/full/VwpVdRe"
+            }
+        ]
     },
     {
-        "demo_url": "https://statox.github.io/2048/",
-        "code_url": "https://github.com/statox/2048",
-        "image": "images/projects/2048.gif",
         "name": "2048",
-        "description": "A 2048 game. The initial idea was to create an AI playing 2048 using a Monte-Carlo algorithm. For now the only 'AI' implemented is random, I'll see if I get back to this project."
+        "image": "images/projects/2048.gif",
+        "description": "A 2048 game. The initial idea was to create an AI playing 2048 using a Monte-Carlo algorithm. For now the only 'AI' implemented is random, I'll see if I get back to this project.",
+        "links": [
+            {
+                "name": "code",
+                "url": "https://github.com/statox/2048"
+            },
+            {
+                "name": "demo",
+                "url": "https://statox.github.io/2048/"
+            }
+        ]
     },
     {
-        "demo_url": "https://statox.github.io/color-picker/",
-        "code_url": "https://github.com/statox/color-picker",
-        "article_url": "https://www.statox.fr/posts/2021/04/color_picker_shaders/",
-        "image": "images/projects/color_picker.gif",
         "name": "Color picker",
-        "description": "A color picker implemented with GLSL shaders"
+        "image": "images/projects/color_picker.gif",
+        "description": "A color picker implemented with GLSL shaders",
+        "links": [
+            {
+                "name": "article",
+                "url": "https://www.statox.fr/posts/2021/04/color_picker_shaders/"
+            },
+            {
+                "name": "code",
+                "url": "https://github.com/statox/color-picker"
+            },
+            {
+                "name": "demo",
+                "url": "https://statox.github.io/color-picker/"
+            }
+        ]
     },
     {
-        "demo_url": "https://statox.github.io/ants-colony-2/",
-        "code_url": "https://github.com/statox/ants-colony-2",
-        "image": "images/projects/ants_colony_v2.gif",
         "name": "Ants colony v2",
-        "description": "My second attempt at simulating a colony of ants. This is not completely finished as I need to fix a bug where the ants get stuck in infinite lines"
+        "image": "images/projects/ants_colony_v2.gif",
+        "description": "My second attempt at simulating a colony of ants. This is not completely finished as I need to fix a bug where the ants get stuck in infinite lines",
+        "links": [
+            {
+                "name": "code",
+                "url": "https://github.com/statox/ants-colony-2"
+            },
+            {
+                "name": "demo",
+                "url": "https://statox.github.io/ants-colony-2/"
+            }
+        ]
     },
     {
-        "demo_url": "https://statox.github.io/bezier-experiment/",
-        "code_url": "https://github.com/statox/bezier-experiment",
-        "image": "images/projects/bezier_experiment.gif",
         "name": "Bezier experiment",
-        "description": "Generate a smooth path between a set of points using Bezier curves. This is an exploration before digging into a racetrack generation project."
+        "image": "images/projects/bezier_experiment.gif",
+        "description": "Generate a smooth path between a set of points using Bezier curves. This is an exploration before digging into a racetrack generation project.",
+        "links": [
+            {
+                "name": "code",
+                "url": "https://github.com/statox/bezier-experiment"
+            },
+            {
+                "name": "demo",
+                "url": "https://statox.github.io/bezier-experiment/"
+            }
+        ]
     },
     {
-        "demo_url": "https://statox.github.io/genetic-cars/",
-        "code_url": "https://github.com/statox/genetic-cars",
-        "image": "images/projects/genetic_cars.gif",
         "name": "Genetic cars",
-        "description": "Another genetic algorithm experiment, this time trying to control some cars on a racetrack. It would need a better track generation to have more situations to learn from, this is what inspired me the \"Bezier experiement\" project."
+        "image": "images/projects/genetic_cars.gif",
+        "description": "Another genetic algorithm experiment, this time trying to control some cars on a racetrack. It would need a better track generation to have more situations to learn from, this is what inspired me the \"Bezier experiement\" project.",
+        "links": [
+            {
+                "name": "code",
+                "url": "https://github.com/statox/genetic-cars"
+            },
+            {
+                "name": "demo",
+                "url": "https://statox.github.io/genetic-cars/"
+            }
+        ]
     },
     {
-        "demo_url": "https://codepen.io/statox/full/WNxmZNX",
-        "code_url": "https://codepen.io/statox/pen/WNxmZNX",
-        "image": "images/projects/pendulum.gif",
         "name": "Pendulum and graphs",
-        "description": "A short experiment with matter.js and chart.js to create a pendulum simulation and graph the movement."
+        "image": "images/projects/pendulum.gif",
+        "description": "A short experiment with matter.js and chart.js to create a pendulum simulation and graph the movement.",
+        "links": [
+            {
+                "name": "code",
+                "url": "https://codepen.io/statox/pen/WNxmZNX"
+            },
+            {
+                "name": "demo",
+                "url": "https://codepen.io/statox/full/WNxmZNX"
+            }
+        ]
     },
     {
-        "demo_url": "https://statox.github.io/reversi/",
-        "code_url": "https://github.com/statox/reversi",
-        "article_url": "https://www.statox.fr/posts/2021/01/reversi/",
-        "image": "images/projects/reversi.gif",
         "name": "Reversi",
-        "description": "My implementation of the Reversi game with an AI opponent using the min max algorithm."
+        "image": "images/projects/reversi.gif",
+        "description": "My implementation of the Reversi game with an AI opponent using the min max algorithm.",
+        "links": [
+            {
+                "name": "article",
+                "url": "https://www.statox.fr/posts/2021/01/reversi/"
+            },
+            {
+                "name": "code",
+                "url": "https://github.com/statox/reversi"
+            },
+            {
+                "name": "demo",
+                "url": "https://statox.github.io/reversi/"
+            }
+        ]
     },
     {
-        "demo_url": "https://statox.github.io/triomaster/",
-        "code_url": "https://github.com/statox/triomaster",
-        "article_url": "https://www.statox.fr/posts/2021/01/triomino/",
-        "image": "images/projects/triomaster.gif",
         "name": "Triomaster",
-        "description": "My implementation of the triomono game with a not very efficient AI opponent."
+        "image": "images/projects/triomaster.gif",
+        "description": "My implementation of the triomono game with a not very efficient AI opponent.",
+        "links": [
+            {
+                "name": "article",
+                "url": "https://www.statox.fr/posts/2021/01/triomino/"
+            },
+            {
+                "name": "code",
+                "url": "https://github.com/statox/triomaster"
+            },
+            {
+                "name": "demo",
+                "url": "https://statox.github.io/triomaster/"
+            }
+        ]
     },
     {
-        "demo_url": "https://codepen.io/statox/full/RwGzyGz",
-        "code_url": "https://codepen.io/statox/pen/RwGzyGz",
-        "image": "images/projects/sorting_algorithms.gif",
         "name": "Sorting algorithms",
-        "description": "A visual representation of some sorting algorithms which became boring before I implemented all the algorithms I had in mind."
+        "image": "images/projects/sorting_algorithms.gif",
+        "description": "A visual representation of some sorting algorithms which became boring before I implemented all the algorithms I had in mind.",
+        "links": [
+            {
+                "name": "code",
+                "url": "https://codepen.io/statox/pen/RwGzyGz"
+            },
+            {
+                "name": "demo",
+                "url": "https://codepen.io/statox/full/RwGzyGz"
+            }
+        ]
     },
     {
-        "demo_url": "https://codepen.io/statox/full/qBNqLPv",
-        "code_url": "https://codepen.io/statox/pen/qBNqLPv",
-        "image": "images/projects/perlin_terrain.gif",
         "name": "Terrain generation",
-        "description": "Playing with Perlin noise to generate a random terrain"
+        "image": "images/projects/perlin_terrain.gif",
+        "description": "Playing with Perlin noise to generate a random terrain",
+        "links": [
+            {
+                "name": "code",
+                "url": "https://codepen.io/statox/pen/qBNqLPv"
+            },
+            {
+                "name": "demo",
+                "url": "https://codepen.io/statox/full/qBNqLPv"
+            }
+        ]
     },
     {
-        "demo_url": "https://breath.statox.fr/",
-        "code_url": "https://github.com/statox/breath",
-        "article_url": "https://www.statox.fr/posts/2020/10/breath/",
-        "image": "images/projects/breath.png",
         "name": "Breath",
-        "description": "A breathing exercise to help you relax."
+        "image": "images/projects/breath.png",
+        "description": "A breathing exercise to help you relax.",
+        "links": [
+            {
+                "name": "article",
+                "url": "https://www.statox.fr/posts/2020/10/breath/"
+            },
+            {
+                "name": "code",
+                "url": "https://github.com/statox/breath"
+            },
+            {
+                "name": "demo",
+                "url": "https://breath.statox.fr/"
+            }
+        ]
     },
     {
-        "demo_url": "https://statox.github.io/ants-colony/",
-        "code_url": "https://github.com/statox/ants-colony",
-        "article_url": "https://www.statox.fr/posts/2020/11/ants/",
-        "image": "images/projects/ants_colony.gif",
         "name": "Ants colony",
-        "description": "My first attempt at simulating an Ant colony. They go out of the anthill, look for food and use pheromones to get back home and form efficient paths."
+        "image": "images/projects/ants_colony.gif",
+        "description": "My first attempt at simulating an Ant colony. They go out of the anthill, look for food and use pheromones to get back home and form efficient paths.",
+        "links": [
+            {
+                "name": "article",
+                "url": "https://www.statox.fr/posts/2020/11/ants/"
+            },
+            {
+                "name": "code",
+                "url": "https://github.com/statox/ants-colony"
+            },
+            {
+                "name": "demo",
+                "url": "https://statox.github.io/ants-colony/"
+            }
+        ]
     },
     {
-        "demo_url": "https://www.statox.fr/posts/2020/09/boids/",
-        "code_url": "https://github.com/statox/boids",
-        "image": "images/projects/boids.gif",
         "name": "Boids",
-        "description": "Simulating a flock of virtual birds to experiment with emerging behaviors."
+        "image": "images/projects/boids.gif",
+        "description": "Simulating a flock of virtual birds to experiment with emerging behaviors.",
+        "links": [
+            {
+                "name": "code",
+                "url": "https://github.com/statox/boids"
+            },
+            {
+                "name": "demo",
+                "url": "https://www.statox.fr/posts/2020/09/boids/"
+            }
+        ]
     },
     {
-        "demo_url": "https://asteroides.statox.fr/",
-        "code_url": "https://github.com/statox/asteroides",
-        "article_url": "https://www.statox.fr/posts/2020/10/asteroids/",
-        "image": "images/projects/asteroids.gif",
         "name": "Asteroids 🔊",
-        "description": "My implementation of the famous video game from the 80's Asteroids with my own sound effects as a bonus."
+        "image": "images/projects/asteroids.gif",
+        "description": "My implementation of the famous video game from the 80's Asteroids with my own sound effects as a bonus.",
+        "links": [
+            {
+                "name": "article",
+                "url": "https://www.statox.fr/posts/2020/10/asteroids/"
+            },
+            {
+                "name": "code",
+                "url": "https://github.com/statox/asteroides"
+            },
+            {
+                "name": "demo",
+                "url": "https://asteroides.statox.fr/"
+            }
+        ]
     },
     {
-        "demo_url": "https://statox.github.io/p5-maze/",
-        "code_url": "https://github.com/statox/p5-maze",
-        "article_url": "https://www.statox.fr/posts/2020/03/p5-maze/",
-        "image": "images/projects/mazes.gif",
         "name": "Maze",
-        "description": "Using several algorithms to generate mazes and then solve them with different methods."
+        "image": "images/projects/mazes.gif",
+        "description": "Using several algorithms to generate mazes and then solve them with different methods.",
+        "links": [
+            {
+                "name": "article",
+                "url": "https://www.statox.fr/posts/2020/03/p5-maze/"
+            },
+            {
+                "name": "code",
+                "url": "https://github.com/statox/p5-maze"
+            },
+            {
+                "name": "demo",
+                "url": "https://statox.github.io/p5-maze/"
+            }
+        ]
     },
     {
-        "demo_url": "https://www.statox.fr/posts/2020/07/minesweeper/",
-        "image": "images/projects/minesweeper.png",
         "name": "Minesweeper",
-        "description": "The classic game Minesweeper in your browser."
+        "image": "images/projects/minesweeper.png",
+        "description": "The classic game Minesweeper in your browser.",
+        "links": [
+            {
+                "name": "demo",
+                "url": "https://www.statox.fr/posts/2020/07/minesweeper/"
+            }
+        ]
     },
     {
-        "demo_url": "https://statox.github.io/p5-circles/",
-        "code_url": "https://github.com/statox/p5-circles",
-        "article_url": "https://www.statox.fr/posts/2020/06/p5-circle-packing/",
-        "image": "images/projects/kitten_circles.gif",
         "name": "Kitten circles",
-        "description": "Using a circle packing algorithm to recreate pictures of kitten."
+        "image": "images/projects/kitten_circles.gif",
+        "description": "Using a circle packing algorithm to recreate pictures of kitten.",
+        "links": [
+            {
+                "name": "article",
+                "url": "https://www.statox.fr/posts/2020/06/p5-circle-packing/"
+            },
+            {
+                "name": "code",
+                "url": "https://github.com/statox/p5-circles"
+            },
+            {
+                "name": "demo",
+                "url": "https://statox.github.io/p5-circles/"
+            }
+        ]
     },
     {
-        "demo_url": "https://statox.github.io/p5-cellular-automaton/",
-        "code_url": "https://github.com/statox/p5-cellular-automaton",
-        "article_url": "https://www.statox.fr/posts/2020/05/p5-cellular-automaton/",
-        "image": "images/projects/cellular_automaton.gif",
         "name": "Cellular automaton",
-        "description": "A cellular automaton framework in the browser: Test different neighboring rules and survival conditions to recreate the Game of Life or discover new automaton."
+        "image": "images/projects/cellular_automaton.gif",
+        "description": "A cellular automaton framework in the browser: Test different neighboring rules and survival conditions to recreate the Game of Life or discover new automaton.",
+        "links": [
+            {
+                "name": "article",
+                "url": "https://www.statox.fr/posts/2020/05/p5-cellular-automaton/"
+            },
+            {
+                "name": "code",
+                "url": "https://github.com/statox/p5-cellular-automaton"
+            },
+            {
+                "name": "demo",
+                "url": "https://statox.github.io/p5-cellular-automaton/"
+            }
+        ]
     },
     {
-        "demo_url": "https://www.statox.fr/posts/2020/09/p5-jump/",
-        "code_url": "https://codepen.io/statox/pen/yLOoraP",
-        "image": "images/projects/jump.gif",
         "name": "Jump",
-        "description": "A very simple game I used to experiment with bouncing and jumping behaviors"
+        "image": "images/projects/jump.gif",
+        "description": "A very simple game I used to experiment with bouncing and jumping behaviors",
+        "links": [
+            {
+                "name": "code",
+                "url": "https://codepen.io/statox/pen/yLOoraP"
+            },
+            {
+                "name": "demo",
+                "url": "https://www.statox.fr/posts/2020/09/p5-jump/"
+            }
+        ]
     },
     {
-        "demo_url": "https://statox.github.io/p5-genetics/",
-        "code_url": "https://github.com/statox/p5-genetics",
-        "article_url": "https://www.statox.fr/posts/2020/01/p5-genetic-algorithms/",
-        "image": "images/projects/genetic_robots.gif",
         "name": "Genetic robots",
-        "description": "My first attempt at using genetic algorithms. Trying to teach a flock of Roombas to reach a target."
+        "image": "images/projects/genetic_robots.gif",
+        "description": "My first attempt at using genetic algorithms. Trying to teach a flock of Roombas to reach a target.",
+        "links": [
+            {
+                "name": "article",
+                "url": "https://www.statox.fr/posts/2020/01/p5-genetic-algorithms/"
+            },
+            {
+                "name": "code",
+                "url": "https://github.com/statox/p5-genetics"
+            },
+            {
+                "name": "demo",
+                "url": "https://statox.github.io/p5-genetics/"
+            }
+        ]
     },
     {
-        "demo_url": "https://statox.github.io/p5-pool/",
-        "code_url": "https://github.com/statox/p5-pool",
-        "article_url": "https://www.statox.fr/posts/2019/01/p5-pool/",
-        "image": "images/projects/pool.gif",
         "name": "Pool",
-        "description": "A pool with a homemade physics engine."
+        "image": "images/projects/pool.gif",
+        "description": "A pool with a homemade physics engine.",
+        "links": [
+            {
+                "name": "article",
+                "url": "https://www.statox.fr/posts/2019/01/p5-pool/"
+            },
+            {
+                "name": "code",
+                "url": "https://github.com/statox/p5-pool"
+            },
+            {
+                "name": "demo",
+                "url": "https://statox.github.io/p5-pool/"
+            }
+        ]
     },
     {
-        "code_url": "https://github.com/statox/project_euler",
-        "image": "images/projects/project_euler.png",
         "name": "Project Euler",
-        "description": "My solution to some of the problems of the project euler. For sure one day I'll finish them all!"
+        "image": "images/projects/project_euler.png",
+        "description": "My solution to some of the problems of the project euler. For sure one day I'll finish them all!",
+        "links": [
+            {
+                "name": "code",
+                "url": "https://github.com/statox/project_euler"
+            }
+        ]
     },
     {
-        "code_url": "https://github.com/statox/GOD.vim",
-        "image": "images/projects/vim.png",
         "name": "GOD.vim",
-        "description": "The most useful plugin I've written for Vim. Easily quote the doc to post it on stackexchange.com or any markdown file."
+        "image": "images/projects/vim.png",
+        "description": "The most useful plugin I've written for Vim. Easily quote the doc to post it on stackexchange.com or any markdown file.",
+        "links": [
+            {
+                "name": "code",
+                "url": "https://github.com/statox/GOD.vim"
+            }
+        ]
     },
     {
-        "code_url": "https://github.com/statox/vim-compare-lines",
-        "image": "images/projects/vim-compare-lines.gif",
         "name": "vim-compare-lines",
-        "description": "A Vim plugin to easily diff between two lines."
+        "image": "images/projects/vim-compare-lines.gif",
+        "description": "A Vim plugin to easily diff between two lines.",
+        "links": [
+            {
+                "name": "code",
+                "url": "https://github.com/statox/vim-compare-lines"
+            }
+        ]
     },
     {
-        "code_url": "https://github.com/statox/markov-reddit",
-        "image": "images/projects/snoo.png",
         "name": "markov-reddit",
-        "description": "Read the title of the posts in a subreddit and plug this data in a markov chain algorithm to generate new titles."
+        "image": "images/projects/snoo.png",
+        "description": "Read the title of the posts in a subreddit and plug this data in a markov chain algorithm to generate new titles.",
+        "links": [
+            {
+                "name": "code",
+                "url": "https://github.com/statox/markov-reddit"
+            }
+        ]
     },
     {
-        "code_url": "https://github.com/statox/gutterline.vim",
-        "image": "images/projects/gutterline.png",
         "name": "GutterLine.vim",
-        "description": "A useless Vim plugin to show an arrow in the gutter of the current line"
+        "image": "images/projects/gutterline.png",
+        "description": "A useless Vim plugin to show an arrow in the gutter of the current line",
+        "links": [
+            {
+                "name": "code",
+                "url": "https://github.com/statox/gutterline.vim"
+            }
+        ]
     },
     {
-        "code_url": "https://github.com/statox/SlackKarma",
-        "image": "images/projects/slack.png",
         "name": "Slack Karma",
-        "description": "A slack integration which counts the reactions on each messages in a channel and give a positive score to each user."
-    },
-    {
-        "code_url": "https://github.com/statox/stackexchange-watcher",
-        "image": "images/projects/stackexchange.png",
-        "name": "Stackexchange watcher",
-        "description": "When I was a compulsive user of vi.stackexchange.com I created a bot to be notified on slack of every new question on the site to answer fast and get these sweet virtual points from the internet"
-    },
-    {
-        "code_url": "https://github.com/statox/jiraPrinterElectron",
-        "image": "images/projects/jira.png",
-        "name": "JiraPrinterElectron",
-        "description": "An electron app I created for my team to print Jira tickets for our physical Scrum board. Please save the planet and don't use this app."
-    },
-    {
-        "code_url": "https://github.com/statox/kimsufi-watcher",
         "image": "images/projects/slack.png",
+        "description": "A slack integration which counts the reactions on each messages in a channel and give a positive score to each user.",
+        "links": [
+            {
+                "name": "code",
+                "url": "https://github.com/statox/SlackKarma"
+            }
+        ]
+    },
+    {
+        "name": "Stackexchange watcher",
+        "image": "images/projects/stackexchange.png",
+        "description": "When I was a compulsive user of vi.stackexchange.com I created a bot to be notified on slack of every new question on the site to answer fast and get these sweet virtual points from the internet",
+        "links": [
+            {
+                "name": "code",
+                "url": "https://github.com/statox/stackexchange-watcher"
+            }
+        ]
+    },
+    {
+        "name": "JiraPrinterElectron",
+        "image": "images/projects/jira.png",
+        "description": "An electron app I created for my team to print Jira tickets for our physical Scrum board. Please save the planet and don't use this app.",
+        "links": [
+            {
+                "name": "code",
+                "url": "https://github.com/statox/jiraPrinterElectron"
+            }
+        ]
+    },
+    {
         "name": "Kimsufi watcher",
-        "description": "Get a slack notification when the Kimsufi server you're looking for is available"
+        "image": "images/projects/slack.png",
+        "description": "Get a slack notification when the Kimsufi server you're looking for is available",
+        "links": [
+            {
+                "name": "code",
+                "url": "https://github.com/statox/kimsufi-watcher"
+            }
+        ]
     }
 ]

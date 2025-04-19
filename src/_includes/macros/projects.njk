@@ -16,19 +16,10 @@
         </a>
         <div class="project-description">{{project.description | safe}}</div>
         <p class="project-links">
-            {% if project.code_url %}
-            <a href="{{project.code_url}}" target="_blank" rel="noopener noreferrer" data-goatcounter-click="project-{{project.code_url}}" data-goatcounter-referrer="{{page.url}}">Code</a>
-            {% if project.demo_url or project.article_url %} - {% endif %}
-            {% endif %}
-
-            {% if project.demo_url %}
-            <a href="{{project.demo_url}}" target="_blank" rel="noopener noreferrer" data-goatcounter-click="project-{{project.demo_url}}" data-goatcounter-referrer="{{page.url}}">Demo</a>
-            {% if project.article_url %} - {% endif %}
-            {% endif %}
-
-            {% if project.article_url %}
-            <a href="{{project.article_url}}" target="_blank" rel="noopener noreferrer" data-goatcounter-click="project-{{project.article_url}}" data-goatcounter-referrer="{{page.url}}">Article</a>
-            {% endif %}
+            {% for link in project.links|sort(false, true, 'name') %}
+                <a href="{{link.url}}" target="_blank" rel="noopener noreferrer" data-goatcounter-click="project-{{link.url}}" data-goatcounter-referrer="{{page.url}}">{{link.name | capitalize}}</a>
+                {% if not loop.last %} - {% endif %}
+            {% endfor %}
         </p>
     </div>
 </div>
