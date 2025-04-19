@@ -8,15 +8,23 @@
         "rank": 2
     },
     {
-        "url": "/posts/2020/07/vim_flash_yanked_text/",
+        "url": "/posts/2020/11/ants/",
         "rank": 3
     },
     {
-        "url": "/posts/2021/10/race_generator/",
+        "url": "/posts/2020/07/vim_flash_yanked_text/",
         "rank": 4
     },
     {
-        "url": "/posts/2021/03/alter_ansible_debugging_output/",
+        "url": "/posts/2021/10/race_generator/",
         "rank": 5
+    },
+    {
+        "url": "/posts/2021/05/javascript_golf_tips/",
+        "rank": 6
+    },
+    {
+        "url": "/posts/2021/03/alter_ansible_debugging_output/",
+        "rank": 7
     }
 ]
