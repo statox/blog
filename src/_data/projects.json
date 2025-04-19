@@ -1,5 +1,62 @@
 [
     {
+        "demo_url": "https://apps.statox.fr/home-tracker",
+        "article_url": "https://www.statox.fr/posts/2024/06/environment_sensors/",
+        "image": "images/projects/home_tracker.gif",
+        "name": "Home Tracker",
+        "description": "Home made environment monitoring system. This is my most complete project it involves several temperature and humidity sensors I created based on Adafruit's feather boards, my API to get the readings of the sensors, my ELK cluster to store the readings and a UI I created to display the readings."
+    },
+    {
+        "demo_url": "https://apps.statox.fr/ephemerides",
+        "image": "images/projects/ephemerides.png",
+        "name": "Ephemerides",
+        "description": "A dashboard of the current state of the moon and sun. For this project I re-implemented sun-calc.js in typescript and added more tests, I now want to distribute this rework properly, for now it is deeply coupled with my API repo."
+    },
+    {
+        "demo_url": "https://apps.statox.fr/webwatcher",
+        "image": "images/projects/web_watcher.png",
+        "name": "Web Watcher",
+        "description": "Notify me when a web page changes. I created this app because I wanted to buy a new OVH server which is not often available and gets rapidly sold out when new ones are available. So I use my API to regularly run server-side checks to load an URL and either check the checksum of the response or extract a specific CSS selector and check if its value changed. The UI is integrated in my Apps website"
+    },
+    {
+        "demo_url": "https://apps.statox.fr/notes",
+        "image": "images/projects/stuff_i_forget.png",
+        "name": "Stuff I Forget",
+        "description": "List of code snippets, bash commands and other technical bits I always forget and don't want to google again. The page used to be on this website I moved it to my apps frontend. There are many features I want to add but it works well enough for my needs and I never get to actually rework it."
+    },
+    {
+        "code_url": "https://github.com/statox/statox-provisioning",
+        "image": "images/projects/provisioning.png",
+        "name": "Provisioning",
+        "description": "I terraformed my whole infrastructure to make it easier to keep track of what I'm doing, my Cloudflare R2 buckets and DNS records, my AWS infra (users, S3 buckets, ec2 instances, ...). The state is stored remotely on a S3 bucket. The code is private because I don't trust completely trust myself with exposing my infra to the public."
+    },
+    {
+        "demo_url": "https://apps.statox.fr/reactor",
+        "image": "images/projects/reactor.png",
+        "name": "Reactor",
+        "description": "My database of memes. Based on the same code as my Clipboard app this app allows me to keep all my favorite memes at the same place to easily retrieve them and share them in in online discussions."
+    },
+    {
+        "demo_url": "https://apps.statox.fr/clipboard",
+        "image": "images/projects/clipboard.png",
+        "name": "Clipboard",
+        "description": "This was the project which prompted me to create my api and its apps frontend. The original goal was to be able to transfer an ebook from my computer to my e-reader without using a cable. This apps allows me to upload URLs or file when I'm logged in (the files are uploaded to an R2 bucket) and decide how long they should be available to non logged in users. The system also includes a server-side rendered page which doesn't require JS so that my e-reader's limited browser can load the page."
+    },
+    {
+        "demo_url": "https://apps.statox.fr",
+        "code_url": "https://github.com/statox/apps.statox.fr",
+        "image": "images/projects/apps.png",
+        "name": "Apps",
+        "description": "A collection of various tools I created for myself. This is a Svelte app that I use as a plateform to speed up the prototyping and development of various projects. Some of the apps are powered by my API."
+    },
+    {
+        "demo_url": "https://api.statox.fr/health/getRemoteTime",
+        "code_url": "https://github.com/statox/api.statox.fr",
+        "image": "images/projects/api.png",
+        "name": "API",
+        "description": "My personal API. I wanted to get my projects to the next level with server-side capabilities so I created my own API. Based on express.js to keep things simple, hosted on heroku, using a JawsDB hosted MySQL database, some R2 and S3 buckets, a self hosted ElasticSearch cluster, authentication powered by Auth0. This is now an evergreen project which I end up constantly tweaking and adding new endpoints."
+    },
+    {
         "demo_url": "https://statox.github.io/sudoku",
         "code_url": "https://github.com/statox/sudoku/",
         "image": "images/projects/sudoku.gif",
@@ -11,7 +68,7 @@
         "code_url": "https://github.com/statox/apps/tree/main/src/routes/songbook",
         "image": "images/projects/songbook.gif",
         "name": "Song Book",
-        "description": "Reimplementation of he songbook which used to be on this book with the use of a backend API to track the links I click and more ways to sort the links."
+        "description": "Reimplementation of he songbook which used to be on this site. Now using my backend API to track the links I visit and get more ways to sort the links."
     },
     {
         "demo_url": "https://apps.statox.fr/metronome",
