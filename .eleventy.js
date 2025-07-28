@@ -7,7 +7,8 @@ const markdownIt = require('markdown-it');
 const markdownItAnchor = require('markdown-it-anchor');
 const markdownItEmoji = require('markdown-it-emoji');
 const markdownItExternalLinks = require('markdown-it-external-links');
-const pluginRss = require('@11ty/eleventy-plugin-rss');
+// const pluginRss = require('@11ty/eleventy-plugin-rss');
+const { feedPlugin } = require('@11ty/eleventy-plugin-rss');
 const pluginSEO = require('eleventy-plugin-seo');
 const seoConfig = require('./src/_data/seo.json');
 const sitemap = require('@quasibit/eleventy-plugin-sitemap');
@@ -41,8 +42,32 @@ module.exports = function (eleventyConfig) {
      */
     // syntax highlighting in code blocks
     eleventyConfig.addPlugin(syntaxHighlight);
+
     // RSS feed plugin
-    eleventyConfig.addPlugin(pluginRss);
+    eleventyConfig.addPlugin(feedPlugin, {
+        type: 'rss',
+        outputPath: '/feed.xml',
+        collection: {
+            name: 'post', // iterate over `collections.posts`
+            limit: 10 // 0 means no limit
+        },
+        metadata: {
+            language: 'en',
+            title: 'The stuff I do',
+            subtitle: "statox's blog",
+            base: 'https://www.statox.fr/',
+            author: {
+                name: 'statox'
+            }
+        },
+        templateData: {
+            eleventyNavigation: {
+                key: 'RSS',
+                order: 8
+            }
+        }
+    });
+
     // Word count plugin
     eleventyConfig.addPlugin(wordCount);
     // SEO plugin
