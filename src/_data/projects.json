@@ -1,5 +1,39 @@
 [
     {
+        "name": "SimpleVector - Interactive examples",
+        "image": "images/projects/simple_vector_examples.gif",
+        "description": "To make the usage of my npm package simple-vector as easy as possible for all developers, I created a Svelte5 application showcasing the different methods of the package so that anyone can try them interactively. And I used the doc of the project to link the methods to their examples.",
+        "links": [
+            {
+                "name": "code",
+                "url": "https://github.com/statox/simple-vector-examples"
+            },
+            {
+                "name": "demo",
+                "url": "https://statox.github.io/simple-vector-examples/randomization"
+            }
+        ]
+    },
+    {
+        "name": "SimpleVector",
+        "image": "images/projects/simple_vector.png",
+        "description": "My first package published on npm: A 2D vector math TypeScript library built as a modern module without dependencies. I put a lot of time on documenting the code, auto generating a documentation website from the TSdoc comments and publishing the package as CommonJS, ESM and UMD modules for the largest possible availability.",
+        "links": [
+            {
+                "name": "npm",
+                "url": "https://www.npmjs.com/package/simple-vector"
+            },
+            {
+                "name": "code",
+                "url": "https://github.com/statox/simple-vector.ts"
+            },
+            {
+                "name": "docs",
+                "url": "https://statox.github.io/simple-vector.ts/"
+            }
+        ]
+    },
+    {
         "name": "Home Tracker",
         "image": "images/projects/home_tracker.gif",
         "description": "Home made environment monitoring system. This is my most complete project it involves several temperature and humidity sensors I created based on Adafruit's feather boards, my API to get the readings of the sensors, my ELK cluster to store the readings and a UI I created to display the readings.",
