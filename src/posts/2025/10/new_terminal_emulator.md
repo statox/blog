@@ -99,4 +99,16 @@ Issues to solve:
 - I have to setup LSP lua to work in config file to get a better discoverability of the available configs.
 - Espanso doesn't work out of the box for unicode characters: It works well with `:espanso ->  Hi there!` but it fails for `:+1: -> 👍`
 - In nvim when two vertical splits are open, scrolling in one split messes up the rendering of the other split: The current buffer becomes unreadble because chunks of the screen are blank
-- I have trouble reproducing but regularly when a pane is open with nvim for too long (I guess?) it seems like the pane brokes, it looks like we just quit we nvim but we can't interact with the tab anymore
+- I have trouble reproducing but regularly when a pane is open with nvim for too long (I guess?) it seems like the pane brokes, it looks like we just quit we nvim but we can't interact with the tab anymore. That might be a neovim plugin more than a wezterm one.
+- The styling of the terminal lacks a bit of configuration, for example I would like to be able to draw a border around my panes to indicate if they are zoomed in. That doesn't seem to be possible for now.
+- I need to improve the dark/light theme toggling feature I added in my config so that the toggle also works with nvim and ideally is bound to the system preference.
+- I have a major pet peeve on the bindings of the copy mode and how `b` goes back `words` but `e` goes to end of `WORD`, that's probably something I can solve with a remapping.
+
+### Update after about one month of usage
+
+I made wezterm my daily driver and got rid of tmux and gnome terminal. This is overall a good experience.
+
+- No performance issue once I removed picom (a tradeoff I have made for more than a month now and I haven't missed it once so it's a sign that I just removed bloat, that's cool)
+- Configuration in lua is great
+- I got used to the tab bar it's clean
+- It integrated well with my i3, zsh, nvim setup
