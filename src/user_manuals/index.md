@@ -32,6 +32,7 @@ Some user manuals I have collected over time and might need in the future.
 - Roland Aira Compact synths:
     - [J6 chord synth](https://static.roland.com/assets/media/pdf/J-6_eng02_W.pdf) (_[mirror](/pdf/rolan_j6_owners_manual_english.pdf)_)
     - [T8 beat machine](https://static.roland.com/assets/media/pdf/T-8_eng01_W.pdf) (_[mirror](/pdf/rolan_t8_owners_manual_english.pdf)_)
+- Sony drumpad DRP-3 [user manual](https://www.nodevice.com/service-manuals/musical-instrument/sony/drp-3/212859#p1) (_[mirror](/pdf/sony_drp3_manual.pdf)_)
 
 ### Misc
 
