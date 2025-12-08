@@ -6,7 +6,7 @@
     "description": "A personal blog where I write about my side projects",
     "devDependencies": {
         "@11ty/eleventy": "^3.1.2",
-        "@11ty/eleventy-navigation": "^1.0.4",
+        "@11ty/eleventy-navigation": "^1.0.5",
         "@11ty/eleventy-plugin-rss": "^2.0.4",
         "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.2",
         "@actions/core": "^1.11.1",
@@ -22,7 +22,7 @@
         "markdown-it-anchor": "^9.2.0",
         "markdown-it-emoji": "^3.0.0",
         "markdown-it-external-links": "^0.0.6",
-        "prettier": "^3.7.3"
+        "prettier": "^3.7.4"
     },
     "homepage": "www.statox.fr",
     "keywords": [],
