@@ -1,6 +1,12 @@
-# Looking for a new terminal emulator on Linux
+---
+layout: layouts/post.njk
+tags: ['post', 'linux', 'terminal']
+date: 2025-10-05
+title: Looking for a new terminal emulator on Linux
+commentIssueId: 40
+---
 
-**WIP**
+**This article is a work in progress**
 
 ## Goal
 
