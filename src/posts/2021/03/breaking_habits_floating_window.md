@@ -10,6 +10,8 @@ In 2016 I added to my `.vimrc` a mapping to get easier access to window commands
 
 In this article I'll show how I used some of the Neovim features to create a quick way to get rid of my bad habits. If you never used the floating window it should be an introduction to get started with this feature and give you some inspiration to use it for your own needs.
 
+**Edit 01/2026** The code of this article was originally written in Vimscript. I updated the end of the article to also show a full lua version.
+
 ### The problem
 
 The problematic mapping I added to my `.vimrc` is the following:
@@ -274,3 +276,81 @@ Secondly -and this is more important- I think that this kind of feature is prett
 ### Make it yours!
 
 I hope that this article was useful for you if you never used the floating window. There are already some plugins making use of this feature like [coc](https://www.reddit.com/r/neovim/comments/b1pctc/float_window_support_with_cocnvim/) or [fzf](https://github.com/junegunn/fzf.vim/issues/664) but I'm sure there are other more lightweight usages you can add to your config: Don't hesitate to share them with me either [on Reddit](https://www.reddit.com/r/neovim/comments/m0hyig/using_neovim_floating_window_to_break_bad_habits/) or in [the comments](https://github.com/statox/blog-comments/issues/23)!
+
+# Update: Lua version
+
+It's now 2026, I switched to neovim with a full lua configuration a few years ago and I finally ported this code to lua to integrate gracefully in my config.
+
+## The `bad_habits` module
+
+First let's create a file containing the `break_habit_window` function. In my setup is lives in `~/.config/nvim/lua/helpers/bad_habits.lua`:
+
+```lua
+local M = {}
+
+function M.break_habits_window(message)
+    -- Define the size of the floating window
+    local width = 50
+    local height = 10
+
+    -- Create the scratch buffer displayed in the floating window
+    local buf = vim.api.nvim_create_buf(false, true)
+
+    -- Create the lines to draw a box
+    local horizontal_border = '+' .. string.rep('-', width - 2) .. '+'
+    local empty_line = '|' .. string.rep(' ', width - 2) .. '|'
+    local lines = { horizontal_border }
+    for _ = 1, height - 2 do
+        table.insert(lines, empty_line)
+    end
+    table.insert(lines, horizontal_border)
+    vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
+
+    -- Create the lines for the centered message and put them in the buffer
+    for i, line in ipairs(message) do
+        local start_col = math.floor((width - #line) / 2)
+        local end_col = start_col + #line
+        local current_row = math.floor(height / 2 - #message / 2) + i - 1
+        vim.api.nvim_buf_set_text(buf, current_row, start_col, current_row, end_col, { line })
+    end
+
+    -- Set mappings in the buffer to close the window easily
+    local closing_keys = { '<Esc>', '<CR>', '<Leader>' }
+    for _, key in ipairs(closing_keys) do
+        vim.api.nvim_buf_set_keymap(buf, 'n', key, ':close<CR>', { silent = true, nowait = true, noremap = true })
+    end
+
+    -- Create the floating window
+    local ui = vim.api.nvim_list_uis()[1]
+    local opts = {
+        relative = 'editor',
+        width = width,
+        height = height,
+        col = math.floor((ui.width - width) / 2),
+        row = math.floor((ui.height - height) / 2),
+        anchor = 'NW',
+        style = 'minimal',
+    }
+    local win = vim.api.nvim_open_win(buf, true, opts)
+
+    -- Change highlighting
+    vim.api.nvim_set_option_value('winhl', 'Normal:ErrorFloat', { win = win })
+end
+
+return M
+```
+
+## The mappings
+
+Then my mappings live in `~/config/nvim/lua/mappings.lua`, so to create a new mapping I want to get rid of I can use
+
+```lua
+local bad_habits = require('helpers.bad_habits') -- Adapt the path according to your configuration structure
+                                                 -- This is a relative path from the file defining to mappings to the files containing the module
+vim.keymap.set("n", "gc", function() bad_habits.break_habits_window({ "NO! BAD!", "Use `s` instead" }) end, {silent = true, nowait = true, noremap = true})
+```
+
+> **_NOTE:_**
+> The `createmappings` function is left as an exercise to the read because I think it's uncommon to have more than a couple of mappings to create and wrapping `vim.keymap.set()` in a loop of mappings to create should be fairly straight forward.
+
+It's nothing an AI couldn't have done easily but at least the reference is here!
