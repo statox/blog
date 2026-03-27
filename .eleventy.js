@@ -7,8 +7,6 @@ const markdownIt = require('markdown-it');
 const markdownItAnchor = require('markdown-it-anchor');
 const markdownItEmoji = require('markdown-it-emoji');
 const markdownItExternalLinks = require('markdown-it-external-links');
-// const pluginRss = require('@11ty/eleventy-plugin-rss');
-const { feedPlugin } = require('@11ty/eleventy-plugin-rss');
 const pluginSEO = require('eleventy-plugin-seo');
 const seoConfig = require('./src/_data/seo.json');
 const sitemap = require('@quasibit/eleventy-plugin-sitemap');
@@ -21,7 +19,9 @@ const transforms = require('./tools/eleventy/transforms.js');
 
 const env = process.env.ELEVENTY_ENV;
 
-module.exports = function (eleventyConfig) {
+module.exports = async function (eleventyConfig) {
+    // feedPlugin is imported dynamically because eleventy-plugin-rss v3 is ESM-only
+    const { feedPlugin } = await import('@11ty/eleventy-plugin-rss');
     // Filters
     Object.keys(filters).forEach((filterName) => {
         eleventyConfig.addFilter(filterName, filters[filterName]);
