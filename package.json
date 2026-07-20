@@ -19,10 +19,10 @@
         "follow-redirects": "^1.16.0",
         "html-minifier": "^4.0.0",
         "luxon": "^3.7.2",
-        "markdown-it-anchor": "^9.2.0",
+        "markdown-it-anchor": "^9.2.1",
         "markdown-it-emoji": "^3.0.0",
         "markdown-it-external-links": "^0.0.6",
-        "prettier": "^3.8.4"
+        "prettier": "^3.9.5"
     },
     "homepage": "www.statox.fr",
     "keywords": [],
