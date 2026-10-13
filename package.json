@@ -7,7 +7,7 @@
     "devDependencies": {
         "@11ty/eleventy": "^3.1.6",
         "@11ty/eleventy-navigation": "^1.0.5",
-        "@11ty/eleventy-plugin-rss": "^3.0.0",
+        "@11ty/eleventy-plugin-rss": "^3.1.0",
         "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.2",
         "@actions/core": "^3.0.1",
         "@actions/github": "^9.1.1",
@@ -16,13 +16,13 @@
         "async": "^3.2.6",
         "eleventy-plugin-seo": "^0.5.2",
         "eleventy-plugin-wordcount": "^1.0.5",
-        "follow-redirects": "^1.16.0",
+        "follow-redirects": "^1.16.1",
         "html-minifier": "^4.0.0",
         "luxon": "^3.7.2",
         "markdown-it-anchor": "^9.2.0",
-        "markdown-it-emoji": "^3.0.0",
+        "markdown-it-emoji": "^3.1.0",
         "markdown-it-external-links": "^0.0.6",
-        "prettier": "^3.8.4"
+        "prettier": "^3.9.10"
     },
     "homepage": "www.statox.fr",
     "keywords": [],
