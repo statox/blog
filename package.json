@@ -16,7 +16,7 @@
         "async": "^3.2.6",
         "eleventy-plugin-seo": "^0.5.2",
         "eleventy-plugin-wordcount": "^1.0.5",
-        "follow-redirects": "^1.16.0",
+        "follow-redirects": "^1.16.1",
         "html-minifier": "^4.0.0",
         "luxon": "^3.7.2",
         "markdown-it-anchor": "^9.2.0",
